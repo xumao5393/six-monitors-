@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>义乌小商品监测</title><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,"PingFang SC",sans-serif;background:#fff7ed;color:#1a1d29}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+h1{font-size:20px;margin:0}.sub{color:#6b7280;font-size:13px}button{margin-left:auto;background:#ea580c;color:#fff;border:0;border-radius:10px;padding:10px 16px;cursor:pointer}
+main{max-width:1080px;margin:0 auto;padding:20px;display:grid;gap:16px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)}.card h3{margin:0 0 6px;font-size:13px;color:#6b7280}.big{font-size:26px;font-weight:800}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:2px 8px;background:#ffedd5;color:#9a3412}.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px;border-bottom:1px solid #f0f0f0;text-align:left}th{cursor:pointer;color:#6b7280}
+input,select{padding:8px;border:1px solid #ddd;border-radius:8px}.note{font-size:12px;color:#6b7280}.wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.wall div{background:#fff7ed;border-radius:12px;padding:12px;text-align:center;font-size:28px}
+</style></head><body>
+<header><h1>🧧 义乌小商品监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge cache">缓存样本</span><button onclick="refreshAll()">🔄 刷新</button></header>
+<main>
+<p class="note">第一手来源：<a href="https://www.ywindex.com" target="_blank" rel="noopener">义乌指数 ywindex.com</a> · <a href="https://www.yiwugo.com/top.html" target="_blank" rel="noopener">义乌购排行榜 yiwugo.com/top.html</a>。两站无公开 JSON 接口，浏览器直接拉取常被拦截，本页用调研核实值作缓存并明确标注，请人工打开官网核对。1688 生意参谋完整数据需商家账号，本页只写公开方法，不伪造后台数据。</p>
+<div class="grid" id="kpis"></div>
+<div class="card"><h3>义乌指数 · 景气五维度</h3><canvas id="chart" height="80"></canvas><p class="note">2026年9月景气 1554.97 点，环比 +0.55%（缓存样本）。</p></div>
+<div class="card"><h3>爆款图墙</h3><div class="wall"><div>⌚<br><small>手表</small></div><div>🧦<br><small>袜子</small></div><div>🧸<br><small>玩具</small></div><div>🐾<br><small>宠物玩具</small></div><div>🥤<br><small>保温杯</small></div><div>🚗<br><small>遥控汽车</small></div></div></div>
+<div class="card"><h3>热词榜 <span class="note">国内 / 海外分开</span></h3>
+<input id="q" placeholder="搜索，如 贴纸" oninput="render()"><select id="scope" onchange="render()"><option value="">全部</option><option>国内</option><option>海外</option></select>
+<table><thead><tr><th>关键词</th><th>市场</th><th onclick="sortBy('n')">搜索量</th></tr></thead><tbody id="tbody"></tbody></table></div>
+<div class="card"><h3>季节日历</h3><table><tbody>
+<tr><td>2026 世界杯</td><td>体育用品出口 Q1 28.3亿 +12%，空白球衣、LED手环、毛绒吉祥物；勿碰 FIFA 队徽</td></tr>
+<tr><td>夏季</td><td>冷感毛巾日出货 16万包</td></tr>
+<tr><td>秋冬</td><td>半绒手套 5个月售 10万+双；棉袄、针织帽</td></tr>
+<tr><td>全年</td><td>宠物玩具、轻户外折叠椅/露营车、宠物自动喂食器、小厨房硅胶收纳</td></tr>
+</tbody></table></div>
+<div class="card"><h3>商户早上 10 分钟 + 三同决策</h3><p>早上：义乌购榜 + 生意参谋 + 义乌指数周价格；中午：抖音/小红书验证是否有人求链接，淘宝拼多多看价格带差评；晚上：<b>三同才下单</b>——批发端涨 + 零售端有人求 + 海外榜有位置。数据优先级：搜索量 &gt; 增长率 &gt; 在线商品数 &gt; 价格带 &gt; 转化率 &gt; 退货率。</p></div>
+<div class="card"><h3>数据源状态</h3><div id="sources"></div></div>
+</main>
+<script>
+let rows=[
+ {k:'手表',s:'国内',n:17947},{k:'袜子',s:'国内',n:16071},{k:'玩具',s:'国内',n:14073},{k:'宠物玩具',s:'国内',n:13916},{k:'保温杯',s:'国内',n:12298},
+ {k:'遥控汽车',s:'海外',n:5274},{k:'文具',s:'海外',n:4929},{k:'足球',s:'海外',n:4889},{k:'遥控无人机',s:'海外',n:4612},
+],sortDir=-1;
+let chart;
+function render(){
+ const q=(document.getElementById('q').value||'').toLowerCase(),s=document.getElementById('scope').value;
+ let list=rows.filter(r=>(!q||r.k.includes(q))&&(!s||r.s===s));list.sort((a,b)=>(a.n-b.n)*sortDir);
+ document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td>${r.k}</td><td>${r.s}</td><td>${r.n.toLocaleString()}</td></tr>`).join('');
+}
+function sortBy(){sortDir*=-1;render();}
+function refreshAll(){
+ document.getElementById('kpis').innerHTML=`<div class="card"><h3>景气指数</h3><div class="big">1554.97</div><div>环比 +0.55%</div></div><div class="card"><h3>周价格指数</h3><div class="big">101.22</div></div><div class="card"><h3>国内热词第1</h3><div class="big">手表</div></div><div class="card"><h3>海外热词第1</h3><div class="big">遥控汽车</div></div>`;
+ if(chart)chart.destroy();chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:['规模','商户信心','顾客人气','物流','资金活跃'],datasets:[{data:[1550,1560,1545,1565,1555],backgroundColor:'#ea580c'}]},options:{plugins:{legend:{display:false}}}});
+ document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN')+'（缓存样本）';
+ document.getElementById('sources').innerHTML=`<div>义乌购官网 — <span class="badge cache">缓存</span> 浏览器直连常被拦截，样本为调研核实值 · 2026-11-08</div><div>义乌指数官网 — <span class="badge cache">缓存</span> 同上 · 2026-11-08</div><div>1688 生意参谋 — <span class="badge cache">方法</span> 完整数据需商家账号，不伪造</div>`;
+ render();
+}
+refreshAll();
+</script></body></html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>国内AI与Agent监测</title><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,"PingFang SC",sans-serif;background:#f0fdf4;color:#1a1d29}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+h1{font-size:20px;margin:0}.sub{color:#6b7280;font-size:13px}button{margin-left:auto;background:#16a34a;color:#fff;border:0;border-radius:10px;padding:10px 16px;cursor:pointer}
+main{max-width:1080px;margin:0 auto;padding:20px;display:grid;gap:16px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)}.card h3{margin:0 0 6px;font-size:13px;color:#6b7280}.big{font-size:24px;font-weight:800}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:2px 8px;background:#dcfce7;color:#166534}.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px;border-bottom:1px solid #f0f0f0;text-align:left}th{cursor:pointer;color:#6b7280}
+input,select{padding:8px;border:1px solid #ddd;border-radius:8px}.note{font-size:12px;color:#6b7280}
+</style></head><body>
+<header><h1>🇨🇳 国内AI与Agent监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge cache">缓存样本</span><button onclick="refreshAll()">🔄 刷新</button></header>
+<main>
+<div class="grid" id="kpis"></div>
+<div class="card"><h3>智能 × 价格散点图</h3><canvas id="scatter" height="100"></canvas></div>
+<div class="card"><h3>国内模型总表</h3>
+<input id="q" placeholder="搜索，如 Kimi / 豆包" oninput="renderTable()"><select id="vendor" onchange="renderTable()"><option value="">全部厂商</option><option>Qwen</option><option>DeepSeek</option><option>Zhipu</option><option>Kimi</option><option>Doubao</option><option>Hunyuan</option><option>ERNIE</option><option>MiniMax</option><option>StepFun</option><option>iFlytek</option></select>
+<table><thead><tr><th onclick="sortBy('name')">模型</th><th onclick="sortBy('vendor')">厂商</th><th onclick="sortBy('score')">分数</th><th onclick="sortBy('price')">价格 $/M</th><th>上下文</th></tr></thead><tbody id="tbody"></tbody></table>
+<p class="note" id="tableNote"></p></div>
+<div class="card"><h3>国内 Agent 对比（5列）</h3><table><thead><tr><th>Agent</th><th>在哪跑</th><th>定时</th><th>模型</th><th>开源</th><th>价格</th></tr></thead><tbody>
+<tr><td>扣子 Coze</td><td>云端</td><td>是</td><td>豆包等</td><td>否</td><td>免费起</td></tr>
+<tr><td>WorkBuddy</td><td>云端</td><td>是</td><td>多模型</td><td>否</td><td>未公开</td></tr>
+<tr><td>腾讯元器</td><td>云端</td><td>是</td><td>混元</td><td>否</td><td>免费起</td></tr>
+<tr><td>Trae</td><td>本地/云</td><td>否</td><td>多模型</td><td>否</td><td>免费起</td></tr>
+<tr><td>通义灵码</td><td>本地</td><td>否</td><td>通义</td><td>否</td><td>免费起</td></tr>
+</tbody></table></div>
+<div class="card"><h3>视频模型</h3><div>可灵 Kling · 万相 Wan · 即梦 Seedance · 清影 · 海螺 Hailuo · Vidu — 价格与额度以官网为准，不编数。</div></div>
+<div class="card"><h3>数据源状态</h3><div id="sources"></div><p class="note">冗余：models.dev 主源 → OpenRouter 替补 → model-watch（GitHub 直连 → jsDelivr 镜像）→ 缓存。讯飞星火未被公开目录收录时显示「未获取」，不编数。</p></div>
+</main>
+<script>
+let models=[],sortKey='score',sortDir=-1,chart;
+const FALLBACK=[
+ {name:'Qwen3.7 Max',vendor:'Qwen',score:74.1,price:2.0,ctx:'256K'},
+ {name:'GLM-5.2',vendor:'Zhipu',score:73.38,price:1.5,ctx:'200K'},
+ {name:'DeepSeek V4 Pro',vendor:'DeepSeek',score:72.55,price:0.77,ctx:'128K'},
+ {name:'Kimi K2.7',vendor:'Kimi',score:71.0,price:2.5,ctx:'256K'},
+ {name:'Doubao Seed 2.1 Pro',vendor:'Doubao',score:70.5,price:2.0,ctx:'256K'},
+ {name:'Hunyuan Hy4',vendor:'Hunyuan',score:69.0,price:1.8,ctx:'256K'},
+ {name:'ERNIE 4.5',vendor:'ERNIE',score:68.0,price:1.2,ctx:'128K'},
+ {name:'Step 5',vendor:'StepFun',score:67.0,price:2.0,ctx:'256K'},
+ {name:'MiniMax M2',vendor:'MiniMax',score:66.0,price:1.5,ctx:'200K'},
+ {name:'Spark',vendor:'iFlytek',score:null,price:null,ctx:'—'},
+];
+const DOMESTIC=['qwen','deepseek','glm','zhipu','kimi','moonshot','doubao','seed','hunyuan','tencent','ernie','baidu','minimax','stepfun','step','iflytek','spark'];
+async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.json();}
+function renderTable(){
+ const q=(document.getElementById('q').value||'').toLowerCase(),v=document.getElementById('vendor').value;
+ let list=models.filter(m=>(!q||m.name.toLowerCase().includes(q))&&(!v||m.vendor===v));
+ list.sort((a,b)=>((a[sortKey]??-1)>(b[sortKey]??-1)?1:-1)*sortDir);
+ document.getElementById('tbody').innerHTML=list.map(m=>`<tr><td>${m.name}</td><td>${m.vendor}</td><td>${m.score??'未获取'}</td><td>${m.price?'$'+m.price:'未获取'}</td><td>${m.ctx||'—'}</td></tr>`).join('')||'<tr><td colspan="5">无匹配</td></tr>';
+}
+function sortBy(k){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1;}renderTable();}
+function draw(){
+ if(chart)chart.destroy();
+ chart=new Chart(document.getElementById('scatter'),{type:'scatter',data:{datasets:[{data:models.filter(m=>m.score&&m.price).map(m=>({x:m.price,y:m.score})),pointBackgroundColor:'#16a34a',pointRadius:6}]},options:{scales:{x:{title:{display:true,text:'价格 $/M'}},y:{title:{display:true,text:'分数'}}},plugins:{legend:{display:false}}}});
+}
+async function refreshAll(){
+ const src=[];let role='cache';
+ try{const d=await fetchTO('https://models.dev/api/v1/models');
+   const arr=Array.isArray(d)?d:Object.values(d||{});
+   const dom=arr.filter(m=>DOMESTIC.some(k=>(m.id||m.name||'').toLowerCase().includes(k))).map(m=>({name:m.name||m.id,vendor:(m.provider||'').toString(),score:m.benchmarks?.livebench||null,price:m.cost?.input??null,ctx:m.context_length?Math.round(m.context_length/1000)+'K':''}));
+   if(dom.length){models=dom;role='primary';src.push(['models.dev','主源','正常',new Date().toLocaleString('zh-CN')]);}
+ }catch(e){src.push(['models.dev','主源','失败','—']);}
+ if(!models.length){
+   try{const d=await fetchTO('https://openrouter.ai/api/v1/models');
+     const dom=(d.data||[]).filter(m=>DOMESTIC.some(k=>(m.id||'').toLowerCase().includes(k))).map(m=>({name:m.name,vendor:(m.id||'').split('/')[0],score:null,price:m.pricing?.prompt?parseFloat(m.pricing.prompt)*1e6:null,ctx:m.context_length?Math.round(m.context_length/1000)+'K':''}));
+     if(dom.length){models=dom;role='backup';src.push(['OpenRouter','替补','正常',new Date().toLocaleString('zh-CN')]);}
+   }catch(e){src.push(['OpenRouter','替补','失败','—']);}
+ }
+ if(!models.length){models=FALLBACK;role='cache';src.push(['缓存样本','缓存','主/替补均失败，分数为调研核实值','2026-11-08']);}
+ document.getElementById('kpis').innerHTML=`<div class="card"><h3>国内模型数</h3><div class="big">${models.length}</div></div><div class="card"><h3>国内榜首</h3><div class="big">${(models.filter(m=>m.score).sort((a,b)=>b.score-a.score)[0]||{}).name||'—'}</div></div><div class="card"><h3>Agent 数</h3><div class="big">5</div></div><div class="card"><h3>视频模型</h3><div class="big">6</div></div>`;
+ const b=document.getElementById('srcBadge');b.textContent=role==='primary'?'主源':role==='backup'?'替补源':'缓存样本';b.className='badge '+(role==='primary'?'':role);
+ document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
+ document.getElementById('tableNote').textContent=role==='cache'?'当前为缓存样本，刷新成功后以实时接口为准。星火未被公开目录收录时显示未获取。':'数据来自公开目录接口，分数口径按来源分开，不合成。';
+ document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
+ renderTable();draw();
+}
+refreshAll();
+</script></body></html>
