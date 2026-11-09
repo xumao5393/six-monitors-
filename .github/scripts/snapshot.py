@@ -10,6 +10,10 @@ fetched_at. Never writes secrets to any file.
 Sources (all curl-verified 2026-11-09, see audit doc):
   hot.json    Weibo intl weibointl.api.weibo.cn + Douyin iesdouyin hotsearch
               (+ Bilibili ranking, Zhihu recorded as 401/unavailable)
+              + Baidu realtime board + Toutiao hot board + X US trends
+              (trends24.in HTML parse). Per-platform circuit breaker
+              (3 consecutive failures -> skip a round) and audit
+              (0 items or >80% collapse vs last round -> keep last good).
   ph.json     Product Hunt Atom feed producthunt.com/feed (no votes in RSS)
   trends.json Google Trends NEW rss https://trends.google.com/trending/rss
               geo=US/HK/TW only — geo=CN returns 400, NEVER use it
@@ -99,66 +103,159 @@ def delta_7d(hist, name, current):
 
 
 # ---------------------------------------------------------------- hot.json
+BROWSER_UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"}
+
+# --- circuit breaker: per-platform consecutive-failure counter --------------
+# State lives in monitors/data/<platform>.state.json, read/written by this
+# script only. The workflow commits monitors/data/*.json, so the counter
+# survives across runs. 3 consecutive failures -> skip that platform for a
+# round (keep old content); a later success clears the counter. Skips do
+# not change the counter.
+CB_THRESHOLD = 3
+
+
+def _cb_path(name):
+    return os.path.join(DATA, name + ".state.json")
+
+
+def cb_failures(name):
+    try:
+        with open(_cb_path(name)) as f:
+            return int(json.load(f).get("failures", 0) or 0)
+    except Exception:
+        return 0
+
+
+def cb_record(name, ok):
+    n = 0 if ok else cb_failures(name) + 1
+    try:
+        os.makedirs(DATA, exist_ok=True)
+        with open(_cb_path(name), "w") as f:
+            json.dump({"platform": name, "failures": n, "updated_at": FETCHED_AT}, f, ensure_ascii=False)
+    except Exception:
+        pass
+
+
+def cb_tripped(name):
+    return cb_failures(name) >= CB_THRESHOLD
+
+
+def cb_skipped(old_entry, name):
+    return dict(old_entry or {"ok": False, "items": []}, ok=False, http=0,
+                error=f"熔断中，连续失败 {cb_failures(name)} 次")
+
+
+def audit_collapse(items, old_items):
+    """None if fine; error string if items collapsed >80% vs old (old >= 10)."""
+    if old_items and len(old_items) >= 10 and len(items) < len(old_items) * 0.2:
+        return "条目暴跌疑似异常，已保留旧数据"
+    return None
+
+
+def hot_platform(name, old_entry, url, parse, headers=None):
+    """One hot.json platform: breaker -> fetch -> parse -> audit -> record.
+    Returns the platform entry (ok True on success, else old content ok False)."""
+    if cb_tripped(name):
+        return cb_skipped(old_entry, name)
+    st, body = fetch(url, headers=headers)
+    if st != 200:
+        cb_record(name, False)
+        return dict(old_entry or {"ok": False, "items": []}, ok=False, http=st or 0,
+                    error=f"HTTP {st}" if st else "network failure")
+    try:
+        items = parse(body)
+        if not items:
+            raise ValueError("empty list")
+        err = audit_collapse(items, (old_entry or {}).get("items", []))
+        if err:
+            raise ValueError("collapse")
+        cb_record(name, True)
+        return {"ok": True, "http": 200, "source": url, "items": items}
+    except Exception as e:
+        cb_record(name, False)
+        return dict(old_entry or {"ok": False, "items": []}, ok=False, http=st or 0,
+                    error="空响应（列表为空）" if "empty" in str(e) else
+                    ("条目暴跌疑似异常，已保留旧数据" if "collapse" in str(e) else "parse failed"))
+
+
+def _parse_weibo(body):
+    data = json.loads(body).get("data", [])
+    return [{"title": x["title"], "heat": x.get("number")} for x in data[:10]]
+
+
+def _parse_douyin(body):
+    data = json.loads(body).get("word_list", [])
+    return [{"title": x["word"], "heat": x.get("hot_value")} for x in data[:10]]
+
+
+def _parse_bili(body):
+    data = json.loads(body).get("data", {}).get("list", [])
+    return [{"title": x["title"], "category": x.get("tname")} for x in data[:10]]
+
+
+def _parse_baidu(body):
+    cards = json.loads(body).get("data", {}).get("cards", [])
+    for c in cards:
+        if c.get("component") == "hotList":
+            return [{"title": x.get("word"), "heat": x.get("hotScore")}
+                    for x in c.get("content", []) if x.get("word")][:10]
+    return []
+
+
+def _parse_toutiao(body):
+    data = json.loads(body).get("data", [])
+    return [{"title": x.get("Title"), "link": x.get("Url")} for x in data if x.get("Title")][:10]
+
+
+X_US_NAV = {"Home", "United States", "Trends", "About", "Feedback", "Contact",
+            "Terms", "Privacy", "X (Twitter)", "YouTube Trending Videos"}
+
+
+def _parse_trends24(body):
+    s = body.decode("utf-8", errors="ignore")
+    pat = re.compile(r'<a[^>]*href="https://twitter\.com/search\?q=([^"]+)"[^>]*>(.*?)</a>', re.S)
+    seen, out = set(), []
+    for q, raw in pat.findall(s):
+        term = html.unescape(re.sub(r"<[^>]+>", "", raw)).strip()
+        if not term or term in X_US_NAV or len(term) < 2 or term in seen:
+            continue
+        seen.add(term)
+        out.append({"title": term, "link": "https://twitter.com/search?q=" + q})
+    return out[:15]
+
+
 def build_hot():
     old = load_old("hot.json") or {}
     old_plats = old.get("platforms", {}) if isinstance(old, dict) else {}
     plats = {}
-    # Weibo intl
-    st, body = fetch("https://weibointl.api.weibo.cn/portal.php?ct=feed&a=search_topic")
-    if st == 200:
-        try:
-            data = json.loads(body).get("data", [])
-            if not data:
-                raise ValueError("empty list")
-            plats["weibo"] = {"ok": True, "http": 200,
-                "source": "https://weibointl.api.weibo.cn/portal.php?ct=feed&a=search_topic",
-                "items": [{"title": x["title"], "heat": x.get("number")} for x in data[:10]]}
-        except Exception as e:
-            plats["weibo"] = dict(old_plats.get("weibo", {"ok": False, "items": []}), ok=False, http=st or 0, error="空响应（列表为空）" if "empty" in str(e) else "parse failed")
-    else:
-        plats["weibo"] = dict(old_plats.get("weibo", {"ok": False, "items": []}), ok=False, http=st or 0,
-                              error=f"HTTP {st}" if st else "network failure")
-    # Douyin
-    st, body = fetch("https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/")
-    if st == 200:
-        try:
-            data = json.loads(body).get("word_list", [])
-            if not data:
-                raise ValueError("empty list")
-            plats["douyin"] = {"ok": True, "http": 200,
-                "source": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
-                "items": [{"title": x["word"], "heat": x.get("hot_value")} for x in data[:10]]}
-        except Exception as e:
-            plats["douyin"] = dict(old_plats.get("douyin", {"ok": False, "items": []}), ok=False, http=st or 0, error="空响应（列表为空）" if "empty" in str(e) else "parse failed")
-    else:
-        plats["douyin"] = dict(old_plats.get("douyin", {"ok": False, "items": []}), ok=False, http=st or 0,
-                               error=f"HTTP {st}" if st else "network failure")
-    # Zhihu — expected 401; record it, never invent items
+    plats["weibo"] = hot_platform("weibo", old_plats.get("weibo"),
+        "https://weibointl.api.weibo.cn/portal.php?ct=feed&a=search_topic", _parse_weibo)
+    plats["douyin"] = hot_platform("douyin", old_plats.get("douyin"),
+        "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/", _parse_douyin)
+    # Zhihu — expected 401; record it, never invent items. No breaker here:
+    # the 401 is a known permanent state, not a transient failure to rest from.
     st, _ = fetch("https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10")
     plats["zhihu"] = {"ok": False, "http": st or 0,
         "source": "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10",
         "error": "401 身份未验证" if st == 401 else (f"HTTP {st}" if st else "network failure"), "items": []}
-    # Bilibili ranking (no heat values published)
-    st, body = fetch("https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all", headers={"Referer": "https://www.bilibili.com"})
-    if st == 200:
-        try:
-            data = json.loads(body).get("data", {}).get("list", [])
-            if not data:
-                raise ValueError("empty list")
-            plats["bili"] = {"ok": True, "http": 200,
-                "source": "https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all",
-                "items": [{"title": x["title"], "category": x.get("tname")} for x in data[:10]]}
-        except Exception as e:
-            plats["bili"] = dict(old_plats.get("bili", {"ok": False, "items": []}), ok=False, http=st or 0, error="空响应（列表为空）" if "empty" in str(e) else "parse failed")
-    else:
-        plats["bili"] = dict(old_plats.get("bili", {"ok": False, "items": []}), ok=False, http=st or 0,
-                             error=f"HTTP {st}" if st else "network failure")
+    plats["bili"] = hot_platform("bili", old_plats.get("bili"),
+        "https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all", _parse_bili,
+        headers={"Referer": "https://www.bilibili.com"})
+    plats["baidu"] = hot_platform("baidu", old_plats.get("baidu"),
+        "https://top.baidu.com/api/board?platform=pc&tab=realtime", _parse_baidu,
+        headers=BROWSER_UA)
+    plats["toutiao"] = hot_platform("toutiao", old_plats.get("toutiao"),
+        "https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc", _parse_toutiao,
+        headers=BROWSER_UA)
+    plats["x_us"] = hot_platform("x_us", old_plats.get("x_us"),
+        "https://trends24.in/united-states/", _parse_trends24,
+        headers=BROWSER_UA)
     save("hot.json", {
         "fetched_at": FETCHED_AT, "fetched_at_cst": FETCHED_CST,
         "ok": bool(plats["weibo"]["ok"] and plats["douyin"]["ok"]),
         "source": "GitHub Actions snapshot (curl, server-side) — see .github/workflows/snapshot.yml; browser direct fetch is CORS-blocked",
         "platforms": plats,
-        "browser": {"note": "浏览器直连：微博/抖音/B站均无 CORS 头，直连失败是预期；本文件为服务端 curl 快照，页面只读同域 JSON。知乎 curl 亦 401。"},
+        "browser": {"note": "浏览器直连：微博/抖音/B站/百度/头条均无 CORS 头，直连失败是预期；本文件为服务端 curl 快照，页面只读同域 JSON。知乎 curl 亦 401；X 美国趋势来自 trends24.in HTML 解析。"},
     })
 
 
