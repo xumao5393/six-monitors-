@@ -125,7 +125,7 @@ function trTextNode(n,l){
     if(par&&(par.tagName==='SCRIPT'||par.tagName==='STYLE'||par.tagName==='NOSCRIPT'||par.tagName==='CANVAS'))return;
     var s=n.nodeValue,t=s.trim();if(!t)return;
     if(l==='en'){
-      if(n._zh==null){var r=toEN(t);if(r!==t){n._zh=s;n.nodeValue=s.slice(0,s.indexOf(t))+r+s.slice(s.indexOf(t)+t.length);}}
+      if(n._zh==null){var r=toEN(t);if(r!==t){var nx=n.nextSibling,pv=n.previousSibling;if(nx&&/[:;—]$/.test(r))r+=' ';if(pv&&/^[(—]/.test(r)&&!/\s$/.test(pv.textContent||''))r=' '+r;n._zh=s;n.nodeValue=s.slice(0,s.indexOf(t))+r+s.slice(s.indexOf(t)+t.length);}}
     }else if(n._zh!=null){n.nodeValue=n._zh;n._zh=null;}
     return;
   }
@@ -196,7 +196,7 @@ async function refreshAll(){document.querySelector('main')?.setAttribute('aria-b
  document.getElementById('ageBadge').className='badge '+(age>14?'missing':'backup');
  document.getElementById('kpis').innerHTML=`<div class="card"><h3>海外热词第 1 · 样本</h3><div class="big">遥控汽车</div><div>5,274 次搜索 · 2026-11-09 样本</div></div><div class="card"><h3>国内热词第 1 · 样本</h3><div class="big">手表</div><div>17,947 次搜索 · 2026-11-09 样本</div></div><div class="card"><h3>景气指数 · 2026年9月样本</h3><div class="big">1554.97</div><div>环比 +0.55% · 来源：义乌指数</div></div><div class="card"><h3>世界杯信号 · 样本</h3><div class="big">+12%</div><div>体育用品出口 Q1 28.3 亿元</div></div>`;
  if(chart)chart.destroy();
- if(window.Chart){chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:rows.map(r=>__T(r.k)),datasets:[{label:__T('30 天搜索量（样本）'),data:rows.map(r=>r.n),backgroundColor:['#e11d48','#f97316','#fb923c','#f59e0b','#be123c','#881337','#ea580c','#c2410c','#9a3412']}]},options:{plugins:{legend:{display:false}}}});}
+ if(window.Chart){chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:rows.map(r=>__T(r.k)),datasets:[{label:__T('30 天搜索量（样本）'),data:rows.map(r=>r.n),backgroundColor:['#e11d48','#f97316','#fb923c','#f59e0b','#be123c','#881337','#ea580c','#c2410c','#9a3412']}]},options:{plugins:{legend:{display:false}},scales:{x:{ticks:{autoSkip:false,maxRotation:60,minRotation:45}}}}});}
  document.getElementById('sources').innerHTML=`
  <table><thead><tr><th>数据源</th><th>主源</th><th>备用</th><th>缓存</th><th>状态</th></tr></thead><tbody>
  <tr><td>义乌购热词榜</td><td>yiwugo.com/top.html（直连常被拦截）</td><td>义乌指数 ywindex.com（景气 / 价格交叉核对）</td><td>本页样本 · 2026-11-09</td><td><span class="badge cache">缓存样本</span></td></tr>

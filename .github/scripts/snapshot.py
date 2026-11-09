@@ -139,7 +139,7 @@ def build_hot():
         "source": "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10",
         "error": "401 身份未验证" if st == 401 else (f"HTTP {st}" if st else "network failure"), "items": []}
     # Bilibili ranking (no heat values published)
-    st, body = fetch("https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all")
+    st, body = fetch("https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all", headers={"Referer": "https://www.bilibili.com"})
     if st == 200:
         try:
             data = json.loads(body).get("data", {}).get("list", [])

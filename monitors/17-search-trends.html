@@ -136,7 +136,7 @@ function trTextNode(n,l){
     if(par&&(par.tagName==='SCRIPT'||par.tagName==='STYLE'||par.tagName==='NOSCRIPT'||par.tagName==='CANVAS'))return;
     var s=n.nodeValue,t=s.trim();if(!t)return;
     if(l==='en'){
-      if(n._zh==null){var r=toEN(t);if(r!==t){n._zh=s;n.nodeValue=s.slice(0,s.indexOf(t))+r+s.slice(s.indexOf(t)+t.length);}}
+      if(n._zh==null){var r=toEN(t);if(r!==t){var nx=n.nextSibling,pv=n.previousSibling;if(nx&&/[:;—]$/.test(r))r+=' ';if(pv&&/^[(—]/.test(r)&&!/\s$/.test(pv.textContent||''))r=' '+r;n._zh=s;n.nodeValue=s.slice(0,s.indexOf(t))+r+s.slice(s.indexOf(t)+t.length);}}
     }else if(n._zh!=null){n.nodeValue=n._zh;n._zh=null;}
     return;
   }
