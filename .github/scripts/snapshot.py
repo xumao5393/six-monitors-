@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
 """Snapshot pipeline for the six-monitors repo.
 
-Runs in GitHub Actions (see .github/workflows/snapshot.yml) every 6 hours.
+Runs in GitHub Actions (see .github/workflows/snapshot.yml) every hour.
 Fetches public sources server-side with curl-equivalent HTTP (no CORS in a
 runner), writes monitors/data/*.json, and on any source failure KEEPS the
-last successful content for that source, marking it ok:false with a fresh
-fetched_at. Never writes secrets to any file.
+last successful content for that source, marking it ok:false. Two times are
+kept apart on purpose: fetched_at = when fresh data last landed (never moves
+on a failed run), checked_at = when this run last tried. Never writes
+secrets to any file.
 
 Sources (all curl-verified 2026-11-09, see audit doc):
   hot.json    Weibo intl weibointl.api.weibo.cn + Douyin iesdouyin hotsearch
               (+ Bilibili ranking, Zhihu recorded as 401/unavailable)
               + Baidu realtime board + Toutiao hot board + X US trends
               (trends24.in HTML parse). Per-platform circuit breaker
-              (3 consecutive failures -> skip a round) and audit
+              (3 consecutive failures -> cool down with backoff, probe once
+              when due; never a permanent skip) and audit
               (0 items or >80% collapse vs last round -> keep last good).
   ph.json     Product Hunt Atom feed producthunt.com/feed (no votes in RSS)
   trends.json Google Trends NEW rss https://trends.google.com/trending/rss
@@ -68,6 +71,20 @@ def load_old(name):
         return None
 
 
+def time_fields(old, any_fresh):
+    """Split the two times GPT caught being conflated: fetched_at is when
+    fresh data last landed (it must NOT move on a failed run, or old data
+    looks new); checked_at is when this run last tried. On a first run with
+    no old file, both are now."""
+    if isinstance(old, dict) and old.get("fetched_at"):
+        last_ok, last_ok_cst = old["fetched_at"], old.get("fetched_at_cst", "")
+    else:
+        last_ok, last_ok_cst = FETCHED_AT, FETCHED_CST
+    return {"fetched_at": FETCHED_AT if any_fresh else last_ok,
+            "fetched_at_cst": FETCHED_CST if any_fresh else last_ok_cst,
+            "checked_at": FETCHED_AT, "checked_at_cst": FETCHED_CST}
+
+
 def save(name, obj):
     os.makedirs(DATA, exist_ok=True)
     with open(os.path.join(DATA, name), "w") as f:
@@ -108,41 +125,89 @@ BROWSER_UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebK
 # --- circuit breaker: per-platform consecutive-failure counter --------------
 # State lives in monitors/data/<platform>.state.json, read/written by this
 # script only. The workflow commits monitors/data/*.json, so the counter
-# survives across runs. 3 consecutive failures -> skip that platform for a
-# round (keep old content); a later success clears the counter. Skips do
-# not change the counter.
+# survives across runs. Three states: normal (request every run), cooling
+# (3+ consecutive failures -> skip until next_probe_at), probe (when the
+# probe time is due, allow exactly one attempt; success clears the counter,
+# failure re-cools with a growing backoff, capped at 8h). The old code
+# returned early on every round once tripped, with no probe time at all, so
+# a tripped source was skipped forever unless something reset the file.
+# State is written only when it changes, so a healthy run that changes
+# nothing does not create an empty snapshot commit.
 CB_THRESHOLD = 3
+CB_PROBE_HOURS = (1, 2, 4, 8)  # backoff after the trip, capped at 8h
 
 
 def _cb_path(name):
     return os.path.join(DATA, name + ".state.json")
 
 
-def cb_failures(name):
+def _parse_ts(s):
+    try:
+        return datetime.strptime(s, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except Exception:
+        return None
+
+
+def cb_state(name):
     try:
         with open(_cb_path(name)) as f:
-            return int(json.load(f).get("failures", 0) or 0)
+            s = json.load(f)
+            return {"failures": int(s.get("failures", 0) or 0),
+                    "next_probe_at": s.get("next_probe_at")}
     except Exception:
-        return 0
+        return {"failures": 0, "next_probe_at": None}
 
 
-def cb_record(name, ok):
-    n = 0 if ok else cb_failures(name) + 1
+def cb_write(name, failures, next_probe_at=None):
+    old = cb_state(name)
+    if old["failures"] == failures and old.get("next_probe_at") == next_probe_at:
+        return  # unchanged: no write, no empty commit
     try:
         os.makedirs(DATA, exist_ok=True)
         with open(_cb_path(name), "w") as f:
-            json.dump({"platform": name, "failures": n, "updated_at": FETCHED_AT}, f, ensure_ascii=False)
+            json.dump({"platform": name, "failures": failures,
+                       "next_probe_at": next_probe_at,
+                       "updated_at": FETCHED_AT}, f, ensure_ascii=False)
     except Exception:
         pass
 
 
+def cb_record(name, ok):
+    st = cb_state(name)
+    if ok:
+        cb_write(name, 0, None)
+        return
+    n = st["failures"] + 1
+    if n >= CB_THRESHOLD:
+        backoff = CB_PROBE_HOURS[min(n - CB_THRESHOLD, len(CB_PROBE_HOURS) - 1)]
+        nxt = (NOW_UTC + timedelta(hours=backoff)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    else:
+        nxt = None
+    cb_write(name, n, nxt)
+
+
 def cb_tripped(name):
-    return cb_failures(name) >= CB_THRESHOLD
+    return cb_state(name)["failures"] >= CB_THRESHOLD
+
+
+def cb_probe_due(name):
+    """True when a request may go out: not tripped, or tripped but the probe
+    time has arrived. Old-format state files have no next_probe_at; treat
+    them as due once so a legacy trip can recover."""
+    st = cb_state(name)
+    if st["failures"] < CB_THRESHOLD:
+        return True
+    nxt = _parse_ts(st.get("next_probe_at") or "")
+    if nxt is None:
+        return True
+    return NOW_UTC >= nxt
 
 
 def cb_skipped(old_entry, name):
+    st = cb_state(name)
     return dict(old_entry or {"ok": False, "items": []}, ok=False, http=0,
-                error=f"熔断中，连续失败 {cb_failures(name)} 次")
+                error=f"熔断冷却中，连续失败 {st['failures']} 次，下次试探 "
+                      f"{st.get('next_probe_at') or '待定'}")
 
 
 def audit_collapse(items, old_items):
@@ -154,8 +219,11 @@ def audit_collapse(items, old_items):
 
 def hot_platform(name, old_entry, url, parse, headers=None):
     """One hot.json platform: breaker -> fetch -> parse -> audit -> record.
-    Returns the platform entry (ok True on success, else old content ok False)."""
-    if cb_tripped(name):
+    Returns the platform entry (ok True on success, else old content ok False).
+    A successful entry carries updated_at (last success time); a failed one
+    keeps the old entry's updated_at, so pages can show old data with its
+    real age instead of calling it 未获取 or pretending it is fresh."""
+    if cb_tripped(name) and not cb_probe_due(name):
         return cb_skipped(old_entry, name)
     st, body = fetch(url, headers=headers)
     if st != 200:
@@ -170,7 +238,8 @@ def hot_platform(name, old_entry, url, parse, headers=None):
         if err:
             raise ValueError("collapse")
         cb_record(name, True)
-        return {"ok": True, "http": 200, "source": url, "items": items}
+        return {"ok": True, "http": 200, "source": url, "items": items,
+                "updated_at": FETCHED_AT, "updated_at_cst": FETCHED_CST}
     except Exception as e:
         cb_record(name, False)
         return dict(old_entry or {"ok": False, "items": []}, ok=False, http=st or 0,
@@ -250,8 +319,10 @@ def build_hot():
     plats["x_us"] = hot_platform("x_us", old_plats.get("x_us"),
         "https://trends24.in/united-states/", _parse_trends24,
         headers=BROWSER_UA)
+    t = time_fields(old, any(p.get("ok") for p in plats.values()))
     save("hot.json", {
-        "fetched_at": FETCHED_AT, "fetched_at_cst": FETCHED_CST,
+        "fetched_at": t["fetched_at"], "fetched_at_cst": t["fetched_at_cst"],
+        "checked_at": t["checked_at"], "checked_at_cst": t["checked_at_cst"],
         "ok": bool(plats["weibo"]["ok"] and plats["douyin"]["ok"]),
         "source": "GitHub Actions snapshot (curl, server-side) — see .github/workflows/snapshot.yml; browser direct fetch is CORS-blocked",
         "platforms": plats,
@@ -262,36 +333,40 @@ def build_hot():
 # ---------------------------------------------------------------- ph.json
 def build_ph():
     old = load_old("ph.json") or {}
+    items, fresh, err = old.get("items", []), False, None
     st, body = fetch("https://www.producthunt.com/feed")
     if st == 200:
         try:
             ns = {"a": "http://www.w3.org/2005/Atom"}
             root = ET.fromstring(body)
-            items = []
+            parsed = []
             for e in root.findall("a:entry", ns)[:15]:
                 link = [l.get("href") for l in e.findall("a:link", ns) if l.get("rel") == "alternate"]
                 content = e.find("a:content", ns)
                 txt = re.sub(r"<[^>]+>", " ", html.unescape(content.text or "")) if content is not None else ""
-                items.append({"title": (e.findtext("a:title", namespaces=ns) or "").strip(),
-                              "link": link[0] if link else "",
-                              "published": e.findtext("a:published", namespaces=ns),
-                              "votes": None, "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-                              "summary": re.sub(r"\s+", " ", txt).strip()[:200]})
-            if not items:
+                parsed.append({"title": (e.findtext("a:title", namespaces=ns) or "").strip(),
+                               "link": link[0] if link else "",
+                               "published": e.findtext("a:published", namespaces=ns),
+                               "votes": None, "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+                               "summary": re.sub(r"\s+", " ", txt).strip()[:200]})
+            if not parsed:
                 raise ValueError("empty feed")
-            save("ph.json", {"fetched_at": FETCHED_AT, "fetched_at_cst": FETCHED_CST, "ok": True,
-                             "source": "https://www.producthunt.com/feed",
-                             "note": "RSS 无 CORS，浏览器必失败；本文件为服务端 curl 快照。票数 RSS 不提供，一律未获取，不编造。",
-                             "items": items})
-            return
+            items, fresh = parsed, True
         except Exception:
-            pass
-    # failure: keep last successful items, mark ok:false
-    save("ph.json", {"fetched_at": FETCHED_AT, "fetched_at_cst": FETCHED_CST, "ok": False,
+            err = "parse failed"
+    else:
+        err = f"HTTP {st}" if st else "network failure"
+    # failure: keep last successful items, mark ok:false; fetched_at stays at
+    # the last success (see time_fields), it must not move on a failed run.
+    t = time_fields(old, fresh)
+    save("ph.json", {"fetched_at": t["fetched_at"], "fetched_at_cst": t["fetched_at_cst"],
+                     "checked_at": t["checked_at"], "checked_at_cst": t["checked_at_cst"],
+                     "ok": fresh,
                      "source": "https://www.producthunt.com/feed",
-                     "note": "本次抓取失败，保留上次成功内容；票数 RSS 不提供，一律未获取。",
-                     "error": f"HTTP {st}" if st else "network failure",
-                     "items": old.get("items", [])})
+                     "note": "RSS 无 CORS，浏览器必失败；本文件为服务端 curl 快照。票数 RSS 不提供，一律未获取，不编造。"
+                             if fresh else "本次抓取失败，保留上次成功内容；票数 RSS 不提供，一律未获取。",
+                     "error": err,
+                     "items": items})
 
 
 # ---------------------------------------------------------------- trends.json
@@ -327,7 +402,10 @@ def build_trends():
         geos[geo] = dict(old_geos.get(geo, {"ok": False, "items": []}), ok=False, http=st or 0,
                          error=f"HTTP {st}" if st else "network failure")
     geos["CN"] = {"ok": False, "http": 400, "error": "geo=CN 返回 400 Bad Request，永不使用", "items": []}
-    save("trends.json", {"fetched_at": FETCHED_AT, "fetched_at_cst": FETCHED_CST, "ok": all_ok,
+    t = time_fields(old, all_ok or any(g.get("ok") for g in geos.values()))
+    save("trends.json", {"fetched_at": t["fetched_at"], "fetched_at_cst": t["fetched_at_cst"],
+                         "checked_at": t["checked_at"], "checked_at_cst": t["checked_at_cst"],
+                         "ok": all_ok,
                          "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
                          "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
                          "geos": geos})
@@ -394,8 +472,15 @@ def build_prices():
         except Exception:
             pass
     hist = prune_history(old.get("history", {}))
-    hist[TODAY] = {m["id"]: {"prompt_per_m": m["prompt_per_m"], "completion_per_m": m["completion_per_m"]} for m in models}
-    save("prices.json", {"fetched_at": FETCHED_AT, "fetched_at_cst": FETCHED_CST, "ok": bool(or_ok and md_ok),
+    # History is a baseline for the 7-day delta: only record today when the
+    # prices are actually fresh. Recording stale (kept) models as today's
+    # prices would corrupt every later delta.
+    if or_ok:
+        hist[TODAY] = {m["id"]: {"prompt_per_m": m["prompt_per_m"], "completion_per_m": m["completion_per_m"]} for m in models}
+    t = time_fields(old, bool(or_ok or md_ok))
+    save("prices.json", {"fetched_at": t["fetched_at"], "fetched_at_cst": t["fetched_at_cst"],
+                         "checked_at": t["checked_at"], "checked_at_cst": t["checked_at_cst"],
+                         "ok": bool(or_ok and md_ok),
                          "sources": {
                              "openrouter": {"ok": or_ok, "http": st or 0, "source": "https://openrouter.ai/api/v1/models",
                                             "total_models": total, "flagship_ids": FLAGSHIPS},
@@ -442,11 +527,15 @@ def build_oss():
         if name in old_repos:  # keep last successful repo row on failure
             repos.append(old_repos[name])
     hist = prune_history(old.get("history", {}))
-    if repos:
+    # Same rule as prices.json: only record today when every repo row is
+    # fresh. Kept (old) rows must not become today's baseline.
+    if repos and not failed:
         hist[TODAY] = {r["name"]: r["stars"] for r in repos}
     for r in repos:
         r["delta_7d"] = delta_7d(hist, r["name"], r["stars"])
-    save("oss.json", {"fetched_at": FETCHED_AT, "fetched_at_cst": FETCHED_CST,
+    t = time_fields(old, fetched_ok > 0)
+    save("oss.json", {"fetched_at": t["fetched_at"], "fetched_at_cst": t["fetched_at_cst"],
+                      "checked_at": t["checked_at"], "checked_at_cst": t["checked_at_cst"],
                       "ok": len(failed) == 0, "ok_count": fetched_ok,
                       "count": len(WHITELIST), "failed": failed,
                       "source": "GitHub Core API https://api.github.com/repos/{full} (24 whitelist repos, GITHUB_TOKEN in Actions)",

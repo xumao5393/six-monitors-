@@ -82,8 +82,8 @@ main{padding:14px}
 </style></head><body>
 <header><h1>🔥 热搜热榜聚合</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
-<section class="hero"><h2 id="heroTitle">正在读取 Actions 快照…</h2><p id="heroDesc">Hero 由快照 Top 1 生成，不再写死旧热点。</p><div class="feed"><div><b>✍️ 这个能怎么写</b>把今日 Top 1 变成选题：AI 剪高光、AI 做梗图、AI 写文案，三步出片。</div><div id="heroFeed2"><b>🔥 次热</b>读取中…</div><div><b>⚠️ 诚实说明</b>热榜源都不稳：微博要登录、知乎 401、第三方聚合 404。本页每个平台块独立降级，拉不到就显示「未获取」，绝不编数字。</div></div></section>
-<p class="note">主源是 <b>Actions 快照 data/hot.json</b>（GitHub Actions 每 6 小时在 runner 上 curl 微博国际版 + 抖音热搜，浏览器直连因 CORS 必然失败，改读同域快照）。某平台快照失败时该块独立显示「未获取」，不拿旧榜冒充。知乎 curl 亦 401，固定「未获取 + 手动链接」。只有快照文件本身读不到时，才显示嵌入式缓存（2026-11-09 15:15 CST curl 实测），超过 12 小时自动标「已过期」。</p>
+<section class="hero"><h2 id="heroTitle">正在读取 Actions 快照…</h2><p id="heroDesc">Hero 由快照 Top 1 生成，不再写死旧热点。</p><div class="feed"><div><b>✍️ 这个能怎么写</b>把今日 Top 1 变成选题：AI 剪高光、AI 做梗图、AI 写文案，三步出片。</div><div id="heroFeed2"><b>🔥 次热</b>读取中…</div><div><b>⚠️ 诚实说明</b>热榜源都不稳：微博要登录、知乎 401、第三方聚合 404。本页每个平台块独立降级，本次失败显示旧数据并标明时间，没有旧数据才显示「未获取」，绝不编数字。</div></div></section>
+<p class="note">主源是 <b>Actions 快照 data/hot.json</b>（GitHub Actions 每小时在 runner 上 curl 7 个平台：微博、抖音、知乎、B站、百度、头条、美国 X 趋势，浏览器直连因 CORS 必然失败，改读同域快照）。某平台本次失败时，该块显示上次成功数据并标明旧时间（「旧数据」），没有旧数据才显示「未获取」，绝不拿旧榜冒充当日榜。知乎 curl 亦 401，固定「未获取 + 手动链接」。只有快照文件本身读不到时，才显示嵌入式缓存（2026-11-09 15:15 CST curl 实测），超过 12 小时自动标「已过期」。</p>
 <div class="grid" id="kpis"></div>
 <div class="card"><h3>各平台 Top 1 热度对比（Actions 快照）</h3><div style="position:relative;height:260px"><canvas id="chart"></canvas></div><p class="note" id="chartNote">各平台 Top 1 热度（Actions 快照）。</p></div>
 
@@ -117,6 +117,9 @@ const PLATS=[
 {id:'douyin',name:'抖音',icon:'🎵',curl:'抖音热搜榜 iesdouyin.com（curl 200）',browser:'跨域拦截（无 Allow-Origin）',manual:'https://www.douyin.com/',endpoint:'https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/'},
 {id:'zhihu',name:'知乎',icon:'📘',curl:'知乎热榜 api/v3 hot-lists（curl 401 身份未验证）',browser:'401（同源拦截）',manual:'https://www.zhihu.com/hot',endpoint:'https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10'},
 {id:'bili',name:'B站',icon:'📺',curl:'B站排行榜 api.bilibili.com ranking v2（curl 200，无热度值）',browser:'跨域拦截 / WAF 不稳',manual:'https://www.bilibili.com/v/popular/rank/all',endpoint:'https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all'},
+{id:'baidu',name:'百度',icon:'🔍',curl:'百度热搜榜 top.baidu.com/api/board（curl 200）',browser:'跨域拦截（无 CORS 头）',manual:'https://top.baidu.com/board?tab=realtime',endpoint:'https://top.baidu.com/api/board?platform=pc&tab=realtime'},
+{id:'toutiao',name:'头条',icon:'📰',curl:'头条热榜 toutiao.com/hot-board（curl 200）',browser:'跨域拦截（无 CORS 头）',manual:'https://www.toutiao.com/hot-event/hot-board/',endpoint:'https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc'},
+{id:'x_us',name:'美国 X',icon:'🇺🇸',curl:'美国 X 趋势 trends24.in HTML 解析（curl 200）',browser:'X 官方 API 付费，直连不可用',manual:'https://x.com/explore/tabs/trending',endpoint:'https://trends24.in/united-states/'},
 ];
 let chart, SNAP=null, SNAP_OK=false, activeTab='weibo';
 function fmt(n){return n==null?'—':(n>=10000?(n/10000).toFixed(1)+'万':Number(n).toLocaleString());}
@@ -126,9 +129,9 @@ function platItems(id){
   return null;
 }
 function top1List(){
-  // snapshot Top1 per platform (heat-bearing only: douyin, weibo)
+  // snapshot Top1 per platform (heat-bearing only: douyin, weibo, baidu)
   const out=[];
-  for(const id of ['douyin','weibo']){
+  for(const id of ['douyin','weibo','baidu']){
     const p=platItems(id);
     if(p&&p.ok&&p.items&&p.items.length&&typeof p.items[0].heat==='number')out.push({id,title:p.items[0].title,heat:p.items[0].heat});
   }
@@ -155,7 +158,7 @@ function renderHero(){
 function renderKpis(){
   const plats=SNAP&&SNAP.platforms?SNAP.platforms:{};
   const okCount=PLATS.filter(p=>plats[p.id]&&plats[p.id].ok).length;
-  const missCount=PLATS.filter(p=>!(plats[p.id]&&plats[p.id].ok)).length;
+  const missCount=PLATS.filter(p=>{const sp=plats[p.id];return !(sp&&sp.ok)&&!(sp&&sp.items&&sp.items.length);}).length;
   const snapTime=SNAP?((SNAP.fetched_at_cst||SNAP.fetched_at||'—')):'—';
   // 全网同上榜：标题在 ≥2 个平台 Top 10 中出现
   const seen={};let cross=0;
@@ -163,18 +166,18 @@ function renderKpis(){
   cross=Object.values(seen).filter(s=>s.size>=2).length;
   const badge=SNAP_OK?'Actions 快照':'缓存样本';
   document.getElementById('kpis').innerHTML=
-  `<div class="card"><h3>监测平台</h3><div class="big">4</div><div class="note">微博 / 抖音 / 知乎 / B站</div></div>`+
-  `<div class="card"><h3>Actions 快照成功</h3><div class="big">${okCount} / 4</div><div class="note">上次 Actions 成功平台数（${badge} · ${esc(snapTime)}）</div></div>`+
-  `<div class="card"><h3>未获取</h3><div class="big">${missCount}</div><div class="note">快照失败的平台独立显示「未获取」</div></div>`+
+  `<div class="card"><h3>监测平台</h3><div class="big">7</div><div class="note">微博 / 抖音 / 知乎 / B站 / 百度 / 头条 / 美国 X</div></div>`+
+  `<div class="card"><h3>Actions 快照成功</h3><div class="big">${okCount} / 7</div><div class="note">上次 Actions 成功平台数（${badge} · ${esc(snapTime)}）</div></div>`+
+  `<div class="card"><h3>未获取</h3><div class="big">${missCount}</div><div class="note">快照失败且无旧数据的平台</div></div>`+
   `<div class="card"><h3>全网同上榜</h3><div class="big">${cross}</div><div class="note">标题同时出现在 ≥2 个平台 Top 10</div></div>`+
-  `<div class="card"><h3>快照时间</h3><div class="big" style="font-size:20px">${esc(snapTime)}</div><div class="note">${SNAP_OK?'Actions 每 6 小时更新':'快照文件未读到，显示嵌入式缓存'}</div></div>`;
+  `<div class="card"><h3>快照时间</h3><div class="big" style="font-size:20px">${esc(snapTime)}</div><div class="note">${SNAP_OK?'Actions 每小时更新':'快照文件未读到，显示嵌入式缓存'}</div></div>`;
 }
 function draw(){
   const tops=top1List();
   const labels=tops.map(t=>PLATS.find(p=>p.id===t.id).name), data=tops.map(t=>t.heat);
-  document.getElementById('chartNote').textContent=tops.length?'各平台 Top 1 热度（Actions 快照）。B 站排行榜不公布热度数值，故无柱形；知乎未获取，故无柱形。':'快照未获取，暂无 Top 1 热度可画。';
+  document.getElementById('chartNote').textContent=tops.length?'各平台 Top 1 热度（Actions 快照）。B 站排行榜不公布热度数值，故无柱形；头条、美国 X 无热度数值，故无柱形；知乎未获取，故无柱形。':'快照未获取，暂无 Top 1 热度可画。';
   if(chart)chart.destroy();
-  chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:labels.length?labels:['暂无数据'],datasets:[{data:data.length?data:[0],backgroundColor:['#e11d48','#f97316']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxRotation:0,minRotation:0}},y:{ticks:{callback:v=>fmt(v)}}}}});
+  chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:labels.length?labels:['暂无数据'],datasets:[{data:data.length?data:[0],backgroundColor:['#e11d48','#f97316','#7c3aed']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxRotation:0,minRotation:0}},y:{ticks:{callback:v=>fmt(v)}}}}});
 }
 function renderPlats(){
   const tabs=document.getElementById('tabs');
@@ -184,15 +187,26 @@ function renderPlats(){
     let badge, time, body;
     if(SNAP_OK&&sp){
       if(sp.ok&&sp.items&&sp.items.length){
-        badge='<span class="badge live">Actions 快照 · 成功</span>'; time=SNAP.fetched_at_cst||SNAP.fetched_at;
+        badge='<span class="badge live">Actions 快照 · 成功</span>'; time=sp.updated_at_cst||sp.updated_at||SNAP.fetched_at_cst||SNAP.fetched_at;
         const rows=sp.items.slice(0,6).map(it=>{
           if(p.id==='bili')return `<li>${esc(it.title)} <span>${esc(it.category||'')}</span></li>`;
+          if(it.link)return `<li><a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a> <span>${fmt(it.heat)}</span></li>`;
           return `<li>${esc(it.title)} <span>${fmt(it.heat)}</span></li>`;
         }).join('');
         body=`<ol>${rows}</ol><p class="note">来源：Actions 快照（curl 服务端） · <a href="${p.manual}" target="_blank" rel="noopener">官方榜单 ↗</a></p>`;
+      }else if(sp.items&&sp.items.length){
+        // 本次失败，但 JSON 里还保留着上次成功内容：显示旧榜并标明旧时间，绝不冒充当日榜
+        const oldTime=sp.updated_at_cst||sp.updated_at||SNAP.fetched_at_cst||SNAP.fetched_at||'—';
+        badge='<span class="badge stale">旧数据 · 更新于 '+esc(oldTime)+'</span>'; time=oldTime;
+        const rows=sp.items.slice(0,6).map(it=>{
+          if(p.id==='bili')return `<li>${esc(it.title)} <span>${esc(it.category||'')}</span></li>`;
+          if(it.link)return `<li><a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a> <span>${fmt(it.heat)}</span></li>`;
+          return `<li>${esc(it.title)} <span>${fmt(it.heat)}</span></li>`;
+        }).join('');
+        body=`<ol>${rows}</ol><p class="note">本次抓取失败${sp.http?'（HTTP '+sp.http+'）':''}${sp.error?' · '+esc(sp.error):''}；上表为上次成功数据（${esc(oldTime)}），不是当日新榜 · <a href="${p.manual}" target="_blank" rel="noopener">官方榜单 ↗</a></p>`;
       }else{
         badge='<span class="badge missing">未获取</span>'; time='—';
-        body=`<div class="missing-box">未获取：Actions 本次抓取失败${sp.http?'（HTTP '+sp.http+'）':''}${sp.error?' · '+esc(sp.error):''}，且不拿旧榜冒充当前榜。<br>请手动打开 <a href="${p.manual}" target="_blank" rel="noopener">官方热榜 ↗</a> 查看。</div>`;
+        body=`<div class="missing-box">未获取：Actions 本次抓取失败${sp.http?'（HTTP '+sp.http+'）':''}${sp.error?' · '+esc(sp.error):''}，且无上次成功数据可显示。<br>请手动打开 <a href="${p.manual}" target="_blank" rel="noopener">官方热榜 ↗</a> 查看。</div>`;
       }
     }else{
       // 嵌入式缓存兜底（快照文件读不到时）
@@ -243,7 +257,7 @@ async function refreshAll(){
   }catch(e){SNAP=null;SNAP_OK=false;}
   renderHero();renderKpis();draw();renderPlats();renderSources();
   const b=document.getElementById('srcBadge');
-  if(SNAP_OK){const n=PLATS.filter(p=>SNAP.platforms[p.id]&&SNAP.platforms[p.id].ok).length;b.textContent='Actions 快照 · '+n+'/4 平台';b.className='badge '+(n===4?'live':'backup');}
+  if(SNAP_OK){const n=PLATS.filter(p=>SNAP.platforms[p.id]&&SNAP.platforms[p.id].ok).length;b.textContent='Actions 快照 · '+n+'/7 平台';b.className='badge '+(n===7?'live':'backup');}
   else{b.textContent='缓存样本';b.className='badge cache';}
   document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN')+(SNAP_OK?' · 快照 '+(SNAP.fetched_at_cst||SNAP.fetched_at):' · 快照未读到，显示 '+CACHE_LABEL+' 缓存');
 }
