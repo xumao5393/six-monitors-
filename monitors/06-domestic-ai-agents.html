@@ -48,11 +48,11 @@ th{color:#15803d}
 </style></head><body>
 <header><h1>🇨🇳 国内AI与Agent监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge cache">缓存样本</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
-<section class="hero"><h2>国内 AI 与 Agent · 国产第一梯队</h2><p>豆包、千问、DeepSeek、混元、智谱、Kimi……国产模型与 Agent，一页比个明白。</p><div class="feed"><div><b>🇨🇳 国内榜首（缓存）</b>Qwen3.8 Max AA 智能指数 33.6 领跑，DeepSeek V4.1 Flash 32.6 在后。</div><div><b>🎬 视频</b>可灵、万相、即梦、海螺、Vidu——国内视频模型一页看全。</div><div><b>⚠️ 星火</b>讯飞星火不在 OpenRouter 公开目录中，实时显示「未获取」，不编数。</div></div></section>
+<section class="hero"><h2>国内 AI 与 Agent · 国产第一梯队</h2><p>豆包、千问、DeepSeek、混元、智谱、Kimi……国产模型与 Agent，一页比个明白。</p><div class="feed"><div><b>🇨🇳 国内榜首（缓存）</b>Qwen3.8 Max Prime AA 智能指数 33.6 领跑，DeepSeek V4 Pro 23.1 在后。</div><div><b>🎬 视频</b>可灵、万相、即梦、海螺、Vidu——国内视频模型一页看全。</div><div><b>⚠️ 星火</b>讯飞星火不在 OpenRouter 公开目录中，实时显示「未获取」，不编数。</div></div></section>
 <div class="grid" id="kpis"></div>
 <div class="card"><h3>智能 × 价格散点图（价格为每百万 token 输入价）</h3><canvas id="scatter" height="100"></canvas><p class="note" id="scatterNote"></p></div>
 <div class="card"><h3>国内模型总表</h3>
-<input id="q" placeholder="搜索，如 Kimi / 豆包" oninput="renderTable()"><select id="vendor" onchange="renderTable()"><option value="">全部厂商</option><option>Qwen</option><option>DeepSeek</option><option>Zhipu</option><option>Kimi</option><option>Doubao</option><option>Hunyuan</option><option>ERNIE</option><option>MiniMax</option><option>StepFun</option><option>iFlytek</option></select>
+<input id="q" placeholder="搜索，如 Kimi / 豆包" oninput="renderTable()"><select id="vendor" onchange="renderTable()"><option value="">全部厂商</option><option>Qwen</option><option>DeepSeek</option><option>Zhipu</option><option>Kimi</option><option>Doubao</option><option>Hunyuan</option><option>MiniMax</option><option>StepFun</option></select>
 <table><thead><tr><th onclick="sortBy('name')">模型</th><th onclick="sortBy('vendor')">厂商</th><th onclick="sortBy('score')">分数</th><th onclick="sortBy('price')">价格 $/M</th><th>上下文</th></tr></thead><tbody id="tbody"></tbody></table>
 <p class="note" id="tableNote"></p></div>
 <div class="card"><h3>国内 Agent 对比（5列）</h3><table><thead><tr><th>Agent</th><th>在哪跑</th><th>定时</th><th>模型</th><th>开源</th><th>价格</th></tr></thead><tbody>
@@ -64,29 +64,30 @@ th{color:#15803d}
 </tbody></table></div>
 <div class="card"><h3>视频模型</h3><div>可灵 Kling · 万相 Wan · 即梦 Seedance · 清影 · 海螺 Hailuo · Vidu — 价格与额度以官网为准，不编数。</div></div>
 <div class="card"><h3>数据源状态</h3><div id="sources"></div>
-<p class="note">唯一实时来源：OpenRouter（openrouter.ai/api/v1/models）。models.dev 已下线（302 跳转首页）不再使用；OpenRouter 无镜像，断了就用缓存（截至 2026-11-09）。讯飞星火不在 OpenRouter 公开目录中，实时显示「未获取」，不编数；旧代码用 'spark' 子串匹配会误命中 Meta 的 muse-spark 模型，已改为仅认 id 前缀 iflytek/。</p></div>
+<p class="note">唯一实时来源：OpenRouter（openrouter.ai/api/v1/models）。models.dev 已下线（302 跳转首页）不再使用；OpenRouter 无镜像，断了就用缓存（截至 2026-11-09）。讯飞星火与百度文心不在 OpenRouter 公开目录中，本页不收录、不编数；旧代码用 'spark' 子串匹配会误命中 Meta 的 muse-spark 模型，已改为仅认 id 前缀 iflytek/。豆包 Seed 2.1 在目录中仅有 Turbo 变体，暂作家族代表。</p></div>
 </main>
 <script>
 let models=[],sortKey='score',sortDir=-1,chart;
 // 缓存样本：分数 = AA 智能指数 v5（2026-11-08/09 公开榜单），价格 = OpenRouter 输入价（2026-11-09 核实）；无公开分数/未上目录的记 null，显示「未获取」。
 const FALLBACK=[
  {name:'Qwen3.8 Max Prime',vendor:'Qwen',score:33.6,price:4.0,ctx:'1000K'},
- {name:'DeepSeek V4.1 Flash',vendor:'DeepSeek',score:32.6,price:0.051,ctx:'1049K'},
  {name:'DeepSeek V4 Pro',vendor:'DeepSeek',score:23.1,price:0.9553,ctx:'1049K'},
- {name:'GLM-5.3',vendor:'Zhipu',score:null,price:0.0699,ctx:'1049K'},
+ {name:'GLM-5.3 Prime',vendor:'Zhipu',score:null,price:2.8,ctx:'1000K'},
  {name:'Kimi K3.1 Pro',vendor:'Kimi',score:null,price:2.0,ctx:'1049K'},
  {name:'Seed 2.1 Turbo',vendor:'Doubao',score:null,price:0.5,ctx:'262K'},
  {name:'Hunyuan Hy4',vendor:'Hunyuan',score:null,price:0.417,ctx:'1049K'},
  {name:'Step 5 Preview',vendor:'StepFun',score:null,price:1.0,ctx:'1049K'},
  {name:'MiniMax M3',vendor:'MiniMax',score:null,price:0.3,ctx:'1049K'},
- {name:'ERNIE 4.5',vendor:'ERNIE',score:null,price:null,ctx:'—'},
- {name:'Spark',vendor:'iFlytek',score:null,price:null,ctx:'—'},
 ];
 // OpenRouter id 前缀 → 国内厂商（显式映射）。注意：百度 ERNIE 与讯飞星火在 OpenRouter 目录中不存在，
 // 因此没有 'baidu'/'iflytek' 前缀映射——它们只出现在缓存样本中。'spark' 绝不能作子串匹配：
 // OpenRouter 里含 "spark" 的是 Meta 的 muse-spark 系列，与讯飞无关。
 const PREFIX_VENDOR={'qwen':'Qwen','deepseek':'DeepSeek','z-ai':'Zhipu','moonshotai':'Kimi','bytedance-seed':'Doubao','tencent':'Hunyuan','minimax':'MiniMax','stepfun':'StepFun'};
-const FLAGSHIPS=new Set(['qwen/qwen3.8-max-prime','qwen/qwen3.8-flash','deepseek/deepseek-v4-pro','deepseek/deepseek-v4.1-flash','z-ai/glm-5.3','z-ai/glm-5.3-prime','moonshotai/kimi-k3.1-pro','moonshotai/kimi-k2.6','bytedance-seed/seed-2-1-turbo','bytedance-seed/seed-2.0-code','tencent/hy4','minimax/minimax-m3','stepfun/step-5-preview']);
+// 旗舰白名单：2026-11-09 在 OpenRouter 目录中核实存在的旗舰级 id，每厂商至多 1 个。
+// 剔除：Flash/Turbo/Code 等轻量变体、Kimi K2.6（上一代）、GLM-5.3 基础版（Prime 才是旗舰）。
+// Doubao：目录中 Seed 2.1 仅有 Turbo 变体，未见非 Turbo 旗舰 id，暂以 seed-2-1-turbo 作 Seed 2.1 家族代表。
+// ERNIE 与讯飞星火不在 OpenRouter 公开目录中，本页不收录、不编数。
+const FLAGSHIPS=new Set(['qwen/qwen3.8-max-prime','deepseek/deepseek-v4-pro','z-ai/glm-5.3-prime','moonshotai/kimi-k3.1-pro','bytedance-seed/seed-2-1-turbo','tencent/hy4','minimax/minimax-m3','stepfun/step-5-preview']);
 // 讯飞判定：仅 id 以 "iflytek/" 开头才算 iFlytek（当前目录中不存在，恒为 false，Spark 只留缓存行）。
 function isIFlytek(id){return (id||'').startsWith('iflytek/');}
 function vendorOf(id){if(isIFlytek(id))return 'iFlytek';const p=(id||'').split('/')[0];return PREFIX_VENDOR[p]||p||'未知';}
@@ -121,7 +122,7 @@ async function refreshAll(){
  document.getElementById('kpis').innerHTML=`<div class="card"><h3>国内模型数</h3><div class="big">${models.length}</div></div><div class="card"><h3>国内榜首</h3><div class="big">${top?top.name:'未获取'}</div></div><div class="card"><h3>Agent 数</h3><div class="big">5</div></div><div class="card"><h3>视频模型</h3><div class="big">6</div></div>`;
  const b=document.getElementById('srcBadge');b.textContent=role==='live'?'OpenRouter 实时':'缓存样本';b.className='badge '+(role==='live'?'':'cache');
  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
- document.getElementById('tableNote').textContent=role==='cache'?'当前为缓存样本（截至 2026-11-09），刷新成功后以实时接口为准。星火未被公开目录收录时显示未获取。':'实时数据来自 OpenRouter：价格与上下文为实时值，分数 OpenRouter 不提供，显示「未获取」。星火未被公开目录收录时显示未获取。';
+ document.getElementById('tableNote').textContent=role==='cache'?'当前为缓存样本（截至 2026-11-09），刷新成功后以实时接口为准。星火、文心未被公开目录收录，本页不收录。':'实时数据来自 OpenRouter：价格与上下文为实时值，分数 OpenRouter 不提供，显示「未获取」。星火、文心未被公开目录收录，本页不收录。';
  document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='缓存'?'cache':'backup'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
  renderTable();draw();
 }

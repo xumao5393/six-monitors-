@@ -48,7 +48,7 @@ th{color:#6d28d9}
 </style></head><body>
 <header><h1>🤖 头部AI与Agent监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge missing">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
-<section class="hero"><h2>头部 AI 与 Agent · 谁最能打</h2><p>GPT、Claude、Gemini、Grok、DeepSeek……智能、价格、上下文，一张散点图看清性价比。</p><div class="feed"><div><b>💰 最便宜</b>DeepSeek V4.1 Flash 输入价仅 $0.05/M（OpenRouter 2026-11-09 核实价），旗舰里最便宜。</div><div><b>🏆 缓存榜首</b>缓存分数为 AA 智能指数 v5（截至 2026-11-09）：Claude Opus 5.5 以 59.1 领跑。</div><div><b>🔄 唯一实时源</b>OpenRouter 直连；models.dev 已下线（302 跳转首页）不再使用；断了就用缓存并标注。</div></div></section>
+<section class="hero"><h2>头部 AI 与 Agent · 谁最能打</h2><p>GPT、Claude、Gemini、Grok、DeepSeek……智能、价格、上下文，一张散点图看清性价比。</p><div class="feed"><div><b>💰 最便宜</b>旗舰中最便宜：DeepSeek V4 Pro 输入价 $0.9553/M（OpenRouter 2026-11-09 核实价）。豆包 Seed 2.1 Turbo $0.50/M 更便宜，但为 Turbo 变体，仅作 Seed 2.1 家族代表。</div><div><b>🏆 缓存榜首</b>缓存分数为 AA 智能指数 v5（截至 2026-11-09）：Claude Opus 5.5 以 59.1 领跑。</div><div><b>🔄 唯一实时源</b>OpenRouter 直连；models.dev 已下线（302 跳转首页）不再使用；断了就用缓存并标注。</div></div></section>
 <div class="grid" id="kpis"></div>
 <div class="card"><h3>智能 × 价格散点图（价格为每百万 token 输入价，来源 OpenRouter）</h3><canvas id="scatter" height="100"></canvas><p class="note" id="scatterNote"></p></div>
 <div class="card"><h3>模型总表 <span class="note">点表头排序</span></h3>
@@ -63,29 +63,31 @@ th{color:#6d28d9}
 <tr><td>Harness</td><td>云端</td><td>是</td><td>多模型</td><td>否</td><td>未公开</td></tr>
 </tbody></table><p class="note">Agent 价格与能力以官网为准，订阅价格常变。</p></div>
 <div class="card"><h3>视频模型</h3><div id="video">Sora · Seedance · Kling 可灵 · 万相 — 价格与额度以官网为准，本页不编数。</div></div>
-<div class="card"><h3>数据源状态</h3><div id="sources"></div><p class="note">唯一实时来源：OpenRouter（openrouter.ai/api/v1/models）。OpenRouter 不提供基准分数，实时分数一律显示「未获取」，不编数；缓存样本的分数为 AA 智能指数 v5（截至 2026-11-09）、价格为 OpenRouter 2026-11-09 核实值。</p></div>
+<div class="card"><h3>数据源状态</h3><div id="sources"></div><p class="note">唯一实时来源：OpenRouter（openrouter.ai/api/v1/models）。OpenRouter 不提供基准分数，实时分数一律显示「未获取」，不编数；缓存样本的分数为 AA 智能指数 v5（截至 2026-11-09）、价格为 OpenRouter 2026-11-09 核实值。豆包 Seed 2.1 在目录中仅有 Turbo 变体，暂作家族代表；Google 旗舰为 Gemini 4 Argon（目录中无 Gemini 3.8 Pro 文本 id）。</p></div>
 </main>
 <script>
 let models=[],sortKey='score',sortDir=-1,chart;
 // OpenRouter id 前缀 → 厂商（显式映射，不用显示名猜）
 // 缓存样本：分数 = AA 智能指数 v5（2026-11-08/09 公开榜单），价格 = OpenRouter 输入价（2026-11-09 核实）；无公开分数的记 null，显示「未获取」。
+// GPT-6.1 / Gemini 4 Argon 为 2026-11-09 新核实旗舰，尚无 AA v5 公开分数，记 null。GLM-5.3 Prime 才是智谱旗舰（基础版 GLM-5.3 已剔除）。
 const FALLBACK=[
  {name:'Claude Opus 5.5',vendor:'Anthropic',score:59.1,price:4.0,ctx:'1000K'},
  {name:'Grok 4.7',vendor:'xAI',score:35.5,price:2.0,ctx:'500K'},
  {name:'Qwen3.8 Max Prime',vendor:'Qwen',score:33.6,price:4.0,ctx:'1000K'},
- {name:'DeepSeek V4.1 Flash',vendor:'DeepSeek',score:32.6,price:0.051,ctx:'1049K'},
- {name:'GPT-5.6 Terra',vendor:'OpenAI',score:32.3,price:2.0,ctx:'1050K'},
- {name:'Gemini 3.8 Flash',vendor:'Google',score:30.8,price:0.825,ctx:'1049K'},
- {name:'GPT-5.6 Luna',vendor:'OpenAI',score:23.8,price:0.2,ctx:'1050K'},
  {name:'DeepSeek V4 Pro',vendor:'DeepSeek',score:23.1,price:0.9553,ctx:'1049K'},
- {name:'Claude Sonnet 5.5',vendor:'Anthropic',score:null,price:2.0,ctx:'1000K'},
+ {name:'GPT-6.1 Terra',vendor:'OpenAI',score:null,price:1.0,ctx:'1050K'},
+ {name:'GPT-6.1 Sol',vendor:'OpenAI',score:null,price:2.0,ctx:'1050K'},
+ {name:'Gemini 4 Argon',vendor:'Google',score:null,price:2.0,ctx:'1049K'},
  {name:'Kimi K3.1 Pro',vendor:'Kimi',score:null,price:2.0,ctx:'1049K'},
- {name:'GLM-5.3',vendor:'Zhipu',score:null,price:0.0699,ctx:'1049K'},
+ {name:'GLM-5.3 Prime',vendor:'Zhipu',score:null,price:2.8,ctx:'1000K'},
  {name:'Seed 2.1 Turbo',vendor:'Doubao',score:null,price:0.5,ctx:'262K'},
 ];
 const PREFIX_VENDOR={'openai':'OpenAI','anthropic':'Anthropic','google':'Google','x-ai':'xAI','deepseek':'DeepSeek','qwen':'Qwen','moonshotai':'Kimi','z-ai':'Zhipu','bytedance-seed':'Doubao'};
-// 旗舰白名单：2026-11-09 在 OpenRouter 目录中核实存在的 id，每厂商至多 2 个；只取这些，不取目录前 60 条。
-const FLAGSHIPS=new Set(['openai/gpt-5.6-terra','openai/gpt-5.6-luna','anthropic/claude-opus-5.5','anthropic/claude-sonnet-5.5','google/gemini-3.8-flash','google/gemini-3.7-flash','x-ai/grok-4.7','deepseek/deepseek-v4-pro','deepseek/deepseek-v4.1-flash','qwen/qwen3.8-max-prime','qwen/qwen3.8-flash','moonshotai/kimi-k3.1-pro','moonshotai/kimi-k2.6','z-ai/glm-5.3','z-ai/glm-5.3-prime','bytedance-seed/seed-2-1-turbo','bytedance-seed/seed-2.0-code']);
+// 旗舰白名单：2026-11-09 在 OpenRouter 目录中核实存在的旗舰级 id，每厂商至多 2 个；只取这些，不取目录前 60 条。
+// 剔除：Flash/Turbo/Code/Lite 等轻量变体、Sonnet（中端）、Kimi K2.6（上一代）、GLM-5.3 基础版、GPT-5.6（已被 GPT-6.1 取代）。
+// Google：目录中无 Gemini 3.8 Pro 文本 id，最高非 Flash 文本模型为 Gemini 4 Argon（$2.00/M，1M 上下文），暂作 Google 旗舰。
+// Doubao：目录中 Seed 2.1 仅有 Turbo 变体，未见非 Turbo 旗舰 id，暂以 seed-2-1-turbo 作 Seed 2.1 家族代表。
+const FLAGSHIPS=new Set(['openai/gpt-6.1-terra','openai/gpt-6.1-sol','anthropic/claude-opus-5.5','google/gemini-4-argon','x-ai/grok-4.7','deepseek/deepseek-v4-pro','qwen/qwen3.8-max-prime','moonshotai/kimi-k3.1-pro','z-ai/glm-5.3-prime','bytedance-seed/seed-2-1-turbo']);
 function vendorOf(id){const p=(id||'').split('/')[0];return PREFIX_VENDOR[p]||p||'未知';}
 function fmtPrice(p){return p==null?'未获取':'$'+(p<1?+p.toFixed(3):+p.toFixed(2));}
 async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.json();}
