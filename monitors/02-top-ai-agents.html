@@ -48,11 +48,11 @@ th{color:#6d28d9}
 </style></head><body>
 <header><h1>🤖 头部AI与Agent监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge missing">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
-<section class="hero"><h2>头部 AI 与 Agent · 谁最能打</h2><p>GPT、Claude、Gemini、Grok、DeepSeek……智能、价格、上下文，一张散点图看清性价比。</p><div class="feed"><div><b>🏆 性价比之王</b>缓存榜单里 DeepSeek V4 仅 $0.77/M，分数 72.5——便宜里最能打的。</div><div><b>💎 旗舰</b>GPT-5.2 分数 78.5 领跑，Claude Opus 4.5、Gemini 3 Pro 紧随其后。</div><div><b>🔄 冗余</b>model-watch 主源 → jsDelivr 替补；models.dev → OpenRouter，断了就用缓存并标注。</div></div></section>
+<section class="hero"><h2>头部 AI 与 Agent · 谁最能打</h2><p>GPT、Claude、Gemini、Grok、DeepSeek……智能、价格、上下文，一张散点图看清性价比。</p><div class="feed"><div><b>💰 最便宜</b>DeepSeek V4.1 Flash 输入价仅 $0.05/M（OpenRouter 2026-11-09 核实价），旗舰里最便宜。</div><div><b>🏆 缓存榜首</b>缓存分数为 AA 智能指数 v5（截至 2026-11-09）：Claude Opus 5.5 以 59.1 领跑。</div><div><b>🔄 唯一实时源</b>OpenRouter 直连；models.dev 已下线（302 跳转首页）不再使用；断了就用缓存并标注。</div></div></section>
 <div class="grid" id="kpis"></div>
-<div class="card"><h3>智能 × 价格散点图（价格为每百万 token 混合价，来源 models.dev / OpenRouter）</h3><canvas id="scatter" height="100"></canvas></div>
+<div class="card"><h3>智能 × 价格散点图（价格为每百万 token 输入价，来源 OpenRouter）</h3><canvas id="scatter" height="100"></canvas><p class="note" id="scatterNote"></p></div>
 <div class="card"><h3>模型总表 <span class="note">点表头排序</span></h3>
-<input id="q" placeholder="搜索模型，如 Kimi / DeepSeek" oninput="renderTable()"><select id="vendor" onchange="renderTable()"><option value="">全部厂商</option><option>OpenAI</option><option>Anthropic</option><option>Google</option><option>xAI</option><option>DeepSeek</option><option>Qwen</option><option>Kimi</option><option>Zhipu</option></select>
+<input id="q" placeholder="搜索模型，如 Kimi / DeepSeek" oninput="renderTable()"><select id="vendor" onchange="renderTable()"><option value="">全部厂商</option><option>OpenAI</option><option>Anthropic</option><option>Google</option><option>xAI</option><option>DeepSeek</option><option>Qwen</option><option>Kimi</option><option>Zhipu</option><option>Doubao</option></select>
 <table><thead><tr><th onclick="sortBy('name')">模型</th><th onclick="sortBy('vendor')">厂商</th><th onclick="sortBy('score')">分数</th><th onclick="sortBy('price')">价格 $/M</th><th>上下文</th></tr></thead><tbody id="tbody"></tbody></table>
 <p class="note" id="tableNote"></p></div>
 <div class="card"><h3>Agent 对比（5列）</h3><table><thead><tr><th>Agent</th><th>在哪跑</th><th>定时</th><th>模型</th><th>开源</th><th>价格</th></tr></thead><tbody>
@@ -63,50 +63,64 @@ th{color:#6d28d9}
 <tr><td>Harness</td><td>云端</td><td>是</td><td>多模型</td><td>否</td><td>未公开</td></tr>
 </tbody></table><p class="note">Agent 价格与能力以官网为准，订阅价格常变。</p></div>
 <div class="card"><h3>视频模型</h3><div id="video">Sora · Seedance · Kling 可灵 · 万相 — 价格与额度以官网为准，本页不编数。</div></div>
-<div class="card"><h3>数据源状态</h3><div id="sources"></div><p class="note">冗余：model-watch 主源 GitHub 直连 → jsDelivr 镜像替补；models.dev 主源 → OpenRouter 替补；再断用缓存，标过期。</p></div>
+<div class="card"><h3>数据源状态</h3><div id="sources"></div><p class="note">唯一实时来源：OpenRouter（openrouter.ai/api/v1/models）。OpenRouter 不提供基准分数，实时分数一律显示「未获取」，不编数；缓存样本的分数为 AA 智能指数 v5（截至 2026-11-09）、价格为 OpenRouter 2026-11-09 核实值。</p></div>
 </main>
 <script>
 let models=[],sortKey='score',sortDir=-1,chart;
+// OpenRouter id 前缀 → 厂商（显式映射，不用显示名猜）
+// 缓存样本：分数 = AA 智能指数 v5（2026-11-08/09 公开榜单），价格 = OpenRouter 输入价（2026-11-09 核实）；无公开分数的记 null，显示「未获取」。
 const FALLBACK=[
- {name:'GPT-5.2',vendor:'OpenAI',score:78.5,price:5.0,ctx:'400K'},
- {name:'Claude Opus 4.5',vendor:'Anthropic',score:77.2,price:15.0,ctx:'200K'},
- {name:'Gemini 3 Pro',vendor:'Google',score:76.8,price:4.0,ctx:'1M'},
- {name:'Grok 4.1',vendor:'xAI',score:74.0,price:5.0,ctx:'256K'},
- {name:'DeepSeek V4',vendor:'DeepSeek',score:72.5,price:0.77,ctx:'128K'},
- {name:'Qwen3 Max',vendor:'Qwen',score:74.1,price:2.0,ctx:'256K'},
- {name:'Kimi K2',vendor:'Kimi',score:71.0,price:2.5,ctx:'256K'},
- {name:'GLM-5',vendor:'Zhipu',score:73.4,price:1.5,ctx:'200K'},
+ {name:'Claude Opus 5.5',vendor:'Anthropic',score:59.1,price:4.0,ctx:'1000K'},
+ {name:'Grok 4.7',vendor:'xAI',score:35.5,price:2.0,ctx:'500K'},
+ {name:'Qwen3.8 Max Prime',vendor:'Qwen',score:33.6,price:4.0,ctx:'1000K'},
+ {name:'DeepSeek V4.1 Flash',vendor:'DeepSeek',score:32.6,price:0.051,ctx:'1049K'},
+ {name:'GPT-5.6 Terra',vendor:'OpenAI',score:32.3,price:2.0,ctx:'1050K'},
+ {name:'Gemini 3.8 Flash',vendor:'Google',score:30.8,price:0.825,ctx:'1049K'},
+ {name:'GPT-5.6 Luna',vendor:'OpenAI',score:23.8,price:0.2,ctx:'1050K'},
+ {name:'DeepSeek V4 Pro',vendor:'DeepSeek',score:23.1,price:0.9553,ctx:'1049K'},
+ {name:'Claude Sonnet 5.5',vendor:'Anthropic',score:null,price:2.0,ctx:'1000K'},
+ {name:'Kimi K3.1 Pro',vendor:'Kimi',score:null,price:2.0,ctx:'1049K'},
+ {name:'GLM-5.3',vendor:'Zhipu',score:null,price:0.0699,ctx:'1049K'},
+ {name:'Seed 2.1 Turbo',vendor:'Doubao',score:null,price:0.5,ctx:'262K'},
 ];
+const PREFIX_VENDOR={'openai':'OpenAI','anthropic':'Anthropic','google':'Google','x-ai':'xAI','deepseek':'DeepSeek','qwen':'Qwen','moonshotai':'Kimi','z-ai':'Zhipu','bytedance-seed':'Doubao'};
+// 旗舰白名单：2026-11-09 在 OpenRouter 目录中核实存在的 id，每厂商至多 2 个；只取这些，不取目录前 60 条。
+const FLAGSHIPS=new Set(['openai/gpt-5.6-terra','openai/gpt-5.6-luna','anthropic/claude-opus-5.5','anthropic/claude-sonnet-5.5','google/gemini-3.8-flash','google/gemini-3.7-flash','x-ai/grok-4.7','deepseek/deepseek-v4-pro','deepseek/deepseek-v4.1-flash','qwen/qwen3.8-max-prime','qwen/qwen3.8-flash','moonshotai/kimi-k3.1-pro','moonshotai/kimi-k2.6','z-ai/glm-5.3','z-ai/glm-5.3-prime','bytedance-seed/seed-2-1-turbo','bytedance-seed/seed-2.0-code']);
+function vendorOf(id){const p=(id||'').split('/')[0];return PREFIX_VENDOR[p]||p||'未知';}
+function fmtPrice(p){return p==null?'未获取':'$'+(p<1?+p.toFixed(3):+p.toFixed(2));}
 async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.json();}
 function renderTable(){
  const q=(document.getElementById('q').value||'').toLowerCase(),v=document.getElementById('vendor').value;
  let list=models.filter(m=>(!q||m.name.toLowerCase().includes(q))&&(!v||m.vendor===v));
- list.sort((a,b)=>(a[sortKey]>b[sortKey]?1:-1)*sortDir);
- document.getElementById('tbody').innerHTML=list.map(m=>`<tr><td>${m.name}</td><td>${m.vendor}</td><td>${m.score??'—'}</td><td>$${m.price??'—'}</td><td>${m.ctx||'—'}</td></tr>`).join('')||'<tr><td colspan="5">无匹配，未获取时不编数</td></tr>';
+ list.sort((a,b)=>{const av=a[sortKey]??-Infinity,bv=b[sortKey]??-Infinity;return (av>bv?1:av<bv?-1:0)*sortDir;});
+ document.getElementById('tbody').innerHTML=list.map(m=>`<tr><td>${m.name}</td><td>${m.vendor}</td><td>${m.score??'未获取'}</td><td>${fmtPrice(m.price)}</td><td>${m.ctx||'—'}</td></tr>`).join('')||'<tr><td colspan="5">无匹配，未获取时不编数</td></tr>';
 }
 function sortBy(k){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1;}renderTable();}
 function drawScatter(){
- const colors={OpenAI:'#10a37f',Anthropic:'#d97757',Google:'#4285f4',xAI:'#111',DeepSeek:'#4d6bfe',Qwen:'#615ced',Kimi:'#000',Zhipu:'#7c3aed'};
+ const colors={OpenAI:'#10a37f',Anthropic:'#d97757',Google:'#4285f4',xAI:'#111',DeepSeek:'#4d6bfe',Qwen:'#615ced',Kimi:'#000',Zhipu:'#7c3aed',Doubao:'#0ea5e9'};
+ // 散点只画「有分数且有价格」的模型；颜色数组与数据点取自同一过滤后数组，避免错位。
+ const pts=models.filter(m=>m.score!=null&&m.price!=null);
+ document.getElementById('scatterNote').textContent=pts.length?'':'暂无可画的点：OpenRouter 只提供价格与上下文，不提供基准分数，实时分数显示「未获取」。';
  if(chart)chart.destroy();
- chart=new Chart(document.getElementById('scatter'),{type:'scatter',data:{datasets:[{data:models.map(m=>({x:m.price,y:m.score})),pointBackgroundColor:models.map(m=>colors[m.vendor]||'#999'),pointRadius:6}]},options:{scales:{x:{title:{display:true,text:'价格 $/M'}},y:{title:{display:true,text:'分数'}}},plugins:{legend:{display:false}}}});
+ chart=new Chart(document.getElementById('scatter'),{type:'scatter',data:{datasets:[{data:pts.map(m=>({x:m.price,y:m.score})),pointBackgroundColor:pts.map(m=>colors[m.vendor]||'#999'),pointRadius:6}]},options:{scales:{x:{title:{display:true,text:'价格 $/M（输入）'}},y:{title:{display:true,text:'分数（AA 智能指数 v5）'}}},plugins:{legend:{display:false}}}});
 }
 async function refreshAll(){
  const src=[];let role='cache';
- try{const d=await fetchTO('https://models.dev/api/v1/models');
-   const arr=Array.isArray(d)?d:Object.values(d||{});
-   if(arr.length){models=arr.slice(0,60).map(m=>({name:m.name||m.id,vendor:(m.provider||'').toString(),score:m.benchmarks?.livebench||null,price:m.cost?.input??null,ctx:m.context_length?Math.round(m.context_length/1000)+'K':''})).filter(m=>m.name);role='primary';src.push(['models.dev','主源','正常',new Date().toLocaleString('zh-CN')]);}
- }catch(e){src.push(['models.dev','主源','失败','—']);}
- if(!models.length){
-   try{const d=await fetchTO('https://openrouter.ai/api/v1/models');
-     if(d.data?.length){models=d.data.slice(0,60).map(m=>({name:m.name,vendor:(m.id||'').split('/')[0],score:null,price:m.pricing?.prompt?parseFloat(m.pricing.prompt)*1e6:null,ctx:m.context_length?Math.round(m.context_length/1000)+'K':''}));role='backup';src.push(['OpenRouter','替补','正常',new Date().toLocaleString('zh-CN')]);}
-   }catch(e){src.push(['OpenRouter','替补','失败','—']);}
- }
- if(!models.length){models=FALLBACK;role='cache';src.push(['缓存样本','缓存','主/替补均失败，分数为调研核实值，标注为准','2026-11-08']);}
- document.getElementById('kpis').innerHTML=`<div class="card"><h3>模型数</h3><div class="big">${models.length}</div></div><div class="card"><h3>最便宜（有价）</h3><div class="big">$${Math.min(...models.filter(m=>m.price).map(m=>m.price))}/M</div></div><div class="card"><h3>最高分</h3><div class="big">${Math.max(...models.filter(m=>m.score).map(m=>m.score))||'—'}</div></div><div class="card"><h3>今日变化</h3><div class="big">见来源</div></div>`;
- const b=document.getElementById('srcBadge');b.textContent=role==='primary'?'主源':role==='backup'?'替补源':'缓存样本';b.className='badge '+(role==='primary'?'':role);
+ // 唯一实时来源：OpenRouter。models.dev 已下线（/api/v1/models 返回 302 跳转首页），不再请求；OpenRouter 无镜像。
+ try{const d=await fetchTO('https://openrouter.ai/api/v1/models');
+   const picked=(d.data||[]).filter(m=>FLAGSHIPS.has(m.id)).map(m=>({name:m.name||m.id,vendor:vendorOf(m.id),score:null,price:m.pricing?.prompt!=null?+((parseFloat(m.pricing.prompt)*1e6).toFixed(4)):null,ctx:m.context_length?Math.round(m.context_length/1000)+'K':''}));
+   if(picked.length){models=picked;role='live';src.push(['OpenRouter','主源','正常',new Date().toLocaleString('zh-CN')]);}
+   else src.push(['OpenRouter','主源','目录中无白名单模型','—']);
+ }catch(e){src.push(['OpenRouter','主源','失败','—']);}
+ if(!models.length){models=FALLBACK;role='cache';src.push(['缓存样本','缓存','实时源失败，分数为 AA 智能指数 v5、价格为 OpenRouter 核实值','截至 2026-11-09']);}
+ const priced=models.filter(m=>m.price!=null),scored=models.filter(m=>m.score!=null);
+ const cheapest=priced.length?Math.min(...priced.map(m=>m.price)):null;
+ const top=scored.length?Math.max(...scored.map(m=>m.score)):null;
+ document.getElementById('kpis').innerHTML=`<div class="card"><h3>模型数</h3><div class="big">${models.length}</div></div><div class="card"><h3>最便宜（有价）</h3><div class="big">${cheapest!=null?fmtPrice(cheapest)+'/M':'未获取'}</div></div><div class="card"><h3>最高分</h3><div class="big">${top!=null?top:'未获取'}</div></div><div class="card"><h3>今日变化</h3><div class="big">见来源</div></div>`;
+ const b=document.getElementById('srcBadge');b.textContent=role==='live'?'OpenRouter 实时':'缓存样本';b.className='badge '+(role==='live'?'':'cache');
  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
- document.getElementById('tableNote').textContent=role==='cache'?'当前为缓存样本，刷新成功后以实时接口为准。':'数据来自公开目录接口，分数口径按来源分开，不合成。';
- document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
+ document.getElementById('tableNote').textContent=role==='cache'?'当前为缓存样本（截至 2026-11-09），刷新成功后以实时接口为准。':'实时数据来自 OpenRouter：价格与上下文为实时值，分数 OpenRouter 不提供，显示「未获取」。';
+ document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='缓存'?'cache':'backup'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
  renderTable();drawScatter();
 }
 refreshAll();

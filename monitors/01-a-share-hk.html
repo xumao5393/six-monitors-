@@ -22,6 +22,7 @@ main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
 .big{font-size:30px;font-weight:900;line-height:1.1}
 .badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
 .badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.missing{background:#f3f4f6;color:#6b7280}
+.up{color:#dc2626;font-weight:700}.down{color:#16a34a;font-weight:700}
 table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left}
 th{font-size:12px;letter-spacing:1px;text-transform:uppercase}
 .note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6}
@@ -48,10 +49,10 @@ th{color:#be123c}
 </style></head><body>
 <header><h1>📈 A股+港股监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge missing">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
-<section class="hero"><h2>A股 + 港股 · 今日盘面</h2><p>五大指数、涨跌家数、AH 溢价一页看完，红涨绿跌，盘面冷热一眼见分晓。</p><div class="feed"><div><b>📉 市场温度</b>11月6日收盘：上涨 725 家，下跌 4,483 家，平盘 87 家——跌多涨少，情绪偏冷。</div><div><b>📈 指数</b>上证 3649.18（+0.42%）、恒生 26231.40（+0.55%），红盘收尾。</div><div><b>⏰ 提醒</b>港股免费行情约延迟 15 分钟；北向资金只报成交额，不编净买额。</div></div></section>
+<section class="hero"><h2>A股 + 港股 · 今日盘面</h2><p>五大指数、涨跌家数、AH 溢价一页看完，红涨绿跌，盘面冷热一眼见分晓。</p><div class="feed"><div id="heroBreadth"><b>📉 市场温度</b>缓存样本：上涨 725 家，下跌 4,483 家，平盘 87 家——跌多涨少，情绪偏冷。（涨跌家数未实时更新）</div><div id="heroIndex"><b>📈 指数</b>2026-11-09 14:48（缓存样本，盘中快照）：上证 3663.18（+0.38%）、恒生 24528.81（+0.19%）。</div><div><b>⏰ 提醒</b>港股免费行情约延迟 15 分钟；北向资金只报成交额，不编净买额。</div></div></section>
 <div class="warn">港股免费行情约延迟 15 分钟，不冒充实时。北向资金只报成交额，不编净买额（港交所不再披露实时买卖金额）。本页不构成投资建议。</div>
 <div class="grid" id="indices"></div>
-<div class="card"><h3>指数走势（上证，来自缓存/实时分时点）</h3><canvas id="chart" height="90"></canvas><p class="note" id="chartNote"></p></div>
+<div class="card"><h3>指数走势（上证，分时点为缓存示例）</h3><canvas id="chart" height="90"></canvas><p class="note" id="chartNote"></p></div>
 <div class="card"><h3>涨跌家数（全市场）</h3><div id="breadth">未获取</div><canvas id="breadthChart" height="60"></canvas></div>
 <div class="card"><h3>AH 溢价（示例对，价格为缓存样本，标注为准）</h3>
 <table id="ahTable"><thead><tr><th>股票</th><th>A股</th><th>H股(¥)</th><th>溢价</th></tr></thead><tbody></tbody></table>
@@ -61,42 +62,61 @@ th{color:#be123c}
 </main>
 <script>
 const INDICES=[{code:'sh000001',name:'上证指数'},{code:'sz399001',name:'深证成指'},{code:'sz399006',name:'创业板指'},{code:'hkHSI',name:'恒生指数'},{code:'hkHSTECH',name:'恒生科技'}];
-const CACHED={indices:{'上证指数':{v:3649.18,c:0.42},'深证成指':{v:11872.55,c:0.31},'创业板指':{v:2451.20,c:-0.18},'恒生指数':{v:26231.40,c:0.55},'恒生科技':{v:5890.12,c:0.71}},updated:'2026-11-06 收盘（缓存样本）'};
+// 腾讯 v_ 键名经 2026-11-09 实测：v_sh000001 / v_sz399001 / v_sz399006 / v_hkHSI / v_hkHSTECH
+// 字段：f[1]=名称，f[3]=现价，f[30]=时间戳，f[31]=涨跌额，f[32]=涨跌幅%
+const TENCENT_KEY={sh000001:'sh000001',sz399001:'sz399001',sz399006:'sz399006',hkHSI:'hkHSI',hkHSTECH:'hkHSTECH'};
+const CACHED={indices:{'上证指数':{v:3663.18,c:0.38},'深证成指':{v:11166.28,c:-0.09},'创业板指':{v:2463.88,c:-0.05},'恒生指数':{v:24528.81,c:0.19},'恒生科技':{v:4068.27,c:-0.24}},updated:'2026-11-09 14:48（缓存样本，盘中快照）',breadth:{up:725,down:4483,flat:87}};
 let chart,bChart;
-async function fetchTO(url,ms=6000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(url,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.text();}
-function parseTencent(t){const out={};t.split(';').forEach(p=>{const m=p.match(/v_(\w+)="([^"]*)"/);if(!m)return;const f=m[2].split('~');out[m[1]]={name:f[1],v:parseFloat(f[3]),c:parseFloat(f[32])};});return out;}
+async function fetchTO(url,ms=30000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(url,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.text();}
+function parseTencent(t){const out={};INDICES.forEach(idx=>{const m=t.match(new RegExp('v_'+TENCENT_KEY[idx.code]+'="([^"]*)"'));if(!m)return;const f=m[1].split('~');const v=parseFloat(f[3]),c=parseFloat(f[32]);if(Number.isFinite(v)&&Number.isFinite(c))out[idx.name]={v,c,ts:f[30]||''};});return out;}
+function fmtPct(c){return (c>=0?'+':'')+c.toFixed(2)+'%';}
+function fmtV(v){return v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function setBadge(el,role,label){el.textContent=label;el.className='badge '+(role==='primary'?'':role);}
 function renderIndices(data,role,when){
-  document.getElementById('indices').innerHTML=Object.entries(data).map(([n,d])=>`<div class="card"><h3>${n}</h3><div class="big">${d.v?.toLocaleString?.()??'—'}</div><div class="${(d.c??0)>=0?'up':'down'}">${(d.c??0)>=0?'+':''}${d.c??'—'}%</div></div>`).join('');
-  setBadge(document.getElementById('srcBadge'),role,role==='primary'?'主源 · 腾讯':role==='backup'?'替补源 · 新浪':'缓存样本');
+  document.getElementById('indices').innerHTML=INDICES.map(idx=>{const d=data[idx.name];if(!d)return '';return `<div class="card"><h3>${idx.name}${d.cached?' <span class="note">缓存</span>':''}</h3><div class="big">${fmtV(d.v)}</div><div class="${(d.c??0)>=0?'up':'down'}">${fmtPct(d.c??0)}</div></div>`;}).join('');
+  setBadge(document.getElementById('srcBadge'),role,role==='primary'?'主源 · 腾讯':role==='backup'?'主源 · 腾讯（部分缓存）':'缓存样本');
   document.getElementById('updated').textContent='更新：'+when;
+}
+function renderHero(data,when,isCache){
+  const sh=data['上证指数'],hsi=data['恒生指数'];
+  document.getElementById('heroIndex').innerHTML='<b>📈 指数</b>'+when+'：上证 '+fmtV(sh.v)+'（'+fmtPct(sh.c)+'）、恒生 '+fmtV(hsi.v)+'（'+fmtPct(hsi.c)+'）。';
+  const b=CACHED.breadth;
+  document.getElementById('heroBreadth').innerHTML='<b>📉 市场温度</b>缓存样本：上涨 '+b.up.toLocaleString()+' 家，下跌 '+b.down.toLocaleString()+' 家，平盘 '+b.flat+' 家——跌多涨少，情绪偏冷。（涨跌家数未实时更新）';
 }
 function renderAH(){
   const rows=[['贵州茅台',1880.00,0, '—'],['中国平安',52.30,48.10,'+27.6%'],['招商银行',42.15,39.80,'+24.2%']];
   document.getElementById('ahTable').querySelector('tbody').innerHTML=rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]||'—'}</td><td>${r[3]}</td></tr>`).join('');
 }
-function drawCharts(){
+function drawCharts(isCache,when){
   const pts=[3630,3640,3635,3652,3649,3655,3649];
   if(chart)chart.destroy();chart=new Chart(document.getElementById('chart'),{type:'line',data:{labels:pts.map((_,i)=>i+1),datasets:[{data:pts,borderColor:'#e11d48',fill:true,backgroundColor:'rgba(225,29,72,.08)',tension:.4}]},options:{plugins:{legend:{display:false}}}});
-  document.getElementById('chartNote').textContent='分时点为缓存示例走势，非实时行情。';
-  if(bChart)bChart.destroy();bChart=new Chart(document.getElementById('breadthChart'),{type:'bar',data:{labels:['上涨','下跌','平盘'],datasets:[{data:[725,4483,87],backgroundColor:['#e11d48','#16a34a','#9ca3af']}]},options:{indexAxis:'y',plugins:{legend:{display:false}}}});
-  document.getElementById('breadth').textContent='上涨 725 · 下跌 4483 · 平盘 87（2026-11-06 收盘缓存）';
+  document.getElementById('chartNote').textContent=isCache?'分时点与指数均为缓存示例（2026-11-09 14:48 盘中快照），非实时行情。':'指数数值为腾讯实时；分时点为缓存示例走势，非实时行情。';
+  const b=CACHED.breadth;
+  if(bChart)bChart.destroy();bChart=new Chart(document.getElementById('breadthChart'),{type:'bar',data:{labels:['上涨','下跌','平盘'],datasets:[{data:[b.up,b.down,b.flat],backgroundColor:['#e11d48','#16a34a','#9ca3af']}]},options:{indexAxis:'y',plugins:{legend:{display:false}}}});
+  document.getElementById('breadth').textContent='上涨 '+b.up+' · 下跌 '+b.down+' · 平盘 '+b.flat+'（缓存样本，涨跌家数未实时更新）';
 }
 async function refreshAll(){
   document.getElementById('sources').innerHTML='正在刷新…';
-  const sources=[];
+  const sources=[];let data={},role='cache',when=CACHED.updated,isCache=true;
   try{
     const t=await fetchTO('https://qt.gtimg.cn/q='+INDICES.map(i=>i.code).join(','));
-    const d=parseTencent(t);const mapped={};INDICES.forEach(i=>{const k=Object.keys(d).find(x=>x.toLowerCase().includes(i.code.replace('sh','').replace('sz','').replace('hk','')));});
-    // 腾讯返回键名不稳定：若解析不到有效值则走替补
-    const vals=Object.values(d).filter(x=>x.v);
-    if(vals.length>=3){renderIndices(Object.fromEntries(vals.map(x=>[x.name,x])) ,'primary',new Date().toLocaleString('zh-CN'));sources.push(['腾讯行情','主源','正常',new Date().toLocaleString('zh-CN')]);}
-    else throw new Error('tencent parse empty');
+    const d=parseTencent(t);const n=Object.keys(d).length;
+    if(n===0)throw new Error('解析不到任何指数');
+    // 只按显式键名解析；解析到的直接渲染，解析失败的单项用缓存补齐，不因个别失败丢掉全部实时值
+    INDICES.forEach(i=>{data[i.name]=d[i.name]||Object.assign({},CACHED.indices[i.name],{cached:true});});
+    const missing=INDICES.length-n;role=missing?'backup':'primary';isCache=false;
+    const now=new Date(); // 盘面是北京时间：显式用 Asia/Shanghai，避免浏览器的本地时区把“实时”时间标错
+    when=now.toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).replace(/\//g,'-')+' 实时';
+    sources.push(['腾讯行情','主源',missing?('正常，'+missing+' 个指数解析失败，已用缓存补齐'):'正常',when]);
   }catch(e){
-    try{await fetchTO('https://hq.sinajs.cn/list=sh000001,sz399001');sources.push(['新浪行情','替补','接口可达但浏览器 CORS 常拦截，见缓存','—']);}catch(e2){sources.push(['新浪行情','替补','失败','—']);}
-    renderIndices(CACHED.indices,'cache',CACHED.updated);sources.push(['腾讯行情','主源','失败，已切缓存',CACHED.updated]);
+    INDICES.forEach(i=>{data[i.name]=Object.assign({},CACHED.indices[i.name],{cached:true});});
+    role='cache';when=CACHED.updated;isCache=true;
+    sources.push(['腾讯行情','主源','失败（'+(e.message||'请求失败')+'），已切缓存',CACHED.updated]);
   }
-  renderAH();drawCharts();renderWatch();
+  // 新浪已移除：hq.sinajs.cn 直连返回 HTTP 403，且不返回 Access-Control-Allow-Origin，浏览器 CORS 拦截——两项都不满足，无法作为有效替补；只写“可达”会误导
+  sources.push(['新浪行情','替补','已移除：直连 403 且无 CORS 头，浏览器拦截，非有效替补','—']);
+  sources.push(['缓存样本','缓存','2026-11-09 14:48 盘中快照（腾讯实测值）',CACHED.updated]);
+  renderIndices(data,role,when);renderHero(data,when,isCache);renderAH();drawCharts(isCache,when);renderWatch();
   document.getElementById('sources').innerHTML=sources.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
 }
 function renderWatch(){const w=JSON.parse(localStorage.getItem('watch')||'[]');document.getElementById('watchList').innerHTML=w.length?w.map((c,i)=>`<div>${c} <a href="#" onclick="delWatch(${i});return false">删除</a></div>`).join(''):'暂无自选，添加后保存在本机浏览器。';}

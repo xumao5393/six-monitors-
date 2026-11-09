@@ -28,6 +28,15 @@ th{font-size:12px;letter-spacing:1px;text-transform:uppercase}
 input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
 canvas{max-width:100%}
 .card canvas{height:260px !important}
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px}
+.wall>div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:18px 10px;border-radius:16px;font-size:30px;line-height:1.2;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.wall>div small{font-size:13px;color:#374151}
+.wall>div:nth-child(1){background:linear-gradient(135deg,#ffedd5,#fdba74)}
+.wall>div:nth-child(2){background:linear-gradient(135deg,#fef3c7,#fcd34d)}
+.wall>div:nth-child(3){background:linear-gradient(135deg,#ffe4e6,#fda4af)}
+.wall>div:nth-child(4){background:linear-gradient(135deg,#fef9c3,#fde047)}
+.wall>div:nth-child(5){background:linear-gradient(135deg,#d1fae5,#6ee7b7)}
+.wall>div:nth-child(6){background:linear-gradient(135deg,#fed7aa,#fb923c)}
 .section-title{font-size:18px;font-weight:800;margin:6px 0 0}
 main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
 
@@ -46,18 +55,18 @@ th{color:#c2410c}
 .big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
 .grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
 </style></head><body>
-<header><h1>🧧 义乌小商品监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge cache">缓存样本</span><button onclick="refreshAll()">🔄 刷新</button></header>
+<header><h1>🧧 义乌小商品监测</h1><span class="sub" id="updated">缓存样本 · 2026年9月</span><span id="srcBadge" class="badge cache">缓存样本</span><button onclick="refreshAll()">📥 载入样本</button></header>
 <main>
-<section class="hero"><h2>义乌小商品 · 商户的风向标</h2><p>义乌指数、义乌购热词榜、国内外爆款与季节日历——批发端在涨什么，这里先知道。</p><div class="feed"><div><b>🔥 国内最热</b>义乌购 30 天热词：手表 17,947 次搜索，袜子、玩具紧随其后。</div><div><b>🌍 海外最热</b>遥控汽车 5,274 次，文具、足球、遥控无人机都在榜上。</div><div><b>📈 景气</b>2026 年 9 月义乌景气指数 1554.97，环比 +0.55%。</div></div></section>
+<section class="hero"><h2>义乌小商品 · 商户的风向标</h2><p>义乌指数、义乌购热词榜、国内外爆款与季节日历——批发端在涨什么，这里先知道。</p><div class="feed"><div><b>🔥 国内最热</b>义乌购 30 天热词：手表 17,947 次搜索，袜子、玩具紧随其后。</div><div><b>🌍 海外最热</b>遥控汽车 5,274 次，文具、足球、遥控无人机都在榜上。</div><div><b>📈 景气</b>2026年9月样本：义乌景气指数 1554.97，环比 +0.55%。</div></div></section>
 <p class="note">第一手来源：<a href="https://www.ywindex.com" target="_blank" rel="noopener">义乌指数 ywindex.com</a> · <a href="https://www.yiwugo.com/top.html" target="_blank" rel="noopener">义乌购排行榜 yiwugo.com/top.html</a>。两站无公开 JSON 接口，浏览器直接拉取常被拦截，本页用调研核实值作缓存并明确标注，请人工打开官网核对。1688 生意参谋完整数据需商家账号，本页只写公开方法，不伪造后台数据。</p>
 <div class="grid" id="kpis"></div>
-<div class="card"><h3>义乌指数 · 景气五维度</h3><canvas id="chart" height="80"></canvas><p class="note">2026年9月景气 1554.97 点，环比 +0.55%（缓存样本）。</p></div>
+<div class="card"><h3>义乌指数 · 景气五维度</h3><canvas id="chart" height="80"></canvas><p class="note">2026年9月样本：景气 1554.97 点，环比 +0.55%（缓存样本，非实时）。</p></div>
 <div class="card"><h3>爆款图墙</h3><div class="wall"><div>⌚<br><small>手表</small></div><div>🧦<br><small>袜子</small></div><div>🧸<br><small>玩具</small></div><div>🐾<br><small>宠物玩具</small></div><div>🥤<br><small>保温杯</small></div><div>🚗<br><small>遥控汽车</small></div></div></div>
 <div class="card"><h3>热词榜 <span class="note">国内 / 海外分开</span></h3>
 <input id="q" placeholder="搜索，如 贴纸" oninput="render()"><select id="scope" onchange="render()"><option value="">全部</option><option>国内</option><option>海外</option></select>
 <table><thead><tr><th>关键词</th><th>市场</th><th onclick="sortBy('n')">搜索量</th></tr></thead><tbody id="tbody"></tbody></table></div>
-<div class="card"><h3>季节日历</h3><table><tbody>
-<tr><td>2026 世界杯</td><td>体育用品出口 Q1 28.3亿 +12%，空白球衣、LED手环、毛绒吉祥物；勿碰 FIFA 队徽</td></tr>
+<div class="card"><h3>季节日历 <span class="note">样本数据</span></h3><table><tbody>
+<tr><td>世界杯</td><td>体育用品出口 Q1 28.3亿 +12%，空白球衣、LED手环、毛绒吉祥物；勿碰 FIFA 队徽</td></tr>
 <tr><td>夏季</td><td>冷感毛巾日出货 16万包</td></tr>
 <tr><td>秋冬</td><td>半绒手套 5个月售 10万+双；棉袄、针织帽</td></tr>
 <tr><td>全年</td><td>宠物玩具、轻户外折叠椅/露营车、宠物自动喂食器、小厨房硅胶收纳</td></tr>
@@ -78,10 +87,10 @@ function render(){
 }
 function sortBy(){sortDir*=-1;render();}
 function refreshAll(){
- document.getElementById('kpis').innerHTML=`<div class="card"><h3>景气指数</h3><div class="big">1554.97</div><div>环比 +0.55%</div></div><div class="card"><h3>周价格指数</h3><div class="big">101.22</div></div><div class="card"><h3>国内热词第1</h3><div class="big">手表</div></div><div class="card"><h3>海外热词第1</h3><div class="big">遥控汽车</div></div>`;
+ document.getElementById('kpis').innerHTML=`<div class="card"><h3>景气指数 · 2026年9月样本</h3><div class="big">1554.97</div><div>环比 +0.55%</div></div><div class="card"><h3>周价格指数（样本）</h3><div class="big">101.22</div></div><div class="card"><h3>国内热词第1（样本）</h3><div class="big">手表</div></div><div class="card"><h3>海外热词第1（样本）</h3><div class="big">遥控汽车</div></div>`;
  if(chart)chart.destroy();chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:['规模','商户信心','顾客人气','物流','资金活跃'],datasets:[{data:[1550,1560,1545,1565,1555],backgroundColor:['#ea580c','#f59e0b','#e11d48','#ca8a04','#059669']}]},options:{plugins:{legend:{display:false}}}});
- document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN')+'（缓存样本）';
- document.getElementById('sources').innerHTML=`<div>义乌购官网 — <span class="badge cache">缓存</span> 浏览器直连常被拦截，样本为调研核实值 · 2026-11-08</div><div>义乌指数官网 — <span class="badge cache">缓存</span> 同上 · 2026-11-08</div><div>1688 生意参谋 — <span class="badge cache">方法</span> 完整数据需商家账号，不伪造</div>`;
+ document.getElementById('updated').textContent='缓存样本 · 2026年9月';
+ document.getElementById('sources').innerHTML=`<div>义乌购官网 — <span class="badge cache">缓存</span> 浏览器直连常被拦截，样本为调研核实值</div><div>义乌指数官网 — <span class="badge cache">缓存</span> 同上，景气指数为 2026年9月样本</div><div>1688 生意参谋 — <span class="badge cache">方法</span> 完整数据需商家账号，不伪造</div>`;
  render();
 }
 refreshAll();

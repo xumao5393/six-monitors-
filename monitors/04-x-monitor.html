@@ -48,35 +48,58 @@ th{color:#0369a1}
 </style></head><body>
 <header><h1>𝕏 X监测（只读）</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge">未获取</span></header>
 <main>
-<section class="hero"><h2>X 监测 · 只读</h2><p>输入任意公开账号，看粉丝、帖子与热搜。不登录、不发帖、不打扰。</p><div class="feed"><div><b>👁 只读</b>不登录、不发帖、不回复、不关注——只看公开数据。</div><div><b>🔄 双通道</b>FxTwitter 主源 → VxTwitter 替补，哪个通了用哪个，都标清楚。</div><div><b>⚠️ 缺失不编</b>单帖浏览量公开接口常不给，缺失就写「未获取」，绝不编数。</div></div></section>
-<div class="warn">只读监测：不登录、不发帖、不回复、不关注。输入任意<b>公开</b> X 账号（不预设任何账号），数据来自 FxTwitter / VxTwitter 公开接口。单帖浏览量公开接口常不提供，缺失时显示「未获取」，不编数。</div>
+<section class="hero"><h2>X 监测 · 只读</h2><p>输入任意公开账号，看粉丝与帖子。不登录、不发帖、不打扰。</p><div class="feed"><div><b>👁 只读</b>不登录、不发帖、不回复、不关注——只看公开数据。</div><div><b>🔄 双通道</b>FxTwitter 主源 → VxTwitter 替补，哪个通了用哪个，都标清楚。</div><div><b>⚠️ 缺失不编</b>接口没给的字段就写「未获取」，绝不编数。</div></div></section>
+<div class="warn">只读监测：不登录、不发帖、不回复、不关注。输入任意<b>公开</b> X 账号（不预设任何账号），数据来自 FxTwitter / VxTwitter 公开接口，帖子来自 FxTwitter 时间线接口。接口未返回的字段显示「未获取」，不编数。</div>
 <div class="card"><input id="handle" placeholder="输入公开账号，如 nasa" style="width:260px"> <button onclick="refreshAll()">🔄 刷新</button></div>
 <div class="grid" id="kpis"></div>
-<div class="card"><h3>热搜（美国，trends24 公开榜）</h3><ol id="trends"><li>未获取</li></ol></div>
-<div class="card"><h3>帖子明细</h3><table><thead><tr><th>时间</th><th>内容</th><th>点赞</th><th>回复</th><th>转发</th></tr></thead><tbody id="posts"><tr><td colspan="5">未获取 — 公开接口未返回时间线时显示此状态</td></tr></tbody></table></div>
+<div class="card"><h3>热搜（美国）</h3><p class="note">trends24.in 只提供 HTML 页面且不带 CORS 头，浏览器无法直接读取；本页不伪造榜单。请手动打开 <a href="https://trends24.in/united-states/" target="_blank" rel="noopener">trends24.in/united-states</a> 查看实时热搜。</p></div>
+<div class="card"><h3>帖子明细</h3><table><thead><tr><th>时间</th><th>内容</th><th>点赞</th><th>回复</th><th>转发</th></tr></thead><tbody id="posts"><tr><td colspan="5">未刷新 — 输入账号并刷新后加载；若公开接口不提供时间线，将如实标注</td></tr></tbody></table></div>
 <div class="card"><h3>数据源状态</h3><div id="sources"></div></div>
 </main>
 <script>
 async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.json();}
+function fmt(n){return (n===undefined||n===null||n==='')?'—':Number(n).toLocaleString('en-US');}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function setKPIs(p){
  document.getElementById('kpis').innerHTML=[
-  ['粉丝',p?.followers??'—'],['关注',p?.following??'—'],['帖子',p?.tweets??'—'],['总获赞',p?.likes??'—']
+  ['粉丝',fmt(p?.followers)],['关注',fmt(p?.following)],['帖子',fmt(p?.tweets)],['总获赞',fmt(p?.likes)]
  ].map(([k,v])=>`<div class="card"><h3>${k}</h3><div class="big">${v}</div></div>`).join('');
 }
 async function refreshAll(){
  const h=document.getElementById('handle').value.trim().replace(/^@/,'');
  if(!h){alert('请先输入公开账号');return;}
  const src=[];let profile=null,role='missing';
- for(const [name,base] of [['FxTwitter','https://api.fxtwitter.com/'],['VxTwitter','https://api.vxtwitter.com/']]){
-   try{const d=await fetchTO(base+encodeURIComponent(h));
-     const u=d.user||d;if(u&&u.followers!==undefined){profile={followers:u.followers,following:u.following,tweets:u.tweets??u.statuses_count,likes:u.likes??'—'};role=name==='FxTwitter'?'primary':'backup';src.push([name,role==='primary'?'主源':'替补','正常',new Date().toLocaleString('zh-CN')]);break;}
+ // 主源：FxTwitter /2/profile/{handle} -> {user:{followers,following,statuses,likes}}
+ try{const d=await fetchTO('https://api.fxtwitter.com/2/profile/'+encodeURIComponent(h));
+   const u=d&&d.user;
+   if(u&&typeof u.followers==='number'){profile={followers:u.followers,following:u.following,tweets:u.statuses,likes:u.likes};role='primary';src.push(['FxTwitter','主源','正常',new Date().toLocaleString('zh-CN')]);}
+   else throw new Error('no user');
+ }catch(e){src.push(['FxTwitter','主源','失败','—']);}
+ // 替补：VxTwitter /{handle} -> 顶层 {followers_count,following_count,tweet_count}，无 user 包装、无总获赞
+ if(!profile){
+   try{const d=await fetchTO('https://api.vxtwitter.com/'+encodeURIComponent(h));
+     if(d&&typeof d.followers_count==='number'){profile={followers:d.followers_count,following:d.following_count,tweets:d.tweet_count,likes:undefined};role='backup';src.push(['VxTwitter','替补','正常',new Date().toLocaleString('zh-CN')]);}
      else throw new Error('no user');
-   }catch(e){src.push([name,name==='FxTwitter'?'主源':'替补','失败','—']);}
+   }catch(e){src.push(['VxTwitter','替补','失败','—']);}
  }
  setKPIs(profile);
  const b=document.getElementById('srcBadge');b.textContent=profile?(role==='primary'?'主源 · FxTwitter':'替补源 · VxTwitter'):'未获取';b.className='badge '+(role==='primary'?'':role==='backup'?'backup':'cache');
  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
- document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+'<p class="note">热搜：trends24 公开榜在浏览器常被 CORS 拦截，拦截时显示未获取，不编榜单。</p>';
- try{const t=await fetchTO('https://trends24.in/united-states/');document.getElementById('trends').innerHTML='<li>trends24 页面为 HTML 榜单，需人工打开核对，本页不解析其 HTML。</li>';}catch(e){document.getElementById('trends').innerHTML='<li>未获取（CORS / 网络）— 请打开 trends24.in 核对</li>';}
+ document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+'<p class="note">帖子：FxTwitter 时间线接口 /2/profile/{账号}/statuses；VxTwitter 无时间线接口（404），不做替补。字段以接口实测为准：转发为 reposts；浏览量接口有返回，但本表不展示。</p>';
+ // 帖子明细：FxTwitter 时间线（/2/profile/{handle}/statuses -> {results:[{created_at,created_timestamp,text,likes,replies,reposts,views}]})
+ const postsEl=document.getElementById('posts');
+ try{
+   const d=await fetchTO('https://api.fxtwitter.com/2/profile/'+encodeURIComponent(h)+'/statuses');
+   const list=Array.isArray(d&&d.results)?d.results:[];
+   if(!list.length)throw new Error('empty timeline');
+   postsEl.innerHTML=list.slice(0,10).map(t=>{
+     const ts=t.created_timestamp?new Date(t.created_timestamp*1000):(t.created_at?new Date(t.created_at):null);
+     const time=ts&&!isNaN(ts)?ts.toLocaleString('zh-CN'):'未获取';
+     const text=t.text?esc(t.text.length>140?t.text.slice(0,140)+'…':t.text):'未获取';
+     return `<tr><td>${time}</td><td><a href="${esc(t.url||('https://x.com/'+encodeURIComponent(h)+'/status/'+t.id))}" target="_blank" rel="noopener">${text}</a></td><td>${fmt(t.likes)}</td><td>${fmt(t.replies)}</td><td>${fmt(t.reposts)}</td></tr>`;
+   }).join('');
+ }catch(e){
+   postsEl.innerHTML='<tr><td colspan="5">未获取 — 公开接口不提供时间线（FxTwitter 时间线接口失败，VxTwitter 无时间线接口）</td></tr>';
+ }
 }
 </script></body></html>

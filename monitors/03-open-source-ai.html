@@ -48,55 +48,153 @@ th{color:#047857}
 </style></head><body>
 <header><h1>🧭 开源AI监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
-<section class="hero"><h2>开源 AI · 谁在涨 Star</h2><p>不看总 Star，看周增 Star。涨得快的项目，才是正在发生的趋势。</p><div class="feed"><div><b>⭐ 第一指标</b>看周增 Star（Δ Star），不是总 Star——涨得快的才是真热。</div><div><b>🔥 老将</b>transformers 14.8 万 Star、ollama 14.5 万 Star，仍是开源 AI 的压舱石。</div><div><b>⚠️ 限额</b>GitHub Search 未登录每小时限 10 次，超限显示缓存并标注。</div></div></section>
-<p class="note">第一指标是 <b>周增 Star（Δ Star）</b>，不是总 Star。GitHub Search API 未登录每小时限 10 次，超限时显示缓存并标注。周增量需连续快照积累，第一天只有基线。</p>
+<section class="hero"><h2>开源 AI · 谁在涨 Star</h2><p>不看总 Star，看周增 Star。涨得快的项目，才是正在发生的趋势。</p><div class="feed"><div><b>⭐ 第一指标</b>看周增 Star（Δ Star），不是总 Star——涨得快的才是真热。</div><div><b>🔥 老将</b>transformers 约 16.9 万 Star、ollama 约 18.6 万 Star，仍是开源 AI 的压舱石。</div><div><b>⚠️ 限额</b>GitHub Core API 未登录每小时限 60 次，本页按白名单逐仓拉取；超限时显示已加载部分或缓存并标注。</div></div></section>
+<p class="note">第一指标是 <b>周增 Star（Δ Star）</b>，不是总 Star。Δ Star 由本机 localStorage 快照差分算出：每次加载记录当日 Star，与 ≥6 天前的最早快照对比；第一天只有基线，显示“积累中”，不拿总 Star 冒充周增。仓库来自人工核实的白名单（逐仓拉取），不再用 topic 搜索过滤。</p>
 <div class="grid" id="kpis"></div>
-<div class="card"><h3>分类 Star 条形图</h3><canvas id="chart" height="80"></canvas></div>
+<div class="card"><h3>分类总 Star 条形图（总 Star，不是周增）</h3><canvas id="chart" height="80"></canvas><p class="note">此图只汇总各分类的总 Star；涨幅请看榜单的 Δ Star 列。</p></div>
 <div class="card"><h3>榜单</h3>
 <input id="q" placeholder="搜索，如 ollama" oninput="render()"><select id="cat" onchange="render()"><option value="">全部分类</option><option>LLM</option><option>Agent</option><option>MCP</option><option>编码</option><option>视觉</option><option>音频</option></select>
-<table><thead><tr><th onclick="sortBy('name')">仓库</th><th>分类</th><th onclick="sortBy('stars')">Star</th><th onclick="sortBy('forks')">Fork</th><th>语言</th><th>最近推送</th></tr></thead><tbody id="tbody"></tbody></table>
+<table><thead><tr><th onclick="sortBy('name')">仓库</th><th>分类</th><th onclick="sortBy('stars')">Star</th><th onclick="sortBy('delta')">Δ Star</th><th onclick="sortBy('forks')">Fork</th><th>语言</th><th>最近推送</th></tr></thead><tbody id="tbody"></tbody></table>
 <p class="note" id="note"></p></div>
 <div class="card"><h3>数据源状态</h3><div id="sources"></div></div>
 </main>
 <script>
 let repos=[],sortKey='stars',sortDir=-1,chart;
-const FALLBACK=[
- {name:'ollama/ollama',cat:'LLM',stars:145000,forks:12000,lang:'Go',pushed:'2026-11-07'},
- {name:'huggingface/transformers',cat:'LLM',stars:148000,forks:29000,lang:'Python',pushed:'2026-11-07'},
- {name:'comfyanonymous/ComfyUI',cat:'视觉',stars:82000,forks:9000,lang:'Python',pushed:'2026-11-06'},
- {name:'langchain-ai/langchain',cat:'Agent',stars:108000,forks:17000,lang:'Python',pushed:'2026-11-07'},
- {name:'modelcontextprotocol/servers',cat:'MCP',stars:32000,forks:4000,lang:'TypeScript',pushed:'2026-11-05'},
- {name:'openai/codex',cat:'编码',stars:45000,forks:5000,lang:'Rust',pushed:'2026-11-07'},
+const SNAP_KEY='osa-star-snapshots-v1';
+const DAY=86400000;
+/* 白名单：人工逐仓核实存在（2026-11-09 curl 验证）。
+   旧路径已纠正：comfyanonymous/ComfyUI → Comfy-Org/ComfyUI（301），
+   ggerganov/llama.cpp → ggml-org/llama.cpp（301），
+   oobabooga/text-generation-webui → oobabooga/textgen（301）。*/
+const WHITELIST=[
+ ['ollama/ollama','LLM'],['huggingface/transformers','LLM'],['ggml-org/llama.cpp','LLM'],
+ ['vllm-project/vllm','LLM'],['mlc-ai/mlc-llm','LLM'],['oobabooga/textgen','LLM'],
+ ['langchain-ai/langchain','Agent'],['langchain-ai/langgraph','Agent'],['microsoft/autogen','Agent'],
+ ['crewAIInc/crewAI','Agent'],['Significant-Gravitas/AutoGPT','Agent'],
+ ['modelcontextprotocol/servers','MCP'],['modelcontextprotocol/typescript-sdk','MCP'],
+ ['openai/codex','编码'],['continuedev/continue','编码'],['Aider-AI/aider','编码'],['opencode-ai/opencode','编码'],
+ ['Comfy-Org/ComfyUI','视觉'],['AUTOMATIC1111/stable-diffusion-webui','视觉'],['huggingface/diffusers','视觉'],
+ ['openai/whisper','音频'],['SYSTRAN/faster-whisper','音频'],['coqui-ai/TTS','音频'],['RVC-Boss/GPT-SoVITS','音频'],
 ];
-async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal,headers:{Accept:'application/vnd.github+json'}});if(!r.ok)throw new Error(r.status+' '+await r.text().catch(()=>''));return r.json();}
+/* 备用缓存：2026-11-09 curl 逐仓核实的 Star / Fork 数，仅在主源与替补均失败时使用。*/
+const FALLBACK=[
+ {name:'ollama/ollama',cat:'LLM',stars:186408,forks:18974,lang:'Go',pushed:'2026-11-08'},
+ {name:'huggingface/transformers',cat:'LLM',stars:168677,forks:35144,lang:'Python',pushed:'2026-11-09'},
+ {name:'ggml-org/llama.cpp',cat:'LLM',stars:133784,forks:25277,lang:'C++',pushed:'2026-11-09'},
+ {name:'vllm-project/vllm',cat:'LLM',stars:96582,forks:24573,lang:'Python',pushed:'2026-11-09'},
+ {name:'mlc-ai/mlc-llm',cat:'LLM',stars:23315,forks:2166,lang:'Python',pushed:'2026-10-30'},
+ {name:'oobabooga/textgen',cat:'LLM',stars:47733,forks:5976,lang:'Python',pushed:'2026-08-17'},
+ {name:'langchain-ai/langchain',cat:'Agent',stars:149238,forks:25098,lang:'Python',pushed:'2026-11-09'},
+ {name:'langchain-ai/langgraph',cat:'Agent',stars:44677,forks:7697,lang:'Python',pushed:'2026-11-08'},
+ {name:'microsoft/autogen',cat:'Agent',stars:61753,forks:9391,lang:'Python',pushed:'2026-10-28'},
+ {name:'crewAIInc/crewAI',cat:'Agent',stars:60673,forks:9113,lang:'Python',pushed:'2026-11-09'},
+ {name:'Significant-Gravitas/AutoGPT',cat:'Agent',stars:187957,forks:45891,lang:'Python',pushed:'2026-11-09'},
+ {name:'modelcontextprotocol/servers',cat:'MCP',stars:91877,forks:11932,lang:'TypeScript',pushed:'2026-11-05'},
+ {name:'modelcontextprotocol/typescript-sdk',cat:'MCP',stars:13734,forks:2376,lang:'TypeScript',pushed:'2026-11-05'},
+ {name:'openai/codex',cat:'编码',stars:134005,forks:21223,lang:'Rust',pushed:'2026-11-09'},
+ {name:'continuedev/continue',cat:'编码',stars:36437,forks:5556,lang:'TypeScript',pushed:'2026-11-05'},
+ {name:'Aider-AI/aider',cat:'编码',stars:50027,forks:5145,lang:'Python',pushed:'2026-05-22'},
+ {name:'opencode-ai/opencode',cat:'编码',stars:13877,forks:2926,lang:'Go',pushed:'2025-09-18'},
+ {name:'Comfy-Org/ComfyUI',cat:'视觉',stars:145844,forks:17369,lang:'Python',pushed:'2026-11-09'},
+ {name:'AUTOMATIC1111/stable-diffusion-webui',cat:'视觉',stars:165263,forks:31612,lang:'Python',pushed:'2026-03-02'},
+ {name:'huggingface/diffusers',cat:'视觉',stars:34891,forks:7470,lang:'Python',pushed:'2026-11-09'},
+ {name:'openai/whisper',cat:'音频',stars:112266,forks:13589,lang:'Python',pushed:'2026-08-31'},
+ {name:'SYSTRAN/faster-whisper',cat:'音频',stars:26604,forks:2224,lang:'Python',pushed:'2026-11-06'},
+ {name:'coqui-ai/TTS',cat:'音频',stars:46194,forks:6162,lang:'Python',pushed:'2024-08-16'},
+ {name:'RVC-Boss/GPT-SoVITS',cat:'音频',stars:64596,forks:6787,lang:'Python',pushed:'2026-10-31'},
+];
+function loadSnaps(){try{return JSON.parse(localStorage.getItem(SNAP_KEY)||'{}')}catch(e){return{}}}
+function saveSnaps(s){try{localStorage.setItem(SNAP_KEY,JSON.stringify(s))}catch(e){}}
+/* 对单个仓库算 Δ：基线取 ≥6 天前的最早快照；没有则取现存最早快照并标注天数；
+   没有任何历史快照时返回 null（积累中）。算完后再记今日快照（每天只记一条）。*/
+function computeDelta(name,stars){
+ const snaps=loadSnaps(),list=(snaps[name]||[]).slice().sort((a,b)=>a.t-b.t),now=Date.now();
+ let base=null;
+ for(const s of list){if(now-s.t>=6*DAY){base=s;break;}}
+ if(!base&&list.length)base=list[0];
+ let delta=null;
+ if(base)delta={value:stars-base.stars,ageDays:Math.max(0,Math.floor((now-base.t)/DAY))};
+ const today=new Date(now).toDateString();
+ if(!list.some(s=>new Date(s.t).toDateString()===today)){
+   list.push({t:now,stars});
+   const pruned=list.filter(s=>now-s.t<=30*DAY).slice(-10);
+   snaps[name]=pruned;saveSnaps(snaps);
+ }
+ return delta;
+}
+async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal,headers:{Accept:'application/vnd.github+json'}});return{ok:r.ok,status:r.status,data:r.ok?await r.json():null};}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function deltaText(r){return r.delta==null?'积累中':(r.delta.value>=0?'+':'')+r.delta.value.toLocaleString()+'（'+r.delta.ageDays+'天）';}
 function render(){
  const q=(document.getElementById('q').value||'').toLowerCase(),c=document.getElementById('cat').value;
  let list=repos.filter(r=>(!q||r.name.toLowerCase().includes(q))&&(!c||r.cat===c));
- list.sort((a,b)=>(a[sortKey]>b[sortKey]?1:-1)*sortDir);
- document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td><a href="https://github.com/${r.name}" target="_blank" rel="noopener">${r.name}</a></td><td>${r.cat}</td><td>${r.stars?.toLocaleString()}</td><td>${r.forks?.toLocaleString()}</td><td>${r.lang||'—'}</td><td>${r.pushed||'—'}</td></tr>`).join('')||'<tr><td colspan="6">无匹配</td></tr>';
+ list.sort((a,b)=>{
+   const av=a[sortKey],bv=b[sortKey];
+   const an=(sortKey==='delta')?(av==null?-Infinity:av.value):av, bn=(sortKey==='delta')?(bv==null?-Infinity:bv.value):bv;
+   return (an>bn?1:an<bn?-1:0)*sortDir;
+ });
+ document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td><a href="https://github.com/${r.name}" target="_blank" rel="noopener">${r.name}</a></td><td>${r.cat}</td><td>${r.stars?.toLocaleString()}</td><td>${deltaText(r)}</td><td>${r.forks?.toLocaleString()??'—'}</td><td>${r.lang||'—'}</td><td>${r.pushed||'—'}</td></tr>`).join('')||'<tr><td colspan="7">无匹配</td></tr>';
 }
 function sortBy(k){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1;}render();}
 function draw(){
  const cats={};repos.forEach(r=>cats[r.cat]=(cats[r.cat]||0)+r.stars);
  if(chart)chart.destroy();chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:Object.keys(cats),datasets:[{data:Object.values(cats),backgroundColor:['#059669','#0891b2','#d97706','#7c3aed','#dc2626','#ea580c']}]},options:{plugins:{legend:{display:false}}}});
 }
+function renderKpis(role){
+ const gained=repos.filter(r=>r.delta!=null).sort((a,b)=>b.delta.value-a.delta.value);
+ const top=gained[0];
+ const active=repos.filter(r=>r.pushed&&(Date.now()-new Date(r.pushed+'T00:00:00').getTime())<=7*DAY).length;
+ const topHtml=top
+   ?`<div class="big">+${top.delta.value.toLocaleString()}</div><div class="note">${top.name}（${top.delta.ageDays}天）</div>`
+   :`<div class="big" style="font-size:22px">积累中</div><div class="note">第1天基线，7天后出周增</div>`;
+ document.getElementById('kpis').innerHTML=
+  `<div class="card"><h3>仓库数</h3><div class="big">${repos.length}</div></div>`+
+  `<div class="card"><h3>总 Star</h3><div class="big">${repos.reduce((s,r)=>s+(r.stars||0),0).toLocaleString()}</div></div>`+
+  `<div class="card"><h3>周增 Star 榜</h3>${topHtml}</div>`+
+  `<div class="card"><h3>活跃仓库</h3><div class="big">${active}</div><div class="note">7 天内有推送</div></div>`+
+  `<div class="card"><h3>数据来源</h3><div class="big" style="font-size:22px">${role==='primary'?'白名单逐仓':role==='backup'?'搜索替补':'缓存样本'}</div></div>`;
+}
 async function refreshAll(){
- const src=[];let role='cache';
- const queries=[['LLM','topic:llm'],['Agent','topic:ai-agent'],['MCP','topic:mcp'],['编码','topic:code-assistant'],['视觉','topic:image-generation']];
- try{
-   const all=[];
-   for(const [cat,q] of queries){const d=await fetchTO('https://api.github.com/search/repositories?q='+encodeURIComponent(q)+'&sort=stars&per_page=5');(d.items||[]).forEach(it=>all.push({name:it.full_name,cat,stars:it.stargazers_count,forks:it.forks_count,lang:it.language,pushed:(it.pushed_at||'').slice(0,10)}));}
-   if(all.length){repos=all;role='primary';src.push(['GitHub Search API','主源','正常',new Date().toLocaleString('zh-CN')]);}
- }catch(e){src.push(['GitHub Search API','主源','失败（可能超限/网络）','—']);}
- if(!repos.length){
-   try{const d=await fetchTO('https://api.github.com/repos/ollama/ollama');repos=[{name:d.full_name,cat:'LLM',stars:d.stargazers_count,forks:d.forks_count,lang:d.language,pushed:(d.pushed_at||'').slice(0,10)}];role='backup';src.push(['GitHub Core API','替补','正常（逐仓）',new Date().toLocaleString('zh-CN')]);}catch(e){src.push(['GitHub Core API','替补','失败','—']);}
+ const src=[];let role='cache';repos=[];
+ const failed=[];let rateLimited=false;
+ /* 主源：白名单逐仓 GET /repos/{full_name}，顺序拉取、每次间隔 300ms，
+    未登录 Core 限额 60/小时；遇 403 限额即停，保留已加载部分。*/
+ for(const [name,cat] of WHITELIST){
+   try{
+     const r=await fetchTO('https://api.github.com/repos/'+name);
+     if(r.status===403){rateLimited=true;failed.push(name+'（403 限额）');break;}
+     if(!r.ok){failed.push(name+'（HTTP '+r.status+'）');continue;}
+     const d=r.data;
+     const repo={name:d.full_name,cat,stars:d.stargazers_count,forks:d.forks_count,lang:d.language,pushed:(d.pushed_at||'').slice(0,10)};
+     repo.delta=computeDelta(repo.name,repo.stars);
+     repos.push(repo);render();draw();renderKpis('primary');
+   }catch(e){failed.push(name+'（网络失败）');}
+   await sleep(300);
  }
- if(!repos.length){repos=FALLBACK;role='cache';src.push(['缓存样本','缓存','主/替补均失败，Star 数为调研核实值','2026-11-08']);}
- document.getElementById('kpis').innerHTML=`<div class="card"><h3>仓库数</h3><div class="big">${repos.length}</div></div><div class="card"><h3>总 Star</h3><div class="big">${repos.reduce((s,r)=>s+(r.stars||0),0).toLocaleString()}</div></div><div class="card"><h3>本周亮点</h3><div class="big">${role==='cache'?'积累中':'见榜单'}</div></div><div class="card"><h3>活跃仓库</h3><div class="big">${repos.filter(r=>r.pushed>='2026-11-05').length}</div></div>`;
+ if(repos.length){role='primary';src.push(['GitHub Core API（白名单逐仓）','主源',rateLimited?'部分加载（遇 403 限额，已停）':'正常 '+repos.length+'/'+WHITELIST.length+' 仓',new Date().toLocaleString('zh-CN')]);}
+ if(failed.length)src.push(['拉取失败','—',failed.join('；'),'—']);
+ /* 替补：仅当主源一仓未取到时，用一次 GitHub Search 做发现（已标注为替补发现）。*/
+ if(!repos.length){
+   try{
+     const r=await fetchTO('https://api.github.com/search/repositories?q='+encodeURIComponent('topic:llm')+'&sort=stars&per_page=5');
+     if(r.ok&&(r.data.items||[]).length){
+       repos=r.data.items.map(it=>({name:it.full_name,cat:'LLM',stars:it.stargazers_count,forks:it.forks_count,lang:it.language,pushed:(it.pushed_at||'').slice(0,10),delta:computeDelta(it.full_name,it.stargazers_count)}));
+       role='backup';src.push(['GitHub Search API','替补（发现）','正常（主源全失败后启用）',new Date().toLocaleString('zh-CN')]);
+     }else src.push(['GitHub Search API','替补（发现）','失败（HTTP '+r.status+'）','—']);
+   }catch(e){src.push(['GitHub Search API','替补（发现）','失败（网络）','—']);}
+ }
+ if(!repos.length){
+   repos=FALLBACK.map(r=>({...r,delta:computeDelta(r.name,r.stars)}));
+   role='cache';src.push(['缓存样本','缓存','主/替补均失败，Star 数为 2026-11-09 逐仓核实值','2026-11-09（核实日）']);
+ }
+ const snaps=loadSnaps(),oldBase=Object.keys(snaps).filter(k=>snaps[k]&&snaps[k].some(s=>Date.now()-s.t>=DAY)).length;
+ const todayBase=Object.keys(snaps).filter(k=>snaps[k]&&snaps[k].length).length;
+ src.push(['本地快照 localStorage','快照',oldBase?oldBase+' 个仓库有 ≥1 天前基线（Δ 按 ≥6 天快照差分）':'今日为第1天基线（'+todayBase+' 仓已记今日快照），7 天后出周增','—']);
+ renderKpis(role);
  const b=document.getElementById('srcBadge');b.textContent=role==='primary'?'主源':role==='backup'?'替补源':'缓存样本';b.className='badge '+(role==='primary'?'':role);
  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
- document.getElementById('note').textContent=role==='cache'?'当前为缓存样本。':'数据来自 GitHub 公开 API。';
- document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
+ document.getElementById('note').textContent=role==='cache'?'当前为缓存样本（2026-11-09 核实）。Δ Star 仍按本机快照差分计算。':'数据来自 GitHub 公开 API（白名单逐仓）。Δ Star = 当前 Star − 本机 ≥6 天前快照，基线不足时显示“积累中”。';
+ document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补（发现）'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
  render();draw();
 }
 refreshAll();
