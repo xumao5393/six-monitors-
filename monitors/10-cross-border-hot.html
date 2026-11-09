@@ -47,8 +47,8 @@ header{background:linear-gradient(90deg,#881337,#e11d48,#f97316);color:#fff;box-
       .card canvas{height:200px !important}
       header button{margin-left:0;width:100%}
     }
-</style></head><body>
-<header><h1>🌍 跨境爆款监测</h1><span class="sub" id="updated">人工精选 · 缓存样本 · 更新 2026-11-09</span><span class="badge cache">人工精选 / 缓存样本</span><span class="badge backup" id="ageBadge">样本年龄计算中…</span><button onclick="refreshAll()">📥 载入样本</button></header>
+.lang-toggle{background:rgba(255,255,255,.92)!important;color:#1a1d29!important;border:1px solid rgba(255,255,255,.65)!important;padding:9px 14px!important;font-size:13px!important;margin-left:0!important;width:auto!important;flex:none!important}@media (max-width:720px){header .lang-toggle{width:auto!important;margin-left:auto!important}}</style></head><body>
+<header><h1>🌍 跨境爆款监测</h1><span class="sub" id="updated">人工精选 · 缓存样本 · 更新 2026-11-09</span><span class="badge cache">人工精选 / 缓存样本</span><span class="badge backup" id="ageBadge">样本年龄计算中…</span><button class="lang-toggle" id="langToggle" onclick="toggleLang()" aria-pressed="false" title="Switch language / 切换语言">🌐 中文 / EN</button><button onclick="refreshAll()">📥 载入样本</button></header>
 <main>
 <section class="hero"><h2>跨境爆款 · 下个月该上什么品，先看这里</h2><p>⚠️ 本页不是实时榜单。跨境平台没有稳定免费的实时榜单源，本页定位为「人工周更精选 + 趋势信号」，所有数字均为人工整理的缓存样本，更新日期 2026-11-09。请勿当作实时排名使用。</p><div class="feed"><div><b>🔥 海外最热 · 今日看点</b>遥控汽车 5,274 次搜索，海外热词第 1（义乌购海外榜样本）。</div><div><b>🧧 国内最热</b>手表 17,947 次搜索，国内热词第 1；袜子、玩具紧随其后。</div><div><b>⚽ 世界杯信号</b>体育用品出口 Q1 28.3 亿元、同比 +12%（样本）；空白球衣、LED 手环、毛绒吉祥物——勿碰 FIFA 队徽。</div></div></section>
 <p class="note">第一手来源：<a href="https://www.yiwugo.com/top.html" target="_blank" rel="noopener">义乌购排行榜 yiwugo.com/top.html</a> · <a href="https://www.ywindex.com" target="_blank" rel="noopener">义乌指数 ywindex.com</a>。两站无公开 JSON 接口，浏览器直接拉取常被拦截，本页用调研核实值作缓存并明确标注，请人工打开官网核对。Amazon / Temu / TikTok Shop 无免费官方榜单接口、反爬极强，本页不伪造其排名。</p>
@@ -70,6 +70,98 @@ header{background:linear-gradient(90deg,#881337,#e11d48,#f97316);color:#fff;box-
 <p class="note" style="margin-top:10px">⚠️ 无备份，已明示：Amazon Best Sellers、Temu、TikTok Shop —— 无免费官方接口、反爬极强，没有可用的实时主源，也就没有可用的实时备份源。本页对这三个平台只做人工精选，不呈现任何排名数字；如需其排名，请人工打开平台 App / 网页核对。</p></details></div>
 <div class="warn">诚实声明：本页全部数字均为人工精选缓存样本（更新 2026-11-09），非实时抓取。样本过期后请以官网为准；过期标记见顶部徽章（样本超过 14 天即标「已过期」）。</div>
 </main>
+<!-- i18n-v1 -->
+
+<script>
+/* i18n-v1 — bilingual zh/en toggle (2026-11-09). Language: ?lang=, else localStorage 'mon-lang', default zh.
+   Original text is stored on each node when translated, so toggling back restores it exactly. */
+(function(){
+var BASE={"未获取": "Not available", "未刷新": "Not refreshed yet", "正在拉取…": "Loading…", "正常": "OK", "失败": "Failed", "主源": "Primary", "替补": "Backup", "缓存": "Cache", "缓存样本": "Cached sample", "实时": "Live", "数据源状态": "Data sources", "数据源与备份链": "Sources & backup chain", "全部": "All", "全部厂商": "All vendors", "全部语言": "All languages", "全部类型": "All types", "全部市场": "All markets", "全部类别": "All categories", "全部分类": "All categories", "无匹配": "No matches", "无匹配，未获取时不编数": "No matches; nothing invented when unavailable", "是": "Yes", "否": "No", "模型": "Model", "厂商": "Vendor", "价格": "Price", "分数": "Score", "上下文": "Context", "国内": "Domestic", "海外": "Overseas", "样本": "Sample", "样本数据": "Sample data", "样本年龄计算中…": "Computing sample age…", "样本新鲜 · 更新于 2026-11-09": "Sample fresh · Updated 2026-11-09", "人工策展": "Hand-curated", "人工精选": "Hand-picked", "人工整理·非API": "Hand-compiled · Not an API", "点表头排序": "Click a header to sort", "搜索量": "Search volume", "关键词": "Keyword", "市场": "Market", "趋势信号": "Trend signal", "季节日历": "Seasonal calendar", "数据源备份链（每个源都有备份；无备份的环节会明说）": "Source backup chain (every source has a backup; gaps are stated)", "积累中": "Accumulating", "基线积累中": "Baseline accumulating", "涨价": "Price up", "降价": "Price down", "未知": "Unknown", "云端": "Cloud", "本地/云": "Local / Cloud", "免费起": "From free", "未公开": "Not disclosed", "多模型": "Multi-model", "开源": "Open source", "在哪跑": "Runs on", "定时": "Scheduled", "已过期": "Expired", "🔄 刷新": "🔄 Refresh", "📥 载入样本": "📥 Load sample", "截至 2026-11-09": "As of 2026-11-09", "未标注": "not labelled", "时间未标注": "time not labelled", "OpenRouter 实时": "OpenRouter live", "备份": "Backup", "数据来源": "Data sources", "（无标题）": "(No title)", "缓存样本 · 2026年9月": "Cached sample · Sep 2026", "人工精选 / 缓存样本": "Hand-picked / Cached sample", "人工精选 · 缓存样本 · 更新 2026-11-09": "Hand-picked · Cached sample · Updated 2026-11-09", "人工策展 · 非实时抓取 · 更新日期 2026-11-09": "Hand-curated · Not live · Updated 2026-11-09", "样本 / 人工判断 · 更新日期 2026-11-09": "Sample / human judgement · Updated 2026-11-09", "样本 · 非实测": "Sample · Not measured", "纯静态 · 零外部依赖 · 内置数据 2026-11 至 2027-12": "Fully static · No external dependencies · Built-in data Nov 2026 – Dec 2027", "静态日历": "Static calendar", "未启用（主源正常）": "Not used (primary OK)", "未启用（替补正常）": "Not used (backup OK)", "主源 · FxTwitter": "Primary · FxTwitter", "替补失效": "Backup dead", "替补失效（2026-11-09 实测 403 CF），未尝试": "Backup dead (403 Cloudflare on 2026-11-09), not tried", "目录中无白名单模型": "No allow-listed models in catalog", "目录中白名单不足 8 个": "Fewer than 8 allow-listed models in catalog", "当前无涨跌数据，请选全部/基线": "No up/down data yet — pick All / Baseline", "当日": "Today", "全部变动状态": "All change states", "输入 $/M": "Input $/M", "输出 $/M": "Output $/M", "输入价 $/M": "Input price $/M", "价格 $/M": "Price $/M", "价格 $/M（输入）": "Price $/M (input)", "分数（AA 智能指数 v5）": "Score (AA Intelligence Index v5)", "变动": "Change", "备注": "Notes", "新品": "Product", "日期": "Date", "类型": "Type", "一句话卖点": "One-line pitch", "来源": "Source", "产品": "Product", "类别": "Category", "票数": "Votes", "是否 AI": "AI?", "仓库": "Repo", "分类": "Category", "语言": "Language", "最近推送": "Last push", "总 Star": "Total stars", "创建日期": "Created", "一句话": "One-liner", "时间": "Time", "内容": "Content", "点赞": "Likes", "回复": "Replies", "转发": "Reposts", "粉丝": "Followers", "关注": "Following", "帖子": "Posts", "总获赞": "Total likes", "事件": "Event", "影响一句话": "Impact in one line", "来源（主源 / 替补）": "Sources (primary / backup)", "节点": "Date", "倒计时": "Countdown", "关联品类": "Related categories", "配套选题": "Content ideas", "近 30 天方向": "30-day direction", "依据一句话（人工判断）": "Reason (human judgement)", "相关上升词（人工整理）": "Related rising terms (hand-compiled)", "用途": "Use for", "商品": "Product", "30 天搜索量（样本）": "30-day searches (sample)", "数据源": "Source", "备用": "Backup", "状态": "Status", "仅 AI 相关": "AI-related only", "搜索，如 贴纸": "Search, e.g. stickers", "搜索，如 遥控": "Search, e.g. remote control", "搜索，如 春节 / 圣诞": "Search, e.g. Spring Festival / Christmas", "搜索，如 agent": "Search, e.g. agent", "搜索，如 NoMac": "Search, e.g. NoMac", "搜索，如 ollama": "Search, e.g. ollama", "搜索模型，如 Kimi / DeepSeek": "Search models, e.g. Kimi / DeepSeek", "搜索模型，如 DeepSeek / Grok": "Search models, e.g. DeepSeek / Grok", "搜索新品，如 Kimi / Gemini": "Search launches, e.g. Kimi / Gemini", "输入公开账号，如 nasa": "Enter a public handle, e.g. nasa"}, PAGE={"跨境爆款监测": "Cross-Border Bestsellers Monitor", "🌍 跨境爆款监测": "🌍 Cross-Border Bestsellers Monitor", "跨境爆款 · 下个月该上什么品，先看这里": "Cross-border bestsellers · What to list next month, start here", "⚠️ 本页不是实时榜单。跨境平台没有稳定免费的实时榜单源，本页定位为「人工周更精选 + 趋势信号」，所有数字均为人工整理的缓存样本，更新日期 2026-11-09。请勿当作实时排名使用。": "⚠️ This page is not a live ranking. Cross-border platforms have no stable free live ranking source, so this page is “hand-picked weekly + trend signals” — every number is a hand-compiled cached sample, updated 2026-11-09. Do not use it as a live ranking.", "🔥 海外最热 · 今日看点": "🔥 Hottest overseas · Today", "遥控汽车 5,274 次搜索，海外热词第 1（义乌购海外榜样本）。": "RC cars, 5,274 searches — top overseas keyword (Yiwugo overseas ranking sample).", "🧧 国内最热": "🧧 Hottest in China", "手表 17,947 次搜索，国内热词第 1；袜子、玩具紧随其后。": "Watches, 17,947 searches — top domestic keyword; socks and toys close behind.", "⚽ 世界杯信号": "⚽ World Cup signal", "体育用品出口 Q1 28.3 亿元、同比 +12%（样本）；空白球衣、LED 手环、毛绒吉祥物——勿碰 FIFA 队徽。": "Sports-goods exports Q1 ¥2.83B, +12% YoY (sample); blank jerseys, LED wristbands, plush mascots — never touch FIFA crests.", "第一手来源：": "Primary sources:", "。两站无公开 JSON 接口，浏览器直接拉取常被拦截，本页用调研核实值作缓存并明确标注，请人工打开官网核对。Amazon / Temu / TikTok Shop 无免费官方榜单接口、反爬极强，本页不伪造其排名。": ". Neither site offers a public JSON API and browsers are often blocked fetching them directly, so this page uses researched, verified values as labelled cache — please check the official sites yourself. Amazon / Temu / TikTok Shop have no free official ranking API and aggressive anti-scraping; this page never fakes their rankings.", "海外热词第 1 · 样本": "Top overseas keyword · Sample", "5,274 次搜索 · 2026-11-09 样本": "5,274 searches · 2026-11-09 sample", "国内热词第 1 · 样本": "Top domestic keyword · Sample", "17,947 次搜索 · 2026-11-09 样本": "17,947 searches · 2026-11-09 sample", "景气指数 · 2026年9月样本": "Business Climate Index · Sep 2026 sample", "环比 +0.55% · 来源：义乌指数": "+0.55% MoM · Source: Yiwu Index", "世界杯信号 · 样本": "World Cup signal · Sample", "体育用品出口 Q1 28.3 亿元": "Sports-goods exports Q1 ¥2.83B", "来源脚注：世界杯信号「体育用品出口 Q1 28.3 亿元、同比 +12%」为与监测 05 同一批调研样本值（整理于 2026-11-09），非海关实时统计；引用前请以义乌指数官网 / 海关数据核对。": "Source note: the World Cup signal “sports-goods exports Q1 ¥2.83B, +12% YoY” comes from the same researched sample batch as monitor 05 (compiled 2026-11-09), not live customs statistics; verify against the Yiwu Index site / customs data before citing.", "热词搜索量 · 类目热度柱状图（样本）": "Hot-keyword search volume · Category bar chart (sample)", "义乌购 30 天搜索量样本，更新 2026-11-09。数值来自监测 05 义乌页同一批调研核实值，未重新抓取。": "Yiwugo 30-day search-volume sample, updated 2026-11-09. Values come from the same researched, verified batch as monitor 05 (Yiwu); not re-fetched.", "爆品主表": "Main bestseller table", "人工精选 · 缓存样本 · 2026-11-09": "Hand-picked · Cached sample · 2026-11-09", "搜索量为义乌购排行榜样本（与 05 页同一批值）；「趋势信号」为人工点评，非平台排名变化。": "Search volumes are Yiwugo ranking samples (same batch as page 05); “trend signals” are human commentary, not platform ranking changes.", "季节 / 事件趋势信号": "Seasonal / event trend signals", "样本数据 · 与 05 页一致": "Sample data · Same as page 05", "体育用品出口 Q1 28.3 亿元、同比 +12%；空白球衣、LED 手环、毛绒吉祥物；勿碰 FIFA 队徽": "Sports-goods exports Q1 ¥2.83B, +12% YoY; blank jerseys, LED wristbands, plush mascots; never touch FIFA crests", "冷感毛巾日出货 16 万包（样本）": "Cooling towels: 160,000 packs/day (sample)", "半绒手套 5 个月售 10 万+ 双；棉袄、针织帽（样本）": "Half-fleece gloves: 100,000+ pairs in 5 months; cotton jackets, knit hats (sample)", "宠物玩具、轻户外折叠椅 / 露营车、宠物自动喂食器、小厨房硅胶收纳（样本）": "Pet toys, light-outdoor folding chairs / camping carts, automatic pet feeders, small-kitchen silicone storage (sample)", "选品提醒": "Product-picking reminders", "新手最容易踩的坑：你以为的爆款，利润可能被运费吃干净。先看监测 11 的「进销差」对照表，再决定上不上。跨境选品三问：批发端在涨吗？零售端有人求链接吗？海外榜上有位置吗？三同才下单。": "The classic beginner trap: a “bestseller” whose margin gets eaten by shipping. Check monitor 11’s buy-vs-sell margin table before listing. Three cross-border questions: is wholesale rising? Are retail buyers asking for links? Is it on the overseas ranking? Order only when all three match.", "数据源与备份": "Sources & backups", "每个来源：主源 → 备用 → 缓存": "Every source: primary → backup → cache", "点击展开 / 收起数据源状态": "Click to expand / collapse source status", "义乌购热词榜": "Yiwugo hot-keyword ranking", "yiwugo.com/top.html（直连常被拦截）": "yiwugo.com/top.html (direct fetch often blocked)", "义乌指数 ywindex.com（景气 / 价格交叉核对）": "Yiwu Index ywindex.com (cross-check climate / prices)", "本页样本 · 2026-11-09": "This page’s sample · 2026-11-09", "义乌指数": "Yiwu Index", "ywindex.com": "ywindex.com", "义乌购热词榜（交叉核对）": "Yiwugo hot-keyword ranking (cross-check)", "景气 1554.97 · 2026年9月样本": "Climate 1554.97 · Sep 2026 sample", "Google Trends 购物趋势": "Google Trends shopping trends", "trends.google.com（间接选品信号）": "trends.google.com (indirect product-picking signal)", "本页未列入具体趋势值": "No specific trend values listed on this page", "间接信号": "Indirect signal", "无免费官方接口": "No free official API", "无": "None", "无备份 · 已明示": "No backup · stated openly", "几乎无稳定免费源": "Almost no stable free source", "人工精选，无排名数字": "Hand-picked, no ranking numbers", "⚠️ 无备份，已明示：Amazon Best Sellers、Temu、TikTok Shop —— 无免费官方接口、反爬极强，没有可用的实时主源，也就没有可用的实时备份源。本页对这三个平台只做人工精选，不呈现任何排名数字；如需其排名，请人工打开平台 App / 网页核对。": "⚠️ No backup, stated openly: Amazon Best Sellers, Temu, TikTok Shop — no free official API and aggressive anti-scraping, so there is no usable live primary source and therefore no usable live backup. This page only hand-picks for these platforms and shows no ranking numbers; for their rankings, open the platform app / site yourself.", "诚实声明：本页全部数字均为人工精选缓存样本（更新 2026-11-09），非实时抓取。样本过期后请以官网为准；过期标记见顶部徽章（样本超过 14 天即标「已过期」）。": "Honest note: every number on this page is a hand-picked cached sample (updated 2026-11-09), not a live fetch. Once a sample expires, use the official site; expiry is shown in the top badge (samples older than 14 days are marked “Expired”).", "国内热词第 1": "Top domestic keyword", "海外热词第 1": "Top overseas keyword", "常年热销": "Evergreen bestseller", "全年品类": "All-year category", "秋冬走量": "Autumn/winter volume", "世界杯关联": "World Cup-linked", "海外榜上有名": "On the overseas ranking", "手表": "Watches", "袜子": "Socks", "玩具": "Toys", "宠物玩具": "Pet toys", "保温杯": "Insulated bottles", "遥控汽车": "RC cars", "文具": "Stationery", "足球": "Soccer balls", "遥控无人机": "RC drones", "世界杯": "World Cup", "夏季": "Summer", "秋冬": "Autumn / Winter", "全年": "All year", "30 天搜索量（样本）": "30-day search volume (sample)", "义乌指数 ywindex.com": "Yiwu Index · ywindex.com", "义乌购排行榜 yiwugo.com/top.html": "Yiwugo rankings · yiwugo.com/top.html"};
+var DICT={};var k;for(k in BASE)DICT[k]=BASE[k];for(k in PAGE)DICT[k]=PAGE[k];
+var PREFIX=[["更新：", "Updated: "], ["失败：", "Failed: "], ["截至 ", "As of "], ["缓存样本 · ", "Cached sample · "], ["样本 · ", "Sample · "], ["今天 ", "Today "], ["样本 ", "Sample "], ["新增：", "New: "], ["实际来源：", "Actual source: "], ["尝试时间：", "Tried at: "]];
+var PATTERNS=[[/^(\d+) 个$/,"$1"],[/^(\d+) 条$/,"$1"],[/^样本 (\d+) 天前更新$/,"Sample updated $1 day(s) ago"],[/^样本 (\d+) 天前策展$/,"Sample curated $1 day(s) ago"],[/^⚠️ 样本已过期（(\d+) 天前）$/,"⚠️ Sample expired ($1 day(s) ago)"],[/^⚠️ 已过期 · 需重策展（(\d+) 天前）$/,"⚠️ Expired — needs re-curation ($1 day(s) ago)"],[/^已过期（样本 (\d+) 小时前）$/,"Expired (sample from $1 hour(s) ago)"],[/^已过期（缓存 (\d+) 小时前）$/,"Expired (cached $1 hour(s) ago)"],[/^已过期 (\d+) 天$/,"Expired $1 day(s) ago"],[/^([+-][\d,]+)（(\d+)天）$/,"$1 ($2 days)"],[/^↑ 涨价( [-\d.]+%)?$/,"↑ Price up$1"],[/^↓ 降价( [-\d.]+%)?$/,"↓ Price down$1"],[/^还有 (\d+) 天$/,"in $1 day(s)"],[/^已过 (\d+) 天$/,"$1 day(s) ago"],[/^就是今天$/,"Today"],[/^环比 ([+-][\d.]+%)$/,"MoM $1"],[/^（目录 (\d+) 条）。$/,"(Catalog: $1 models)."],[/^新增 (\d+) 条$/,"$1 new"],[/^对比快照 (\d{4}-\d{2}-\d{2})（北京日期）$/,"vs snapshot $1 (Beijing date)"],[/^基线积累中，无上一份快照可比对$/,"Baseline accumulating — no earlier snapshot to compare"],[/^当前无(.+)数据，请选全部\/基线$/,function(m,a){return "No "+toEN(a)+" data yet — pick All / Baseline";}],[/^当前为缓存样本（截至 2026-11-09，(.+)），主源与替补均失败时显示。$/,function(m,a){return "Showing cached sample (as of 2026-11-09, "+toEN(a)+"); primary and backup both failed.";}],[/^截至 2026-11-09 · (.+)$/,function(m,a){return "As of 2026-11-09 · "+toEN(a); }],[/^下一个大节点：(.+) · (\d{4}-\d{2}-\d{2}) · (.+)$/,function(m,a,b,c){return "Next big date: "+toEN(a)+" · "+b+" · "+toEN(c); }]];
+var SUBS=[[/（403 限额）/g," (403 rate limit)"],[/（网络失败）/g," (network failure)"],[/ RSS 直连失败（([^，]*)，预期内：无 CORS 许可）。?/g," Direct RSS failed ($1 — expected: no CORS permission)."],[/失败（([^）]*)）/g,"Failed ($1)"],[/（已保留上次成功值）/g," (kept the last good values)"],[/，改走浏览器直连/g,", falling back to direct browser fetch"],[/缓存核实/g,"cache verified"],[/上表数据实际来源：/g,"Actual source of the table above:"],[/Actions 快照 data\/ph.json 未找到（待建）。?/g,"Actions snapshot data/ph.json not found (pending)."],[/Actions 快照存在但无可用条目。?/g,"The Actions snapshot exists but has no usable items."],[/ RSS 直连返回但无 <entry> 条目。?/g," The direct RSS returned but had no <entry> items."],[/ 当前显示人工策展样本（2026-11-09 15:15 CST），不是实时榜单。?/g," Currently showing the hand-curated sample (2026-11-09 15:15 CST), not a live ranking."],[/Actions 快照 data\/ph.json 解析出 (\d+) 条并已渲染（fetched_at：([^）]*)）。?/g,"Actions snapshot data/ph.json parsed $1 items and rendered them (fetched_at: $2)."],[/RSS 直连成功，DOMParser 解析出 (\d+) 条 <entry> 并已渲染；票数 RSS 不含，仍为「未获取」。?/g,"Direct RSS succeeded; DOMParser parsed $1 <entry> items and rendered them; RSS carries no vote counts, so they stay “Not available”."],[/Actions 快照 data\/ph.json 尚未生成（HTTP (\d+)，待建）。?/g,"Actions snapshot data/ph.json not generated yet (HTTP $1, pending)."],[/未标注/g,"not labelled"]];
+function hasCJK(s){return /[\u4e00-\u9fff]/.test(s);}
+function toEN(s){
+  if(!s)return s;
+  var v=DICT[s];if(v!=null)return v;
+  var i,m;
+  // full-match patterns first: they are more specific than a prefix
+  for(i=0;i<PATTERNS.length;i++){m=s.match(PATTERNS[i][0]);if(m){var rep=PATTERNS[i][1];return typeof rep==='function'?rep.apply(null,m):s.replace(PATTERNS[i][0],rep);}}
+  for(i=0;i<PREFIX.length;i++){if(s.indexOf(PREFIX[i][0])===0)return PREFIX[i][1]+toEN(s.slice(PREFIX[i][0].length));}
+  var parts=s.split(/(\s*[·—]\s*|、|；)/);
+  if(parts.length>1){
+    var out=[],changed=false,ok=true;
+    for(i=0;i<parts.length;i++){
+      var p=parts[i];
+      if(i%2===1){out.push(window.__MON_LANG==='en'?(p.indexOf('、')>=0?', ':p.indexOf('；')>=0?'; ':p):p);continue;}
+      if(!p){out.push(p);continue;}
+      var tp=toEN(p);
+      if(tp!==p)changed=true;
+      else if(hasCJK(p))ok=false;
+      out.push(tp);
+    }
+    if(changed&&ok)return out.join('');
+  }
+  var sub=s;
+  for(i=0;i<SUBS.length;i++){sub=sub.replace(SUBS[i][0],SUBS[i][1]);}
+  if(sub!==s)return sub;
+  return s;
+}
+window.__T=function(s){return window.__MON_LANG==='en'?toEN(s):s;};
+var _title=document.title;
+function trTextNode(n,l){
+  if(n.nodeType===3){
+    // never translate text inside SCRIPT/STYLE/NOSCRIPT/CANVAS (e.g. the page's
+    // own JS string literals, which the MutationObserver delivers as bare text nodes)
+    var par=n.parentElement;
+    if(par&&(par.tagName==='SCRIPT'||par.tagName==='STYLE'||par.tagName==='NOSCRIPT'||par.tagName==='CANVAS'))return;
+    var s=n.nodeValue,t=s.trim();if(!t)return;
+    if(l==='en'){
+      if(n._zh==null){var r=toEN(t);if(r!==t){n._zh=s;n.nodeValue=s.slice(0,s.indexOf(t))+r+s.slice(s.indexOf(t)+t.length);}}
+    }else if(n._zh!=null){n.nodeValue=n._zh;n._zh=null;}
+    return;
+  }
+  if(n.nodeType!==1)return;
+  var tn=n.tagName;if(tn==='SCRIPT'||tn==='STYLE'||tn==='CANVAS'||tn==='NOSCRIPT')return;
+  if(n.hasAttribute&&n.hasAttribute('placeholder')){
+    var p=n.getAttribute('placeholder');
+    if(l==='en'){if(n._zhPh==null){var rp=toEN(p);if(rp!==p){n._zhPh=p;n.setAttribute('placeholder',rp);}}}
+    else if(n._zhPh!=null){n.setAttribute('placeholder',n._zhPh);n._zhPh=null;}
+  }
+  if(n.hasAttribute&&n.hasAttribute('title')&&n.id!=='langToggle'){
+    var tt=n.getAttribute('title');
+    if(l==='en'){if(n._zhT==null){var rt=toEN(tt);if(rt!==tt){n._zhT=tt;n.setAttribute('title',rt);}}}
+    else if(n._zhT!=null){n.setAttribute('title',n._zhT);n._zhT=null;}
+  }
+  var c=n.childNodes;for(var i=0;i<c.length;i++)trTextNode(c[i],l);
+}
+function applyLang(l,rerender){
+  window.__MON_LANG=l;
+  try{localStorage.setItem('mon-lang',l);}catch(e){}
+  document.documentElement.lang=(l==='en'?'en':'zh-CN');
+  document.title=(l==='en'?toEN(_title):_title);
+  trTextNode(document.body,l);
+  var b=document.getElementById('langToggle');if(b)b.setAttribute('aria-pressed',l==='en'?'true':'false');
+  if(rerender){try{window.__rerender&&window.__rerender();}catch(e){}trTextNode(document.body,l);}
+}
+window.toggleLang=function(){applyLang(window.__MON_LANG==='zh'?'en':'zh',true);};
+window.__MON_LANG=(function(){try{var q=new URLSearchParams(location.search).get('lang');if(q==='en'||q==='zh')return q;var s=localStorage.getItem('mon-lang');if(s==='en'||s==='zh')return s;}catch(e){}return 'zh';})();
+applyLang(window.__MON_LANG,false);
+if(window.MutationObserver){
+  var obs=new MutationObserver(function(muts){
+    if(window.__MON_LANG!=='en')return;
+    muts.forEach(function(m){
+      for(var i=0;i<m.addedNodes.length;i++)trTextNode(m.addedNodes[i],'en');
+      if(m.type==='characterData')trTextNode(m.target,'en');
+    });
+  });
+  obs.observe(document.body,{childList:true,subtree:true,characterData:true});
+}
+window.__rerender=function(){try{refreshAll();}catch(e){}};
+})();
+</script>
+
 <script>
 let rows=[
  {k:'手表',s:'国内',n:17947,note:'国内热词第 1'},
@@ -87,7 +179,7 @@ let chart;
 function ageDays(){return Math.floor((new Date()-new Date('2026-11-09T00:00:00+08:00'))/86400000);}
 function render(){
  const q=(document.getElementById('q').value||'').toLowerCase(),s=document.getElementById('scope').value;
- let list=rows.filter(r=>(!q||r.k.includes(q))&&(!s||r.s===s));list.sort((a,b)=>(a.n-b.n)*sortDir);
+ let list=rows.filter(r=>(!q||r.k.includes(q)||__T(r.k).toLowerCase().includes(q))&&(!s||r.s===s));list.sort((a,b)=>(a.n-b.n)*sortDir);
  document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td>${r.k}</td><td>${r.s}</td><td>${r.n.toLocaleString()}</td><td>${r.note}</td></tr>`).join('');
 }
 async function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','true');var _u=document.getElementById('updated');if(_u)_u.textContent='正在拉取…';setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},30000);
@@ -97,7 +189,7 @@ async function refreshAll(){document.querySelector('main')?.setAttribute('aria-b
  document.getElementById('ageBadge').className='badge '+(age>14?'missing':'backup');
  document.getElementById('kpis').innerHTML=`<div class="card"><h3>海外热词第 1 · 样本</h3><div class="big">遥控汽车</div><div>5,274 次搜索 · 2026-11-09 样本</div></div><div class="card"><h3>国内热词第 1 · 样本</h3><div class="big">手表</div><div>17,947 次搜索 · 2026-11-09 样本</div></div><div class="card"><h3>景气指数 · 2026年9月样本</h3><div class="big">1554.97</div><div>环比 +0.55% · 来源：义乌指数</div></div><div class="card"><h3>世界杯信号 · 样本</h3><div class="big">+12%</div><div>体育用品出口 Q1 28.3 亿元</div></div>`;
  if(chart)chart.destroy();
- if(window.Chart){chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:rows.map(r=>r.k),datasets:[{label:'30 天搜索量（样本）',data:rows.map(r=>r.n),backgroundColor:['#e11d48','#f97316','#fb923c','#f59e0b','#be123c','#881337','#ea580c','#c2410c','#9a3412']}]},options:{plugins:{legend:{display:false}}}});}
+ if(window.Chart){chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:rows.map(r=>r.k),datasets:[{label:__T('30 天搜索量（样本）'),data:rows.map(r=>r.n),backgroundColor:['#e11d48','#f97316','#fb923c','#f59e0b','#be123c','#881337','#ea580c','#c2410c','#9a3412']}]},options:{plugins:{legend:{display:false}}}});}
  document.getElementById('sources').innerHTML=`
  <table><thead><tr><th>数据源</th><th>主源</th><th>备用</th><th>缓存</th><th>状态</th></tr></thead><tbody>
  <tr><td>义乌购热词榜</td><td>yiwugo.com/top.html（直连常被拦截）</td><td>义乌指数 ywindex.com（景气 / 价格交叉核对）</td><td>本页样本 · 2026-11-09</td><td><span class="badge cache">缓存样本</span></td></tr>
