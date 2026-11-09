@@ -1,16 +1,54 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>头部AI与Agent监测</title><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif;background:#f6f7fb;color:#1a1d29}
-header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-h1{font-size:20px;margin:0}.sub{color:#6b7280;font-size:13px}button{margin-left:auto;background:#2563eb;color:#fff;border:0;border-radius:10px;padding:10px 16px;cursor:pointer}
-main{max-width:1080px;margin:0 auto;padding:20px;display:grid;gap:16px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)}.card h3{margin:0 0 6px;font-size:13px;color:#6b7280}.big{font-size:24px;font-weight:800}
-.badge{display:inline-block;font-size:12px;border-radius:999px;padding:2px 8px;background:#eef2ff;color:#3730a3}.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.missing{background:#f3f4f6;color:#6b7280}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px;border-bottom:1px solid #f0f0f0;text-align:left}th{cursor:pointer;color:#6b7280}
-input,select{padding:8px;border:1px solid #ddd;border-radius:8px}.note{font-size:12px;color:#6b7280}
+<title>头部AI与Agent监测</title><script src="chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+button{background:#2563eb;margin-left:auto;color:#fff;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:640px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.missing{background:#f3f4f6;color:#6b7280}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+canvas{max-width:100%}
+.card canvas{height:260px !important}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+
+body{background:linear-gradient(160deg,#0f0524 0%,#4c1d95 50%,#0891b2 100%) fixed;}
+header{background:linear-gradient(90deg,#7c3aed,#2563eb,#06b6d4);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+header button{background:#facc15;color:#1e1b4b}
+.hero{background:linear-gradient(120deg,#7c3aed,#2563eb 55%,#06b6d4)}
+.card{background:#fff}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#ede9fe,#ddd6fe);border-top-color:#7c3aed}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-top-color:#2563eb}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#cffafe,#a5f3fc);border-top-color:#06b6d4}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#fef9c3,#fde047);border-top-color:#eab308}
+.grid .card:nth-child(5){background:linear-gradient(135deg,#fce7f3,#fbcfe8);border-top-color:#db2777}
+th{color:#6d28d9}
+.warn{background:#ede9fe;border:1px solid #c4b5fd}
+.big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
 </style></head><body>
 <header><h1>🤖 头部AI与Agent监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge missing">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
+<section class="hero"><h2>头部 AI 与 Agent · 谁最能打</h2><p>GPT、Claude、Gemini、Grok、DeepSeek……智能、价格、上下文，一张散点图看清性价比。</p><div class="feed"><div><b>🏆 性价比之王</b>缓存榜单里 DeepSeek V4 仅 $0.77/M，分数 72.5——便宜里最能打的。</div><div><b>💎 旗舰</b>GPT-5.2 分数 78.5 领跑，Claude Opus 4.5、Gemini 3 Pro 紧随其后。</div><div><b>🔄 冗余</b>model-watch 主源 → jsDelivr 替补；models.dev → OpenRouter，断了就用缓存并标注。</div></div></section>
 <div class="grid" id="kpis"></div>
 <div class="card"><h3>智能 × 价格散点图（价格为每百万 token 混合价，来源 models.dev / OpenRouter）</h3><canvas id="scatter" height="100"></canvas></div>
 <div class="card"><h3>模型总表 <span class="note">点表头排序</span></h3>

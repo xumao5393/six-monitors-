@@ -1,16 +1,54 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>国内AI与Agent监测</title><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,"PingFang SC",sans-serif;background:#f0fdf4;color:#1a1d29}
-header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-h1{font-size:20px;margin:0}.sub{color:#6b7280;font-size:13px}button{margin-left:auto;background:#16a34a;color:#fff;border:0;border-radius:10px;padding:10px 16px;cursor:pointer}
-main{max-width:1080px;margin:0 auto;padding:20px;display:grid;gap:16px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)}.card h3{margin:0 0 6px;font-size:13px;color:#6b7280}.big{font-size:24px;font-weight:800}
-.badge{display:inline-block;font-size:12px;border-radius:999px;padding:2px 8px;background:#dcfce7;color:#166534}.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px;border-bottom:1px solid #f0f0f0;text-align:left}th{cursor:pointer;color:#6b7280}
-input,select{padding:8px;border:1px solid #ddd;border-radius:8px}.note{font-size:12px;color:#6b7280}
+<title>国内AI与Agent监测</title><script src="chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+button{background:#2563eb;margin-left:auto;color:#fff;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:640px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.missing{background:#f3f4f6;color:#6b7280}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+canvas{max-width:100%}
+.card canvas{height:260px !important}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+
+body{background:linear-gradient(160deg,#052e16 0%,#15803d 50%,#84cc16 100%) fixed;}
+header{background:linear-gradient(90deg,#14532d,#16a34a,#65a30d);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+header button{background:#fef08a;color:#14532d}
+.hero{background:linear-gradient(120deg,#166534,#22c55e 55%,#a3e635)}
+.card{background:#fff}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#dcfce7,#bbf7d0);border-top-color:#16a34a}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#ecfccb,#d9f99d);border-top-color:#65a30d}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#cffafe,#a5f3fc);border-top-color:#0891b2}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#fef3c7,#fde68a);border-top-color:#d97706}
+.grid .card:nth-child(5){background:linear-gradient(135deg,#ede9fe,#ddd6fe);border-top-color:#7c3aed}
+th{color:#15803d}
+.warn{background:#f0fdf4;border:1px solid #86efac}
+.big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
 </style></head><body>
 <header><h1>🇨🇳 国内AI与Agent监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge cache">缓存样本</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
+<section class="hero"><h2>国内 AI 与 Agent · 国产第一梯队</h2><p>豆包、千问、DeepSeek、混元、智谱、Kimi……国产模型与 Agent，一页比个明白。</p><div class="feed"><div><b>🇨🇳 国内榜首</b>缓存榜单里 Qwen3.7 Max 分数 74.1 领跑，GLM-5.2、DeepSeek V4 Pro 在后。</div><div><b>🎬 视频</b>可灵、万相、即梦、海螺、Vidu——国内视频模型一页看全。</div><div><b>⚠️ 星火</b>讯飞星火未被公开目录收录时显示「未获取」，不编数。</div></div></section>
 <div class="grid" id="kpis"></div>
 <div class="card"><h3>智能 × 价格散点图</h3><canvas id="scatter" height="100"></canvas></div>
 <div class="card"><h3>国内模型总表</h3>
@@ -52,7 +90,7 @@ function renderTable(){
 function sortBy(k){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1;}renderTable();}
 function draw(){
  if(chart)chart.destroy();
- chart=new Chart(document.getElementById('scatter'),{type:'scatter',data:{datasets:[{data:models.filter(m=>m.score&&m.price).map(m=>({x:m.price,y:m.score})),pointBackgroundColor:'#16a34a',pointRadius:6}]},options:{scales:{x:{title:{display:true,text:'价格 $/M'}},y:{title:{display:true,text:'分数'}}},plugins:{legend:{display:false}}}});
+ chart=new Chart(document.getElementById('scatter'),{type:'scatter',data:{datasets:[{data:models.filter(m=>m.score&&m.price).map(m=>({x:m.price,y:m.score})),pointBackgroundColor:models.map(m=>({'Qwen':'#615ced','DeepSeek':'#4d6bfe','Zhipu':'#7c3aed','Kimi':'#111827','Doubao':'#0ea5e9','Hunyuan':'#0891b2','ERNIE':'#2563eb','MiniMax':'#db2777','StepFun':'#ea580c','iFlytek':'#16a34a'}[m.vendor]||'#16a34a')),pointRadius:6}]},options:{scales:{x:{title:{display:true,text:'价格 $/M'}},y:{title:{display:true,text:'分数'}}},plugins:{legend:{display:false}}}});
 }
 async function refreshAll(){
  const src=[];let role='cache';
