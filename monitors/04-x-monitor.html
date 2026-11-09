@@ -182,6 +182,7 @@ window.__rerender=function(){};
 
 <script>
 async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.json();}
+async function fxGet(u){for(let i=0;i<3;i++){try{const d=await fetchTO(u);if(d&&d.code===200)return d;}catch(e){}await new Promise(r=>setTimeout(r,800));}throw new Error('fx');}
 function fmt(n){return (n===undefined||n===null||n==='')?'—':Number(n).toLocaleString('en-US');}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function setKPIs(p){
@@ -196,7 +197,7 @@ async function refreshAll(){document.querySelector('main')?.setAttribute('aria-b
  errEl.style.display='none';errEl.textContent='';
  const src=[];let profile=null,role='missing';
  // 主源：FxTwitter /{handle} -> {user:{followers,following,tweets,likes}}
- try{const d=await fetchTO('https://api.fxtwitter.com/'+encodeURIComponent(h));
+ try{const d=await fxGet('https://api.fxtwitter.com/'+encodeURIComponent(h));
    const u=d&&d.user;
    if(u&&typeof u.followers==='number'){profile={followers:u.followers,following:u.following,tweets:(u.tweets!=null?u.tweets:u.statuses),likes:u.likes};role='primary';src.push(['FxTwitter','主源','正常',new Date().toLocaleString('zh-CN')]);}
    else throw new Error('no user');
@@ -211,9 +212,10 @@ async function refreshAll(){document.querySelector('main')?.setAttribute('aria-b
  // 帖子明细：FxTwitter 时间线（/2/profile/{handle}/statuses -> {results:[{created_at,created_timestamp,text,likes,replies,reposts,views}]})
  const postsEl=document.getElementById('posts');
  try{
-   const d=await fetchTO('https://api.fxtwitter.com/2/profile/'+encodeURIComponent(h)+'/statuses');
+   const d=await fxGet('https://api.fxtwitter.com/2/profile/'+encodeURIComponent(h)+'/statuses');
    const list=Array.isArray(d&&d.results)?d.results:[];
    if(!list.length)throw new Error('empty timeline');
+   if(!profile&&list[0]&&list[0].author){const a=list[0].author;profile={followers:a.followers,following:a.following,tweets:a.statuses,likes:a.likes};setKPIs(profile);const b2=document.getElementById('srcBadge');if(b2){b2.textContent='主源 · FxTwitter（时间线作者补）';b2.className='badge cache';}src.push(['FxTwitter','主源','个人资料失败，时间线作者信息补数',new Date().toLocaleString('zh-CN')]);}
    postsEl.innerHTML=list.slice(0,10).map(t=>{
      const ts=t.created_timestamp?new Date(t.created_timestamp*1000):(t.created_at?new Date(t.created_at):null);
      const time=ts&&!isNaN(ts)?ts.toLocaleString('zh-CN'):'未获取';

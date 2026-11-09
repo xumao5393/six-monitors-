@@ -219,7 +219,7 @@ function cd(ds){const x=daysTo(ds);return x>0?'还有 '+x+' 天':(x===0?'就是�
 function render(){
  const q=(document.getElementById('q').value||'').toLowerCase(),s=document.getElementById('scope').value;
  const list=NODES.filter(r=>(!q||r.n.includes(q)||__T(r.n).toLowerCase().includes(q)||r.cat.includes(q)||__T(r.cat).toLowerCase().includes(q)||__T(r.topic).toLowerCase().includes(q))&&(!s||r.t===s));
- document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td>${r.n}</td><td>${r.d}</td><td>${cd(r.d)}</td><td>${r.cat}</td><td>${r.topic}</td></tr>`).join('');
+ document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td>${r.n}</td><td>${r.d}</td><td>${cd(r.d)}</td><td>${r.cat}</td><td>${r.topic.replace(' X ',' '+Math.max(daysTo(r.d),0)+' ')}</td></tr>`).join('');
 }
 function init(){
  const today=dayOnly(new Date());
