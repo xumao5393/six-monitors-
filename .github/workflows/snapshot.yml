@@ -2,8 +2,7 @@ name: snapshot
 
 on:
   schedule:
-    # 每 6 小时跑一次（UTC）；对应北京时间 08:17 / 14:17 / 20:17 / 02:17
-    - cron: '17 */6 * * *'
+      - cron: '17 * * * *'  # 每 6 小时跑一次（UTC）；对应北京时间 08:17 / 14:17 / 20:17 / 02:
   workflow_dispatch: {}
 
 permissions:
