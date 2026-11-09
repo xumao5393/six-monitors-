@@ -1,6 +1,6 @@
 {
-  "fetched_at": "2026-11-09T07:54:04Z",
-  "fetched_at_cst": "2026-11-09 15:54:04 CST",
+  "fetched_at": "2026-11-09T08:38:28Z",
+  "fetched_at_cst": "2026-11-09 16:38:28 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -10,23 +10,43 @@
       "http": 200,
       "items": [
         {
+          "title": "attack on titan",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jennifer aniston",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "top",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "peaky blinders netflix six seasons",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "steve sarkisian texas longhorns comments",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "destruction allstars delisted playstation store",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "elon musk spacex telecom acquisition",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "10",
-          "traffic": "10000+",
+          "traffic": "20000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -35,28 +55,8 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "杭州枪击",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
           "title": "visionquest episode 8",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "michaella love is blind",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jimmy fallon",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "rockstar gta 6 new screenshots",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -65,6 +65,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "北角",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "加權指數",
           "traffic": "100+",
@@ -102,17 +107,12 @@
         },
         {
           "title": "yoasobi 香港",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "joey",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "oled电视",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -122,28 +122,43 @@
       "http": 200,
       "items": [
         {
+          "title": "韓國綜合股價指數",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "雲林縣",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "三大法人買賣超",
           "traffic": "20000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "愛莉莎莎",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "織田翔希",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "三菱delica",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "3008",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "4916",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -153,21 +168,6 @@
         },
         {
           "title": "1301",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "7769",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "遠大售票",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "3017",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
