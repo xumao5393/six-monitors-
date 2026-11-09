@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI大事件 / 监管动态监测</title><script src="chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.16)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:680px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent;background:#fff}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1;color:#111827}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.primary{background:#dc2626;color:#fff}.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.manual{background:#f59e0b;color:#fff}.badge.missing{background:#f3f4f6;color:#6b7280}
+.badge.type-reg{background:#7c3aed;color:#fff}.badge.type-down{background:#dc2626;color:#fff}.badge.type-price{background:#059669;color:#fff}.badge.type-release{background:#0284c7;color:#fff}.badge.type-dispute{background:#ea580c;color:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left;vertical-align:top}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#991b1b}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6;background:#fff7ed;border:1px solid #fdba74}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+canvas{max-width:100%}
+.card canvas{height:260px !important}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+.srcs{font-size:12px;line-height:1.9}
+.srcs a{color:#b91c1c}
+a{color:#b91c1c}
+body{background:linear-gradient(160deg,#0f172a 0%,#7f1d1d 55%,#b45309 100%) fixed;}
+header{background:linear-gradient(90deg,#0f172a,#7f1d1d,#b45309);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.hero{background:linear-gradient(120deg,#0f172a,#991b1b 60%,#d97706)}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#fee2e2,#fecaca);border-top-color:#dc2626}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#fef3c7,#fde68a);border-top-color:#d97706}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#ede9fe,#ddd6fe);border-top-color:#7c3aed}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#f1f5f9,#e2e8f0);border-top-color:#475569}
+.grid .card:nth-child(5){background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-top-color:#059669}
+</style></head><body>
+<header><h1>🚨 AI大事件 / 监管动态监测</h1><span class="sub">人工策展 · 非实时抓取 · 更新日期 2026-11-09</span><span class="badge manual">人工策展</span></header>
+<main>
+<section class="hero"><h2>今日看点：水印来了，宕机没停</h2><p>Anthropic 11 月 3 日起给老模型加文本水印，欧盟 8 月 2 日起可对大模型厂商罚款；9–10 月 ChatGPT 与 Claude 各宕机一次，全栈停摆约 1 小时。负面与争议天然是流量，但每一条都先核对来源再写。</p><div class="feed"><div><b>✋ 人工策展</b>本页事件由人工逐条核对后录入，非实时抓取；无自动更新，过期请看更新日期。</div><div><b>🔗 双源核对</b>每条事件至少两个独立来源：主源 + 替补源，两个都列出；只有一个来源的会明确标注。</div><div><b>🛡 备份铁律</b>每个数据源都有 主源 → 替补 → 缓存 三层；无备份的来源会明确写「无备份」，不假装有。</div></div></section>
+<div class="warn">⚠️ <b>人工策展，非实时抓取。</b>本页不声称实时：事件表更新于 <b>2026-11-09</b>，之后的新事件尚未录入。所有日期、影响描述均来自所列来源的公开报道；厂商 status 页与科技媒体 RSS 需 Actions 快照才能稳定抓取（见下方数据源与备份），本静态页暂以人工快照呈现。</div>
+<div class="grid">
+<div class="card"><h3>收录事件（2026-07–11）</h3><div class="big">10 条</div><p class="note">人工核对，更新 2026-11-09</p></div>
+<div class="card"><h3>监管类</h3><div class="big">3 条</div><p class="note">欧盟 AI 法案、国内陪伴规则、水印</p></div>
+<div class="card"><h3>宕机类</h3><div class="big">3 条</div><p class="note">Claude ×2、ChatGPT ×1</p></div>
+<div class="card"><h3>发布类</h3><div class="big">3 条</div><p class="note">GPT-5.6、GPT-6 Astra、Cyber 模型</p></div>
+<div class="card"><h3>调价类</h3><div class="big">1 条</div><p class="note">GPT-5.6 Luna 降价 80%</p></div>
+</div>
+<div class="card"><h3>事件类型分布</h3><div style="position:relative;height:280px"><canvas id="typeChart"></canvas></div><p class="note">计数 = 本页人工收录的 10 条事件按类型统计，非全网事件总量。</p></div>
+<div class="card"><h3>事件时间线（按月）</h3><div style="position:relative;height:280px"><canvas id="timeChart"></canvas></div><p class="note">计数 = 本页人工收录的 10 条事件按月份统计：7 月 3 条、8 月 2 条、9 月 2 条、10 月 2 条、11 月 1 条。</p></div>
+<div class="card"><h3 class="section-title">事件总表</h3>
+<p class="note">筛选：<select id="typeFilter" onchange="filterTable()"><option value="">全部类型</option><option>监管</option><option>宕机</option><option>调价</option><option>发布</option><option>争议</option></select>
+<select id="vendorFilter" onchange="filterTable()"><option value="">全部厂商</option><option>OpenAI</option><option>Anthropic</option><option>欧盟</option><option>中国网信办等五部门</option><option>Google</option></select></p>
+<table><thead><tr><th>日期</th><th>事件</th><th>厂商</th><th>类型</th><th>影响一句话</th><th>来源（主源 / 替补）</th></tr></thead><tbody id="events">
+<tr data-type="发布" data-vendor="OpenAI"><td>2026-07-09</td><td>GPT-5.6 家族全面上市（Sol / Terra / Luna）</td><td>OpenAI</td><td><span class="badge type-release">发布</span></td><td>旗舰线换代，上下文 105 万 token；三档定价拉开价格战序幕。</td><td><a href="https://mungomash.com/ai/chatgpt/versions/" target="_blank" rel="noopener">主源 · MungoMash 版本库</a><br><a href="https://theairankings.com/openai/" target="_blank" rel="noopener">替补 · The AI Rankings</a></td></tr>
+<tr data-type="监管" data-vendor="中国网信办等五部门"><td>2026-07-15</td><td>国内「拟人化 AI 交互服务」新规生效</td><td>中国网信办等五部门</td><td><span class="badge type-reg">监管</span></td><td>AI 陪伴类服务须安全评估、禁向未成年人提供虚拟陪伴，最高罚 20 万元。</td><td><a href="https://gdprlocal.com/chinas-evolving-ai-regulations-and-compliance-for-companies/" target="_blank" rel="noopener">主源 · GDPR Local</a><br><a href="http://umatechnology.org/how-china-regulates-ai-rules-for-companies-building-and-deploying-models/" target="_blank" rel="noopener">替补 · UMA Technology</a></td></tr>
+<tr data-type="调价" data-vendor="OpenAI"><td>2026-07-30</td><td>GPT-5.6 Luna 降价 80%，Terra 降价 20%</td><td>OpenAI</td><td><span class="badge type-price">调价</span></td><td>Luna 输入价 $1 → $0.20 / 百万 token，API 价格战开打，小模型先卷到底。</td><td><a href="https://www.cloudzero.com/blog/openai-pricing/" target="_blank" rel="noopener">主源 · CloudZero</a><br><a href="https://apidog.com/blog/openai-anthropic-llm-price-cuts/" target="_blank" rel="noopener">替补 · Apidog</a></td></tr>
+<tr data-type="监管" data-vendor="欧盟"><td>2026-08-02</td><td>欧盟 AI 法案通用模型执法权生效</td><td>欧盟</td><td><span class="badge type-reg">监管</span></td><td>欧盟 AI 办公室可向大模型厂商索要信息、评估模型并罚款，最高 3% 全球年营业额。</td><td><a href="https://www.taylorwessing.com/en/insights-and-events/insights/2026/08/gpai-obligations-under-the-eu-ai-act" target="_blank" rel="noopener">主源 · Taylor Wessing</a><br><a href="https://www.i-scoop.eu/eu-ai-act-timeline-digital-omnibus/" target="_blank" rel="noopener">替补 · i-Scoop</a></td></tr>
+<tr data-type="发布" data-vendor="OpenAI"><td>2026-08-10</td><td>GPT-5.6-Cyber 发布，仅限 Daybreak Red 审批用户</td><td>OpenAI</td><td><span class="badge type-release">发布</span></td><td>首个官方「减安全护栏」的攻防模型，网络安全能力首次被标为 Critical 级。</td><td><a href="https://www.halfteck.co.uk/blog-openai-daybreak-gpt56-cyber-launch.html" target="_blank" rel="noopener">主源 · Halfteck</a><br><a href="https://www.scriptbyai.com/timeline-of-chatgpt/" target="_blank" rel="noopener">替补 · ScriptByAI 时间线</a></td></tr>
+<tr data-type="发布" data-vendor="OpenAI"><td>2026-09-03</td><td>GPT-6 Astra 发布，$10 / $50 每百万 token</td><td>OpenAI</td><td><span class="badge type-release">发布</span></td><td>新旗舰上线，网络安全能力受限开放；同日 ChatGPT、Claude、Grok 均出现中断。</td><td><a href="https://mungomash.com/ai/chatgpt/versions/" target="_blank" rel="noopener">主源 · MungoMash 版本库</a><br><a href="https://theairankings.com/openai/" target="_blank" rel="noopener">替补 · The AI Rankings</a></td></tr>
+<tr data-type="宕机" data-vendor="Anthropic"><td>2026-09-29</td><td>Claude 全栈宕机约 1 小时，登录失效</td><td>Anthropic</td><td><span class="badge type-down">宕机</span></td><td>claude.ai、App、API、Claude Code、Cowork 全停，登出即无法登回，部分消息未保存。</td><td><a href="https://deployflow.co/blog/claude-anthropic-outage-protect-claude-infrastructure/" target="_blank" rel="noopener">主源 · Deployflow</a><br><a href="https://vantagepoint.io/blog/ai/claude-outage-ai-workflow-resilience" target="_blank" rel="noopener">替补 · VantagePoint</a></td></tr>
+<tr data-type="宕机" data-vendor="OpenAI"><td>2026-10-15</td><td>ChatGPT 大面积功能降级约 3 小时</td><td>OpenAI</td><td><span class="badge type-down">宕机</span></td><td>iOS / Android 端登录注册受影响，网页端可用；当月 ChatGPT 故障已多次发生。</td><td><a href="https://www.atlascloud.ai/blog/tips/chatgpt-not-working" target="_blank" rel="noopener">主源 · Atlas Cloud</a><br><a href="https://pingoru.io/providers/chatgpt/outage-history" target="_blank" rel="noopener">替补 · Pingoru 故障史</a></td></tr>
+<tr data-type="宕机" data-vendor="Anthropic"><td>2026-10-25</td><td>Claude 全系模型同时故障约 30 分钟</td><td>Anthropic</td><td><span class="badge type-down">宕机</span></td><td>所有在售 Claude 模型同时失效，无小模型可 fallback；33 小时内第 5 起模型故障。</td><td><a href="https://www.ud.hk/en-US/resources/ai/what-is-ai-outage-plan-2026-10-27" target="_blank" rel="noopener">主源 · UD.hk</a><br><a href="https://deployflow.co/blog/claude-anthropic-outage-protect-claude-infrastructure/" target="_blank" rel="noopener">替补 · Deployflow</a></td></tr>
+<tr data-type="监管" data-vendor="Anthropic"><td>2026-11-03</td><td>Anthropic 给老款 Claude 模型加文本水印</td><td>Anthropic</td><td><span class="badge type-reg">监管</span></td><td>水印覆盖 API 与各端、不可关闭，回应欧盟 AI 法案 12 月 2 日的内容标注期限。</td><td><a href="https://mezha.net/eng/news/mezha-3b78cfa6e62f68dfe603f09f_claude_adds_watermarks/" target="_blank" rel="noopener">主源 · Mezha</a><br><a href="https://maccus.fr/en/claude-text-watermark/" target="_blank" rel="noopener">替补 · Maccus</a></td></tr>
+</tbody></table>
+<p class="note">核对说明：每条事件的日期与事实均经上述两个来源交叉核对（2026-11-09）；「影响一句话」为人工概括，非来源原文。争议类事件本期收录 0 条——有争议传闻但未获两个独立来源证实的不收录。</p></div>
+<div class="card"><h3 class="section-title">数据源与备份（三层，逐项标注）</h3><div class="srcs">
+<div>① 厂商 status 页（OpenAI status.openai.com / Claude status.claude.com）— <span class="badge primary">主源</span> 官方故障记录 → <span class="badge backup">替补</span> Pingoru / Deployflow 等第三方故障追踪 → <span class="badge cache">缓存</span> 本页人工快照（更新 2026-11-09，过期请勿当实时用）。</div>
+<div>② 科技媒体 RSS（The Verge / TechCrunch 等）— <span class="badge primary">主源</span> 媒体报道 → <span class="badge backup">替补</span> 同一事件的第二家媒体报道（每条事件表内已列） → <span class="badge cache">缓存</span> 本页人工快照（更新 2026-11-09）。</div>
+<div>③ 监管原文（EUR-Lex / 中国网信办）— <span class="badge primary">主源</span> 官方法规文本 → <span class="badge backup">替补</span> 律所解读（Taylor Wessing / GDPR Local） → <span class="badge cache">缓存</span> 本页人工快照（更新 2026-11-09）。</div>
+<div>④ Actions 快照（计划中，未启用）— <span class="badge missing">无备份</span>：status 页与 RSS 浏览器直连会被跨域拦，需 GitHub Actions 定时抓取存 JSON；<b>该快照尚未搭建，本页目前无此层</b>，请勿误以为已自动更新。</div>
+<div>⑤ X 官方账号爆料 — <span class="badge missing">无备份</span>：X 搜索无稳定免费接口、且单条帖子无法独立核实，<b>本页不以 X 帖子作为唯一来源</b>；凡 X 爆料均须另有媒体或官方来源才收录。</div>
+</div><p class="note">备份铁律执行情况：①②③ 有三层；④⑤ 明确标注无备份 / 未启用，不沉默缺省。人工快照缓存有效期：自 2026-11-09 起，超过 7 天未更新即视为过期。</p></div>
+<div class="card"><h3 class="section-title">内容钩子（可直接用的选题）</h3><p class="note">「Claude 今天崩了 1 小时，一堆人的活儿全停摆——这就是把鸡蛋放一个篮子的代价。」／「欧盟 8 月 2 日起能罚大模型厂商了，最高 3% 营业额，你的 AI 工具会不会涨价？」／「GPT-5.6 Luna 一夜降价 80%，同一句话换个模型能省多少钱？」</p></div>
+<p class="note">数据口径：本页全部为人工策展样本，更新日期 2026-11-09；不含实时数据，不含未核实传闻。页面设计：深 slate → 红 → 琥珀渐变；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底。</p>
+</main>
+<script>
+function filterTable(){var t=document.getElementById('typeFilter').value,v=document.getElementById('vendorFilter').value;document.querySelectorAll('#events tr').forEach(function(r){r.style.display=(!t||r.dataset.type===t)&&(!v||r.dataset.vendor===v)?'':'none';});}
+function draw(){if(!window.Chart){setTimeout(draw,300);return;}
+new Chart(document.getElementById('typeChart'),{type:'bar',data:{labels:['监管','宕机','发布','调价','争议'],datasets:[{label:'事件数（条）',data:[3,3,3,1,0],backgroundColor:['#7c3aed','#dc2626','#0284c7','#059669','#ea580c']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});
+new Chart(document.getElementById('timeChart'),{type:'line',data:{labels:['2026-07','2026-08','2026-09','2026-10','2026-11'],datasets:[{label:'当月收录事件数（条）',data:[3,2,2,2,1],borderColor:'#dc2626',backgroundColor:'rgba(220,38,38,.15)',fill:true,tension:.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});}
+draw();
+</script></body></html>

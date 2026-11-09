@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>节日 / 季节选品日历</title>
+<!-- 纯静态 · 零外部依赖：无 CDN、无 Chart.js、无 fetch。数据为内置 JSON，倒计时由本页 JS 按当天日期实时算出。 -->
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:640px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent;background:#fff}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1;color:#111827}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#ede9fe;color:#5b21b6}.badge.missing{background:#f3f4f6;color:#6b7280}.badge.live{background:#fce7f3;color:#9d174d}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#7c3aed}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6;background:#fdf4ff;border:1px solid #f0abfc}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+body{background:linear-gradient(160deg,#4c1d95 0%,#7c3aed 45%,#db2777 75%,#f472b6 100%) fixed;}
+header{background:linear-gradient(90deg,#4c1d95,#7c3aed,#db2777);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.hero{background:linear-gradient(120deg,#6d28d9,#db2777 55%,#f472b6)}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#ede9fe,#ddd6fe);border-top-color:#7c3aed}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#fce7f3,#fbcfe8);border-top-color:#db2777}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#fdf4ff,#f5d0fe);border-top-color:#c026d3}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#fae8ff,#e9d5ff);border-top-color:#9333ea}
+.tl{position:relative;height:64px;margin:18px 4px 6px;border-top:3px solid #e9d5ff}
+.tl .dot{position:absolute;top:-9px;width:15px;height:15px;border-radius:50%;background:#db2777;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);transform:translateX(-50%)}
+.tl .dot.next{background:#7c3aed;width:19px;height:19px;top:-11px}
+.tl .lbl{position:absolute;top:14px;transform:translateX(-50%);font-size:11px;color:#6b7280;white-space:nowrap}
+.mbar{display:grid;grid-template-columns:90px 1fr 30px;gap:8px;align-items:center;font-size:13px;margin:6px 0}
+.mbar .bar{height:18px;border-radius:999px;background:linear-gradient(90deg,#7c3aed,#db2777,#f472b6)}
+</style></head><body>
+<header><h1>📅 节日 / 季节选品日历</h1><span class="sub">纯静态 · 零外部依赖 · 内置数据 2026-11 至 2027-12</span><span class="badge cache">静态日历</span><span class="badge live" id="todayBadge">今天</span></header>
+<main>
+<section class="hero"><h2 id="heroTitle">下一个大节点加载中…</h2><p id="heroSub">倒计时由本页按当天日期实时算出；节日当天日期按农历换算核对，放假调休以国务院当年通知为准。</p><div class="feed"><div><b>⏰ 最近 30 天</b><span id="feed30">计算中…</span></div><div><b>🎄 圣诞布局提醒</b>圣诞的钱，十月就得开始布局；等货到手里，黄花菜都凉了——提前两周发内容，正好卡在搜索高峰。</div><div><b>🧧 春节 2027</b>2027 年春节 2 月 6 日（星期六，羊年），除夕 2 月 5 日，元宵 2 月 20 日——已按农历表核对。</div></div></section>
+<p class="note">日期核对：2027 年春节 2 月 6 日（星期六）、元宵 2 月 20 日、端午 6 月 9 日（星期三）、七夕 8 月 8 日（星期日）、中秋 9 月 15 日（星期三）——按香港天文台 2027 年农历换算表核对；黑五按美国感恩节规则（11 月第四个星期四的次日）：2026 年 11 月 27 日，2027 年 11 月 26 日。2027 年放假调休安排以国务院通知为准，本页不写未公布的放假天数。</p>
+<div class="grid" id="kpis"></div>
+<div class="card"><h3>年度时间轴 · 2026-11 至 2027-12（纯 CSS，无图表库）</h3><div class="tl" id="timeline"></div><p class="note">圆点位置按日期在 2026-11-01 至 2027-12-31 区间内的比例排布；紫色大点为下一个节点。仅标注大节点，其余节点悬停圆点可见名称，完整列表见下方主表。</p>
+<h3 style="margin-top:16px">每月节点数</h3><div id="monthBars"></div></div>
+<div class="card"><h3>节点主表 <span class="note">内置静态 JSON · 倒计时实时计算</span></h3>
+<input id="q" placeholder="搜索，如 春节 / 圣诞" oninput="render()"><select id="scope" onchange="render()"><option value="">全部类型</option><option>国内节日</option><option>海外节日</option><option>电商大促</option><option>季节节点</option></select>
+<table><thead><tr><th>节点</th><th>日期</th><th>倒计时</th><th>关联品类</th><th>配套选题</th></tr></thead><tbody id="tbody"></tbody></table>
+<noscript><p class="note">本页表格需 JavaScript 渲染内置数据；无 JS 时请直接查看页面源码中的内置 JSON。</p></noscript></div>
+<div class="card"><h3>数据源与备份 <span class="note">每个来源：主源 → 备用 → 缓存</span></h3>
+<table><thead><tr><th>数据源</th><th>主源</th><th>备用</th><th>缓存</th><th>状态</th></tr></thead><tbody>
+<tr><td>农历节日日期</td><td>内置静态 JSON（2026-11-09 编入）</td><td>香港天文台 2027 年农历换算表（已核对春节 / 端午 / 七夕 / 中秋）</td><td>本页静态表</td><td><span class="badge cache">静态 · 已核对</span></td></tr>
+<tr><td>黑五 / 网络星期一</td><td>美国感恩节规则（11 月第 4 个星期四的次日）</td><td>多家日历站交叉核对（2026-11-27 / 2027-11-26 一致）</td><td>本页静态表</td><td><span class="badge cache">静态 · 规则固定</span></td></tr>
+<tr><td>放假调休天数</td><td>国务院当年放假通知</td><td>无——通知未出之前无第二来源</td><td>本页不写未公布天数</td><td><span class="badge missing">无备份 · 已明示</span></td></tr>
+<tr><td>电商大促（618 / 双11 / 双12）</td><td>各平台当年大促公告</td><td>往年固定日期 + 平台公告（618=6 月 18 日，双11=11 月 11 日，双12=12 月 12 日）</td><td>本页静态表</td><td><span class="badge backup">静态 · 待公告确认</span></td></tr>
+</tbody></table>
+<p class="note" style="margin-top:10px">⚠️ 无备份，已明示：2027 年放假调休的具体天数与调休安排——国务院通知未公布前没有第二来源，本页只写节日当天日期，不写放假天数、不猜调休。如需放假安排，请以国务院当年通知为准。</p></div>
+<div class="warn">诚实声明：本页为纯静态日历，零外部依赖、零实时抓取。节日当天日期是固定知识（农历换算 + 平台固定日期），倒计时按你打开页面的当天日期实时算出；关联品类与选题为人工策展建议，不是销量数据。</div>
+</main>
+<script>
+const NODES=[
+ {n:'双11',d:'2026-11-11',t:'电商大促',cat:'全品类、美妆、服饰、家居',topic:'离双11还有 X 天，现在不备这几样，到时候只能干看别人赚'},
+ {n:'黑五',d:'2026-11-27',t:'海外节日',cat:'电子、服饰、美妆、玩具',topic:'黑五海淘清单：哪些品海外折扣真便宜、哪些只是先涨后降'},
+ {n:'网络星期一',d:'2026-11-30',t:'海外节日',cat:'电子、软件、家居',topic:'网一线上专场：跨境小件的最后一波清仓'},
+ {n:'双12',d:'2026-12-12',t:'电商大促',cat:'全品类、日用、零食',topic:'双12捡漏清单：双11没下手的，现在补'},
+ {n:'平安夜',d:'2026-12-24',t:'海外节日',cat:'圣诞装饰、礼物、灯饰',topic:'平安夜礼物急救：24 小时能到的礼物清单'},
+ {n:'圣诞节',d:'2026-12-25',t:'海外节日',cat:'圣诞树、装饰、礼物包装',topic:'圣诞的钱十月就得布局——今年的圣诞选品复盘'},
+ {n:'元旦',d:'2027-01-01',t:'国内节日',cat:'新年礼物、红包、日历',topic:'新年第一单：开年必囤的 10 样小东西'},
+ {n:'除夕',d:'2027-02-05',t:'国内节日',cat:'年货、春联、红包、灯笼',topic:'除夕年货最后补货：哪些年货现在买还来得及'},
+ {n:'春节',d:'2027-02-06',t:'国内节日',cat:'年货、红包、春联、羊年生肖品',topic:'羊年春节选品：生肖品怎么选才不踩雷'},
+ {n:'情人节',d:'2027-02-14',t:'海外节日',cat:'鲜花、巧克力、首饰、礼物',topic:'情人节礼物：平价也有心意的 10 样（注：2027 年情人节在春节假期内）'},
+ {n:'元宵节',d:'2027-02-20',t:'国内节日',cat:'灯笼、汤圆、灯谜',topic:'元宵灯会周边：灯笼与花灯选品'},
+ {n:'妇女节',d:'2027-03-08',t:'国内节日',cat:'美妆、首饰、鲜花',topic:'妇女节送礼：送妈妈 / 送自己的两份清单'},
+ {n:'清明节',d:'2027-04-04',t:'国内节日',cat:'踏青用品、户外',topic:'清明踏青：轻户外小件清单'},
+ {n:'劳动节',d:'2027-05-01',t:'国内节日',cat:'出行、户外、防晒',topic:'五一出行装备：轻便好带的小件'},
+ {n:'母亲节',d:'2027-05-09',t:'海外节日',cat:'鲜花、护肤、按摩小家电',topic:'母亲节礼物：妈妈真正会用的东西'},
+ {n:'520',d:'2027-05-20',t:'电商大促',cat:'礼物、首饰、鲜花',topic:'520 表白礼物：不贵但走心的选择'},
+ {n:'儿童节',d:'2027-06-01',t:'国内节日',cat:'玩具、文具、童装',topic:'六一玩具清单：孩子喜欢、大人不踩雷的'},
+ {n:'端午节',d:'2027-06-09',t:'国内节日',cat:'粽子、香包、艾草、龙舟周边',topic:'端午香包与艾草：传统小件的新卖法'},
+ {n:'618',d:'2027-06-18',t:'电商大促',cat:'全品类、家电、美妆',topic:'618 省钱清单：先加购、再比价，别冲动'},
+ {n:'父亲节',d:'2027-06-20',t:'海外节日',cat:'剃须刀、皮带、茶具',topic:'父亲节礼物：爸爸嘴上说不要、收到会用的'},
+ {n:'暑假季',d:'2027-07-01',t:'季节节点',cat:'旅行收纳、防晒、泳具、露营',topic:'暑假出行：旅行收纳与防晒小件'},
+ {n:'七夕节',d:'2027-08-08',t:'国内节日',cat:'首饰、鲜花、礼物',topic:'七夕礼物：中国式浪漫的选品'},
+ {n:'开学季',d:'2027-09-01',t:'季节节点',cat:'文具、书包、收纳、宿舍好物',topic:'开学季：宿舍好物与文具清单'},
+ {n:'教师节',d:'2027-09-10',t:'国内节日',cat:'鲜花、文具、礼品',topic:'教师节送礼：体面又不贵的'},
+ {n:'中秋节',d:'2027-09-15',t:'国内节日',cat:'月饼、灯笼、团圆礼盒',topic:'中秋礼盒：月饼之外的团圆好物'},
+ {n:'国庆节',d:'2027-10-01',t:'国内节日',cat:'出行、户外、国旗周边',topic:'国庆出行：长假装备清单'},
+ {n:'万圣节',d:'2027-10-31',t:'海外节日',cat:'南瓜灯、服装、派对装饰',topic:'万圣节派对：装饰与服装小件'},
+ {n:'双11',d:'2027-11-11',t:'电商大促',cat:'全品类、美妆、服饰、家居',topic:'双11 2027：提前两个月备货清单'},
+ {n:'黑五',d:'2027-11-26',t:'海外节日',cat:'电子、服饰、美妆、玩具',topic:'黑五 2027：海淘清单提前看'},
+ {n:'网络星期一',d:'2027-11-29',t:'海外节日',cat:'电子、软件、家居',topic:'网一 2027：线上专场'},
+ {n:'双12',d:'2027-12-12',t:'电商大促',cat:'全品类、日用、零食',topic:'双12 2027：年终捡漏'},
+ {n:'圣诞节',d:'2027-12-25',t:'海外节日',cat:'圣诞树、装饰、礼物包装',topic:'圣诞 2027：十月开始布局'},
+];
+const START=new Date('2026-11-01T00:00:00'),END=new Date('2027-12-31T00:00:00');
+function dayOnly(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate());}
+function daysTo(ds){return Math.round((new Date(ds+'T00:00:00')-dayOnly(new Date()))/86400000);}
+function cd(ds){const x=daysTo(ds);return x>0?'还有 '+x+' 天':(x===0?'就是今天':'已过 '+(-x)+' 天');}
+function render(){
+ const q=(document.getElementById('q').value||'').toLowerCase(),s=document.getElementById('scope').value;
+ const list=NODES.filter(r=>(!q||r.n.includes(q)||r.cat.includes(q))&&(!s||r.t===s));
+ document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td>${r.n}</td><td>${r.d}</td><td>${cd(r.d)}</td><td>${r.cat}</td><td>${r.topic}</td></tr>`).join('');
+}
+function init(){
+ const today=dayOnly(new Date());
+ document.getElementById('todayBadge').textContent='今天 '+today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+ const upcoming=NODES.filter(r=>daysTo(r.d)>=0).sort((a,b)=>a.d.localeCompare(b.d));
+ const next=upcoming[0];
+ const in30=upcoming.filter(r=>daysTo(r.d)<=30);
+ document.getElementById('heroTitle').textContent=next?`下一个大节点：${next.n} · ${next.d} · ${cd(next.d)}`:'2026-11 至 2027-12 的节点均已过去';
+ document.getElementById('heroSub').textContent=next?`${next.n}关联品类：${next.cat}。${next.topic.replace(' X ',' '+daysTo(next.d)+' ')}`:'';
+ document.getElementById('feed30').textContent=in30.length?in30.map(r=>r.n+' '+r.d+'（'+cd(r.d)+'）').join('；'):'最近 30 天内无节点';
+ document.getElementById('kpis').innerHTML=`<div class="card"><h3>下一个大节点</h3><div class="big">${next?next.n:'—'}</div><div>${next?next.d+' · '+cd(next.d):''}</div></div><div class="card"><h3>最近 30 天内节点</h3><div class="big">${in30.length}</div><div>${in30.map(r=>r.n).join('、')||'无'}</div></div><div class="card"><h3>节点总数</h3><div class="big">${NODES.length}</div><div>2026-11 至 2027-12</div></div><div class="card"><h3>覆盖月份</h3><div class="big">14</div><div>2026年11月 – 2027年12月</div></div>`;
+ const tl=document.getElementById('timeline');
+ const MAJOR={'2026-11-11':'双11','2026-12-25':'圣诞','2027-02-06':'春节','2027-06-18':'618','2027-09-15':'中秋','2027-10-01':'国庆','2027-11-11':'双11','2027-12-25':'圣诞'};
+ tl.innerHTML=NODES.map(r=>{const p=((new Date(r.d+'T00:00:00')-START)/(END-START)*100).toFixed(2);const isNext=next&&r.d===next.d&&r.n===next.n;const lab=MAJOR[r.d]||(isNext?r.n:'');return `<span class="dot${isNext?' next':''}" style="left:${p}%" title="${r.n} ${r.d}"></span>${lab?`<span class="lbl" style="left:${p}%">${lab}</span>`:''}`;}).join('');
+ const months={};NODES.forEach(r=>{const m=r.d.slice(0,7);months[m]=(months[m]||0)+1;});
+ const max=Math.max(...Object.values(months));
+ document.getElementById('monthBars').innerHTML=Object.keys(months).sort().map(m=>`<div class="mbar"><span>${m}</span><div class="bar" style="width:${months[m]/max*100}%"></div><span>${months[m]} 个</span></div>`).join('');
+ render();
+}
+init();
+</script></body></html>

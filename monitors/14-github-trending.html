@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GitHub Trending 日榜</title><script src="chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+button{background:#2563eb;margin-left:auto;color:#fff;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:640px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.missing{background:#f3f4f6;color:#6b7280}.badge.live{background:#dcfce7;color:#166534}.badge.stale{background:#7c2d12;color:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+canvas{max-width:100%}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+.chain{font-size:12px;color:#6b7280;line-height:1.7;margin:6px 0 10px}
+.chain b{color:#374151}
+body{background:linear-gradient(160deg,#0f172a 0%,#475569 55%,#059669 100%) fixed;}
+header{background:linear-gradient(90deg,#1e293b,#475569,#059669);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+header button{background:#a7f3d0;color:#022c22}
+.hero{background:linear-gradient(120deg,#1e293b,#334155 55%,#059669)}
+.card{background:#fff}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#f1f5f9,#e2e8f0);border-top-color:#475569}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-top-color:#059669}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#fef3c7,#fde68a);border-top-color:#d97706}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#cffafe,#a5f3fc);border-top-color:#0891b2}
+.grid .card:nth-child(5){background:linear-gradient(135deg,#ede9fe,#ddd6fe);border-top-color:#7c3aed}
+th{color:#047857}
+.warn{background:#ecfdf5;border:1px solid #6ee7b7}
+.big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+</style></head><body>
+<header><h1>⭐ GitHub Trending 日榜</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
+<main>
+<section class="hero"><h2>今日第一：agent-autoloop · 4,178 Star</h2><p>KKKKhazix/agent-autoloop，2026-11-03 创建，让命令行 Agent 在后台自己接活、自己跟进到底。近 7 日新建仓库里 Star 最高的新面孔。</p><div class="feed"><div><b>⭐ 今日第一</b>agent-autoloop（TypeScript），4,178 Star，创建于 2026-11-03。</div><div><b>🔥 新面孔</b>近 7 日新建仓库前 10 名总 Star 25,436，其中 AI 相关 4 个。</div><div><b>⚠️ 诚实说明</b>Trending 原站无官方 API、浏览器跨域被拦。本页用 GitHub Search API（浏览器可直连，CORS 允许）做实时替补，Trending 原站 HTML 快照靠 Actions（待建）。</div></div></section>
+<p class="note">铁律：<b>每个数据源必须有备份（主源 → 备份 → 缓存）</b>，并标注抓取时间与过期状态。本页备份链：<b>主源</b> GitHub Search API（created:&gt;2026-11-02，sort=stars）→ <b>备份</b> 逐仓 /repos 核实 + 窄窗口查询（created:&gt;2026-11-08，同源替补）→ <b>缓存</b> 2026-11-09 curl 核实快照。另有一处缺口已明确标注：<b>Trending 原站 HTML 的 Actions 快照尚未搭建（待建），当前没有独立于 GitHub API 的第二方源</b>——这是本页唯一未闭合的备份，见下方备份链。</p>
+<div class="grid" id="kpis"></div>
+<div class="card"><h3>近 7 日新建仓库 · 总 Star 柱状图（自创建日起累计，非单日新增）</h3><div style="position:relative;height:260px"><canvas id="chart"></canvas></div><p class="note">Search API 不提供「单日新增 Star」，故本图为各仓库自创建日起累计的总 Star；涨幅请看 03 页的周增 Star。数据来源见表头标注。</p></div>
+<div class="card"><h3>榜单（近 7 日新建，creation &gt; 2026-11-02，按 Star 排序）</h3>
+<input id="q" placeholder="搜索，如 agent" oninput="render()"><select id="lang" onchange="render()"><option value="">全部语言</option><option>TypeScript</option><option>Python</option><option>C++</option><option>Swift</option><option>JavaScript</option><option>C</option><option>HTML</option></select><select id="aif" onchange="render()"><option value="">全部</option><option value="yes">仅 AI 相关</option></select>
+<table><thead><tr><th>仓库</th><th>语言</th><th>总 Star</th><th>创建日期</th><th>AI 相关</th><th>一句话</th></tr></thead><tbody id="tbody"></tbody></table>
+<p class="note" id="note"></p></div>
+<div class="card"><h3>数据源与备份链</h3><div id="sources"></div>
+<p class="note">未闭合缺口：Trending 原站（github.com/trending）HTML 抓取需 GitHub Actions 定时快照——<b>尚未搭建，状态：待建</b>。搭建后，本页将以 Actions 快照为主源、Search API 为备份。当前 Search API 是唯一实时源，其备份为同源的逐仓核实与窄窗口查询，缓存为 2026-11-09 核实快照。</p></div>
+</main>
+<script>
+const CACHE_TS=new Date('2026-11-09T15:17:00+08:00').getTime();
+const CACHE_LABEL='2026-11-09 15:17 CST';
+function staleBadge(){const h=(Date.now()-CACHE_TS)/3600000;return h>12?'<span class="badge stale">已过期（缓存 '+Math.floor(h)+' 小时前）</span>':'<span class="badge cache">缓存样本 · '+CACHE_LABEL+'</span>';}
+/* 缓存样本：2026-11-09 curl api.github.com/search/repositories?q=created:>2026-11-02&sort=stars 逐条核实，Star 数为当时实测值，非编造。*/
+const FALLBACK=[
+ {name:'KKKKhazix/agent-autoloop',lang:'TypeScript',stars:4178,created:'2026-11-03',ai:'是',desc:'让命令行 Agent 在后台自己接活、自己跟进到底'},
+ {name:'Minireel/HGhub',lang:'TypeScript',stars:4110,created:'2026-11-03',ai:'否',desc:'YellowFruit 第三方客户端'},
+ {name:'NotRexed/Hookshot',lang:'C++',stars:3425,created:'2026-11-05',ai:'否',desc:'塞尔达传说：时之笛 Switch 2 原生重编译'},
+ {name:'worldonlyu/Google_AI_Pro_2Year_ZeroCost_Auto',lang:'Python',stars:3298,created:'2026-11-04',ai:'是',desc:'Google AI Pro 两年零成本自动化（标题原样）'},
+ {name:'govijr/terminal-mac',lang:'Swift',stars:2429,created:'2026-11-03',ai:'否',desc:'在终端里跑整个 macOS'},
+ {name:'JenkinWoo/sheeridVerify',lang:'JavaScript',stars:1889,created:'2026-11-06',ai:'否',desc:'（仓库无描述）'},
+ {name:'sarpstar/cinecode',lang:'Python',stars:1689,created:'2026-11-03',ai:'是',desc:'用代码做电影：短片、长视频、广告、解说'},
+ {name:'tangerineturtle1/NX2navi',lang:'C',stars:1572,created:'2026-11-07',ai:'否',desc:'（仓库无描述）'},
+ {name:'Sandflow-ai/sand3d',lang:'HTML',stars:1486,created:'2026-11-03',ai:'是',desc:'为 LLM 而生的 Python 3D 建模'},
+ {name:'livliv-dev/player',lang:'TypeScript',stars:1360,created:'2026-11-04',ai:'否',desc:'轻量 2.5D 网页角色播放器，带口型同步'},
+];
+let repos=[],chart,role='cache';
+function render(){
+ const q=(document.getElementById('q').value||'').toLowerCase(),l=document.getElementById('lang').value,af=document.getElementById('aif').value;
+ const list=repos.filter(r=>(!q||r.name.toLowerCase().includes(q)||(r.desc||'').toLowerCase().includes(q))&&(!l||r.lang===l)&&(!af||r.ai==='是'));
+ document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td><a href="https://github.com/${r.name}" target="_blank" rel="noopener">${r.name}</a></td><td>${r.lang||'—'}</td><td>${r.stars.toLocaleString()}</td><td>${r.created}</td><td>${r.ai}</td><td>${r.desc||'—'}</td></tr>`).join('')||'<tr><td colspan="6">无匹配</td></tr>';
+}
+function draw(){
+ if(chart)chart.destroy();
+ chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:repos.map(r=>r.name.split('/')[1]),datasets:[{data:repos.map(r=>r.stars),backgroundColor:['#059669','#10b981','#34d399','#0ea5e9','#0891b2','#475569','#64748b','#94a3b8','#a78bfa','#f59e0b']}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxRotation:0,minRotation:0}}}}});
+}
+function renderKpis(){
+ const total=repos.reduce((s,r)=>s+r.stars,0);
+ const ai=repos.filter(r=>r.ai==='是').length;
+ document.getElementById('kpis').innerHTML=
+  `<div class="card"><h3>样本仓库</h3><div class="big">${repos.length}</div><div class="note">近 7 日新建 Top 10</div></div>`+
+  `<div class="card"><h3>总 Star</h3><div class="big">${total.toLocaleString()}</div><div class="note">自创建日起累计</div></div>`+
+  `<div class="card"><h3>今日第一</h3><div class="big" style="font-size:20px">${repos[0]?repos[0].name.split('/')[1]:'—'}</div><div class="note">${repos[0]?repos[0].stars.toLocaleString()+' Star':''}</div></div>`+
+  `<div class="card"><h3>AI 相关</h3><div class="big">${ai} / ${repos.length}</div><div class="note">人工标注</div></div>`+
+  `<div class="card"><h3>数据来源</h3><div class="big" style="font-size:20px">${role==='primary'?'Search API':role==='backup'?'备份查询':'缓存样本'}</div><div class="note">${role==='cache'?'2026-11-09 核实':''}</div></div>`;
+}
+async function fetchTO(u,ms=9000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal,headers:{Accept:'application/vnd.github+json'}});if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
+function mapItems(items){return items.map(it=>({name:it.full_name,lang:it.language,stars:it.stargazers_count,created:(it.created_at||'').slice(0,10),ai:/agent|ai|llm|3d|cine/i.test((it.description||'')+' '+it.name)?'是':'否',desc:(it.description||'').slice(0,60)}));}
+async function refreshAll(){
+ const src=[];repos=[];role='cache';
+ /* 主源：GitHub Search API，浏览器可直连（响应头 Access-Control-Allow-Origin: *，2026-11-09 curl 核实）。未登录限额 60 次/小时。*/
+ try{
+   const d=await fetchTO('https://api.github.com/search/repositories?q='+encodeURIComponent('created:>2026-11-02')+'&sort=stars&order=desc&per_page=10');
+   if(d.items&&d.items.length){repos=mapItems(d.items);role='primary';src.push(['GitHub Search API（created:>2026-11-02）','主源','直连成功 '+repos.length+' 条',new Date().toLocaleString('zh-CN')]);}
+ }catch(e){src.push(['GitHub Search API（created:>2026-11-02）','主源','失败（'+e.message+'）','—']);}
+ /* 备份 1：窄窗口查询 created:>2026-11-08（同源替补，独立查询）；备份 2：逐仓 /repos 核实榜首。*/
+ if(!repos.length){
+   try{
+     const d=await fetchTO('https://api.github.com/search/repositories?q='+encodeURIComponent('created:>2026-11-08')+'&sort=stars&order=desc&per_page=10');
+     if(d.items&&d.items.length){repos=mapItems(d.items);role='backup';src.push(['GitHub Search API（created:>2026-11-08 窄窗口）','备份','成功 '+repos.length+' 条（同源替补）',new Date().toLocaleString('zh-CN')]);}
+   }catch(e){src.push(['GitHub Search API（窄窗口）','备份','失败（'+e.message+'）','—']);}
+ }
+ if(!repos.length){
+   try{
+     const r=await fetch('https://api.github.com/repos/KKKKhazix/agent-autoloop',{headers:{Accept:'application/vnd.github+json'}});
+     if(r.ok){const d=await r.json();repos=[{name:d.full_name,lang:d.language,stars:d.stargazers_count,created:(d.created_at||'').slice(0,10),ai:'是',desc:(d.description||'').slice(0,60)}];role='backup';src.push(['GitHub 逐仓 /repos（榜首核实）','备份','仅榜首 1 条（同源替补）',new Date().toLocaleString('zh-CN')]);}
+   }catch(e){src.push(['GitHub 逐仓 /repos','备份','失败','—']);}
+ }
+ if(!repos.length){
+   repos=FALLBACK.slice();role='cache';
+   src.push(['缓存样本','缓存','主/备份均失败，Star 数为 '+CACHE_LABEL+' curl 核实值',CACHE_LABEL]);
+ }
+ src.push(['Trending 原站 HTML 快照（Actions）','—','⚠️ 待建：无 Actions 快照，当前没有独立于 GitHub API 的第二方源', '—']);
+ src.push(['GitHub Search API 限额','—','未登录 60 次/小时；遇 403 即停并显示缓存', '—']);
+ renderKpis();
+ const b=document.getElementById('srcBadge');
+ b.textContent=role==='primary'?'主源直连':role==='backup'?'备份源':'缓存样本';b.className='badge '+(role==='primary'?'live':role==='backup'?'backup':'cache');
+ document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN')+(role==='cache'?' · 缓存核实 '+CACHE_LABEL:'');
+ document.getElementById('note').textContent=role==='cache'?'当前为缓存样本（'+CACHE_LABEL+' 核实）。总 Star 为自创建日起累计，非单日新增；Search API 不提供单日新增 Star。':'数据来自 GitHub Search API（浏览器直连）。总 Star 为自创建日起累计，非单日新增。';
+ document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'live':s[1]==='备份'?'backup':s[1]==='缓存'?'cache':'missing'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+`<div style="margin-top:8px">${staleBadge()} <span class="note">缓存超过 12 小时即标「已过期」。</span></div>`;
+ render();draw();
+}
+refreshAll();
+</script></body></html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 产品热度日榜 · Product Hunt</title><script src="chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+button{background:#2563eb;margin-left:auto;color:#fff;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:640px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.missing{background:#f3f4f6;color:#6b7280}.badge.live{background:#dcfce7;color:#166534}.badge.stale{background:#7c2d12;color:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+canvas{max-width:100%}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+.chain{font-size:12px;color:#6b7280;line-height:1.7;margin:6px 0 10px}
+.chain b{color:#374151}
+body{background:linear-gradient(160deg,#7c2d12 0%,#f59e0b 55%,#facc15 100%) fixed;}
+header{background:linear-gradient(90deg,#9a3412,#f59e0b,#eab308);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+header button{background:#fef9c3;color:#7c2d12}
+.hero{background:linear-gradient(120deg,#9a3412,#ea580c 55%,#f59e0b)}
+.card{background:#fff}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#ffedd5,#fed7aa);border-top-color:#ea580c}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#fef3c7,#fde68a);border-top-color:#d97706}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#fef9c3,#fef08a);border-top-color:#ca8a04}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#fee2e2,#fecaca);border-top-color:#dc2626}
+.grid .card:nth-child(5){background:linear-gradient(135deg,#f3f4f6,#e5e7eb);border-top-color:#6b7280}
+th{color:#b45309}
+.warn{background:#fffbeb;border:1px solid #fcd34d}
+.big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+</style></head><body>
+<header><h1>🚀 AI 产品热度日榜 · Product Hunt</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
+<main>
+<section class="hero"><h2>唯一核实到票数：Sage2 · 203 票，当日第 2</h2><p>Sage2 by Levanto Labs，把实时对话转成结构化数据并立即行动；2026-11-08 上线，获 Product of the Day 第 2 名，203 upvotes（hunted.space，2026-11-09 核实）。</p><div class="feed"><div><b>🚀 当日第 1（有争议）</b>不同来源的当日第 1 不一致：orangebot.ai 快照称 NoMac 第 1，Product Hunt 首页榜单则把 AXL 列第 2、NoMac 第 5。排名以时间为准，不宜当定论。</div><div><b>🤖 AI 浓度</b>8 个样本产品中 4 个 AI/Agent 相关：NoMac、Agent Clan、Sage2、AXL。</div><div><b>⚠️ 诚实说明</b>Product Hunt RSS 不含票数、浏览器跨域被拦，官方 API 要 token。本页是「样本 + 人工策展」，票数只写核实到的那一个，其余写「未获取」。</div></div></section>
+<p class="note">铁律：<b>每个数据源必须有备份（主源 → 备份 → 缓存）</b>，并标注抓取时间与过期状态。本页备份链：<b>主源</b> Product Hunt RSS（producthunt.com/feed，curl 200，浏览器跨域被拦）→ <b>备份</b> CORS 阅读器（api.allorigins.win）+ 第三方镜像 hunted.space / trendoday / ph.buzzing.cc（hunted.space curl 200 已核实）→ <b>缓存</b> 2026-11-09 人工策展样本（8 个产品，RSS + 网页搜索核实）。另有一处缺口已明确标注：<b>Actions 定时抓 RSS 存快照尚未搭建（待建）</b>，当前没有自动化的第二方实时源。</p>
+<div class="grid" id="kpis"></div>
+<div class="card"><h3>样本构成（8 个样本产品，按类别计数，非票数）</h3><div style="position:relative;height:260px"><canvas id="chart"></canvas></div><p class="note">RSS 不含票数，除 Sage2 外其余产品票数均未获取，故本图不画票数，只画样本的类别构成（人工分类）。</p></div>
+<div class="card"><h3>今日样本 · 人工策展 2026-11-09</h3>
+<p class="note">样本，非实时榜单。产品名与一句话卖点来自 Product Hunt RSS（更新于 2026-11-08 23:15 -08:00，即 2026-11-09 15:15 CST）与网页搜索核实；票数栏只填核实到的值。</p>
+<input id="q" placeholder="搜索，如 NoMac" oninput="render()"><select id="cat" onchange="render()"><option value="">全部类别</option><option>AI / Agent</option><option>效率工具</option><option>其他</option></select>
+<table><thead><tr><th>产品</th><th>类别</th><th>一句话卖点</th><th>票数</th><th>是否 AI</th></tr></thead><tbody id="tbody"></tbody></table>
+<p class="note" id="note"></p></div>
+<div class="card"><h3>实时尝试（RSS 直连）</h3><div id="live"></div>
+<p class="note">浏览器直连 RSS 预期失败（Product Hunt 未返回 Access-Control-Allow-Origin）。失败是正常结果，不是故障：失败后本页仍显示上方人工策展样本。</p></div>
+<div class="card"><h3>数据源与备份链</h3><div id="sources"></div>
+<p class="note">未闭合缺口：Actions 定时抓取 producthunt.com/feed 存 JSON 快照——<b>尚未搭建，状态：待建</b>。搭建后，本页将以 Actions 快照为主源、RSS 直连为备份。当前实时尝试依赖 CORS 阅读器与第三方镜像，均不稳定；最稳的是人工策展样本。</p></div>
+</main>
+<script>
+const CACHE_LABEL='2026-11-09 15:15 CST';
+const CACHE_TS=new Date('2026-11-09T15:15:00+08:00').getTime();
+function staleBadge(){const h=(Date.now()-CACHE_TS)/3600000;return h>12?'<span class="badge stale">已过期（样本 '+Math.floor(h)+' 小时前）</span>':'<span class="badge cache">样本 · '+CACHE_LABEL+'</span>';}
+/* 样本：2026-11-09 由 Product Hunt RSS（curl 200，updated 2026-11-08T23:15-08:00）与网页搜索核实。
+   票数：仅 Sage2 有核实值——hunted.space 2026-11-09 核实为 203 upvotes、Product of the Day 第 2 名
+   （搜索快照曾显示 198 票，票数实时变动，以 203 为本次核实值）。其余产品 RSS 不含票数，一律写「未获取」，不编。*/
+const SAMPLE=[
+ {name:'NoMac',cat:'AI / Agent',desc:'给 AI agent 一台自己的 Mac，按分钟计费，无订阅',votes:'未获取',ai:'是',url:'https://www.producthunt.com/products/nomac'},
+ {name:'AXL',cat:'AI / Agent',desc:'AI 产品创始人的 GTM copilot：1,200+ actions via MCP',votes:'未获取',ai:'是',url:'https://www.producthunt.com/products/axl-2'},
+ {name:'Agent Clan',cat:'AI / Agent',desc:'用手势指挥 Claude Code 与 Codex agent',votes:'未获取',ai:'是',url:'https://www.producthunt.com/products/agent-clan'},
+ {name:'Sage2 by Levanto Labs',cat:'AI / Agent',desc:'把实时对话转成结构化数据并立即行动',votes:'203',ai:'是',url:'https://www.producthunt.com/products/sagecraft'},
+ {name:'Textly',cat:'效率工具',desc:'在 Mac 上随处抓取文字与表格',votes:'未获取',ai:'否',url:'https://www.producthunt.com/products/textly-capture-copy-paste'},
+ {name:'Zigzag Browser',cat:'效率工具',desc:'（RSS 当日上榜产品，卖点未在 RSS 中给出）',votes:'未获取',ai:'否',url:'https://www.producthunt.com/products/zigzag-browser'},
+ {name:'NotchIsland',cat:'效率工具',desc:'（RSS 当日上榜产品，卖点未在 RSS 中给出）',votes:'未获取',ai:'否',url:'https://www.producthunt.com/products/notchisland-2'},
+ {name:'Memorias',cat:'其他',desc:'（RSS 当日上榜产品，卖点未在 RSS 中给出）',votes:'未获取',ai:'否',url:'https://www.producthunt.com/products/memorias-3'},
+];
+let chart;
+function render(){
+ const q=(document.getElementById('q').value||'').toLowerCase(),c=document.getElementById('cat').value;
+ const list=SAMPLE.filter(r=>(!q||r.name.toLowerCase().includes(q)||r.desc.includes(q))&&(!c||r.cat===c));
+ document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td><a href="${r.url}" target="_blank" rel="noopener">${r.name}</a></td><td>${r.cat}</td><td>${r.desc}</td><td>${r.votes==='未获取'?'未获取':r.votes+' 票'}</td><td>${r.ai}</td></tr>`).join('')||'<tr><td colspan="5">无匹配</td></tr>';
+}
+function draw(){
+ if(chart)chart.destroy();
+ chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:['AI / Agent','效率工具','其他'],datasets:[{data:[4,3,1],backgroundColor:['#ea580c','#f59e0b','#facc15']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxRotation:0,minRotation:0}},y:{ticks:{stepSize:1}}}}});
+}
+function renderKpis(){
+ document.getElementById('kpis').innerHTML=
+  `<div class="card"><h3>样本产品</h3><div class="big">8</div><div class="note">RSS 当日上榜（2026-11-08）</div></div>`+
+  `<div class="card"><h3>已核实票数</h3><div class="big">1 / 8</div><div class="note">仅 Sage2：203 票</div></div>`+
+  `<div class="card"><h3>AI 相关</h3><div class="big">4 / 8</div><div class="note">人工分类</div></div>`+
+  `<div class="card"><h3>当日第 2</h3><div class="big" style="font-size:20px">Sage2</div><div class="note">Product of the Day 第 2 名</div></div>`+
+  `<div class="card"><h3>数据来源</h3><div class="big" style="font-size:20px">样本+策展</div><div class="note">${CACHE_LABEL}</div></div>`;
+}
+async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error('HTTP '+r.status);return r.text();}
+async function refreshAll(){
+ const src=[];const liveEl=document.getElementById('live');
+ /* 主源：RSS 直连（预期因 CORS 失败）；备份：allorigins 阅读器；再备份：hunted.space 镜像页。*/
+ let liveOk=false,liveMsg='';
+ try{const t=await fetchTO('https://www.producthunt.com/feed');if(t.includes('<feed')){liveOk=true;liveMsg='RSS 直连成功（意外：CORS 未拦截）';}}catch(e){liveMsg='RSS 直连失败（'+e.message+'，预期内：无 CORS 许可）';}
+ if(!liveOk){
+   try{const t=await fetchTO('https://api.allorigins.win/raw?url='+encodeURIComponent('https://www.producthunt.com/feed'));
+     if(t.includes('<feed')||t.includes('Product Hunt')){liveOk=true;liveMsg='备份阅读器 allorigins.win 成功拉取 RSS';}
+     else liveMsg+='；备份阅读器返回异常内容';
+   }catch(e){liveMsg+='；备份阅读器失败（'+e.message+'）';}
+ }
+ if(!liveOk){
+   try{const t=await fetchTO('https://hunted.space/top-products/latest');
+     if(t.length>1000){liveMsg+='；第三方镜像 hunted.space 可访问（仅作备份参考，不解析票数）';}
+   }catch(e){liveMsg+='；镜像 hunted.space 亦失败';}
+ }
+ liveEl.innerHTML=`<div class="chain"><b>主源：</b>Product Hunt RSS（producthunt.com/feed，curl 200）<br><b>备份：</b>CORS 阅读器 allorigins.win + 第三方镜像 hunted.space / trendoday / ph.buzzing.cc<br><b>缓存：</b>人工策展样本（${CACHE_LABEL}）</div><p style="font-size:14px;line-height:1.7">${liveOk?'✅ ':'⚠️ '}${liveMsg}。实时尝试 ${liveOk?'成功':'未获取'}——下方样本表不受影响。</p>`;
+ src.push(['Product Hunt RSS（直连）','主源',liveOk?'成功':'失败（CORS 拦截，预期内）',new Date().toLocaleString('zh-CN')]);
+ src.push(['CORS 阅读器 allorigins.win','备份',liveOk?'成功':'失败',new Date().toLocaleString('zh-CN')]);
+ src.push(['第三方镜像 hunted.space','备份','curl 200 已核实（2026-11-09）；Sage2 票数 203 即由此核实','2026-11-09']);
+ src.push(['人工策展样本','缓存','8 个产品，RSS + 网页搜索核实',CACHE_LABEL]);
+ src.push(['Actions RSS 快照','—','⚠️ 待建：无定时快照，当前没有自动化的第二方实时源','—']);
+ src.push(['Product Hunt 官方 API','—','需 token，不用','—']);
+ renderKpis();
+ const b=document.getElementById('srcBadge');
+ b.textContent=liveOk?'实时尝试成功':'样本+策展';b.className='badge '+(liveOk?'live':'cache');
+ document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN')+' · 样本 '+CACHE_LABEL;
+ document.getElementById('note').textContent='样本产品 8 个，票数仅 Sage2 已核实（203 票，hunted.space，2026-11-09）。其余票数 RSS 不含、未获取，不编造。排名因来源与时间而异。';
+ document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'live':s[1]==='备份'?'backup':s[1]==='缓存'?'cache':'missing'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+`<div style="margin-top:8px">${staleBadge()} <span class="note">样本超过 12 小时即标「已过期」。</span></div>`;
+ render();draw();
+}
+refreshAll();
+</script></body></html>

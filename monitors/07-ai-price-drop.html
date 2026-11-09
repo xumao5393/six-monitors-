@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI工具降价/额度变动监测</title><script src="chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+button{background:#2563eb;margin-left:auto;color:#fff;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:640px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.missing{background:#f3f4f6;color:#6b7280}.badge.live{background:#d1fae5;color:#065f46}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+canvas{max-width:100%}
+.card canvas{height:260px !important}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+body{background:linear-gradient(160deg,#022c22 0%,#059669 55%,#a3e635 100%) fixed;}
+header{background:linear-gradient(90deg,#0f766e,#059669,#84cc16);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+header button{background:#facc15;color:#1e1b4b}
+.hero{background:linear-gradient(120deg,#0f766e,#059669 55%,#65a30d)}
+.card{background:#fff}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#ccfbf1,#99f6e4);border-top-color:#0f766e}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-top-color:#059669}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#ecfccb,#d9f99d);border-top-color:#65a30d}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#fef9c3,#fde047);border-top-color:#eab308}
+.grid .card:nth-child(5){background:linear-gradient(135deg,#cffafe,#a5f3fc);border-top-color:#06b6d4}
+th{color:#0f766e}
+.warn{background:#d1fae5;border:1px solid #6ee7b7}
+.big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+.up{color:#dc2626;font-weight:700}.down{color:#059669;font-weight:700}.flat{color:#6b7280}
+</style></head><body>
+<header><h1>💰 AI工具降价/额度变动监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge missing">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
+<main>
+<section class="hero"><h2>今日看点：Argon 优惠价只到 11 月 30 日</h2><p>Gemini 4 Argon 现价 $2/$10（输入/输出，$/M）为限时价，12 月 1 日起翻倍至 $4/$20——多家报道核实，见下表备注。本页首次快照 2026-11-09，涨跌对比尚在积累基线，今日暂无“涨/降”结论，不编数。</p><div class="feed"><div><b>⚠️ 即将涨价</b>Gemini 4 Argon：$2/$10 → 12 月 1 日 $4/$20（涨 100%）。来源：多家 2026-11 报道核实，Google 定价页为准。</div><div><b>💰 最便宜旗舰</b>Seed 2.1 Turbo 输入 $0.50/M（OpenRouter 2026-11-09 核实价）；DeepSeek V4 Pro $0.9553/M 次之。</div><div><b>🔄 备份链</b>主源 OpenRouter → 替补 models.dev（仅官方渠道价）→ 缓存快照 2026-11-09。任一环节失败都明示，不静默替换。</div></div></section>
+<div class="grid" id="kpis"></div>
+<div class="card"><h3>旗舰输入价对比（$/M，红贵绿便宜；当前价快照，非涨跌幅——无基线前不画涨跌）</h3><canvas id="priceChart" height="100"></canvas><p class="note" id="chartNote"></p></div>
+<div class="card"><h3>价格主表 <span class="note">变动对比：基线积累中，首次快照 2026-11-09——无上一份快照可比对，所有行暂标“基线积累中”，不标涨/降</span></h3>
+<input id="q" placeholder="搜索模型，如 DeepSeek / Grok" oninput="renderTable()"><select id="vendor" onchange="renderTable()"><option value="">全部厂商</option><option>OpenAI</option><option>Anthropic</option><option>Google</option><option>xAI</option><option>DeepSeek</option><option>Qwen</option><option>Kimi</option><option>Zhipu</option><option>Doubao</option></select><select id="chg" onchange="renderTable()"><option value="">全部变动状态</option><option value="baseline">基线积累中</option><option value="up">涨价</option><option value="down">降价</option></select>
+<table><thead><tr><th>模型</th><th>厂商</th><th>输入 $/M</th><th>输出 $/M</th><th>上下文</th><th>变动</th><th>备注</th></tr></thead><tbody id="tbody"></tbody></table>
+<p class="note" id="tableNote"></p></div>
+<div class="card"><h3>数据源备份链（每个源都有备份；无备份的环节会明说）</h3><div id="sources"></div>
+<p class="note">主源 OpenRouter（openrouter.ai/api/v1/models，2026-11-09 curl 实测 200）。替补 models.dev（models.dev/api.json，2026-11-09 curl 实测 200、含 Access-Control-Allow-Origin: *；与 02 页记录的 302 下线说法矛盾，以本次实测为准，每次刷新重新验证）。替补只取官方渠道条目（openai / google / xai / deepseek / moonshotai）的 cost.input/output（$/M）；Qwen、GLM、Seed 在 models.dev 中无官方渠道条目、只有加价的第三方渠道价，替补模式下这三家显示「未获取」，不拿第三方价冒充官方价。另注意：models.dev 官方渠道 DeepSeek V4 Pro 为 $0.66/$1.98，与 OpenRouter 的 $0.9553/$1.9105 不一致，替补模式下以 models.dev 官方渠道价为准并标注差异。订阅价与免费额度无稳定免费接口，只能人工核对，本页不列、也不编。</p></div>
+<div class="warn">⚠️ 诚实声明：价格变动需要「今天 vs 上一份快照」两份数据。本页 2026-11-09 为首次快照，在此之前无基线，因此今天所有「涨/降」结论均为「基线积累中」。下一次快照起才有真实涨跌对比。Argon 12 月涨价是已公布的未来调价（多家报道核实），不是今日实测变动。</div>
+</main>
+<script>
+let models=[],chart;
+// 缓存快照：OpenRouter 2026-11-09 curl 核实价（输入/输出 $/M）。Argon 备注为多家报道核实的未来调价。
+const FALLBACK=[
+ {name:'GPT-6.1 Terra',vendor:'OpenAI',pin:1.0,pout:5.0,ctx:'1050K',note:''},
+ {name:'GPT-6.1 Sol',vendor:'OpenAI',pin:2.0,pout:10.0,ctx:'1050K',note:''},
+ {name:'Claude Opus 5.5',vendor:'Anthropic',pin:4.0,pout:20.0,ctx:'1000K',note:'官方称比 Opus 5 运行成本低 40%（2026-09-22 发布）'},
+ {name:'Gemini 4 Argon',vendor:'Google',pin:2.0,pout:10.0,ctx:'1049K',note:'限时价至 11 月 30 日；12 月 1 日起 $4/$20'},
+ {name:'Grok 4.7',vendor:'xAI',pin:2.0,pout:6.0,ctx:'500K',note:'超 200K 上下文输入价翻倍（$4），见 OpenRouter 分层价'},
+ {name:'DeepSeek V4 Pro',vendor:'DeepSeek',pin:0.9553,pout:1.9105,ctx:'1049K',note:'models.dev 官方渠道价 $0.66/$1.98，与 OpenRouter 不一致'},
+ {name:'Qwen3.8 Max Prime',vendor:'Qwen',pin:4.0,pout:12.0,ctx:'1000K',note:'models.dev 无官方渠道条目'},
+ {name:'Kimi K3.1 Pro',vendor:'Kimi',pin:2.0,pout:10.0,ctx:'1049K',note:''},
+ {name:'GLM-5.3 Prime',vendor:'Zhipu',pin:2.8,pout:8.8,ctx:'1000K',note:'models.dev 无官方渠道条目'},
+ {name:'Seed 2.1 Turbo',vendor:'Doubao',pin:0.5,pout:2.5,ctx:'262K',note:'models.dev 无官方渠道条目'},
+];
+const FLAGSHIPS=new Set(['openai/gpt-6.1-terra','openai/gpt-6.1-sol','anthropic/claude-opus-5.5','google/gemini-4-argon','x-ai/grok-4.7','deepseek/deepseek-v4-pro','qwen/qwen3.8-max-prime','moonshotai/kimi-k3.1-pro','z-ai/glm-5.3-prime','bytedance-seed/seed-2-1-turbo']);
+const PREFIX_VENDOR={'openai':'OpenAI','anthropic':'Anthropic','google':'Google','x-ai':'xAI','deepseek':'DeepSeek','qwen':'Qwen','moonshotai':'Kimi','z-ai':'Zhipu','bytedance-seed':'Doubao'};
+const MD_OFFICIAL={'openai/gpt-6.1-terra':'openai','openai/gpt-6.1-sol':'openai','anthropic/claude-opus-5.5':'anthropic','google/gemini-4-argon':'google','x-ai/grok-4.7':'xai','deepseek/deepseek-v4-pro':'deepseek','moonshotai/kimi-k3.1-pro':'moonshotai'};
+const MD_ID={'openai/gpt-6.1-terra':'gpt-6.1-terra','openai/gpt-6.1-sol':'gpt-6.1-sol','anthropic/claude-opus-5.5':'claude-opus-5.5','google/gemini-4-argon':'gemini-4-argon','x-ai/grok-4.7':'grok-4.7','deepseek/deepseek-v4-pro':'deepseek-v4-pro','moonshotai/kimi-k3.1-pro':'kimi-k3.1-pro'};
+function vendorOf(id){const p=(id||'').split('/')[0];return PREFIX_VENDOR[p]||p||'未知';}
+function fmt(p){return p==null?'未获取':'$'+(p<1?+p.toFixed(4):+p.toFixed(2));}
+async function fetchTO(u,ms=9000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.json();}
+function cacheAge(){const d=Math.floor((Date.now()-new Date('2026-11-09T00:00:00+08:00'))/864e5);return d<=0?'当日':('已过期 '+d+' 天');}
+function renderTable(){
+ const q=(document.getElementById('q').value||'').toLowerCase(),v=document.getElementById('vendor').value,c=document.getElementById('chg').value;
+ let list=models.filter(m=>(!q||m.name.toLowerCase().includes(q))&&(!v||m.vendor===v)&&(!c||c==='baseline'));
+ document.getElementById('tbody').innerHTML=list.map(m=>`<tr><td>${m.name}</td><td>${m.vendor}</td><td>${fmt(m.pin)}</td><td>${fmt(m.pout)}</td><td>${m.ctx||'—'}</td><td class="flat">基线积累中</td><td>${m.note||'—'}</td></tr>`).join('')||'<tr><td colspan="7">无匹配</td></tr>';
+}
+function drawChart(){
+ const labels=models.map(m=>m.name),vals=models.map(m=>m.pin);
+ const colors=vals.map(v=>v==null?'#9ca3af':v<=1?'#059669':v<=2?'#eab308':'#dc2626');
+ document.getElementById('chartNote').textContent='柱高 = 当前输入价（$/M），颜色按价位：≤$1 绿、≤$2 黄、>$2 红。不是涨跌幅——无基线前涨跌幅不存在。';
+ if(chart)chart.destroy();
+ chart=new Chart(document.getElementById('priceChart'),{type:'bar',data:{labels,datasets:[{data:vals,backgroundColor:colors}]},options:{plugins:{legend:{display:false}},scales:{y:{title:{display:true,text:'输入价 $/M'}}}}});
+}
+async function refreshAll(){
+ const src=[];let role='cache';
+ try{const d=await fetchTO('https://openrouter.ai/api/v1/models');
+   const picked=(d.data||[]).filter(m=>FLAGSHIPS.has(m.id)).map(m=>{const f=FALLBACK.find(x=>x.name===(m.name||'').replace(/^[^:]+: /,''))||{};return {name:m.name||m.id,vendor:vendorOf(m.id),pin:m.pricing?.prompt!=null?+((parseFloat(m.pricing.prompt)*1e6).toFixed(4)):null,pout:m.pricing?.completion!=null?+((parseFloat(m.pricing.completion)*1e6).toFixed(4)):null,ctx:m.context_length?Math.round(m.context_length/1000)+'K':'',note:f.note||''};});
+   if(picked.length>=8){models=picked;role='live';src.push(['OpenRouter','主源','正常 · 实时价',new Date().toLocaleString('zh-CN')]);src.push(['models.dev','替补','未启用（主源正常）','—']);src.push(['缓存快照 2026-11-09','缓存','未启用（主源正常）','截至 2026-11-09 · '+cacheAge()]);}
+   else src.push(['OpenRouter','主源','目录中白名单不足 8 个','—']);
+ }catch(e){src.push(['OpenRouter','主源','失败：'+e.message,'—']);}
+ if(role!=='live'){
+   try{const d=await fetchTO('https://models.dev/api.json');
+     const picked=[];
+     for(const id of FLAGSHIPS){const prov=MD_OFFICIAL[id];if(!prov)continue;const entry=d[prov]?.models?.[MD_ID[id]];if(entry?.cost){const f=FALLBACK.find(x=>x.name.toLowerCase().includes(MD_ID[id].split('-')[0]))||{};picked.push({name:entry.name||MD_ID[id],vendor:vendorOf(id),pin:entry.cost.input??null,pout:entry.cost.output??null,ctx:'',note:'替补源官方渠道价'});}}
+     if(picked.length){models=picked;role='backup';src.push(['models.dev','替补','正常 · 仅官方渠道价；Qwen/GLM/Seed 无官方条目，未获取',''+new Date().toLocaleString('zh-CN')]);src.push(['缓存快照 2026-11-09','缓存','未启用（替补正常）','截至 2026-11-09 · '+cacheAge()]);}
+     else src.push(['models.dev','替补','无可用官方渠道价','—']);
+   }catch(e){src.push(['models.dev','替补','失败：'+e.message,'—']);}
+ }
+ if(role==='cache'){models=FALLBACK;src.push(['缓存快照 2026-11-09','缓存','主源与替补均失败，显示缓存样本','截至 2026-11-09 · '+cacheAge()]);}
+ const priced=models.filter(m=>m.pin!=null);
+ const cheapest=priced.length?Math.min(...priced.map(m=>m.pin)):null;
+ document.getElementById('kpis').innerHTML=`<div class="card"><h3>监测模型</h3><div class="big">${models.length} 个</div></div><div class="card"><h3>最便宜输入价</h3><div class="big">${cheapest!=null?fmt(cheapest)+'/M':'未获取'}</div></div><div class="card"><h3>今日涨价 / 降价</h3><div class="big">— / —</div><p class="note">基线积累中，无对比</p></div><div class="card"><h3>即将调价</h3><div class="big">1 家</div><p class="note">Argon 12 月 1 日翻倍</p></div><div class="card"><h3>数据角色</h3><div class="big" style="font-size:22px">${role==='live'?'实时':role==='backup'?'替补':'缓存'}</div></div>`;
+ const b=document.getElementById('srcBadge');b.textContent=role==='live'?'OpenRouter 实时':role==='backup'?'models.dev 替补':'缓存样本 2026-11-09';b.className='badge '+(role==='live'?'live':role==='backup'?'backup':'cache');
+ document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
+ document.getElementById('tableNote').textContent=role==='cache'?'当前为缓存样本（截至 2026-11-09，'+cacheAge()+'），主源与替补均失败时显示。':role==='backup'?'当前为替补源 models.dev 官方渠道价；Qwen/GLM/Seed 无官方条目，显示「未获取」；DeepSeek 替补价 $0.66/$1.98 与主源不一致，已标注。':'实时价来自 OpenRouter；变动对比需下一份快照，今日暂为基线积累中。';
+ document.getElementById('sources').innerHTML=src.map(s=>`<div style="padding:6px 0;border-bottom:1px solid #f0f0f0">${s[0]} — <span class="badge ${s[1]==='主源'?'live':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
+ renderTable();drawChart();
+}
+refreshAll();
+</script></body></html>

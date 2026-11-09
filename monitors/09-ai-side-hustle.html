@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI副业玩法监测/真假拆解</title><script src="chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+button{background:#2563eb;margin-left:auto;color:#fff;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:640px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.missing{background:#f3f4f6;color:#6b7280}.badge.live{background:#d1fae5;color:#065f46}
+.badge.ok{background:#d1fae5;color:#065f46}.badge.warn2{background:#fef3c7;color:#92400e}.badge.bad{background:#fee2e2;color:#991b1b}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left;vertical-align:top}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+canvas{max-width:100%}
+.card canvas{height:260px !important}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+body{background:linear-gradient(160deg,#451a03 0%,#ea580c 55%,#dc2626 100%) fixed;}
+header{background:linear-gradient(90deg,#92400e,#ea580c,#dc2626);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+header button{background:#facc15;color:#1e1b4b}
+.hero{background:linear-gradient(120deg,#92400e,#ea580c 55%,#b91c1c)}
+.card{background:#fff}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#fef3c7,#fde68a);border-top-color:#d97706}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#ffedd5,#fed7aa);border-top-color:#ea580c}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#fee2e2,#fecaca);border-top-color:#dc2626}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-top-color:#059669}
+.grid .card:nth-child(5){background:linear-gradient(135deg,#cffafe,#a5f3fc);border-top-color:#06b6d4}
+th{color:#9a3412}
+.warn{background:#ffedd5;border:1px solid #fdba74}
+.big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+</style></head><body>
+<header><h1>🔍 AI副业玩法监测/真假拆解</h1><span class="sub" id="updated">人工策展样本 · 2026-11-09</span><span class="badge cache">人工策展 · 非实时抓取</span><button onclick="loadSample()">📥 载入样本</button></header>
+<main>
+<section class="hero"><h2>最毒的一句：‘AI 自动写小说月入 5 万’</h2><p>拆解：能跑通流程，不等于能赚到钱。这类话术晒出的收入截图，很多是卖课、卖社群、卖工具的收入，不是写小说本身的收入。本页所有案例均为「常见话术拆解」——典型声称来自公开平台的常见说法，未点名任何真实个人，收入数字均为博主声称、未经核实，不得当作事实。</p><div class="feed"><div><b>🚩 割韭菜信号</b>先晒收入截图，再卖 999 课；工具全免费却偏偏不说名字；“名额有限”“最后 3 天”。</div><div><b>✅ 可复制的共性</b>流程三步能讲清、工具免费、收入来自真实交付（修图、做模板、做视频），不是来自教你。</div><div><b>⚠️ 本页性质</b>人工策展，非实时抓取；无自动数据源，因此无技术备份源——两路人工渠道互为复核，见下方备份链。</div></div></section>
+<div class="grid" id="kpis"></div>
+<div class="card"><h3>可信度分布（本页 8 个拆解案例，仅为样本分布，不是全网统计）</h3><canvas id="credChart" height="100"></canvas><p class="note" id="chartNote"></p></div>
+<div class="card"><h3>案例拆解表 <span class="note">“典型声称”= 公开平台常见说法，非核实个案；不点名、不链接具体账号；评级为本页人工判断</span></h3>
+<select id="rating" onchange="renderTable()"><option value="">全部评级</option><option value="可复制">可复制</option><option value="有水分">有水分</option><option value="割韭菜">割韭菜</option></select><select id="platform" onchange="renderTable()"><option value="">全部平台</option><option>小红书</option><option>X</option><option>闲鱼</option><option>抖音</option><option>公众号</option></select>
+<table><thead><tr><th>玩法（话术拆解）</th><th>典型声称</th><th>工具</th><th>平台</th><th>评级</th><th>拆解</th></tr></thead><tbody id="tbody"></tbody></table>
+<p class="note" id="tableNote"></p></div>
+<div class="card"><h3>数据源备份链——本页无实时源，如实说明</h3><div id="sources"></div>
+<p class="note">⚠️ 明确声明：本页没有任何自动抓取的数据源，因此不存在“主源坏了自动切替补”的技术备份。X 与小红书均无稳定免费接口、风控严，只能人工收集。所谓的“备份”是两路独立人工渠道互为复核：① X 内置搜索整理（关键词：AI 副业 / 月入 / 自动化赚钱）；② 小红书人工收集。两路都只是人工看到什么记什么，仍非实时；若两路说法冲突，以更保守的评级为准，并在拆解中写明冲突。不要把本页当作实时榜单。</p></div>
+<div class="warn">⚠️ 诚实声明：本页 8 个案例均为「常见话术拆解」，典型声称引自公开平台的常见说法，未针对任何真实个人核实收入；评级（可复制 / 有水分 / 割韭菜）是本页人工判断，不是审计结论。“可复制”仅指流程能用免费工具跑通，不保证收入——任何承诺收入的说法都应要求对方出示可验证的交付记录。样本整理于 2026-11-09，话术会变，过期后需重新策展。</div>
+</main>
+<script>
+let chart;
+// 8 个案例：均为常见话术的类型化拆解，不指向真实个人；收入数字均为“典型声称”，未经核实。
+const CASES=[
+ {play:'AI 自动写小说月入 5 万',claim:'月入 ¥50,000',tool:'大模型写文 + 网文平台',platform:'小红书',rating:'割韭菜',why:'流程能跑，但网文收入靠追读与全勤，AI 量产文难过签约关；晒出的收入多来自卖课卖社群，不是稿费。要求看稿费后台再信。'},
+ {play:'AI 短视频矩阵月入过万',claim:'月入 ¥10,000+',tool:'AI 配音 + 剪辑 + 批量发',platform:'抖音',rating:'有水分',why:'矩阵要过审、要起号、要持续产出，单条爆款不可复制；“月入过万”常是单月峰值或多号合计，未扣时间与封号成本。'},
+ {play:'AI 做图接单日入 500',claim:'日入 ¥500',tool:'AI 生图 + 修图',platform:'闲鱼',rating:'有水分',why:'有真实需求（头像、海报、商品图），但日入 500 需稳定客源与返修时间；新手首月多为零星几单，按单价 ¥10–30 算，日入 500 意味着每天十几单，交付跟不上。'},
+ {play:'AI 写公众号爆文卖课',claim:'一篇爆文赚 ¥9,999 课费',tool:'大模型写稿 + 公众号',platform:'公众号',rating:'割韭菜',why:'爆文靠选题与账号权重，不是靠 AI；把“写出爆文”等同于“卖出课”是偷换。先问：课的学员有没有赚到钱？'},
+ {play:'AI 做 PPT 模板闲鱼卖',claim:'月入 ¥8,000',tool:'AI 生成 + 模板打包',platform:'闲鱼',rating:'可复制',why:'流程三步能讲清（生成→排版→上架），工具免费，收入来自真实交付；但单价低（¥6.9–19.9 常见），月入 8000 需大量上架与流量，多数人是几百元量级。'},
+ {play:'AI 配音 / 有声书接单',claim:'一单 ¥200–500',tool:'AI 配音 + 剪辑',platform:'X',rating:'有水分',why:'配音需求真实，但甲方要的是“像真人”的交付，AI 音色同质化严重，议价能力弱；单价数字多为报价，不是成交价。'},
+ {play:'AI 自动剪辑带货视频月入 3 万',claim:'月入 ¥30,000',tool:'AI 剪辑 + 商品链接',platform:'抖音',rating:'割韭菜',why:'带货收入 = 流量 × 转化 × 佣金，AI 剪辑只解决生产端；“自动”二字掩盖了选品、投流与售后成本。晒佣金截图不晒投流成本的，一律存疑。'},
+ {play:'免费工具做表情包 / 壁纸卖 9.9',claim:'单件 ¥9.9，走量',tool:'免费生图工具 + 打包',platform:'闲鱼',rating:'可复制',why:'成本几乎为零、交付即文件、可批量上架；收入天花板低，但流程真实、无需买课。注意：勿用他人版权素材，勿盗图转卖。'},
+];
+function badge(r){return r==='可复制'?'<span class="badge ok">可复制</span>':r==='有水分'?'<span class="badge warn2">有水分</span>':'<span class="badge bad">割韭菜</span>';}
+function renderTable(){
+ const r=document.getElementById('rating').value,p=document.getElementById('platform').value;
+ const list=CASES.filter(c=>(!r||c.rating===r)&&(!p||c.platform===p));
+ document.getElementById('tbody').innerHTML=list.map(c=>`<tr><td><b>${c.play}</b></td><td>${c.claim}<br><span class="note">博主声称，未核实</span></td><td>${c.tool}</td><td>${c.platform}</td><td>${badge(c.rating)}</td><td>${c.why}</td></tr>`).join('')||'<tr><td colspan="6">无匹配</td></tr>';
+}
+function drawChart(){
+ const ok=CASES.filter(c=>c.rating==='可复制').length,mid=CASES.filter(c=>c.rating==='有水分').length,bad=CASES.filter(c=>c.rating==='割韭菜').length;
+ document.getElementById('chartNote').textContent='可复制 '+ok+' · 有水分 '+mid+' · 割韭菜 '+bad+'，共 '+CASES.length+' 个样本。仅为本页样本分布，不是全网统计；评级为人工判断。';
+ if(chart)chart.destroy();
+ chart=new Chart(document.getElementById('credChart'),{type:'doughnut',data:{labels:['可复制','有水分','割韭菜'],datasets:[{data:[ok,mid,bad],backgroundColor:['#059669','#eab308','#dc2626']}]},options:{plugins:{legend:{position:'bottom'}}}});
+}
+function loadSample(){
+ const n={ok:CASES.filter(c=>c.rating==='可复制').length,mid:CASES.filter(c=>c.rating==='有水分').length,bad:CASES.filter(c=>c.rating==='割韭菜').length};
+ document.getElementById('kpis').innerHTML=`<div class="card"><h3>拆解案例</h3><div class="big">${CASES.length} 个</div></div><div class="card"><h3>割韭菜占比</h3><div class="big">${Math.round(n.bad/CASES.length*100)}%</div><p class="note">样本内，非全网</p></div><div class="card"><h3>可复制</h3><div class="big">${n.ok} 个</div></div><div class="card"><h3>有水分</h3><div class="big">${n.mid} 个</div></div><div class="card"><h3>样本日期</h3><div class="big" style="font-size:22px">2026-11-09</div><p class="note">人工策展，过期需重做</p></div>`;
+ document.getElementById('updated').textContent='样本载入：'+new Date().toLocaleString('zh-CN')+'（仅刷新显示时间，不拉取新数据）';
+ document.getElementById('tableNote').textContent='样本整理于 2026-11-09；“载入样本”只重新渲染本地样本，不联网抓取——本页没有可抓的实时源。';
+ document.getElementById('sources').innerHTML=['<div style="padding:6px 0;border-bottom:1px solid #f0f0f0">X 内置搜索整理 — <span class="badge backup">人工渠道①</span> 关键词 AI 副业 / 月入 / 自动化赚钱 · 人工整理 · 2026-11-09</div>','<div style="padding:6px 0;border-bottom:1px solid #f0f0f0">小红书人工收集 — <span class="badge backup">人工渠道②（复核）</span> 无接口、风控严，靠人工收集 · 2026-11-09</div>','<div style="padding:6px 0">自动抓取源 — <span class="badge missing">不存在 · 无技术备份</span> 本页无实时源；两路人工渠道互为复核，仍非实时，已明示</div>'].join('');
+ renderTable();drawChart();
+}
+loadSample();
+</script></body></html>

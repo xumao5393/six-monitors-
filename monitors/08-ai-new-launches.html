@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI新品/新功能上线监测</title><script src="chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+button{background:#2563eb;margin-left:auto;color:#fff;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:640px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.missing{background:#f3f4f6;color:#6b7280}.badge.live{background:#d1fae5;color:#065f46}.badge.tag{background:#ede9fe;color:#5b21b6}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+canvas{max-width:100%}
+.card canvas{height:260px !important}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+body{background:linear-gradient(160deg,#1e1b4b 0%,#7c3aed 55%,#d946ef 100%) fixed;}
+header{background:linear-gradient(90deg,#4338ca,#7c3aed,#c026d3);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+header button{background:#facc15;color:#1e1b4b}
+.hero{background:linear-gradient(120deg,#4338ca,#7c3aed 55%,#d946ef)}
+.card{background:#fff}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#e0e7ff,#c7d2fe);border-top-color:#4338ca}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#ede9fe,#ddd6fe);border-top-color:#7c3aed}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#fae8ff,#f5d0fe);border-top-color:#c026d3}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#fce7f3,#fbcfe8);border-top-color:#db2777}
+.grid .card:nth-child(5){background:linear-gradient(135deg,#cffafe,#a5f3fc);border-top-color:#06b6d4}
+th{color:#6d28d9}
+.warn{background:#ede9fe;border:1px solid #c4b5fd}
+.big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+a{color:#6d28d9}
+</style></head><body>
+<header><h1>🚀 AI新品/新功能上线监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge missing">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
+<main>
+<section class="hero"><h2>最大一条：GPT-Image-2.6，11 月 4 日上线</h2><p>OpenAI 图像模型 2.6（Flare / Sunburst）11 月 4 日进入 ChatGPT、Codex 与 API：动图 GIF、SVG 输出、官方称提速 50%。本页 = 人工策展 + 自动 diff：策展条目逐条核实日期与来源；自动 diff 需与上一份目录快照比对，首次快照 2026-11-09，基线积累中。</p><div class="feed"><div><b>🆕 本周最大新闻</b>11 月 4–5 日三连发：GPT-Image-2.6、腾讯 Hy4、Gemini Omni 1.2 Flash（视频模型 GA）。</div><div><b>🔓 开源权重</b>Kimi K3.1 Pro 权重 11 月 4 日公开（仓库创建 11 月 2 日，11 月 5 日确认公开）；Mistral Large 4 权重 10 月 29 日已出。</div><div><b>⚠️ 受限发布</b>GPT-6 Cyber（11 月 5 日，仅获批客户）、Gemini 4 Carbon（10 月 28 日宣布，预发布测试）、GPT-6 Rosalind（10 月 30 日，仅获批机构）——都不算人人能用。</div></div></section>
+<div class="grid" id="kpis"></div>
+<div class="card"><h3>发布频率（月度条数，仅统计本页策展条目，非全网发布总数）</h3><canvas id="freqChart" height="100"></canvas><p class="note" id="chartNote"></p></div>
+<div class="card"><h3>新品主表 <span class="note">人工策展 + 自动 diff · 每条均有日期与来源链接；“新上架”指首次出现在 OpenRouter/models.dev 目录或官方发布</span></h3>
+<input id="q" placeholder="搜索新品，如 Kimi / Gemini" oninput="renderTable()"><select id="vendor" onchange="renderTable()"><option value="">全部厂商</option><option>OpenAI</option><option>Anthropic</option><option>Google</option><option>Moonshot</option><option>Tencent</option><option>Mistral</option><option>xAI</option></select><select id="type" onchange="renderTable()"><option value="">全部类型</option><option>新模型</option><option>开源</option><option>新功能</option><option>受限发布</option></select>
+<table><thead><tr><th>日期</th><th>新品</th><th>厂商</th><th>类型</th><th>一句话卖点</th><th>来源</th></tr></thead><tbody id="tbody"></tbody></table>
+<p class="note" id="tableNote"></p></div>
+<div class="card"><h3>自动 diff 状态（OpenRouter / models.dev 目录新条目）</h3><div id="diffBox"></div>
+<p class="note">diff 逻辑：本次刷新取 OpenRouter（主源）全部模型 id，与浏览器 localStorage 中的上一份快照比对；无快照时存入本次快照并标「首次快照，基线积累中」。主源失败时改用 models.dev（替补）全部条目 id 做同样比对；两者都失败则只显示人工策展表。RSS 抓取需 GitHub Actions，本静态页不直接拉 RSS——这是已知缺口，见下文。</p></div>
+<div class="card"><h3>数据源备份链（每个源都有备份；无备份的环节会明说）</h3><div id="sources"></div>
+<p class="note">主源 OpenRouter（openrouter.ai/api/v1/models，2026-11-09 curl 实测 200）。替补 models.dev（models.dev/api.json，2026-11-09 curl 实测 200，含 Access-Control-Allow-Origin: *；与 02 页记录的 302 下线说法矛盾，以本次实测为准，每次刷新重新验证）。缓存：人工策展表（核实日期 2026-11-09）。⚠️ 无备份的环节：各厂商官方博客 RSS——浏览器常被跨域拦、无稳定免费直连源，本页不假装能实时拉 RSS；该环节的备份是人工策展（定期人工核对官方博客），已在本页明示，非技术备份。</p></div>
+<div class="warn">⚠️ 诚实声明：本页 14 条策展条目均经 2026-11-09 网页搜索核实日期与来源（官方公告或可信报道汇总）；未核实的发布不收录。自动 diff 今日为首次快照，暂无“新增条目”结论。Carbon / Cyber / Rosalind 均为受限发布，普通人暂不可用，已在类型中标注。</div>
+</main>
+<script>
+let chart;
+// 人工策展：全部经 2026-11-09 搜索核实。链接均为搜索结果返回的原文 URL，逐字复制，未猜测。
+const CURATED=[
+ {date:'2026-11-05',name:'Gemini Omni 1.2 Flash',vendor:'Google',type:'新模型',pitch:'视频模型正式 GA（11 月 5 日）',link:'https://www.swarchitect.net/en/ai-launches-2026-11/',src:'SW Architect 11 月新品汇总（核实 2026-11-06）'},
+ {date:'2026-11-05',name:'GPT-6 Cyber',vendor:'OpenAI',type:'受限发布',pitch:'安全研究模型，仅获批客户可用',link:'https://www.swarchitect.net/en/ai-launches-2026-11/',src:'SW Architect 11 月新品汇总'},
+ {date:'2026-11-04',name:'GPT-Image-2.6（Flare / Sunburst）',vendor:'OpenAI',type:'新模型',pitch:'GIF 动图、SVG 输出，官方称提速 50%',link:'https://apidog.com/blog/what-is-chatgpt-images-2-6/',src:'OpenAI 11 月 4 日发布；Apidog 整理'},
+ {date:'2026-11-04',name:'腾讯 Hy4',vendor:'Tencent',type:'新模型',pitch:'腾讯新语言模型，权重随后发布',link:'https://www.swarchitect.net/en/ai-launches-2026-11/',src:'SW Architect 11 月新品汇总'},
+ {date:'2026-11-04',name:'Kimi K3.1 Pro 开源权重',vendor:'Moonshot',type:'开源',pitch:'权重公开（仓库创建 11 月 2 日，11 月 5 日确认公开）',link:'https://www.swarchitect.net/en/ai-launches-2026-11/',src:'SW Architect；Moonshot HF 仓库'},
+ {date:'2026-10-30',name:'GPT-6 Rosalind',vendor:'OpenAI',type:'受限发布',pitch:'生命科学研究模型，仅获批机构',link:'https://themodelpress.com/explainers/openai-models-list',src:'OpenAI 更新日志；The Model Press'},
+ {date:'2026-10-29',name:'Mistral Large 4 开源权重',vendor:'Mistral',type:'开源',pitch:'旗舰模型权重发布',link:'https://www.swarchitect.net/en/ai-launches-2026-11/',src:'SW Architect 11 月新品汇总'},
+ {date:'2026-10-28',name:'Gemini 4 Carbon（宣布）',vendor:'Google',type:'受限发布',pitch:'Google 称史上最强工程模型，预发布测试中，全面上线无日期',link:'https://ai.gotry.io/news/2026-11-02-google-releases-gemini-4-argon-and-announces-gemini-4',src:'Google 博客汇总（AI Index，核实 2026-11-03）'},
+ {date:'2026-10-26',name:'GPT-6.1 Terra',vendor:'OpenAI',type:'新模型',pitch:'快速电脑操作模型，API 价比 GPT-5.6 Terra 低 50%',link:'https://openai.com/index/introducing-gpt-6-1-terra/',src:'OpenAI 官方博客 2026-10-26'},
+ {date:'2026-10-23',name:'Kimi K3.1 Pro（API）',vendor:'Moonshot',type:'新模型',pitch:'1M 上下文，API 上线；权重 11 月 4 日跟进',link:'https://www.swarchitect.net/en/ai-launches-2026-11/',src:'Moonshot 公告；SW Architect'},
+ {date:'2026-10-13',name:'Gemini 4 Argon',vendor:'Google',type:'新模型',pitch:'旗舰推理模型；11 月 2 日全面上线，限时价 $2/$10 至 11 月 30 日',link:'https://ai.gotry.io/news/2026-11-02-google-releases-gemini-4-argon-and-announces-gemini-4',src:'Google 博客汇总（AI Index，核实 2026-11-03）'},
+ {date:'2026-09-29',name:'GPT-6.1 Sol',vendor:'OpenAI',type:'新模型',pitch:'DevDay 发布，复杂编码与专业工作，近 Astra 水平',link:'https://themodelpress.com/explainers/openai-models-list',src:'OpenAI DevDay；The Model Press'},
+ {date:'2026-09-22',name:'Claude Opus 5.5',vendor:'Anthropic',type:'新模型',pitch:'长程 agentic 编码旗舰，比 Opus 5 运行成本低 40%',link:'https://www.anthropic.com/claude-opus-5-5',src:'Anthropic 官方博客 2026-09-22'},
+ {date:'2026-09-21',name:'Grok 4.7',vendor:'xAI',type:'新模型',pitch:'xAI 前沿模型，API / Cursor / Grok Build 上线',link:'https://durabilitycurve.com/chart/',src:'xAI 公告；Durability Curve 时间线'},
+];
+function renderTable(){
+ const q=(document.getElementById('q').value||'').toLowerCase(),v=document.getElementById('vendor').value,t=document.getElementById('type').value;
+ const list=CURATED.filter(m=>(!q||(m.name+m.pitch).toLowerCase().includes(q))&&(!v||m.vendor===v)&&(!t||m.type===t));
+ document.getElementById('tbody').innerHTML=list.map(m=>`<tr><td>${m.date}</td><td>${m.name}</td><td>${m.vendor}</td><td><span class="badge tag">${m.type}</span></td><td>${m.pitch}</td><td><a href="${m.link}" target="_blank" rel="noopener">${m.src}</a></td></tr>`).join('')||'<tr><td colspan="6">无匹配</td></tr>';
+}
+function drawChart(){
+ const counts={'2026-09':0,'2026-10':0,'2026-11':0};
+ CURATED.forEach(m=>{const k=m.date.slice(0,7);if(counts[k]!=null)counts[k]++;});
+ document.getElementById('chartNote').textContent='仅统计本页 14 条策展条目（2026-09 至 2026-11），不是全网发布总数；9 月含 Opus 5.5、Sol、Grok 4.7。';
+ if(chart)chart.destroy();
+ chart=new Chart(document.getElementById('freqChart'),{type:'bar',data:{labels:['2026-09','2026-10','2026-11（截至 11 月 9 日）'],datasets:[{data:[counts['2026-09'],counts['2026-10'],counts['2026-11']],backgroundColor:['#4338ca','#7c3aed','#d946ef']}]},options:{plugins:{legend:{display:false}},scales:{y:{ticks:{stepSize:1},title:{display:true,text:'策展条目数'}}}}});
+}
+async function fetchTO(u,ms=9000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.json();}
+function doDiff(ids,srcName){
+ const key='mon08_snapshot_ids',prev=JSON.parse(localStorage.getItem(key)||'null');
+ if(!prev){localStorage.setItem(key,JSON.stringify({date:new Date().toISOString().slice(0,10),ids}));return {status:'首次快照，基线积累中',added:[],total:ids.length,src:srcName};}
+ const prevSet=new Set(prev.ids),added=ids.filter(i=>!prevSet.has(i));
+ localStorage.setItem(key,JSON.stringify({date:new Date().toISOString().slice(0,10),ids}));
+ return {status:added.length?('新增 '+added.length+' 条'):'无新增条目',added,total:ids.length,src:srcName,prevDate:prev.date};
+}
+async function refreshAll(){
+ const src=[];let diff=null,role='cache';
+ try{const d=await fetchTO('https://openrouter.ai/api/v1/models');
+   const ids=(d.data||[]).map(m=>m.id);
+   if(ids.length){diff=doDiff(ids,'OpenRouter');role='live';src.push(['OpenRouter','主源','正常 · 目录 '+ids.length+' 条',new Date().toLocaleString('zh-CN')]);src.push(['models.dev','替补','未启用（主源正常）','—']);}
+   else src.push(['OpenRouter','主源','目录为空','—']);
+ }catch(e){src.push(['OpenRouter','主源','失败：'+e.message,'—']);}
+ if(!diff){
+   try{const d=await fetchTO('https://models.dev/api.json');
+     const ids=[];for(const p of Object.values(d)){for(const id of Object.keys(p.models||{}))ids.push(id);}
+     if(ids.length){diff=doDiff(ids,'models.dev');role='backup';src.push(['models.dev','替补','正常 · 条目 '+ids.length+' 条（多渠道去重前）',new Date().toLocaleString('zh-CN')]);}
+     else src.push(['models.dev','替补','条目为空','—']);
+   }catch(e){src.push(['models.dev','替补','失败：'+e.message,'—']);}
+ }
+ src.push(['人工策展表','缓存','14 条，核实日期 2026-11-09','截至 2026-11-09']);
+ const nov=CURATED.filter(m=>m.date.startsWith('2026-11')).length;
+ document.getElementById('kpis').innerHTML=`<div class="card"><h3>策展条目</h3><div class="big">${CURATED.length} 条</div></div><div class="card"><h3>11 月新品</h3><div class="big">${nov} 条</div></div><div class="card"><h3>本周最大新闻</h3><div class="big" style="font-size:20px">GPT-Image-2.6</div><p class="note">2026-11-04</p></div><div class="card"><h3>自动 diff 新增</h3><div class="big" style="font-size:22px">${diff?diff.status:'未获取'}</div><p class="note">${diff?('来源：'+diff.src+'，目录 '+diff.total+' 条'+(diff.prevDate?'，上份快照 '+diff.prevDate:'')):'主源与替补均失败'}</p></div><div class="card"><h3>数据角色</h3><div class="big" style="font-size:22px">${role==='live'?'实时+策展':role==='backup'?'替补+策展':'仅策展'}</div></div>`;
+ const b=document.getElementById('srcBadge');b.textContent=role==='live'?'OpenRouter 实时 + 策展':role==='backup'?'models.dev 替补 + 策展':'人工策展 2026-11-09';b.className='badge '+(role==='live'?'live':role==='backup'?'backup':'cache');
+ document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
+ document.getElementById('diffBox').innerHTML=diff?`<div>${diff.src} 自动 diff：<b>${diff.status}</b>（目录 ${diff.total} 条）。${diff.added.length?('新增：'+diff.added.slice(0,20).join('、')+(diff.added.length>20?' 等':'')+'。'):'首次快照时无新增结论，下次刷新起比对。'}</div>`:'<div>主源与替补均失败，自动 diff 未获取；仅显示人工策展表。</div>';
+ document.getElementById('tableNote').textContent='策展条目核实于 2026-11-09；自动 diff 今日为首次快照（基线积累中），新增结论下次刷新起才有。';
+ document.getElementById('sources').innerHTML=src.map(s=>`<div style="padding:6px 0;border-bottom:1px solid #f0f0f0">${s[0]} — <span class="badge ${s[1]==='主源'?'live':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+'<div style="padding:6px 0">官方博客 RSS — <span class="badge missing">无备份</span> 浏览器常被跨域拦、无稳定免费直连源；备份 = 人工策展定期核对（本页策展表），非技术实时备份，已明示。</div>';
+ renderTable();drawChart();
+}
+refreshAll();
+</script></body></html>

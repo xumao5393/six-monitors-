@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>搜索趋势监测</title><script src="chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.16)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:680px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent;background:#fff}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1;color:#111827}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.primary{background:#0891b2;color:#fff}.badge.backup{background:#ccfbf1;color:#0f766e}.badge.cache{background:#cffafe;color:#155e75}.badge.manual{background:#0d9488;color:#fff}.badge.missing{background:#f3f4f6;color:#6b7280}
+.badge.up{background:#dcfce7;color:#166534}.badge.flat{background:#e0f2fe;color:#075985}.badge.down{background:#fee2e2;color:#991b1b}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left;vertical-align:top}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#0e7490}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6;background:#ecfeff;border:1px solid #67e8f9}
+button{background:#0891b2;color:#fff;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+canvas{max-width:100%}
+.card canvas{height:260px !important}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+.srcs{font-size:12px;line-height:1.9}
+.srcs a{color:#0e7490}
+a{color:#0e7490}
+body{background:linear-gradient(160deg,#083344 0%,#0d9488 55%,#2563eb 100%) fixed;}
+header{background:linear-gradient(90deg,#083344,#0f766e,#1d4ed8);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.hero{background:linear-gradient(120deg,#083344,#0d9488 60%,#2563eb)}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#cffafe,#a5f3fc);border-top-color:#0891b2}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#ccfbf1,#99f6e4);border-top-color:#0d9488}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-top-color:#2563eb}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#f1f5f9,#e2e8f0);border-top-color:#475569}
+</style></head><body>
+<header><h1>🔍 搜索趋势监测</h1><span class="sub">样本 / 人工判断 · 更新日期 2026-11-09</span><span class="badge manual">样本 · 非实测</span></header>
+<main>
+<section class="hero"><h2>今日看点：Claude 抬头，捏捏乐回落</h2><p>本页趋势方向全部是人工判断的样本结论，不是 Google Trends 实测数值。11 月上旬最值得跟的信号：Claude 因新模型与宕机事件讨论抬头，捏捏乐热度从年中高点回落，副业类话题年底持续走强。</p><div class="feed"><div><b>📊 样本，非实测</b>趋势箭头是人工判断的方向（↑/→/↓），不含任何百分比、指数或搜索量数字。</div><div><b>🔄 实时拉取已尝试</b>下方实时区块每次打开都会尝试拉 Google Trends 每日热榜 RSS，拉不到就老实写「未获取」。</div><div><b>🛡 备份铁律</b>每个数据源都有 主源 → 替补 → 缓存 三层；无备份的来源会明确写「无备份」，不假装有。</div></div></section>
+<div class="warn">⚠️ <b>本页无实测搜索量数字。</b>Google Trends 不提供浏览器直连的免费数值接口，百度指数需登录；因此趋势方向为人工样本判断（更新 2026-11-09），曲线图为样本趋势示意。任何百分比、指数值均未在本页出现——出现即为错误。</div>
+<div class="grid">
+<div class="card"><h3>跟踪关键词</h3><div class="big">8 个</div><p class="note">人工样本，更新 2026-11-09</p></div>
+<div class="card"><h3>上升 ↑</h3><div class="big">3 个</div><p class="note">副业、Claude、Gemini</p></div>
+<div class="card"><h3>平稳 →</h3><div class="big">4 个</div><p class="note">AI、义乌小商品、DeepSeek、ChatGPT</p></div>
+<div class="card"><h3>回落 ↓</h3><div class="big">1 个</div><p class="note">捏捏乐</p></div>
+</div>
+<div class="card"><h3 class="section-title">关键词趋势表（样本 / 人工判断）</h3>
+<p class="note">方向说明：↑ 上升 / → 平稳 / ↓ 回落，均为人工判断，非实测数据。依据一句话为人工观察理由。</p>
+<table><thead><tr><th>关键词</th><th>近 30 天方向</th><th>依据一句话（人工判断）</th><th>相关上升词（人工整理）</th><th>用途</th></tr></thead><tbody>
+<tr><td>AI</td><td><span class="badge flat">→ 平稳</span></td><td>全年高位话题，11 月无单一爆点拉动整体搜索。</td><td>AI 副业、AI 绘画</td><td>选题 / 选品</td></tr>
+<tr><td>副业</td><td><span class="badge up">↑ 上升</span></td><td>年底「搞钱」内容在各平台持续出圈，相关讨论增多。</td><td>AI 副业、副业赚钱、轻创业</td><td>选题 / 副业拆解</td></tr>
+<tr><td>捏捏乐</td><td><span class="badge down">↓ 回落</span></td><td>年中爆火后热度自然回落，义乌拿货相关讨论减少。</td><td>捏捏乐进货、解压玩具</td><td>选品（谨慎）</td></tr>
+<tr><td>义乌小商品</td><td><span class="badge flat">→ 平稳</span></td><td>选品类话题常年稳定，无明显季节性脉冲。</td><td>义乌进货、摆摊好物</td><td>选品</td></tr>
+<tr><td>DeepSeek</td><td><span class="badge flat">→ 平稳</span></td><td>年初爆火后进入平稳期，讨论集中在深度使用而非尝鲜。</td><td>DeepSeek 教程、DeepSeek 写作</td><td>选题</td></tr>
+<tr><td>Claude</td><td><span class="badge up">↑ 上升</span></td><td>11 月新模型发布叠加 9–10 月两次宕机，讨论度抬头。</td><td>Claude 宕机、Claude 水印</td><td>选题 / 大事件联动</td></tr>
+<tr><td>ChatGPT</td><td><span class="badge flat">→ 平稳</span></td><td>GPT-6 发布讨论集中在科技圈，未扩散成大众搜索高峰。</td><td>GPT-6、ChatGPT 降价</td><td>选题</td></tr>
+<tr><td>Gemini</td><td><span class="badge up">↑ 上升</span></td><td>Gemini 3 / 4 发布传闻与谷歌新品消息带动关注。</td><td>Gemini 3、谷歌 AI</td><td>选题</td></tr>
+</tbody></table>
+<p class="note">口径：方向与依据均为人工判断（2026-11-09），非 Google Trends 或百度指数实测值；「相关上升词」为人工整理，非平台官方相关查询。</p></div>
+<div class="card"><h3>样本趋势示意（非实测数值）</h3><div style="position:relative;height:280px"><canvas id="trendChart"></canvas></div><p class="note">⚠️ 纵轴为人工设定的示意指数（0–100），仅用于比较四个关键词的走势方向，不代表真实搜索量、不是实测数据。请勿引用为数值。</p></div>
+<div class="card"><h3 class="section-title">实时尝试：Google Trends 每日热榜 RSS</h3>
+<p class="note">本区块每次打开页面时自动尝试浏览器直连拉取 Google Trends 每日热榜 RSS。Google Trends RSS 通常不带 CORS 头，浏览器大概率拉不到——拉不到就显示「未获取」，不编榜单。</p>
+<p><button onclick="tryTrends()">🔄 重新尝试拉取</button> <a href="https://trends.google.com/trends/" target="_blank" rel="noopener">手动打开 Google Trends →</a></p>
+<div id="trendLive"><p class="note">正在尝试拉取…</p></div>
+<p class="note">尝试地址：trends.google.com/trends/trendingsearches/daily/rss?geo=CN（中国）与 geo=US（美国）。若两者均失败，请手动打开上方链接查看实时热榜。</p></div>
+<div class="card"><h3 class="section-title">数据源与备份（三层，逐项标注）</h3><div class="srcs">
+<div>① Google Trends 每日热榜 RSS — <span class="badge primary">主源</span> trends.google.com RSS 直连（浏览器常被 CORS 拦） → <span class="badge backup">替补</span> 手动打开 trends.google.com 查看（上方链接） → <span class="badge cache">缓存</span> 本页人工样本趋势表（更新 2026-11-09，过期请勿当实时用）。</div>
+<div>② Google Trends RSS 的 Actions 快照 — <span class="badge primary">主源</span> GitHub Actions 定时抓 RSS 存 JSON（稳定性中等） → <span class="badge backup">替补</span> 手动查看 trends.google.com → <span class="badge cache">缓存</span> 本页人工样本表。状态：<span class="badge missing">未启用</span>，快照尚未搭建，实时数值目前无来源。</div>
+<div>③ 百度指数 — <span class="badge missing">无备份</span>：百度指数需登录、无免费公开接口，浏览器直连不可行，且无可用的免费替补源；<b>本页不含任何百度指数数据</b>，相关关键词方向仅以人工判断呈现。</div>
+<div>④ 关键词方向人工判断 — <span class="badge primary">主源</span> 人工观察各平台讨论热度 → <span class="badge backup">替补</span> 监测 16 大事件表交叉验证（如 Claude 宕机/发布事件） → <span class="badge cache">缓存</span> 本页样本表（更新 2026-11-09，超过 7 天未更新即视为过期）。</div>
+</div><p class="note">备份铁律执行情况：①②④ 有三层；③ 明确标注无备份，不沉默缺省。人工样本缓存有效期：自 2026-11-09 起，超过 7 天未更新即视为过期。</p></div>
+<div class="card"><h3 class="section-title">内容钩子（可直接用的选题）</h3><p class="note">「这个词的搜索这个月悄悄抬头，大部分人还没反应过来——现在做内容正是蓝海。」／「捏捏乐热度回落了，现在进场是抄底还是接盘？」／「副业话题年底走强，但九成『AI 月入过万』经不起拆——先看监测 10 的拆解。」</p></div>
+<p class="note">数据口径：本页全部为人工样本判断，更新日期 2026-11-09；无实测搜索量、无百分比、无指数值。页面设计：青 → teal → 蓝渐变；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底。</p>
+</main>
+<script>
+async function tryTrends(){
+  var el=document.getElementById('trendLive');
+  el.innerHTML='<p class="note">正在尝试拉取 Google Trends 每日热榜 RSS…</p>';
+  var urls=[['中国（geo=CN）','https://trends.google.com/trends/trendingsearches/daily/rss?geo=CN'],['美国（geo=US）','https://trends.google.com/trends/trendingsearches/daily/rss?geo=US']];
+  var rows=[];
+  for(var i=0;i<urls.length;i++){
+    var label=urls[i][0],u=urls[i][1],ok=false,detail='';
+    try{
+      var c=new AbortController();setTimeout(function(){c.abort();},8000);
+      var r=await fetch(u,{signal:c.signal});
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      var t=await r.text();
+      if(t.indexOf('<item>')>-1){ok=true;detail='已获取 RSS（含条目），解析未展开——请手动打开核对。';}
+      else{detail='已返回但无条目。';}
+    }catch(e){detail='浏览器跨域（CORS）拦截或网络失败（'+(e&&e.message?e.message:'fetch 失败')+'），未编造榜单。';}
+    rows.push('<div>'+label+' — '+(ok?'<span class="badge primary">已获取</span>':'<span class="badge missing">未获取</span>')+' '+detail+'</div>');
+  }
+  el.innerHTML=rows.join('')+'<p class="note">尝试时间：'+new Date().toLocaleString('zh-CN')+'。实时热榜请手动打开 <a href="https://trends.google.com/trends/" target="_blank" rel="noopener">trends.google.com/trends</a>。如需稳定实时数据，需搭建 GitHub Actions 定时抓取 RSS 存 JSON（见上方数据源 ②，目前未启用）。</p>';
+}
+function draw(){if(!window.Chart){setTimeout(draw,300);return;}
+new Chart(document.getElementById('trendChart'),{type:'line',data:{labels:['第1周','第2周','第3周','第4周','第5周','第6周','第7周','第8周','第9周','第10周','第11周','第12周'],datasets:[
+{label:'副业（样本示意）',data:[55,58,60,62,65,68,70,72,75,78,80,82],borderColor:'#0d9488',backgroundColor:'transparent',tension:.3},
+{label:'AI（样本示意）',data:[78,80,79,81,80,82,81,83,82,84,83,85],borderColor:'#2563eb',backgroundColor:'transparent',tension:.3},
+{label:'DeepSeek（样本示意）',data:[70,68,66,65,64,63,62,62,61,61,60,60],borderColor:'#0891b2',backgroundColor:'transparent',tension:.3},
+{label:'捏捏乐（样本示意）',data:[85,82,78,74,70,66,62,58,55,52,50,48],borderColor:'#f59e0b',backgroundColor:'transparent',tension:.3}
+]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{min:0,max:100,title:{display:true,text:'示意指数（人工设定，非实测）'}}}}});}
+draw();tryTrends();
+</script></body></html>

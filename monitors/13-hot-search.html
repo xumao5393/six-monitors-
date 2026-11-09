@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>热搜热榜聚合</title><script src="chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+button{background:#2563eb;margin-left:auto;color:#fff;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:640px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.missing{background:#f3f4f6;color:#6b7280}.badge.live{background:#dcfce7;color:#166534}.badge.stale{background:#7c2d12;color:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6}
+canvas{max-width:100%}
+.card canvas{height:260px!important}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+.chain{font-size:12px;color:#6b7280;line-height:1.7;margin:6px 0 10px}
+.chain b{color:#374151}
+.plat{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.plat.card h3{font-size:16px;color:#111827}
+.plat ol{margin:6px 0 0;padding-left:20px;font-size:14px;line-height:1.9}
+.plat ol li{display:flex;justify-content:space-between;gap:8px}
+.plat ol li span{white-space:nowrap;flex-shrink:0;color:#6b7280;font-size:12px}
+.missing-box{border:2px dashed #d1d5db;border-radius:14px;padding:16px;font-size:14px;line-height:1.7;color:#374151;background:#f9fafb}
+body{background:linear-gradient(160deg,#7f1d1d 0%,#db2777 55%,#ea580c 100%) fixed;}
+header{background:linear-gradient(90deg,#991b1b,#db2777,#ea580c);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+header button{background:#fde68a;color:#7f1d1d}
+.hero{background:linear-gradient(120deg,#991b1b,#e11d48 55%,#f97316)}
+.card{background:#fff}
+.grid.card:nth-child(1){background:linear-gradient(135deg,#fee2e2,#fecaca);border-top-color:#dc2626}
+.grid.card:nth-child(2){background:linear-gradient(135deg,#fce7f3,#fbcfe8);border-top-color:#db2777}
+.grid.card:nth-child(3){background:linear-gradient(135deg,#ffedd5,#fed7aa);border-top-color:#ea580c}
+.grid.card:nth-child(4){background:linear-gradient(135deg,#fef3c7,#fde68a);border-top-color:#d97706}
+.grid.card:nth-child(5){background:linear-gradient(135deg,#f3f4f6,#e5e7eb);border-top-color:#6b7280}
+th{color:#be123c}
+.warn{background:#fff1f2;border:1px solid #fda4af}
+.big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid.card.big{color:#111827;-webkit-text-fill-color:#111827}
+</style></head><body>
+<header><h1>🔥 热搜热榜聚合</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
+<main>
+<section class="hero"><h2>全网刷屏：BLG 战胜 T1，挺进决赛</h2><p>抖音热度 1,213 万（第 1 名）、B 站电竞榜第 8 名同场话题、微博多条电竞热搜同上榜。三个平台同时刷屏，是今天最确定的流量。</p><div class="feed"><div><b>✍️ 这个能怎么写</b>「电竞决赛夜，普通人怎么用 AI 蹭这波」——AI 剪决赛高光、AI 做赛后梗图、AI 写观赛文案，三步出片。</div><div><b>🔥 次热</b>「外资持续看好中国发展前景」抖音第 3（1,113 万热度），财经/副业号可接「外资看好什么赛道」。</div><div><b>⚠️ 诚实说明</b>热榜源都不稳：微博要登录、知乎 401、第三方聚合 404。本页每个平台块独立降级，拉不到就显示「未获取」，绝不编数字。</div></div></section>
+<p class="note">铁律：<b>每个数据源必须有备份（主源 → 备份 → 缓存）</b>，并标注抓取时间与过期状态。知乎是例外——主源与备份均被拦截、且无可用缓存，<b>本页明确说明它没有备份</b>，不假装有。缓存快照核实于 <b>2026-11-09 15:15 CST</b>（curl 实测），超过 12 小时自动标「已过期」。</p>
+<div class="grid" id="kpis"></div>
+<div class="card"><h3>各平台 Top 1 热度对比（缓存样本，2026-11-09 15:15 CST 核实）</h3><div style="position:relative;height:260px"><canvas id="chart"></canvas></div><p class="note">B 站排行榜不公布热度数值，故无柱形；知乎未获取，故无柱形。抖音、微博数值为 curl 实测的 Top 1 热度值。</p></div>
+
+<h2 class="section-title" style="color:#fff">📋 各平台 Top 榜（每块独立状态）</h2>
+<div class="plat" id="plats"></div>
+
+<div class="card"><h3>✍️ 今日值得写话题 · 人工策展 2026-11-09</h3>
+<p class="note">人工策展，非实时抓取。话题来自当日已核实的热榜，角度为人工撰写。</p>
+<table><thead><tr><th>话题</th><th>来源平台</th><th>可写角度</th></tr></thead><tbody>
+<tr><td>BLG 战胜 T1 挺进决赛</td><td>抖音 #1、微博多条、B 站电竞榜</td><td>AI 剪决赛高光 / AI 做梗图 / 决赛夜观赛文案</td></tr>
+<tr><td>外资持续看好中国发展前景</td><td>抖音 #3（热度 1,113 万）</td><td>外资看好什么赛道？普通人能跟的三个方向</td></tr>
+<tr><td>今日寒衣节</td><td>抖音 #4（热度 1,089 万）</td><td>传统节日选题：习俗科普 + 应季选品（保暖、祭扫）</td></tr>
+</tbody></table></div>
+
+<div class="card"><h3>数据源与备份链</h3><div id="sources"></div>
+<p class="note">备份链说明：主源失败 → 自动试备份源 → 仍失败则显示缓存样本（带核实时间与过期标记）→ 连缓存都没有则显示「未获取」。知乎：主源 401、备份源 403，均无可用备份，也无缓存——已在本页明确标注。</p></div>
+</main>
+<script>
+const CACHE_TS=new Date('2026-11-09T15:15:00+08:00').getTime();
+const CACHE_LABEL='2026-11-09 15:15 CST';
+function staleBadge(){const h=(Date.now()-CACHE_TS)/3600000;return h>12?'<span class="badge stale">已过期（缓存 '+Math.floor(h)+' 小时前）</span>':'<span class="badge cache">缓存样本 · '+CACHE_LABEL+'</span>';}
+/* 缓存样本：2026-11-09 15:15 CST curl 实测，非编造。微博：weibointl.api.weibo.cn（HTTP 200）；
+抖音：iesdouyin.com hotsearch（HTTP 200）；B站：api.bilibili.com ranking v2（HTTP 200，无热度值）。
+知乎：api/v3 hot-lists 返回 401 身份未验证，备份 top_search 返回 403，无缓存。*/
+const CACHE={
+weibo:[['iG投资人开团AL',1164166],['Doran说T1本可以赢BLG',826914],['为了守护万家灯火他们迎难而上',697958],['日本地铁太压抑了',661475],['为什么满地都是口腔诊所',621747],['再婚皇后道具疑似是在拼多多买的',570308]],
+douyin:[['BLG战胜T1挺进决赛',12135323],['后知后觉又过了一个秋',11157762],['外资持续看好中国发展前景',11131960],['今日寒衣节',10888230],['76人送公牛7连败',10318245],['攻击11全方位展示',10097102]],
+bili:[['《崩坏：星穹铁道》星神★阿哈角色PV——「让骰子飞」','手机游戏'],['近十几年的梗都在这里了','人力VOCALOID'],['火柴人 VS 动画师 第十四集 黑暗时代','日常'],['《再飞行！》MV：终于完整的旋律','综合'],['人类饲养指南','绘画'],['11月9日 BLG vs T1','电子竞技']],
+};
+const PLATS=[
+{id:'weibo',name:'微博',icon:'🔴',primary:'微博国际版接口 weibointl.api.weibo.cn（curl 200）',backup:'m.weibo.cn 实时热搜接口（curl 302，不稳定）',manual:'https://s.weibo.com/top/summary',cache:'有',endpoint:'https://weibointl.api.weibo.cn/portal.php?ct=feed&a=search_topic'},
+{id:'douyin',name:'抖音',icon:'🎵',primary:'抖音热搜榜 iesdouyin.com（curl 200）',backup:'⚠️ 无独立备份源——未找到第二个可用的抖音热搜接口，已明确标注',manual:'https://www.douyin.com/',cache:'有',endpoint:'https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/'},
+{id:'zhihu',name:'知乎',icon:'📘',primary:'知乎热榜 api/v3 hot-lists（curl 401 身份未验证）',backup:'⚠️ 无可用备份源——备份接口 top_search 返回 403，且无缓存',manual:'https://www.zhihu.com/hot',cache:'无',endpoint:'https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10'},
+{id:'bili',name:'B站',icon:'📺',primary:'B站排行榜 api.bilibili.com ranking v2（curl 200）',backup:'B站热搜词 search/square（curl 200，已核实）',manual:'https://www.bilibili.com/v/popular/rank/all',cache:'有',endpoint:'https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all'},
+];
+let chart;
+function fmt(n){return n>=10000?(n/10000).toFixed(1)+'万':n.toLocaleString();}
+function renderPlats(states){
+document.getElementById('plats').innerHTML=PLATS.map(p=>{
+const s=states[p.id]||{role:'cache'};
+const badge=s.role==='live'?'<span class="badge live">主源 · 直连成功</span>':s.role==='backup'?'<span class="badge backup">备份源</span>':s.role==='missing'?'<span class="badge missing">未获取</span>':staleBadge();
+const time=s.time||(s.role==='missing'?'—':CACHE_LABEL);
+let body='';
+if(s.role==='missing'){
+body=`<div class="missing-box">未获取：主源与备份均失败，且无可用缓存。<br>请手动打开 <a href="${p.manual}" target="_blank" rel="noopener">官方热榜 ↗</a> 查看。</div>`;
+}else{
+const rows=(s.items||CACHE[p.id]||[]).map((it,i)=>{
+if(p.id==='bili')return `<li>${it[0]} <span>${it[1]}</span></li>`;
+return `<li>${it[0]} <span>${fmt(it[1])}</span></li>`;
+}).join('');
+body=`<ol>${rows}</ol><p class="note">来源：${s.role==='live'?'主源直连':s.role==='backup'?'备份源':'缓存样本（'+CACHE_LABEL+' 核实）'} · <a href="${p.manual}" target="_blank" rel="noopener">官方榜单 ↗</a></p>`;
+}
+return `<div class="card"><h3>${p.icon} ${p.name} ${badge}</h3><div class="chain"><b>主源：</b>${p.primary}<br><b>备份：</b>${p.backup}<br><b>缓存：</b>${p.cache==='有'?'有（'+CACHE_LABEL+'）':'无'} · 更新：${time}</div>${body}</div>`;
+}).join('');
+}
+async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
+function renderKpis(liveCount){
+document.getElementById('kpis').innerHTML=
+`<div class="card"><h3>监测平台</h3><div class="big">4</div><div class="note">微博 / 抖音 / 知乎 / B站</div></div>`+
+`<div class="card"><h3>curl 核实成功</h3><div class="big">3 / 4</div><div class="note">微博、抖音、B站（2026-11-09）</div></div>`+
+`<div class="card"><h3>浏览器直连成功</h3><div class="big">${liveCount}</div><div class="note">跨域拦截时自动降级为缓存</div></div>`+
+`<div class="card"><h3>未获取</h3><div class="big">1</div><div class="note">知乎（401/403，无备份无缓存）</div></div>`+
+`<div class="card"><h3>全网同上榜</h3><div class="big">1</div><div class="note">BLG vs T1（抖音/B站/微博）</div></div>`;
+}
+function draw(){
+if(chart)chart.destroy();
+chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:['抖音','微博'],datasets:[{data:[12135323,1164166],backgroundColor:['#e11d48','#f97316']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxRotation:0,minRotation:0}},y:{ticks:{callback:v=>fmt(v)}}}}});
+}
+async function refreshAll(){
+const states={};let liveCount=0;const src=[];
+for(const p of PLATS){
+let done=false;
+try{
+const d=await fetchTO(p.endpoint);
+let items=null;
+if(p.id==='weibo'&&d.data)items=d.data.slice(0,6).map(x=>[x.title,x.number]);
+if(p.id==='douyin'&&d.word_list)items=d.word_list.slice(0,6).map(x=>[x.word,x.hot_value]);
+if(p.id==='bili'&&d.data&&d.data.list)items=d.data.list.slice(0,6).map(x=>[x.title,x.tname]);
+if(items&&items.length){states[p.id]={role:'live',items,time:new Date().toLocaleString('zh-CN')};liveCount++;done=true;src.push([p.name+' 主源','主源','直连成功',new Date().toLocaleString('zh-CN')]);}
+}catch(e){src.push([p.name+' 主源','主源','失败（跨域/网络，'+e.message+'）','—']);}
+if(!done){
+/* 备份源：B站有已核实的热搜词接口；微博 m 端 302 不稳定，仍尝试一次；抖音、知乎无可用备份，直接进缓存/未获取。*/
+if(p.id==='bili'){
+try{const d=await fetchTO('https://api.bilibili.com/x/web-interface/search/square?limit=10');
+if(d.data&&d.data.trending&&d.data.trending.list){states[p.id]={role:'backup',items:d.data.trending.list.slice(0,6).map(x=>[x.show_name,'热搜词']),time:new Date().toLocaleString('zh-CN')};done=true;src.push(['B站备份（热搜词）','备份','成功',new Date().toLocaleString('zh-CN')]);}
+}catch(e){src.push(['B站备份（热搜词）','备份','失败','—']);}
+} else if(p.id==='weibo'){
+try{const d=await fetchTO('https://m.weibo.cn/api/container/getIndex?containerid=106003type%3D25%26t%3D3%26disable_hot%3D1%26filter_type%3Drealtimehot');
+const cards=(d.data&&d.data.cards)||[];const items=[];
+cards.forEach(c=>(c.card_group||[]).forEach(g=>{if(g.desc)items.push([g.desc.replace(/^#|#$/g,''),null]);}));
+if(items.length){states[p.id]={role:'backup',items:items.slice(0,6),time:new Date().toLocaleString('zh-CN')};done=true;src.push(['微博备份（m 端）','备份','成功',new Date().toLocaleString('zh-CN')]);}
+}catch(e){src.push(['微博备份（m 端）','备份','失败（302/跨域）','—']);}
+} else {
+src.push([p.name+' 备份','备份',p.id==='douyin'?'无独立备份源（已明确标注）':'无可用备份源（403）','—']);
+}
+}
+if(!done){
+if(CACHE[p.id]){states[p.id]={role:'cache',time:CACHE_LABEL};src.push([p.name+' 缓存','缓存','主/备份均失败，显示 '+CACHE_LABEL+' 核实样本',CACHE_LABEL]);}
+else{states[p.id]={role:'missing'};src.push([p.name,'—','主源 401/403、备份 403、无缓存 → 未获取',CACHE_LABEL]);}
+}
+}
+renderPlats(states);renderKpis(liveCount);draw();
+const b=document.getElementById('srcBadge');
+b.textContent=liveCount>0?'部分直连':'缓存样本';b.className='badge '+(liveCount>0?'live':'cache');
+document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN')+' · 缓存核实 '+CACHE_LABEL;
+document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'live':s[1]==='备份'?'backup':s[1]==='缓存'?'cache':'missing'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
+}
+refreshAll();
+</script></body></html>

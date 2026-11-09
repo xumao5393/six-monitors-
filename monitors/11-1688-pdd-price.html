@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1688 / 拼多多价格趋势</title><script src="chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+button{background:#fff;margin-left:auto;color:#1d4ed8;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18)}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:640px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent;background:#fff}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1;color:#111827}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#dbeafe;color:#1e40af}.badge.missing{background:#f3f4f6;color:#6b7280}.badge.example{background:#ede9fe;color:#5b21b6}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#1d4ed8}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6;background:#eff6ff;border:1px solid #93c5fd}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+canvas{max-width:100%}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+body{background:linear-gradient(160deg,#0c4a6e 0%,#2563eb 45%,#4f46e5 75%,#818cf8 100%) fixed;}
+header{background:linear-gradient(90deg,#0c4a6e,#2563eb,#4f46e5);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.hero{background:linear-gradient(120deg,#1d4ed8,#4f46e5 55%,#38bdf8)}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-top-color:#2563eb}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#e0e7ff,#c7d2fe);border-top-color:#4f46e5}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#cffafe,#a5f3fc);border-top-color:#0891b2}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#ede9fe,#ddd6fe);border-top-color:#7c3aed}
+</style></head><body>
+<header><h1>💰 1688 / 拼多多价格趋势</h1><span class="sub" id="updated">人工录入 · 样本对照，非实时报价 · 更新 2026-11-09</span><span class="badge cache">人工录入</span><span class="badge backup" id="ageBadge">样本年龄计算中…</span><button onclick="refreshAll()">📥 载入样本</button></header>
+<main>
+<section class="hero"><h2>进销差一眼看清：同一个品，拿货多少、卖多少</h2><p>⚠️ 本页不是实时报价。1688 与拼多多均无免费公开接口、反爬极强、必须登录，浏览器直连不可行。本页是「人工录入的选品对照表」，所有价格均为样本对照区间，更新日期 2026-11-09，下单前请自行打开 1688 / 拼多多核对实时价。</p><div class="feed"><div><b>💡 今日看点 · 示例</b>拼多多卖 ¥29.9 的小件，1688 拿货 ¥4.2，毛利差 ¥25.7——中间差的全是信息差（示例行，见主表第 1 行）。</div><div><b>📈 毛利差最大 · 样本区间</b>折叠露营椅 ¥21.9–¥74.9；遥控汽车 ¥21.9–¥71.9——大件差价大，运费与退货也要算进去。</div><div><b>🧮 怎么看这张表</b>毛利差 = 零售价 − 拿货价，未扣运费、平台费、退货损耗。只看销量会踩坑，看「进销差」才知道赚不赚。</div></div></section>
+<p class="note">核对方法（人工）：1688 搜同款看拿货价区间 → 拼多多搜同款看零售价与差评 → 两边都对得上再下单。1688 生意参谋完整数据需商家账号，本页只写公开方法，不伪造后台数据。交叉核对参考：义乌指数周价格 101.22（2026年9月样本，见监测 05）。</p>
+<div class="grid" id="kpis"></div>
+<div class="card"><h3>毛利对比条形图 · 拿货价中位 vs 零售价中位（样本）</h3><div style="position:relative;height:320px"><canvas id="chart"></canvas></div><p class="note">中位 = 区间上下限的平均值，由本表样本区间算出，仅用于对比示意，非实时报价。</p></div>
+<div class="card"><h3>选品对照主表 <span class="note">人工录入 · 样本对照，非实时报价 · 2026-11-09</span></h3>
+<input id="q" placeholder="搜索，如 手套" oninput="render()"><select id="tag" onchange="render()"><option value="">全部标注</option><option>示例</option><option>样本区间</option></select>
+<table><thead><tr><th>产品</th><th>1688 拿货价</th><th>拼多多零售价</th><th>毛利差</th><th>标注</th></tr></thead><tbody id="tbody"></tbody></table>
+<p class="note">毛利差区间 = 零售价下限 − 拿货价上限 ～ 零售价上限 − 拿货价下限（逐行验算过）；示例行 ¥4.2 / ¥29.9 / ¥25.7 来自原始规划文档的例子，未指定具体品名，故标为「示例小件」。其余 9 行均为「样本区间」—— plausible 的对照区间，用于演示进销差的看法，不是抓取到的实时价。</p></div>
+<div class="card"><h3>数据源与备份 <span class="note">每个来源：主源 → 备用 → 缓存</span></h3><div id="sources"></div>
+<p class="note" style="margin-top:10px">⚠️ 无备份，已明示：1688 与拼多多均无免费公开接口、无实时备份源——没有可用的实时主源，也就没有可用的实时备份源。本页的「备份」是人工核对路径（登录后人工打开两站比价）+ 本页缓存样本 + 义乌指数周价格交叉核对，不是第二个实时接口。不要把本表当作实时报价使用。</p></div>
+<div class="warn">诚实声明：本页全部价格均为人工录入样本对照（更新 2026-11-09），非实时抓取、非实时报价。样本过期后请以 1688 / 拼多多实时页面为准；过期标记见顶部徽章（样本超过 14 天即标「已过期」）。</div>
+</main>
+<script>
+let rows=[
+ {k:'示例小件（文档例子，未指定品名）',buy:'¥4.2',sell:'¥29.9',diff:'¥25.7',tag:'示例',bm:4.2,sm:29.9},
+ {k:'半绒手套',buy:'¥6.0–¥8.5',sell:'¥19.9–¥29.9',diff:'¥11.4–¥23.9',tag:'样本区间',bm:7.25,sm:24.9},
+ {k:'宠物玩具',buy:'¥5.0–¥9.0',sell:'¥19.9–¥39.9',diff:'¥10.9–¥34.9',tag:'样本区间',bm:7.0,sm:29.9},
+ {k:'保温杯',buy:'¥12–¥18',sell:'¥29.9–¥59.9',diff:'¥11.9–¥47.9',tag:'样本区间',bm:15,sm:44.9},
+ {k:'袜子（5 双装）',buy:'¥4.5–¥7.0',sell:'¥14.9–¥24.9',diff:'¥7.9–¥20.4',tag:'样本区间',bm:5.75,sm:19.9},
+ {k:'LED 手环',buy:'¥1.8–¥3.2',sell:'¥9.9–¥19.9',diff:'¥6.7–¥18.1',tag:'样本区间',bm:2.5,sm:14.9},
+ {k:'遥控汽车',buy:'¥18–¥28',sell:'¥49.9–¥89.9',diff:'¥21.9–¥71.9',tag:'样本区间',bm:23,sm:69.9},
+ {k:'折叠露营椅',buy:'¥25–¥38',sell:'¥59.9–¥99.9',diff:'¥21.9–¥74.9',tag:'样本区间',bm:31.5,sm:79.9},
+ {k:'硅胶收纳盒',buy:'¥2.5–¥4.0',sell:'¥12.9–¥19.9',diff:'¥8.9–¥17.4',tag:'样本区间',bm:3.25,sm:16.4},
+ {k:'针织帽',buy:'¥5.5–¥8.0',sell:'¥19.9–¥29.9',diff:'¥11.9–¥24.4',tag:'样本区间',bm:6.75,sm:24.9},
+];
+let chart;
+function ageDays(){return Math.floor((new Date()-new Date('2026-11-09T00:00:00+08:00'))/86400000);}
+function render(){
+ const q=(document.getElementById('q').value||'').toLowerCase(),t=document.getElementById('tag').value;
+ let list=rows.filter(r=>(!q||r.k.includes(q))&&(!t||r.tag===t));
+ document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td>${r.k}</td><td>${r.buy}</td><td>${r.sell}</td><td>${r.diff}</td><td><span class="badge ${r.tag==='示例'?'example':'cache'}">${r.tag}</span></td></tr>`).join('');
+}
+function refreshAll(){
+ const age=ageDays();
+ document.getElementById('ageBadge').textContent=age<=0?'样本新鲜 · 更新于 2026-11-09':(age<=14?`样本 ${age} 天前更新`:`⚠️ 样本已过期（${age} 天前）`);
+ document.getElementById('ageBadge').className='badge '+(age>14?'missing':'backup');
+ document.getElementById('kpis').innerHTML=`<div class="card"><h3>示例毛利差 · 文档例子</h3><div class="big">¥25.7</div><div>拿货 ¥4.2 vs 零售 ¥29.9</div></div><div class="card"><h3>样本对照商品数</h3><div class="big">10</div><div>1 行示例 + 9 行样本区间</div></div><div class="card"><h3>毛利差最大 · 样本区间</h3><div class="big">¥74.9</div><div>折叠露营椅上限 · 未扣运费</div></div><div class="card"><h3>拿货价最低 · 样本</h3><div class="big">¥1.8</div><div>LED 手环下限 · 样本区间</div></div>`;
+ if(chart)chart.destroy();
+ if(window.Chart){chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:rows.map(r=>r.k.replace('（文档例子，未指定品名）','（示例）').replace('（5 双装）','')),datasets:[{label:'1688 拿货价中位（样本）',data:rows.map(r=>r.bm),backgroundColor:'#2563eb'},{label:'拼多多零售价中位（样本）',data:rows.map(r=>r.sm),backgroundColor:'#4f46e5'}]},options:{responsive:true,maintainAspectRatio:false,scales:{x:{ticks:{maxRotation:0,minRotation:0}}},plugins:{legend:{position:'bottom'}}}});}
+ document.getElementById('sources').innerHTML=`
+ <table><thead><tr><th>数据源</th><th>主源</th><th>备用</th><th>缓存</th><th>状态</th></tr></thead><tbody>
+ <tr><td>本页对照表</td><td>人工录入 · 2026-11-09</td><td>登录 1688 / 拼多多人工核对实时价</td><td>本页 10 行样本</td><td><span class="badge cache">人工录入</span></td></tr>
+ <tr><td>1688 拿货价</td><td>1688 站内价（需登录，无公开接口）</td><td>义乌指数周价格 101.22（2026年9月样本）交叉核对</td><td>本页样本区间</td><td><span class="badge backup">人工核对</span></td></tr>
+ <tr><td>拼多多零售价</td><td>拼多多站内价（需登录，无公开接口）</td><td>淘宝同款零售价人工对照</td><td>本页样本区间</td><td><span class="badge backup">人工核对</span></td></tr>
+ <tr><td>实时价格接口</td><td>无免费公开接口</td><td>无</td><td>无</td><td><span class="badge missing">无备份 · 已明示</span></td></tr>
+ </tbody></table>`;
+ render();
+}
+refreshAll();
+</script></body></html>
