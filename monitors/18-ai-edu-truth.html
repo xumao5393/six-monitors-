@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 教育真相监测</title><script src="./chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2;max-width:640px}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:680px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.seal{position:absolute;right:24px;top:20px;width:96px;height:96px;border:3px solid #dc2626;border-radius:12px;color:#fca5a5;transform:rotate(-8deg);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;box-shadow:0 0 0 2px rgba(220,38,38,.25)}
+.seal .seal-zh{font-size:30px;line-height:1.1;color:#fecaca}
+.seal .seal-en{font-size:10px;letter-spacing:2px;color:#fca5a5}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent;background:#fffdf7}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1;color:#111827}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.primary{background:#1e3a5f;color:#fff}.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.manual{background:#b45309;color:#fff}.badge.missing{background:#f3f4f6;color:#6b7280}
+.badge.gA{background:#dcfce7;color:#166534}.badge.gB{background:#dbeafe;color:#1d4ed8}.badge.gC{background:#fef3c7;color:#92400e}.badge.gD{background:#fee2e2;color:#991b1b}.badge.gNone{background:#f3f4f6;color:#6b7280;border:1px dashed #9ca3af}
+.badge.lane1{background:#ccfbf1;color:#0f766e}.badge.lane2{background:#d1fae5;color:#047857}.badge.lane3{background:#fef3c7;color:#92400e}.badge.lane4{background:#dbeafe;color:#1e40af}.badge.lane5{background:#fee2e2;color:#991b1b}.badge.lane6{background:#e2e8f0;color:#475569}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0e6d2;text-align:left;vertical-align:top}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#1e3a5f}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6;background:#fff7ed;border:1px solid #fdba74}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+button{background:#fff;margin-left:auto;color:#991b1b;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+canvas{max-width:100%}
+.card canvas{height:260px !important}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+.srcs{font-size:12px;line-height:1.9}
+.srcs a{color:#b91c1c}
+a{color:#b91c1c}
+ul.leads{margin:8px 0 0;padding-left:20px;font-size:14px;line-height:1.9}
+ul.leads li{margin-bottom:4px}
+.card.lane{border-top-width:5px}
+.card.l1{border-top-color:#0f766e}.card.l1 .section-title{color:#0f766e}
+.card.l2{border-top-color:#047857}.card.l2 .section-title{color:#047857}
+.card.l3{border-top-color:#b45309}.card.l3 .section-title{color:#b45309}
+.card.l4{border-top-color:#1e3a5f}.card.l4 .section-title{color:#1e3a5f}
+.card.l5{border-top-color:#b91c1c}.card.l5 .section-title{color:#b91c1c}
+.card.l6{border-top-color:#475569}.card.l6 .section-title{color:#475569}
+body{background:linear-gradient(160deg,#f7f2e7 0%,#efe4c8 55%,#e6d3a8 100%) fixed;}
+header{background:linear-gradient(90deg,#16294a,#1e3a5f,#33507d);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.hero{background:linear-gradient(120deg,#1e3a5f,#3b5b8c 60%,#b45309)}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#fef3c7,#fde68a);border-top-color:#b45309}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-top-color:#047857}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#fef9c3,#fde047);border-top-color:#b45309}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-top-color:#1e3a5f}
+.grid .card:nth-child(5){background:linear-gradient(135deg,#fee2e2,#fecaca);border-top-color:#b91c1c}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+      .seal{width:64px;height:64px;right:12px;top:12px}
+      .seal .seal-zh{font-size:20px}
+      .hero h2{max-width:100%}
+    }
+.lang-toggle{background:rgba(255,255,255,.92)!important;color:#1a1d29!important;border:1px solid rgba(255,255,255,.65)!important;padding:9px 14px!important;font-size:13px!important;margin-left:0!important;width:auto!important;flex:none!important}@media (max-width:720px){header .lang-toggle{width:auto!important;margin-left:auto!important}}</style></head><body>
+<header><h1>🔍 AI 教育真相监测</h1><span class="sub" id="updated">人工核验 · 实时线索 + 人工策展 · 更新日期 2026-11-09</span><span class="badge manual">人工核验</span><span class="badge backup" id="ageBadge">样本年龄计算中…</span><button class="lang-toggle" id="langToggle" onclick="toggleLang()" aria-pressed="false" title="Switch language / 切换语言">🌐 EN</button><button onclick="refreshAll()">🔄 刷新</button></header>
+<main>
+<section class="hero"><div class="seal"><span class="seal-zh">验真</span><span class="seal-en">VERIFIED</span></div><h2>今日看点：最便宜月费 $2.99，最贵 $59——差近 20 倍</h2><p>同一句「AI 帮孩子提分」，4 条 A 级证据里 3 条来自大学与世界银行的随机对照试验，1 条是监管处罚；另有 2 条常见说法至今找不到公开证据。价格、证据、政策、避坑——只给能查到的数。</p><div class="feed"><div><b>✋ 验真定位</b>不吹不黑，只给实测数字。宣传栏只写「未找到公开证据」，不定性、不扣帽子。</div><div><b>🔗 每条有来源有日期</b>价格、证据、政策、避坑四类内容都附来源链接与日期；核实不到的写「未核实」，不编数。</div><div><b>🛡 不收集儿童信息</b>本页不收集任何儿童信息，也不向未成年人推荐具体课程；仅供信息参考，不构成选课建议。</div></div></section>
+<div class="warn">⚠️ <b>仅供信息参考，不构成选课建议。</b>价格与证据均为 2026-11-09 核实值，价格会变、政策会变，报课前请以官网与主管部门最新公布为准。本页不收集任何儿童信息，也不向未成年人推荐具体课程。</div>
+<div class="grid">
+<div class="card"><h3>收录产品</h3><div class="big">7 款</div><p class="note">可比价月费 5 款；硬件 1 款；计费周期未核实 1 款</p></div>
+<div class="card"><h3>最低月费</h3><div class="big">$2.99</div><p class="note">Quizlet Plus 年付折算；最高 $59（Coursera Plus 按月付）</p></div>
+<div class="card"><h3>证据条目</h3><div class="big">6 条</div><p class="note">A 级 4 条 · 未找到公开证据 2 条</p></div>
+<div class="card"><h3>政策节点</h3><div class="big">9 条</div><p class="note">双减、处罚办法、两项指南、AI+教育</p></div>
+<div class="card"><h3>避坑条目</h3><div class="big">9 条</div><p class="note">每条附公开来源</p></div>
+</div>
+<div class="card"><h3>月费横比（按月付口径，美元）</h3><div style="position:relative;height:280px"><canvas id="priceChart"></canvas></div><p class="note">按月付口径比较；Quizlet Plus 年付折算 $2.99/月、Coursera Plus 年付折算 $33.25/月，见价格表；硬件为一次性，不进图。</p></div>
+<div class="card"><h3>Khanmigo 变价历史（美元/月）</h3><div style="position:relative;height:280px"><canvas id="histChart"></canvas></div><p class="note">Khanmigo 月费 2023 年 $9，2024 年降至 $4 并维持至今（2026-11-09 核实）。</p></div>
+<div class="card lane l1"><h3 class="section-title">Lane 1 · 新品上线</h3><span class="badge lane1">实时线索</span>
+<p class="note">打开时现拉；拉不到显示「未获取」。关键词过滤：education / learn / school / student / tutor / teach / course / AI。</p>
+<h3>Hacker News 前页（AI / 教育相关）</h3><p class="note" id="hnStatus">来源：Hacker News Algolia API · 正在拉取…</p><ul class="leads" id="hnList"><li>正在拉取…</li></ul>
+<h3>Product Hunt 每日新品（AI / 教育相关）</h3><p class="note" id="phStatus">来源：Product Hunt feed · 正在拉取…</p><ul class="leads" id="phList"><li>正在拉取…</li></ul>
+<h3>人工收录（首批）</h3>
+<table><thead><tr><th>产品</th><th>一句话</th><th>来源</th></tr></thead><tbody>
+<tr><td>Khanmigo</td><td>Khan Academy AI 辅导，2023 年上线</td><td>人工收录 · 2026-11-09</td></tr>
+<tr><td>Duolingo Max</td><td>GPT-4 驱动的语言学习，2023 年 3 月上线</td><td>人工收录 · 2026-11-09</td></tr>
+<tr><td>讯飞 AI 学习机 S90 Pro</td><td>科大讯飞 AI 学习机</td><td>人工收录 · 2026-11-09</td></tr>
+<tr><td>学而思学习机 P4</td><td>学而思学习机</td><td>人工收录 · 2026-11-09</td></tr>
+</tbody></table></div>
+<div class="card lane l2"><h3 class="section-title">Lane 2 · 价格与收费</h3><span class="badge lane2">人工核验</span> <span class="badge backup" id="priceAgeBadge">价格年龄计算中…</span>
+<p class="note">口径说明：价格统一折算到每月比较；硬件为一次性购买，不折算；国内头部机构官网无公开价目表，标「未核实」。价格样本超过 30 天未复核标红。</p>
+<table><thead><tr><th>产品</th><th>类型</th><th>官网价（原口径）</th><th>折算每月</th><th>变价历史</th><th>核实日期</th><th>来源</th></tr></thead><tbody>
+<tr><td>Khanmigo</td><td>AI 辅导订阅</td><td>$4/月</td><td>$4</td><td>2023 $9 → 2024 $4</td><td>2026-11-09</td><td>Khan Academy 官网价目</td></tr>
+<tr><td>Photomath Plus</td><td>拍照解题订阅</td><td>$9.99/月</td><td>$9.99</td><td>未核实</td><td>2026-11-09</td><td>Google Play / 官网价目</td></tr>
+<tr><td>Quizlet Plus</td><td>记忆卡片订阅</td><td>$7.99/月 或 $35.99/年</td><td>$7.99（按月）/ $2.99（年付折算）</td><td>未核实</td><td>2026-11-09</td><td>quizlet.com/upgrade（2026-09-08 核实值；多家 2026-10 价目复核一致）</td></tr>
+<tr><td>Coursera Plus</td><td>在线课程订阅</td><td>$59/月 或 $399/年</td><td>$59（按月）/ $33.25（年付折算）</td><td>促销 $239/年（截至 2026-11-30）</td><td>2026-11-09</td><td>coursera.org（2026-10 核实值）</td></tr>
+<tr><td>Duolingo Max</td><td>语言学习订阅</td><td>$29.99/月（App 内购）</td><td>$29.99</td><td>未核实</td><td>2026-11-09</td><td>App 内购价（人工核验）</td></tr>
+<tr><td>讯飞 AI 学习机 S90 Pro</td><td>硬件（一次性）</td><td>¥5,999（活动价 ¥3,700）</td><td>不适用（一次性硬件）</td><td>未核实</td><td>2026-11-09</td><td>科大讯飞官网价目</td></tr>
+<tr><td>学而思学习机 P4</td><td>硬件（一次性）</td><td>¥2,688</td><td>未核实（计费周期未确认）</td><td>未核实</td><td>2026-11-09</td><td>官网价目未公开（Space 核实值）</td></tr>
+<tr><td>国内头部机构（作业帮 / 猿辅导 / 高途）</td><td>在线辅导</td><td>未核实</td><td>未核实</td><td>未核实</td><td>2026-11-09</td><td>官网无公开价目表</td></tr>
+</tbody></table></div>
+<div class="card lane l3"><h3 class="section-title">Lane 3 · 宣传 vs 证据</h3><span class="badge lane3">人工核验</span>
+<p class="note">筛选：<select id="gradeFilter" onchange="filterTable()"><option value="">全部等级</option><option value="A">A 级</option><option value="none">未找到公开证据</option></select></p>
+<table><thead><tr><th>宣传说法</th><th>证据 / 投诉</th><th>证据分级</th><th>来源 + 日期</th></tr></thead><tbody id="evidence">
+<tr data-grade="none"><td>AI 家教能让孩子提分</td><td>未找到公开证据：未见公开的提分对照数据</td><td><span class="badge gNone">未找到公开证据</span></td><td>本页检索 · 2026-11-09</td></tr>
+<tr data-grade="A"><td>AI 辅导比课堂主动学习更有效</td><td>哈佛大学 2025 年随机对照试验（N=194）：AI 辅导组学习增益翻倍以上，用时 49 分钟 vs 课堂 60 分钟；样本为大学物理、短期、单机构</td><td><span class="badge gA">A 级</span></td><td><a href="https://doi.org/10.1038/s41598-025-97652-6" target="_blank" rel="noopener">Scientific Reports 2025, 15:17458</a></td></tr>
+<tr data-grade="A"><td>直接给答案的 AI 帮孩子学得更快</td><td>PNAS 2025 土耳其高中试验（约 1,000 人）：直接给答案组练习 +48%，但裸考 −17%；有护栏的辅导版练习 +127%，考试无显著差异</td><td><span class="badge gA">A 级</span></td><td><a href="https://research.askpoppy.ai/papers/bastani-2025-generative-ai-without-guardrails-harms-learning/" target="_blank" rel="noopener">PNAS 2025, 122(26) e2422633122</a></td></tr>
+<tr data-grade="A"><td>课后 AI 辅导能补上两年学习进度</td><td>世界银行尼日利亚试验（工作论文）：6 周 12 节课后英语 +0.23 SD、总体 +0.31 SD，约相当于 1.5–2 年学习；但对照组无替代项目，部分效应来自额外学习时间</td><td><span class="badge gA">A 级</span></td><td><a href="https://ideas.repec.org/p/wbk/wbrwps/11125.html" target="_blank" rel="noopener">World Bank WPS 11125 (2025)</a></td></tr>
+<tr data-grade="A"><td>作业帮 / 猿辅导的宣传可信</td><td>北京市市场监管局 2021-05-10：两家各罚 250 万元顶格罚款，事由为虚假宣传与价格欺诈（谎称与联合国合作、虚构教师经历、虚假价格标识）</td><td><span class="badge gA">A 级 · 官方处罚</span></td><td><a href="https://www.36kr.com/p/1220927571660168" target="_blank" rel="noopener">北京市市场监管局 · 2021-05-10</a></td></tr>
+<tr data-grade="none"><td>名师 1v1 保过</td><td>未找到公开证据：「保过」类承诺无公开数据支撑；且与《校外培训行政处罚暂行办法》处罚情形冲突</td><td><span class="badge gNone">未找到公开证据</span></td><td><a href="https://www.gov.cn/gongbao/2023/issue_10766/202310/content_6909538.html" target="_blank" rel="noopener">《校外培训行政处罚暂行办法》</a></td></tr>
+</tbody></table>
+<p class="note">证据分级：A = 随机对照试验（同行评审）或官方处罚记录；B = 准实验或大规模观察；C = 用户口碑或第三方评测；D = 厂商自述。本期 A 级 4 条，B/C/D 级 0 条；「未找到公开证据」不是定性，只是说明本页检索未找到公开证据。</p></div>
+<div class="card lane l4"><h3 class="section-title">Lane 4 · 政策时间线</h3><span class="badge lane4">人工策展</span>
+<table><thead><tr><th>日期</th><th>政策 / 事件</th><th>要点</th><th>来源</th></tr></thead><tbody>
+<tr><td>2021-05-10</td><td>作业帮、猿辅导虚假宣传各罚 250 万元</td><td>顶格罚款；虚构教师经历、虚假价格标识、谎称与联合国合作</td><td><a href="https://www.36kr.com/p/1220927571660168" target="_blank" rel="noopener">北京市市场监管局 · 2021-05-10</a></td></tr>
+<tr><td>2021-07-24</td><td>《关于进一步减轻义务教育阶段学生作业负担和校外培训负担的意见》（双减）</td><td>不再审批新学科类机构；学科类收费纳入政府指导价；节假日禁学科培训</td><td><a href="https://appinchina.co/government-documents/opinions-on-further-easing-the-burden-of-homework-and-off-campus-training-on-students-in-compulsory-education-stage/" target="_blank" rel="noopener">中办 / 国办 · 2021-07-24</a></td></tr>
+<tr><td>2021-09</td><td>《校外培训机构预收费管理办法（试行）》</td><td>一次收费不超 3 个月 / 60 课时；预收费纳入资金监管</td><td><a href="https://www.sohu.com/a/1098517883_121106842" target="_blank" rel="noopener">教育部等三部门 · 2021-09</a></td></tr>
+<tr><td>2022-12</td><td>《关于规范面向中小学生的非学科类校外培训的意见》（教育部等十三部门）</td><td>非学科类一次收费不超 5000 元</td><td><a href="https://www.sc-teacher.cn/article/2619.html" target="_blank" rel="noopener">教育部等十三部门 · 2022-12</a></td></tr>
+<tr><td>2023-08-15</td><td>《生成式人工智能服务管理暂行办法》施行</td><td>生成式 AI 服务须合规；涉及未成年人保护要求</td><td><a href="https://www.gov.cn/zhengce/zhengceku/202307/content_6891752.htm" target="_blank" rel="noopener">网信办等七部门 · 2023-08-15</a></td></tr>
+<tr><td>2023-10-15</td><td>《校外培训行政处罚暂行办法》（教育部令第 53 号）施行</td><td>擅自举办、隐形变异、在职教师补课等处罚情形</td><td><a href="https://www.gov.cn/gongbao/2023/issue_10766/202310/content_6909538.html" target="_blank" rel="noopener">教育部令第 53 号 · 2023-10-15</a></td></tr>
+<tr><td>2025-05-12</td><td>两项中小学人工智能指南发布</td><td>通识教育指南 + 生成式 AI 使用指南；小学禁独自用开放式生成功能；禁代劳式使用</td><td><a href="https://www.eol.cn/zhengce/wenjian/202505/t20250512_2667831.shtml" target="_blank" rel="noopener">教育部基础教育教学指导委员会 · 2025-05-12</a></td></tr>
+<tr><td>2025-09</td><td>北京：中小学每学年不少于 8 课时人工智能教育</td><td>北京市要求（非全国统一课时数）</td><td><a href="https://aiforsocialgood.ca/blog/artificial-intelligence-education-in-china-revolutionizing-learning-and-preparing-future-generations-for-the-age-of-ai" target="_blank" rel="noopener">北京市 · 2025-09（据中国日报）</a></td></tr>
+<tr><td>2026-04-10</td><td>《“人工智能+教育”行动计划》（教科信〔2026〕1 号）发布</td><td>目标 2030 年形成 AI 与教育深度融合格局；AI 能力纳入教师资格考试</td><td><a href="http://www.moe.gov.cn/srcsite/A16/s3342/202604/t20260410_1433240.html" target="_blank" rel="noopener">教育部等五部门 · 2026-04-10</a></td></tr>
+</tbody></table>
+<p class="note">政策线只列已发布的文件与已发生的处罚，不预测未出台的政策；每条附原文或权威转载链接。</p></div>
+<div class="card lane l5"><h3 class="section-title">Lane 5 · 避坑清单</h3><span class="badge lane5">人工核验</span>
+<table><thead><tr><th>套路</th><th>怎么识别</th><th>公开来源</th></tr></thead><tbody>
+<tr><td>隐形变异学科培训（研学 / 夏令营 / 托管名义补课）</td><td>看实质：讲学科知识点、按课时收费就是学科培训；要求出示办学许可</td><td><a href="https://www.gov.cn/gongbao/2023/issue_10766/202310/content_6909538.html" target="_blank" rel="noopener">《校外培训行政处罚暂行办法》第十八条（三）</a><br><a href="https://jyj.gz.gov.cn/zt/shuangjian/dxal/content/post_10502686.html" target="_blank" rel="noopener">广州番禺案例</a></td></tr>
+<tr><td>无证办学、擅自举办</td><td>要求出示办学许可证；上全国校外教育培训监管与服务综合平台核查</td><td><a href="https://jyj.gz.gov.cn/zt/shuangjian/dxal/content/post_10502686.html" target="_blank" rel="noopener">广州市 2025 年第三批典型案例</a></td></tr>
+<tr><td>超期超额预收费</td><td>一次收超 3 个月 / 60 课时 / ¥5000 即违规；拒绝向个人账户转账</td><td><a href="https://www.sohu.com/a/1098517883_121106842" target="_blank" rel="noopener">唐山市教育局消费提示 · 2026-11-07</a></td></tr>
+<tr><td>在职教师违规补课</td><td>在职中小学教师校外有偿补课属违规；可向当地教育部门反映</td><td><a href="https://www.gov.cn/gongbao/2023/issue_10766/202310/content_6909538.html" target="_blank" rel="noopener">《校外培训行政处罚暂行办法》（从重处罚情形）</a></td></tr>
+<tr><td>虚假宣传（提分 / 保过 / 名师）</td><td>「保过」「包提分」无公开证据支撑；看合同条款，不听口头承诺</td><td><a href="https://www.36kr.com/p/1220927571660168" target="_blank" rel="noopener">北京市市场监管局 · 2021-05-10</a></td></tr>
+<tr><td>资金不进监管账户、卷款跑路</td><td>缴费走全国校外教育培训监管与服务综合平台；个人账户收款是红旗</td><td><a href="https://www.sohu.com/a/1098517883_121106842" target="_blank" rel="noopener">唐山市教育局消费提示 · 2026-11-07</a></td></tr>
+<tr><td>拍照搜题、代劳式使用</td><td>AI 直接出答案当作业交，违反两项指南；小学禁独自用开放式生成功能</td><td><a href="https://www.eol.cn/zhengce/wenjian/202505/t20250512_2667831.shtml" target="_blank" rel="noopener">两项中小学人工智能指南 · 2025-05-12</a></td></tr>
+<tr><td>擅自组织社会性竞赛、暗考</td><td>以竞赛 / 测评名义招生、收费的，查是否经审批</td><td><a href="https://www.gov.cn/gongbao/2023/issue_10766/202310/content_6909538.html" target="_blank" rel="noopener">《校外培训行政处罚暂行办法》第二十三条</a></td></tr>
+<tr><td>超前超标教学</td><td>课程超出在校进度、超纲教学的，可向主管部门反映</td><td><a href="https://www.gov.cn/gongbao/2023/issue_10766/202310/content_6909538.html" target="_blank" rel="noopener">《校外培训行政处罚暂行办法》第二十一条（三）</a></td></tr>
+</tbody></table>
+<p class="note">避坑清单每条都有公开来源（处罚决定、法规条文或主管部门提示）；无来源的条目不收录。本页不写「骗子」二字，只写「未找到公开证据」或引用处罚事实。</p></div>
+<div class="card lane l6"><h3 class="section-title">人工核验区</h3><span class="badge lane6">人工核验</span>
+<p class="note">以下来源自动抓取不可行（反爬或登录墙），只能人工核对；状态与核对日期如实标注。</p>
+<table><thead><tr><th>来源</th><th>状态</th><th>核对日期</th><th>备注</th></tr></thead><tbody>
+<tr><td>黑猫投诉（教育培训类投诉）</td><td>本期未收录</td><td>—</td><td>平台反爬，需人工逐条查；本期未人工收录，不编数</td></tr>
+<tr><td>36氪（教培行业报道）</td><td>本期未收录</td><td>—</td><td>报道为主，非结构化数据；本期未人工收录</td></tr>
+<tr><td>应用商店内购价（App Store / Google Play）</td><td>已核对 1 项</td><td>2026-11-09</td><td>Duolingo Max $29.99/月为 App 内购价；其余产品内购价未核对</td></tr>
+<tr><td>官网价目表（国内头部机构）</td><td>未核实</td><td>2026-11-09</td><td>作业帮 / 猿辅导 / 高途官网无公开价目表</td></tr>
+<tr><td>Hacker News 前页（新品线索）</td><td>实时拉取</td><td>打开时</td><td>拉不到显示「未获取」</td></tr>
+<tr><td>Product Hunt feed（新品线索）</td><td>实时拉取</td><td>打开时</td><td>浏览器 CORS 常被拦，拉不到显示「未获取」</td></tr>
+</tbody></table></div>
+<div class="card"><h3 class="section-title">数据源与备份（三层，逐项标注）</h3><div class="srcs">
+<div>① Hacker News 前页 — <span class="badge primary">主源</span> hn.algolia.com 前页 API → <span class="badge backup">替补</span> 手动打开 Hacker News 前页 → <span class="badge cache">缓存</span> 本页人工收录新品（2026-11-09）。</div>
+<div>② Product Hunt feed — <span class="badge primary">主源</span> producthunt.com/feed → <span class="badge backup">替补</span> 手动打开 Product Hunt 首页 → <span class="badge cache">缓存</span> 本页人工收录新品（2026-11-09）。注：浏览器 CORS 常拦，失败属预期内，显示「未获取」。</div>
+<div>③ 官网价目 / 应用商店 — <span class="badge primary">主源</span> 官网价目页 → <span class="badge backup">替补</span> 应用商店内购价 → <span class="badge cache">缓存</span> 本页价格表（2026-11-09 核实，超 30 天标红）。</div>
+<div>④ 证据（RCT / 处罚）— <span class="badge primary">主源</span> 期刊 / 官方处罚公告原文 → <span class="badge backup">替补</span> 第二家媒体报道 → <span class="badge cache">缓存</span> 本页证据表。</div>
+<div>⑤ 政策原文 — <span class="badge primary">主源</span> gov.cn / moe.gov.cn → <span class="badge backup">替补</span> 教育在线等权威转载 → <span class="badge cache">缓存</span> 本页政策线。</div>
+<div>⑥ 黑猫投诉 / 36氪 — <span class="badge missing">无备份</span>：反爬 / 登录墙，自动抓取不可行；本页标注「人工核验」，不假装有自动源。</div>
+</div><p class="note">备份铁律执行情况：①–⑤ 有三层；⑥ 明确标注无备份，不沉默缺省。人工样本缓存有效期：自 2026-11-09 起，价格超 30 天未复核标红，政策与证据样本超 30 天标「需重核」。</p></div>
+<div class="card"><h3 class="section-title">内容钩子（可直接用的选题）</h3><p class="note">「最便宜的 AI 辅导月费 $2.99，最贵的 $59——差近 20 倍，贵的就一定好吗？」／「AI 辅导让孩子提分？哈佛试验说增益翻倍，但直接给答案的 AI 反而让裸考掉了 17%。」／「『保过』『名师 1v1』的广告，至今找不到公开证据——报课前先查这 9 条避坑。」</p></div>
+<p class="note">数据口径：本页全部为 2026-11-09 核实值；价格超 30 天未复核标红；不含实时数据（新品线索除外）；未核实的写「未核实」，不编数。页面设计：纸面底色、朱红印章、墨蓝标题区、赭金证据等级；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底。</p>
+</main>
+<!-- i18n-v1 -->
+
+<script>
+/* i18n-v1 — bilingual zh/en toggle (2026-11-09). Language: ?lang=, else localStorage 'mon-lang', default zh.
+   Original text is stored on each node when translated, so toggling back restores it exactly. */
+(function(){
+var BASE={"未获取": "Not available", "未刷新": "Not refreshed yet", "正在拉取…": "Loading…", "正常": "OK", "失败": "Failed", "主源": "Primary", "替补": "Backup", "缓存": "Cache", "缓存样本": "Cached sample", "快照": "Snapshot", "实时": "Live", "数据源状态": "Data sources", "数据源与备份链": "Sources & backup chain", "全部": "All", "全部厂商": "All vendors", "全部语言": "All languages", "全部类型": "All types", "全部市场": "All markets", "全部类别": "All categories", "全部分类": "All categories", "无匹配": "No matches", "无匹配，未获取时不编数": "No matches; nothing invented when unavailable", "是": "Yes", "否": "No", "模型": "Model", "厂商": "Vendor", "价格": "Price", "分数": "Score", "上下文": "Context", "国内": "Domestic", "海外": "Overseas", "样本": "Sample", "样本数据": "Sample data", "样本年龄计算中…": "Computing sample age…", "样本新鲜 · 更新于 2026-11-09": "Sample fresh · Updated 2026-11-09", "缓存样本 · 更新于 2026-11-09": "Cached sample · Updated 2026-11-09", "人工策展": "Hand-curated", "人工精选": "Hand-picked", "人工整理·非API": "Hand-compiled · Not an API", "点表头排序": "Click a header to sort", "搜索量": "Search volume", "关键词": "Keyword", "市场": "Market", "趋势信号": "Trend signal", "季节日历": "Seasonal calendar", "数据源备份链（每个源都有备份；无备份的环节会明说）": "Source backup chain (every source has a backup; gaps are stated)", "积累中": "Accumulating", "基线积累中": "Baseline accumulating", "涨价": "Price up", "降价": "Price down", "未知": "Unknown", "云端": "Cloud", "本地/云": "Local / Cloud", "免费起": "From free", "未公开": "Not disclosed", "多模型": "Multi-model", "开源": "Open source", "在哪跑": "Runs on", "定时": "Scheduled", "已过期": "Expired", "🔄 刷新": "🔄 Refresh", "📥 载入样本": "📥 Load sample", "截至 2026-11-09": "As of 2026-11-09", "未标注": "not labelled", "时间未标注": "time not labelled", "OpenRouter 实时": "OpenRouter live", "实时价": "Live prices", "仅官方渠道价": "Official-channel prices only", "Qwen/GLM/Seed 无官方条目，未获取": "No official entries for Qwen / GLM / Seed — not available", "无可用官方渠道价": "No official-channel prices available", "备份": "Backup", "数据来源": "Data sources", "（无标题）": "(No title)", "缓存样本 · 2026年9月": "Cached sample · Sep 2026", "人工精选 / 缓存样本": "Hand-picked / Cached sample", "人工精选 · 缓存样本 · 更新 2026-11-09": "Hand-picked · Cached sample · Updated 2026-11-09", "人工策展 · 非实时抓取 · 更新日期 2026-11-09": "Hand-curated · Not live · Updated 2026-11-09", "样本 / 人工判断 · 更新日期 2026-11-09": "Sample / human judgement · Updated 2026-11-09", "样本 · 非实测": "Sample · Not measured", "纯静态 · 零外部依赖 · 内置数据 2026-11 至 2027-12": "Fully static · No external dependencies · Built-in data Nov 2026 – Dec 2027", "静态日历": "Static calendar", "未启用（主源正常）": "Not used (primary OK)", "未启用（替补正常）": "Not used (backup OK)", "主源 · FxTwitter": "Primary · FxTwitter", "替补失效": "Backup dead", "替补失效（2026-11-09 实测 403 CF），未尝试": "Backup dead (403 Cloudflare on 2026-11-09), not tried", "目录中无白名单模型": "No allow-listed models in catalog", "目录中白名单不足 8 个": "Fewer than 8 allow-listed models in catalog", "当前无涨跌数据，请选全部/基线": "No up/down data yet — pick All / Baseline", "当日": "Today", "全部变动状态": "All change states", "输入 $/M": "Input $/M", "输出 $/M": "Output $/M", "输入价 $/M": "Input price $/M", "价格 $/M": "Price $/M", "价格 $/M（输入）": "Price $/M (input)", "分数（AA 智能指数 v5）": "Score (AA Intelligence Index v5)", "变动": "Change", "备注": "Notes", "新品": "Product", "日期": "Date", "类型": "Type", "一句话卖点": "One-line pitch", "来源": "Source", "产品": "Product", "类别": "Category", "票数": "Votes", "是否 AI": "AI?", "仓库": "Repo", "分类": "Category", "语言": "Language", "最近推送": "Last push", "总 Star": "Total stars", "创建日期": "Created", "一句话": "One-liner", "时间": "Time", "内容": "Content", "点赞": "Likes", "回复": "Replies", "转发": "Reposts", "粉丝": "Followers", "关注": "Following", "帖子": "Posts", "总获赞": "Total likes", "事件": "Event", "影响一句话": "Impact in one line", "来源（主源 / 替补）": "Sources (primary / backup)", "节点": "Date", "倒计时": "Countdown", "关联品类": "Related categories", "配套选题": "Content ideas", "近 30 天方向": "30-day direction", "依据一句话（人工判断）": "Reason (human judgement)", "相关上升词（人工整理）": "Related rising terms (hand-compiled)", "用途": "Use for", "商品": "Product", "30 天搜索量（样本）": "30-day searches (sample)", "数据源": "Source", "备用": "Backup", "状态": "Status", "仅 AI 相关": "AI-related only", "搜索，如 贴纸": "Search, e.g. stickers", "搜索，如 遥控": "Search, e.g. remote control", "搜索，如 春节 / 圣诞": "Search, e.g. Spring Festival / Christmas", "搜索，如 agent": "Search, e.g. agent", "搜索，如 NoMac": "Search, e.g. NoMac", "搜索，如 ollama": "Search, e.g. ollama", "搜索模型，如 Kimi / DeepSeek": "Search models, e.g. Kimi / DeepSeek", "搜索模型，如 DeepSeek / Grok": "Search models, e.g. DeepSeek / Grok", "搜索新品，如 Kimi / Gemini": "Search launches, e.g. Kimi / Gemini", "输入公开账号，如 nasa": "Enter a public handle, e.g. nasa"}, PAGE={"$29.99/月（App 内购）": "$29.99/mo (in-app purchase)", "$4/月": "$4/mo", "$59/月 或 $399/年": "$59/mo or $399/yr", "$59（按月）/ $33.25（年付折算）": "$59 (monthly) / $33.25 (annual billing)", "$7.99/月 或 $35.99/年": "$7.99/mo or $35.99/yr", "$7.99（按月）/ $2.99（年付折算）": "$7.99 (monthly) / $2.99 (annual billing)", "$9.99/月": "$9.99/mo", "36氪（教培行业报道）": "36Kr (education-industry reporting)", "7 款": "7 products", "A 级": "Grade A", "A 级 4 条 · 未找到公开证据 2 条": "A-grade 4 · no public evidence found 2", "A 级 · 官方处罚": "Grade A · Official penalty", "AI 家教能让孩子提分": "“An AI tutor raises your child’s grades”", "AI 教育真相监测": "AI Education Truth Monitor", "AI 直接出答案当作业交，违反两项指南；小学禁独自用开放式生成功能": "Handing in AI-generated answers as homework breaches the two 2025 guides; primary pupils may not use open-ended generators alone", "AI 辅导比课堂主动学习更有效": "“AI tutoring beats active classroom learning”", "AI 辅导订阅": "AI tutoring subscription", "App 内购价（人工核验）": "In-app price (hand-verified)", "Duolingo Max $29.99/月为 App 内购价；其余产品内购价未核对": "Duolingo Max $29.99/mo is an in-app price; other products’ in-app prices not checked", "GPT-4 驱动的语言学习，2023 年 3 月上线": "GPT-4-powered language learning, launched Mar 2023", "Google Play / 官网价目": "Google Play / vendor pricing page", "Hacker News 前页（AI / 教育相关）": "Hacker News front page (AI / education)", "Hacker News 前页（新品线索）": "Hacker News front page (launch leads)", "Khan Academy AI 辅导，2023 年上线": "Khan Academy AI tutor, launched 2023", "Khan Academy 官网价目": "Khan Academy pricing page", "Khanmigo 变价历史（美元/月）": "Khanmigo price history (USD / month)", "Khanmigo 月费 2023 年 $9，2024 年降至 $4 并维持至今（2026-11-09 核实）。": "Khanmigo’s monthly price was $9 in 2023, cut to $4 in 2024, and has held at $4 since (verified 2026-11-09).", "Khanmigo 月费（美元）": "Khanmigo monthly price (USD)", "Lane 1 · 新品上线": "Lane 1 · New launches", "Lane 2 · 价格与收费": "Lane 2 · Prices & fees", "Lane 3 · 宣传 vs 证据": "Lane 3 · Claims vs evidence", "Lane 4 · 政策时间线": "Lane 4 · Policy timeline", "Lane 5 · 避坑清单": "Lane 5 · Pitfall checklist", "PNAS 2025 土耳其高中试验（约 1,000 人）：直接给答案组练习 +48%，但裸考 −17%；有护栏的辅导版练习 +127%，考试无显著差异": "PNAS 2025 Turkish high-school trial (~1,000 students): the answer-giving group gained +48% in practice but −17% on the unaided exam; the guarded tutor version gained +127% in practice with no exam difference", "Product Hunt feed（新品线索）": "Product Hunt feed (launch leads)", "Product Hunt 每日新品（AI / 教育相关）": "Product Hunt daily launches (AI / education)", "Quizlet Plus 年付折算；最高 $59（Coursera Plus 按月付）": "Quizlet Plus, annual billing; highest $59 (Coursera Plus, monthly)", "coursera.org（2026-10 核实值）": "coursera.org (verified Oct 2026)", "gov.cn / moe.gov.cn →": "gov.cn / moe.gov.cn →", "hn.algolia.com 前页 API →": "hn.algolia.com front-page API →", "producthunt.com/feed →": "producthunt.com/feed →", "quizlet.com/upgrade（2026-09-08 核实值；多家 2026-10 价目复核一致）": "quizlet.com/upgrade (verified 2026-09-08; cross-checked against Oct 2026 price roundups)", "¥5,999（活动价 ¥3,700）": "¥5,999 (promo ¥3,700)", "① Hacker News 前页 —": "① Hacker News front page —", "② Product Hunt feed —": "② Product Hunt feed —", "③ 官网价目 / 应用商店 —": "③ Vendor price lists / app stores —", "④ 证据（RCT / 处罚）—": "④ Evidence (RCTs / penalties) —", "⑤ 政策原文 —": "⑤ Policy texts —", "⑥ 黑猫投诉 / 36氪 —": "⑥ Hei Mao Tou Su / 36Kr —", "✋ 验真定位": "✋ Truth-checking first", "《“人工智能+教育”行动计划》（教科信〔2026〕1 号）发布": "“AI + Education” Action Plan (Jiao Ke Xin [2026] No. 1) released", "《关于规范面向中小学生的非学科类校外培训的意见》（教育部等十三部门）": "Opinions on Regulating Non-Subject Off-Campus Training for Primary & Secondary Students (13 ministries)", "《关于进一步减轻义务教育阶段学生作业负担和校外培训负担的意见》（双减）": "Opinions on Further Easing Homework & Off-Campus Training Burdens (Double Reduction)", "《校外培训机构预收费管理办法（试行）》": "Interim Measures for Advance-Fee Management of Off-Campus Training Institutions", "《校外培训行政处罚暂行办法》": "Interim Measures for Administrative Penalties on Off-Campus Training", "《校外培训行政处罚暂行办法》第二十一条（三）": "Penalties Measures, Art. 21(3)", "《校外培训行政处罚暂行办法》第二十三条": "Penalties Measures, Art. 23", "《校外培训行政处罚暂行办法》第十八条（三）": "Penalties Measures, Art. 18(3)", "《校外培训行政处罚暂行办法》（从重处罚情形）": "Penalties Measures (aggravating circumstances)", "《校外培训行政处罚暂行办法》（教育部令第 53 号）施行": "Interim Measures for Administrative Penalties on Off-Campus Training (MOE Order No. 53) take effect", "《生成式人工智能服务管理暂行办法》施行": "Interim Measures for Generative AI Services take effect", "「保过」「包提分」无公开证据支撑；看合同条款，不听口头承诺": "“Guaranteed pass” and “score gains” have no public evidence behind them; read the contract, not the sales pitch", "「最便宜的 AI 辅导月费 $2.99，最贵的 $59——差近 20 倍，贵的就一定好吗？」／「AI 辅导让孩子提分？哈佛试验说增益翻倍，但直接给答案的 AI 反而让裸考掉了 17%。」／「『保过』『名师 1v1』的广告，至今找不到公开证据——报课前先查这 9 条避坑。」": "“The cheapest AI tutor is $2.99 a month, the priciest $59 — nearly 20× apart. Is pricier really better?” / “Does AI tutoring raise grades? A Harvard trial says gains more than doubled — but an AI that hands out answers cut unaided exam scores by 17%.” / “‘Guaranteed pass’ and ‘famous-teacher 1-to-1’ ads still have no public evidence behind them — check these 9 pitfalls before you enrol.”", "一次收费不超 3 个月 / 60 课时；预收费纳入资金监管": "One payment may not exceed 3 months / 60 class hours; advance fees under fund supervision", "一次收超 3 个月 / 60 课时 / ¥5000 即违规；拒绝向个人账户转账": "One payment over 3 months / 60 class hours / ¥5,000 breaks the rules; refuse transfers to personal accounts", "不再审批新学科类机构；学科类收费纳入政府指导价；节假日禁学科培训": "No new subject-tutoring institutions approved; subject-tutoring fees under government-guided pricing; no subject tutoring on holidays", "不吹不黑，只给实测数字。宣传栏只写「未找到公开证据」，不定性、不扣帽子。": "No hype, no bashing — only measured numbers. Claims with no evidence are marked “No public evidence found”, never labelled as scams.", "不适用（一次性硬件）": "N/A (one-off hardware)", "世界银行尼日利亚试验（工作论文）：6 周 12 节课后英语 +0.23 SD、总体 +0.31 SD，约相当于 1.5–2 年学习；但对照组无替代项目，部分效应来自额外学习时间": "World Bank Nigeria trial (working paper): after 6 weeks / 12 sessions, English +0.23 SD, overall +0.31 SD — roughly 1.5–2 years of learning; but the control group had no alternative programme, so part of the effect is extra study time", "两项中小学人工智能指南 · 2025-05-12": "Two AI guides for schools · 2025-05-12", "两项中小学人工智能指南发布": "Two AI guides for primary & secondary schools released", "中办 / 国办 · 2021-07-24": "General Offices of the CPC Central Committee & the State Council · 2021-07-24", "人工收录 · 2026-11-09": "Hand-collected · 2026-11-09", "人工收录（首批）": "Hand-collected (first batch)", "人工核验": "Hand-verified", "人工核验 · 实时线索 + 人工策展 · 更新日期 2026-11-09": "Hand-verified · Live leads + hand curation · Updated 2026-11-09", "人工核验区": "Manual verification zone", "仅供信息参考，不构成选课建议。": "For information only — not enrolment advice.", "今日看点：最便宜月费 $2.99，最贵 $59——差近 20 倍": "Today: the cheapest plan is $2.99 a month, the priciest $59 — nearly 20× apart", "以下来源自动抓取不可行（反爬或登录墙），只能人工核对；状态与核对日期如实标注。": "The sources below cannot be auto-fetched (anti-scraping or login walls) and are checked by hand; status and check dates are stated honestly.", "以竞赛 / 测评名义招生、收费的，查是否经审批": "If enrolment or fees are tied to a competition or test, check whether it was approved", "价格、证据、政策、避坑四类内容都附来源链接与日期；核实不到的写「未核实」，不编数。": "Prices, evidence, policy and pitfalls all carry source links and dates; anything unverifiable is marked “Unverified” — never invented.", "价格与证据均为 2026-11-09 核实值，价格会变、政策会变，报课前请以官网与主管部门最新公布为准。本页不收集任何儿童信息，也不向未成年人推荐具体课程。": "Prices and evidence are values verified on 2026-11-09; prices change and policies change, so check the vendor’s site and the latest official announcements before enrolling. This page collects no children’s data and recommends no specific course to minors.", "价格年龄计算中…": "Computing price age…", "价格新鲜 · 核实于 2026-11-09": "Prices fresh · Verified 2026-11-09", "作业帮 / 猿辅导 / 高途官网无公开价目表": "Zuoyebang / Yuanfudao / Gaotu publish no price list", "作业帮 / 猿辅导的宣传可信": "“Zuoyebang / Yuanfudao’s advertising is trustworthy”", "作业帮、猿辅导虚假宣传各罚 250 万元": "Zuoyebang & Yuanfudao each fined ¥2.5M for false advertising", "促销 $239/年（截至 2026-11-30）": "Promo $239/yr (until 2026-11-30)", "全部等级": "All grades", "公开来源": "Public source", "内容钩子（可直接用的选题）": "Content hooks (topics ready to use)", "北京市 · 2025-09（据中国日报）": "Beijing · 2025-09 (per China Daily)", "北京市市场监管局 2021-05-10：两家各罚 250 万元顶格罚款，事由为虚假宣传与价格欺诈（谎称与联合国合作、虚构教师经历、虚假价格标识）": "Beijing market regulator, 2021-05-10: each fined ¥2.5M (the maximum) for false advertising and price fraud — false UN-cooperation claims, fabricated teacher credentials, false price labels", "北京市市场监管局 · 2021-05-10": "Beijing Municipal Bureau of Market Supervision · 2021-05-10", "北京市要求（非全国统一课时数）": "Beijing city rule (not a national hour count)", "北京：中小学每学年不少于 8 课时人工智能教育": "Beijing: at least 8 class hours of AI education per school year", "双减、处罚办法、两项指南、AI+教育": "Double Reduction, penalty rules, the two 2025 guides, AI+Education", "变价历史": "Price history", "口径说明：价格统一折算到每月比较；硬件为一次性购买，不折算；国内头部机构官网无公开价目表，标「未核实」。价格样本超过 30 天未复核标红。": "How prices compare: all prices are converted to a monthly figure; hardware is a one-off purchase and is not converted; domestic leading platforms publish no price list, so they are marked “Unverified”. Price samples older than 30 days without re-check are marked red.", "可比价月费 5 款；硬件 1 款；计费周期未核实 1 款": "5 with comparable monthly prices; 1 hardware; 1 with unverified billing cycle", "同一句「AI 帮孩子提分」，4 条 A 级证据里 3 条来自大学与世界银行的随机对照试验，1 条是监管处罚；另有 2 条常见说法至今找不到公开证据。价格、证据、政策、避坑——只给能查到的数。": "For the same claim — “AI helps your child score higher” — 4 A-grade evidence items include 3 randomised trials from a university and the World Bank and 1 regulatory fine; 2 other common claims still have no public evidence. Prices, evidence, policy, pitfalls — only numbers we can check.", "名师 1v1 保过": "“Famous-teacher 1-to-1, guaranteed pass”", "哈佛大学 2025 年随机对照试验（N=194）：AI 辅导组学习增益翻倍以上，用时 49 分钟 vs 课堂 60 分钟；样本为大学物理、短期、单机构": "Harvard 2025 randomised trial (N=194): the AI-tutor group’s learning gains more than doubled, in 49 min vs 60 min of class; sample: university physics, short-term, single institution", "唐山市教育局消费提示 · 2026-11-07": "Tangshan Education Bureau consumer notice · 2026-11-07", "国内头部机构（作业帮 / 猿辅导 / 高途）": "Domestic leading platforms (Zuoyebang / Yuanfudao / Gaotu)", "在线课程订阅": "Online-course subscription", "在线辅导": "Online tutoring", "在职中小学教师校外有偿补课属违规；可向当地教育部门反映": "Paid off-campus tutoring by in-service primary/secondary teachers is against the rules; report it to the local education authority", "在职教师违规补课": "In-service teachers moonlighting as tutors", "备份铁律执行情况：①–⑤ 有三层；⑥ 明确标注无备份，不沉默缺省。人工样本缓存有效期：自 2026-11-09 起，价格超 30 天未复核标红，政策与证据样本超 30 天标「需重核」。": "Backup-rule status: ①–⑤ have three layers; ⑥ is explicitly marked no-backup — nothing is silently omitted. Hand-made sample cache: valid from 2026-11-09; prices are marked red after 30 days without re-check, policy & evidence samples are marked “needs re-check” after 30 days.", "套路": "Pattern", "学而思学习机": "TAL study tablet", "官方处罚": "Official penalty", "官网价目未公开（Space 核实值）": "No public price list (Space-verified value)", "官网价目表（国内头部机构）": "Vendor price lists (domestic leading platforms)", "官网价目页 →": "Vendor pricing pages →", "官网价（原口径）": "List price (as published)", "官网无公开价目表": "No public price list on vendor sites", "实时拉取": "Fetched live", "实时线索": "Live leads", "宣传说法": "Claim", "已核对 1 项": "1 item checked", "平台反爬，需人工逐条查；本期未人工收录，不编数": "Anti-scraping; needs hand-checking item by item; not collected this issue, nothing invented", "广州市 2025 年第三批典型案例": "Guangzhou 2025 3rd-batch cases", "广州番禺案例": "Guangzhou Panyu case", "应用商店内购价 →": "App-store in-app prices →", "应用商店内购价（App Store / Google Play）": "App-store in-app prices (App Store / Google Play)", "怎么识别": "How to spot it", "手动打开 Hacker News 前页 →": "Open the Hacker News front page by hand →", "手动打开 Product Hunt 首页 →": "Open the Product Hunt home page by hand →", "打开时": "On open", "打开时现拉；拉不到显示「未获取」。关键词过滤：education / learn / school / student / tutor / teach / course / AI。": "Fetched live on open; “Not available” when unreachable. Keyword filter: education / learn / school / student / tutor / teach / course / AI.", "折算每月": "Monthly equiv.", "报道为主，非结构化数据；本期未人工收录": "Reporting-led, not structured data; not collected this issue", "拉不到显示「未获取」": "Shows “Not available” when unreachable", "拍照搜题、代劳式使用": "Photo-solving and letting AI do the homework", "拍照解题订阅": "Photo-solver subscription", "按月付口径比较；Quizlet Plus 年付折算 $2.99/月、Coursera Plus 年付折算 $33.25/月，见价格表；硬件为一次性，不进图。": "Compared at monthly-billing prices; Quizlet Plus is $2.99/mo on annual billing and Coursera Plus $33.25/mo — see the price table; hardware is one-off and excluded.", "擅自举办、隐形变异、在职教师补课等处罚情形": "Penalties for unlicensed operation, hidden-variant tutoring, in-service teachers moonlighting", "擅自组织社会性竞赛、暗考": "Unapproved competitions and secret entrance tests", "收录产品": "Products covered", "政策 / 事件": "Policy / event", "政策线只列已发布的文件与已发生的处罚，不预测未出台的政策；每条附原文或权威转载链接。": "The timeline lists only issued documents and penalties that happened — no predictions about policies not yet issued; every item links to the original text or an authoritative reprint.", "政策节点": "Policy milestones", "教育在线等权威转载 →": "Authoritative reprints such as eol.cn →", "教育部令第 53 号 · 2023-10-15": "MOE Order No. 53 · 2023-10-15", "教育部基础教育教学指导委员会 · 2025-05-12": "MOE Basic Education Teaching Guidance Committee · 2025-05-12", "教育部等三部门 · 2021-09": "MOE & two ministries · 2021-09", "教育部等五部门 · 2026-04-10": "MOE & four ministries · 2026-04-10", "教育部等十三部门 · 2022-12": "MOE & 12 ministries · 2022-12", "数据口径：本页全部为 2026-11-09 核实值；价格超 30 天未复核标红；不含实时数据（新品线索除外）；未核实的写「未核实」，不编数。页面设计：纸面底色、朱红印章、墨蓝标题区、赭金证据等级；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底。": "Data scope: everything on this page is a value verified on 2026-11-09; prices are marked red after 30 days without re-check; no live data except the launch leads; unverified items are marked “Unverified”, never invented. Design: paper background, vermilion seal, ink-blue headers, ochre-gold evidence grades; charts use the local Chart.js file chart.umd.min.js, falling back to CDN if it fails to load.", "数据源与备份（三层，逐项标注）": "Sources & backups (three layers, item by item)", "无证办学、擅自举办": "Unlicensed operation", "最低月费": "Lowest monthly price", "月费横比（按月付口径，美元）": "Monthly prices compared (monthly-billing prices, USD)", "月费（美元）": "Monthly price (USD)", "期刊 / 官方处罚公告原文 →": "Journal / official penalty-announcement texts →", "未找到公开证据": "No public evidence found", "未找到公开证据：「保过」类承诺无公开数据支撑；且与《校外培训行政处罚暂行办法》处罚情形冲突": "No public evidence found: “guaranteed pass” promises have no published data behind them, and they conflict with the penalty rules in the Off-Campus Training Penalties Measures", "未找到公开证据：未见公开的提分对照数据": "No public evidence found: no published controlled data on grade gains", "未核实（计费周期未确认）": "Unverified (billing cycle unconfirmed)", "本期未收录": "Not collected this issue", "本页不收集任何儿童信息，也不向未成年人推荐具体课程；仅供信息参考，不构成选课建议。": "This page collects no children’s data and recommends no specific course to minors. For information only — not enrolment advice.", "本页人工收录新品（2026-11-09）。": "This page’s hand-collected launches (2026-11-09).", "本页人工收录新品（2026-11-09）。注：浏览器 CORS 常拦，失败属预期内，显示「未获取」。": "This page’s hand-collected launches (2026-11-09). Note: browser CORS often blocks it; failure is expected and shows “Not available”.", "本页价格表（2026-11-09 核实，超 30 天标红）。": "This page’s price table (verified 2026-11-09; marked red after 30 days without re-check).", "本页政策线。": "This page’s policy timeline.", "本页检索 · 2026-11-09": "This page’s check · 2026-11-09", "本页证据表。": "This page’s evidence table.", "来源 + 日期": "Source + date", "来源：Hacker News Algolia API · 未获取": "Source: Hacker News Algolia API · Not available", "来源：Hacker News Algolia API · 正在拉取…": "Source: Hacker News Algolia API · Loading…", "来源：Product Hunt feed · 未获取（浏览器 CORS 常被拦）": "Source: Product Hunt feed · Not available (often blocked by browser CORS)", "来源：Product Hunt feed · 正在拉取…": "Source: Product Hunt feed · Loading…", "样本新鲜 · 策展于 2026-11-09": "Sample fresh · Curated 2026-11-09", "核实日期": "Verified", "核对日期": "Checked", "每条附公开来源": "Every item has a public source", "浏览器 CORS 常被拦，拉不到显示「未获取」": "Often blocked by browser CORS; shows “Not available” when unreachable", "生成式 AI 服务须合规；涉及未成年人保护要求": "Generative-AI services must comply; includes requirements protecting minors", "目标 2030 年形成 AI 与教育深度融合格局；AI 能力纳入教师资格考试": "Target: deep AI–education integration by 2030; AI skills added to teacher qualification exams", "直接给答案的 AI 帮孩子学得更快": "“An AI that hands out answers helps children learn faster”", "看实质：讲学科知识点、按课时收费就是学科培训；要求出示办学许可": "Look at the substance: teaching subject knowledge and charging by class hour means it is subject tutoring; ask to see the operating licence", "硬件（一次性）": "Hardware (one-off)", "科大讯飞 AI 学习机": "iFlytek AI study tablet", "科大讯飞官网价目": "iFlytek pricing page", "第二家媒体报道 →": "A second outlet’s report →", "筛选：": "Filter:", "缴费走全国校外教育培训监管与服务综合平台；个人账户收款是红旗": "Pay through the national supervision platform; payment to a personal account is a red flag", "网信办等七部门 · 2023-08-15": "CAC & six ministries · 2023-08-15", "虚假宣传（提分 / 保过 / 名师）": "False advertising (“score gains / guaranteed pass / famous teachers”)", "要求出示办学许可证；上全国校外教育培训监管与服务综合平台核查": "Ask for the operating licence; check the national off-campus training supervision platform", "要点": "Key points", "记忆卡片订阅": "Flashcard subscription", "证据 / 投诉": "Evidence / complaints", "证据分级": "Evidence grade", "证据分级：A = 随机对照试验（同行评审）或官方处罚记录；B = 准实验或大规模观察；C = 用户口碑或第三方评测；D = 厂商自述。本期 A 级 4 条，B/C/D 级 0 条；「未找到公开证据」不是定性，只是说明本页检索未找到公开证据。": "Evidence grades: A = randomised trial (peer-reviewed) or official penalty record; B = quasi-experiment or large-scale observation; C = user reports or third-party reviews; D = vendor claims. This issue: 4 A-grade, 0 B/C/D. “No public evidence found” is not a verdict — it only means this page’s search found no public evidence.", "证据条目": "Evidence items", "语言学习订阅": "Language-learning subscription", "课后 AI 辅导能补上两年学习进度": "“After-school AI tutoring can make up two years of learning”", "课程超出在校进度、超纲教学的，可向主管部门反映": "If lessons run ahead of the school syllabus, report it to the supervising authority", "资金不进监管账户、卷款跑路": "Fees bypassing supervision accounts; operators vanishing with the money", "超前超标教学": "Teaching ahead of / beyond the school syllabus", "超期超额预收费": "Excessive advance fees", "通识教育指南 + 生成式 AI 使用指南；小学禁独自用开放式生成功能；禁代劳式使用": "General AI-education guide + generative-AI use guide; primary pupils may not use open-ended generators alone; no using AI to do homework for you", "避坑条目": "Pitfall warnings", "避坑清单每条都有公开来源（处罚决定、法规条文或主管部门提示）；无来源的条目不收录。本页不写「骗子」二字，只写「未找到公开证据」或引用处罚事实。": "Every pitfall item has a public source (a penalty decision, a regulation, or an official notice); items without a source are not listed. This page never uses the word “scam” — it writes “no public evidence found” or cites the penalty facts.", "隐形变异学科培训（研学 / 夏令营 / 托管名义补课）": "Hidden-variant subject tutoring (sold as study tours / summer camps / after-school care)", "非学科类一次收费不超 5000 元": "Non-subject training: one payment capped at ¥5,000", "顶格罚款；虚构教师经历、虚假价格标识、谎称与联合国合作": "Maximum fines; fabricated teacher credentials, false price labels, false UN-cooperation claims", "验真": "Verified", "黑猫投诉（教育培训类投诉）": "Hei Mao Tou Su (education & training complaints)", "（无 AI / 教育相关条目）": "(No AI / education items)", "：反爬 / 登录墙，自动抓取不可行；本页标注「人工核验」，不假装有自动源。": ": anti-scraping / login walls make auto-fetching impossible; this page marks them “manual verification” and never pretends an automatic source exists.", "🔍 AI 教育真相监测": "🔍 AI Education Truth Monitor", "🔗 每条有来源有日期": "🔗 Every item sourced & dated", "🛡 不收集儿童信息": "🛡 No children’s data collected", "未核实": "Unverified", "无备份": "No backup"};
+var DICT={};var k;for(k in BASE)DICT[k]=BASE[k];for(k in PAGE)DICT[k]=PAGE[k];
+var PREFIX=[["更新：", "Updated: "], ["失败：", "Failed: "], ["截至 ", "As of "], ["缓存样本 · ", "Cached sample · "], ["样本 · ", "Sample · "], ["今天 ", "Today "], ["样本 ", "Sample "], ["新增：", "New: "], ["实际来源：", "Actual source: "], ["尝试时间：", "Tried at: "]];
+var PATTERNS=[[/^(\d+) 个$/,"$1"],[/^(\d+) 条$/,"$1"],[/^样本 (\d+) 天前更新$/,function(m,n){n=+n;return "Sample updated "+n+" day"+(n===1?"":"s")+" ago";}],[/^样本 (\d+) 天前策展$/,function(m,n){n=+n;return "Sample curated "+n+" day"+(n===1?"":"s")+" ago";}],[/^⚠️ 样本已过期（(\d+) 天前）$/,function(m,n){n=+n;return "⚠️ Sample expired ("+n+" day"+(n===1?"":"s")+" ago)";}],[/^⚠️ 已过期 · 需重策展（(\d+) 天前）$/,function(m,n){n=+n;return "⚠️ Expired — needs re-curation ("+n+" day"+(n===1?"":"s")+" ago)";}],[/^已过期（样本 (\d+) 小时前）$/,function(m,n){n=+n;return "Expired (sample from "+n+" hour"+(n===1?"":"s")+" ago)";}],[/^已过期（缓存 (\d+) 小时前）$/,function(m,n){n=+n;return "Expired (cached "+n+" hour"+(n===1?"":"s")+" ago)";}],[/^已过期 (\d+) 天$/,function(m,n){n=+n;return "Expired "+n+" day"+(n===1?"":"s")+" ago";}],[/^([+-][\d,]+)（(\d+)天）$/,function(m,a,n){n=+n;return a+" ("+n+" day"+(n===1?"":"s")+")";}],[/^↑ 涨价( [-\d.]+%)?$/,"↑ Price up$1"],[/^↓ 降价( [-\d.]+%)?$/,"↓ Price down$1"],[/^还有 (\d+) 天$/,function(m,n){n=+n;return "in "+n+" day"+(n===1?"":"s");}],[/^已过 (\d+) 天$/,function(m,n){n=+n;return n+" day"+(n===1?"":"s")+" ago";}],[/^就是今天$/,"Today"],[/^环比 ([+-][\d.]+%)$/,"MoM $1"],[/^（目录 (\d+) 条）。$/,"(Catalog: $1 models)."],
+[/^目录 (\d+) 条$/,"Catalog: $1 models"],
+[/^条目 (\d+) 条（多渠道去重前）$/,"$1 entries (before multi-channel dedup)"],
+[/^来源：([^，]+)，目录 (\d+) 条$/,"Source: $1, catalog: $2 models"],
+[/^来源：([^，]+)，目录 (\d+) 条，上份快照 (\d{4}-\d{2}-\d{2})$/,"Source: $1, catalog: $2 models, previous snapshot $3"],
+[/^（目录 (\d+) 条）。首次快照时无新增结论，下次刷新起比对。$/,"(Catalog: $1 models). No new entries on the first snapshot; comparisons start from the next refresh."],
+[/^快照 (\d+) 个产品中 (\d+) 个 AI\/Agent 相关$/,function(m,t,a){t=+t;a=+a;return a+" of "+t+" snapshot product"+(t===1?"":"s")+" "+(a===1?"is":"are")+" AI / Agent-related";}],
+[/^样本 (\d+) 个产品中 (\d+) 个 AI\/Agent 相关$/,function(m,t,a){t=+t;a=+a;return a+" of "+t+" sample product"+(t===1?"":"s")+" "+(a===1?"is":"are")+" AI / Agent-related";}],[/^新增 (\d+) 条$/,"$1 new"],[/^对比快照 (\d{4}-\d{2}-\d{2})（北京日期）$/,"vs snapshot $1 (Beijing date)"],[/^基线积累中，无上一份快照可比对$/,"Baseline accumulating — no earlier snapshot to compare"],[/^当前无(.+)数据，请选全部\/基线$/,function(m,a){return "No "+toEN(a)+" data yet — pick All / Baseline";}],[/^当前为缓存样本（截至 2026-11-09，(.+)），主源与替补均失败时显示。$/,function(m,a){return "Showing cached sample (as of 2026-11-09, "+toEN(a)+"); primary and backup both failed.";}],[/^截至 2026-11-09 · (.+)$/,function(m,a){return "As of 2026-11-09 · "+toEN(a); }],[/^下一个大节点：(.+) · (\d{4}-\d{2}-\d{2}) · (.+)$/,function(m,a,b,c){return "Next big date: "+toEN(a)+" · "+b+" · "+toEN(c); }],[/^样本载入：(.+)（仅刷新显示时间，不拉取新数据；策展于 2026-11-09）$/,"Sample loaded: $1 (display time only — no new data fetched; curated 2026-11-09)"]];
+PATTERNS.push([/^来源：Hacker News Algolia API · 已拉取 (\d+) 条，AI \/ 教育相关 (\d+) 条$/,function(m,t,a){return "Source: Hacker News Algolia API · fetched "+t+" items, "+a+" AI / education";}]);
+PATTERNS.push([/^来源：Product Hunt feed · 已拉取 (\d+) 条，AI \/ 教育相关 (\d+) 条$/,function(m,t,a){return "Source: Product Hunt feed · fetched "+t+" items, "+a+" AI / education";}]);
+PATTERNS.push([/^价格样本 (\d+) 天前核实$/,function(m,n){n=+n;return "Price sample verified "+n+" day"+(n===1?"":"s")+" ago";}]);
+PATTERNS.push([/^⚠️ 价格已过期 · 需重核价（(\d+) 天前）$/,function(m,n){n=+n;return "⚠️ Prices expired — re-check needed ("+n+" day"+(n===1?"":"s")+" ago)";}]);
+var SUBS=[[/（403 限额）/g," (403 rate limit)"],[/（网络失败）/g," (network failure)"],[/ RSS 直连失败（([^，]*)，预期内：无 CORS 许可）。?/g," Direct RSS failed ($1 — expected: no CORS permission)."],[/失败（([^）]*)）/g,"Failed ($1)"],[/（已保留上次成功值）/g," (kept the last good values)"],[/，改走浏览器直连/g,", falling back to direct browser fetch"],[/缓存核实/g,"cache verified"],[/上表数据实际来源：/g,"Actual source of the table above:"],[/Actions 快照 data\/ph.json 未找到。?/g,"Actions snapshot data/ph.json not found."],[/Actions 快照存在但无可用条目。?/g,"The Actions snapshot exists but has no usable items."],[/ RSS 直连返回但无 <entry> 条目。?/g," The direct RSS returned but had no <entry> items."],[/ 当前显示人工策展样本（2026-11-09 15:15 CST），不是实时榜单。?/g," Currently showing the hand-curated sample (2026-11-09 15:15 CST), not a live ranking."],[/Actions 快照 data\/ph.json 解析出 (\d+) 条并已渲染（fetched_at：([^）]*)）。?/g,"Actions snapshot data/ph.json parsed $1 items and rendered them (fetched_at: $2)."],[/RSS 直连成功，DOMParser 解析出 (\d+) 条 <entry> 并已渲染；票数 RSS 不含，仍为「未获取」。?/g,"Direct RSS succeeded; DOMParser parsed $1 <entry> items and rendered them; RSS carries no vote counts, so they stay “Not available”."],[/Actions 快照 data\/ph.json 尚未生成（HTTP (\d+)）。?/g,"Actions snapshot data/ph.json not generated yet (HTTP $1)."],[/。/g,"."],[/，/g,", "],[/：/g,": "],[/；/g,"; "],[/、/g,", "],[/？/g,"?"],[/！/g,"!"],[/（/g," ("],[/）/g,")"],[/未标注/g,"not labelled"]];
+function hasCJK(s){return /[\u4e00-\u9fff]/.test(s);}
+function toEN(s){
+  if(!s)return s;
+  var v=DICT[s];if(v!=null)return v;
+  var i,m;
+  // full-match patterns first: they are more specific than a prefix
+  for(i=0;i<PATTERNS.length;i++){m=s.match(PATTERNS[i][0]);if(m){var rep=PATTERNS[i][1];return typeof rep==='function'?rep.apply(null,m):s.replace(PATTERNS[i][0],rep);}}
+  for(i=0;i<PREFIX.length;i++){if(s.indexOf(PREFIX[i][0])===0)return PREFIX[i][1]+toEN(s.slice(PREFIX[i][0].length));}
+  var parts=s.split(/(\s*[·—]\s*|、|；)/);
+  if(parts.length>1){
+    var out=[],changed=false,ok=true;
+    for(i=0;i<parts.length;i++){
+      var p=parts[i];
+      if(i%2===1){out.push(window.__MON_LANG==='en'?(p.indexOf('、')>=0?', ':p.indexOf('；')>=0?'; ':p):p);continue;}
+      if(!p){out.push(p);continue;}
+      var tp=toEN(p);
+      if(tp!==p)changed=true;
+      else if(hasCJK(p))ok=false;
+      out.push(tp);
+    }
+    if(changed&&ok)return out.join('');
+  }
+  var sub=s;
+  for(i=0;i<SUBS.length;i++){sub=sub.replace(SUBS[i][0],SUBS[i][1]);}
+  if(sub!==s)return sub;
+  return s;
+}
+window.__T=function(s){return window.__MON_LANG==='en'?toEN(s):s;};
+var _title=document.title;
+function trTextNode(n,l){
+  if(n.nodeType===3){
+    // never translate text inside SCRIPT/STYLE/NOSCRIPT/CANVAS (e.g. the page's
+    // own JS string literals, which the MutationObserver delivers as bare text nodes)
+    var par=n.parentElement;
+    if(par&&(par.tagName==='SCRIPT'||par.tagName==='STYLE'||par.tagName==='NOSCRIPT'||par.tagName==='CANVAS'))return;
+    var s=n.nodeValue,t=s.trim();if(!t)return;
+    if(l==='en'){
+      if(n._zh==null){var r=toEN(t);if(r!==t){var nx=n.nextSibling,pv=n.previousSibling;if(nx&&/[:;—]$/.test(r))r+=' ';if(pv&&/^[(—]/.test(r)&&!/\s$/.test(pv.textContent||''))r=' '+r;n._zh=s;n.nodeValue=s.slice(0,s.indexOf(t))+r+s.slice(s.indexOf(t)+t.length);}}
+    }else if(n._zh!=null){n.nodeValue=n._zh;n._zh=null;}
+    return;
+  }
+  if(n.nodeType!==1)return;
+  var tn=n.tagName;if(tn==='SCRIPT'||tn==='STYLE'||tn==='CANVAS'||tn==='NOSCRIPT')return;
+  if(n.hasAttribute&&n.hasAttribute('placeholder')){
+    var p=n.getAttribute('placeholder');
+    if(l==='en'){if(n._zhPh==null){var rp=toEN(p);if(rp!==p){n._zhPh=p;n.setAttribute('placeholder',rp);}}}
+    else if(n._zhPh!=null){n.setAttribute('placeholder',n._zhPh);n._zhPh=null;}
+  }
+  if(n.hasAttribute&&n.hasAttribute('title')&&n.id!=='langToggle'){
+    var tt=n.getAttribute('title');
+    if(l==='en'){if(n._zhT==null){var rt=toEN(tt);if(rt!==tt){n._zhT=tt;n.setAttribute('title',rt);}}}
+    else if(n._zhT!=null){n.setAttribute('title',n._zhT);n._zhT=null;}
+  }
+  var c=n.childNodes;for(var i=0;i<c.length;i++)trTextNode(c[i],l);
+}
+function applyLang(l,rerender){
+  window.__MON_LANG=l;
+  try{localStorage.setItem('mon-lang',l);}catch(e){}
+  document.documentElement.lang=(l==='en'?'en':'zh-CN');
+  document.title=(l==='en'?toEN(_title):_title);
+  trTextNode(document.body,l);
+  var b=document.getElementById('langToggle');if(b)b.setAttribute('aria-pressed',l==='en'?'true':'false');if(b)b.textContent=(l==='en'?'🌐 中文':'🌐 EN');
+  if(rerender){try{window.__rerender&&window.__rerender();}catch(e){}trTextNode(document.body,l);}
+}
+window.toggleLang=function(){applyLang(window.__MON_LANG==='zh'?'en':'zh',true);};
+window.__MON_LANG=(function(){try{var q=new URLSearchParams(location.search).get('lang');if(q==='en'||q==='zh')return q;var s=localStorage.getItem('mon-lang');if(s==='en'||s==='zh')return s;}catch(e){}return 'zh';})();
+applyLang(window.__MON_LANG,false);
+if(window.MutationObserver){
+  var obs=new MutationObserver(function(muts){
+    if(window.__MON_LANG!=='en')return;
+    muts.forEach(function(m){
+      for(var i=0;i<m.addedNodes.length;i++)trTextNode(m.addedNodes[i],'en');
+      if(m.type==='characterData')trTextNode(m.target,'en');
+    });
+  });
+  obs.observe(document.body,{childList:true,subtree:true,characterData:true});
+}
+window.__rerender=function(){try{draw();}catch(e){}try{renderLeads();}catch(e){}};
+window.__sweepLang=function(){if(window.__MON_LANG==='en'){try{trTextNode(document.body,'en');}catch(e){}}};
+})();
+</script>
+<script>
+function filterTable(){var g=document.getElementById('gradeFilter').value;document.querySelectorAll('#evidence tr').forEach(function(r){r.style.display=(!g||r.dataset.grade===g)?'':'none';});}
+function ageDays18(){return Math.floor((new Date()-new Date('2026-11-09T00:00:00+08:00'))/86400000);}
+function loadSample(){document.querySelector('main')?.setAttribute('aria-busy','true');const age=ageDays18();
+const ab=document.getElementById('ageBadge');ab.textContent=age<=0?'样本新鲜 · 策展于 2026-11-09':(age<=7?`样本 ${age} 天前策展`:`⚠️ 已过期 · 需重策展（${age} 天前）`);ab.className='badge '+(age>7?'missing':'backup');
+const pb=document.getElementById('priceAgeBadge');pb.textContent=age<=0?'价格新鲜 · 核实于 2026-11-09':(age<=30?`价格样本 ${age} 天前核实`:`⚠️ 价格已过期 · 需重核价（${age} 天前）`);pb.className='badge '+(age>30?'missing':'backup');
+document.getElementById('updated').textContent='样本载入：'+new Date().toLocaleString('zh-CN')+'（仅刷新显示时间，不拉取新数据；策展于 2026-11-09）';draw(); if(window.__sweepLang)window.__sweepLang();setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},2000);}
+var hnItems=[],phItems=[];
+var LEAD_RE=/edu|learn|school|student|tutor|teach|course|kid|study|\bAI\b|llm|chatbot/i;
+function fmtDate(d){try{return new Date(d).toISOString().slice(0,10);}catch(e){return '';}}
+function renderList(ulId,items){var ul=document.getElementById(ulId);ul.innerHTML='';if(!items.length){var li=document.createElement('li');li.textContent='未获取';ul.appendChild(li);return;}
+items.forEach(function(it){var li=document.createElement('li');var a=document.createElement('a');a.href=it.url;a.target='_blank';a.rel='noopener';a.textContent=it.title;li.appendChild(a);if(it.date){var s=document.createElement('span');s.className='note';s.textContent=' · '+it.date;li.appendChild(s);}ul.appendChild(li);});}
+function renderLeads(){renderList('hnList',hnItems);renderList('phList',phItems);if(window.__sweepLang)window.__sweepLang();}
+async function fetchHN(){var st=document.getElementById('hnStatus');st.textContent='来源：Hacker News Algolia API · 正在拉取…';
+try{var r=await fetch('https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=20');if(!r.ok)throw new Error('HTTP '+r.status);var j=await r.json();
+var hits=(j.hits||[]).filter(function(h){return h.title&&LEAD_RE.test(h.title);}).slice(0,8);
+hnItems=hits.map(function(h){return {title:h.title,url:'https://news.ycombinator.com/item?id='+h.objectID,date:fmtDate(h.created_at_i*1000)};});
+st.textContent='来源：Hacker News Algolia API · 已拉取 '+((j.hits||[]).length)+' 条，AI / 教育相关 '+hnItems.length+' 条';
+if(!hnItems.length){var ul=document.getElementById('hnList');ul.innerHTML='';var li=document.createElement('li');li.textContent='（无 AI / 教育相关条目）';ul.appendChild(li);}
+else renderList('hnList',hnItems);}
+catch(e){hnItems=[];st.textContent='来源：Hacker News Algolia API · 未获取';renderList('hnList',hnItems);}
+if(window.__sweepLang)window.__sweepLang();}
+async function fetchPH(){var st=document.getElementById('phStatus');st.textContent='来源：Product Hunt feed · 正在拉取…';
+try{var r=await fetch('https://www.producthunt.com/feed');if(!r.ok)throw new Error('HTTP '+r.status);var txt=await r.text();
+var doc=new DOMParser().parseFromString(txt,'text/xml');var entries=doc.getElementsByTagName('entry');
+var out=[];for(var i=0;i<entries.length&&out.length<8;i++){var t=entries[i].getElementsByTagName('title')[0];var l=entries[i].getElementsByTagName('link')[0];var p=entries[i].getElementsByTagName('published')[0];
+if(!t)continue;var title=t.textContent;if(!LEAD_RE.test(title))continue;
+out.push({title:title,url:l?l.getAttribute('href'):'https://www.producthunt.com/',date:p?fmtDate(p.textContent):''});}
+phItems=out;st.textContent='来源：Product Hunt feed · 已拉取 '+entries.length+' 条，AI / 教育相关 '+phItems.length+' 条';
+if(!phItems.length){var ul=document.getElementById('phList');ul.innerHTML='';var li=document.createElement('li');li.textContent='（无 AI / 教育相关条目）';ul.appendChild(li);}
+else renderList('phList',phItems);}
+catch(e){phItems=[];st.textContent='来源：Product Hunt feed · 未获取（浏览器 CORS 常被拦）';renderList('phList',phItems);}
+if(window.__sweepLang)window.__sweepLang();}
+function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','true');fetchHN();fetchPH();setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},4000);}
+function draw(){if(!window.Chart){setTimeout(draw,300);return;}
+var _pc=window.Chart.getChart(document.getElementById('priceChart'));if(_pc)_pc.destroy();var _hc=window.Chart.getChart(document.getElementById('histChart'));if(_hc)_hc.destroy();
+new Chart(document.getElementById('priceChart'),{type:'bar',data:{labels:['Khanmigo','Photomath Plus','Quizlet Plus','Coursera Plus','Duolingo Max'],datasets:[{label:__T('月费（美元）'),data:[4,9.99,7.99,59,29.99],backgroundColor:['#047857','#0f766e','#b45309','#b91c1c','#1e3a5f']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,title:{display:true,text:__T('月费（美元）')}}}}});
+new Chart(document.getElementById('histChart'),{type:'line',data:{labels:['2023','2024','2026'],datasets:[{label:__T('Khanmigo 月费（美元）'),data:[9,4,4],borderColor:'#b45309',backgroundColor:'rgba(180,83,9,.15)',fill:true,tension:.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:2}}}}});}
+loadSample();
+refreshAll();
+</script></body></html>
