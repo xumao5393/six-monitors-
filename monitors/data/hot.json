@@ -1,0 +1,160 @@
+{
+  "fetched_at": "2026-11-09T07:54:04Z",
+  "fetched_at_cst": "2026-11-09 15:54:04 CST",
+  "ok": true,
+  "source": "GitHub Actions snapshot (curl, server-side) — see .github/workflows/snapshot.yml; browser direct fetch is CORS-blocked",
+  "platforms": {
+    "weibo": {
+      "ok": true,
+      "http": 200,
+      "source": "https://weibointl.api.weibo.cn/portal.php?ct=feed&a=search_topic",
+      "items": [
+        {
+          "title": "iG投资人开团AL",
+          "heat": 1340418
+        },
+        {
+          "title": "为什么满地都是口腔诊所",
+          "heat": 909990
+        },
+        {
+          "title": "为了守护万家灯火他们迎难而上",
+          "heat": 685260
+        },
+        {
+          "title": "日本地铁太压抑了",
+          "heat": 512863
+        },
+        {
+          "title": "Doran说T1本可以赢BLG",
+          "heat": 500081
+        },
+        {
+          "title": "张雪机车米兰展车零件被偷光",
+          "heat": 498698
+        },
+        {
+          "title": "再婚皇后道具疑似是在拼多多买的",
+          "heat": 403138
+        },
+        {
+          "title": "青稚今天我给白小纯道歉了",
+          "heat": 386831
+        },
+        {
+          "title": "Bin说GEN不如T1",
+          "heat": 386733
+        },
+        {
+          "title": "大连几乎所有饭店宣布夺冠就免单",
+          "heat": 386683
+        }
+      ]
+    },
+    "douyin": {
+      "ok": true,
+      "http": 200,
+      "source": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
+      "items": [
+        {
+          "title": "BLG战胜T1挺进决赛",
+          "heat": 12104048
+        },
+        {
+          "title": "后知后觉又过了一个秋",
+          "heat": 12070773
+        },
+        {
+          "title": "中国新发展为世界提供新机遇",
+          "heat": 11396484
+        },
+        {
+          "title": "今日寒衣节",
+          "heat": 11040669
+        },
+        {
+          "title": "攻击11全方位展示",
+          "heat": 10380440
+        },
+        {
+          "title": "T1发文告别S16",
+          "heat": 10318696
+        },
+        {
+          "title": "76人送公牛7连败",
+          "heat": 9129836
+        },
+        {
+          "title": "湖人豪取五连胜重回西部榜首",
+          "heat": 8991849
+        },
+        {
+          "title": "跟着韩女学ins感穿搭",
+          "heat": 8736452
+        },
+        {
+          "title": "波兰枪击事件致9死16伤",
+          "heat": 8563738
+        }
+      ]
+    },
+    "zhihu": {
+      "ok": false,
+      "http": 401,
+      "source": "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10",
+      "error": "401 身份未验证",
+      "items": []
+    },
+    "bili": {
+      "ok": false,
+      "http": 200,
+      "source": "https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all",
+      "items": [
+        {
+          "title": "《崩坏：星穹铁道》星神★阿哈角色PV——「让骰子飞」",
+          "category": "手机游戏"
+        },
+        {
+          "title": "近十几年的梗都在这里了",
+          "category": "人力VOCALOID"
+        },
+        {
+          "title": "火柴人 VS 动画师 第十四集 黑暗时代（The Dark Age）",
+          "category": "日常"
+        },
+        {
+          "title": "《再飞行！》MV：终于完整的旋律，是我们继续出发的BGM！",
+          "category": "综合"
+        },
+        {
+          "title": "人类饲养指南",
+          "category": "绘画"
+        },
+        {
+          "title": "【2026全球总决赛】11月9日 BLG vs T1",
+          "category": "电子竞技"
+        },
+        {
+          "title": "《绝区零》未明通讯丨知更鸟&卡芙卡",
+          "category": "手机游戏"
+        },
+        {
+          "title": "最强的战绩，铭刻于决斗场！",
+          "category": "手机游戏"
+        },
+        {
+          "title": "【数据删除】基金会最欢乐的特战队，三名让异常破防的不死大爹——《SCP-2639-电子游戏暴力》",
+          "category": "影视杂谈"
+        },
+        {
+          "title": "消失10个月，我带着一个新生命，重新出发！",
+          "category": "运动综合"
+        }
+      ],
+      "error": "空响应（列表为空）"
+    }
+  },
+  "browser": {
+    "note": "浏览器直连：微博/抖音/B站均无 CORS 头，直连失败是预期；本文件为服务端 curl 快照，页面只读同域 JSON。知乎 curl 亦 401。"
+  }
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI新品/新功能上线监测</title><script src="chart.umd.min.js"></script>
+<title>AI新品/新功能上线监测</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -45,6 +45,16 @@ th{color:#6d28d9}
 .big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
 .grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
 a{color:#6d28d9}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
 </style></head><body>
 <header><h1>🚀 AI新品/新功能上线监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge missing">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
@@ -52,13 +62,14 @@ a{color:#6d28d9}
 <div class="grid" id="kpis"></div>
 <div class="card"><h3>发布频率（月度条数，仅统计本页策展条目，非全网发布总数）</h3><canvas id="freqChart" height="100"></canvas><p class="note" id="chartNote"></p></div>
 <div class="card"><h3>新品主表 <span class="note">人工策展 + 自动 diff · 每条均有日期与来源链接；“新上架”指首次出现在 OpenRouter/models.dev 目录或官方发布</span></h3>
-<input id="q" placeholder="搜索新品，如 Kimi / Gemini" oninput="renderTable()"><select id="vendor" onchange="renderTable()"><option value="">全部厂商</option><option>OpenAI</option><option>Anthropic</option><option>Google</option><option>Moonshot</option><option>Tencent</option><option>Mistral</option><option>xAI</option></select><select id="type" onchange="renderTable()"><option value="">全部类型</option><option>新模型</option><option>开源</option><option>新功能</option><option>受限发布</option></select>
+<input id="q" placeholder="搜索新品，如 Kimi / Gemini" oninput="renderTable()"><select id="vendor" onchange="renderTable()"><option value="">全部厂商</option><option>OpenAI</option><option>Anthropic</option><option>Google</option><option>Moonshot</option><option>Tencent</option><option>Mistral</option><option>xAI</option></select><select id="type" onchange="renderTable()"><option value="">全部类型</option><option>新模型</option><option>开源</option><option>受限发布</option></select>
 <table><thead><tr><th>日期</th><th>新品</th><th>厂商</th><th>类型</th><th>一句话卖点</th><th>来源</th></tr></thead><tbody id="tbody"></tbody></table>
 <p class="note" id="tableNote"></p></div>
 <div class="card"><h3>自动 diff 状态（OpenRouter / models.dev 目录新条目）</h3><div id="diffBox"></div>
-<p class="note">diff 逻辑：本次刷新取 OpenRouter（主源）全部模型 id，与浏览器 localStorage 中的上一份快照比对；无快照时存入本次快照并标「首次快照，基线积累中」。主源失败时改用 models.dev（替补）全部条目 id 做同样比对；两者都失败则只显示人工策展表。RSS 抓取需 GitHub Actions，本静态页不直接拉 RSS——这是已知缺口，见下文。</p></div>
+<p class="note">diff 逻辑：本次刷新取 OpenRouter（主源）全部模型 id，与浏览器 localStorage 中的上一份快照比对；无快照时存入本次快照并标「首次快照，基线积累中」。主源失败时改用 models.dev（替补）全部条目 id 做同样比对；两者都失败则只显示人工策展表。Google Blog RSS 本页直接拉取（见下方卡片）；Anthropic / OpenAI 的 RSS 需 GitHub Actions，见下文。</p></div>
+<div class="card"><h3>Google 官方博客 RSS（浏览器直连）</h3><div id="googleRss">正在拉取…</div><p class="note">blog.google/rss 实测 200 且 CORS 反射 Origin，浏览器可直接读。Anthropic /news/rss.xml 实测 404（改抓 /news HTML 需 Actions）；OpenAI /news/rss.xml 浏览器无 CORS，只能经 Actions 存 JSON 后读。</p></div>
 <div class="card"><h3>数据源备份链（每个源都有备份；无备份的环节会明说）</h3><div id="sources"></div>
-<p class="note">主源 OpenRouter（openrouter.ai/api/v1/models，2026-11-09 curl 实测 200）。替补 models.dev（models.dev/api.json，2026-11-09 curl 实测 200，含 Access-Control-Allow-Origin: *；与 02 页记录的 302 下线说法矛盾，以本次实测为准，每次刷新重新验证）。缓存：人工策展表（核实日期 2026-11-09）。⚠️ 无备份的环节：各厂商官方博客 RSS——浏览器常被跨域拦、无稳定免费直连源，本页不假装能实时拉 RSS；该环节的备份是人工策展（定期人工核对官方博客），已在本页明示，非技术备份。</p></div>
+<p class="note">主源 OpenRouter（openrouter.ai/api/v1/models，2026-11-09 curl 实测 200）。替补 models.dev（models.dev/api.json，2026-11-09 curl 实测 200，含 Access-Control-Allow-Origin: *；与 02 页记录的 302 下线说法矛盾，以本次实测为准，每次刷新重新验证）。缓存：人工策展表（核实日期 2026-11-09）。⚠️ 博客 RSS 分源说明：Google Blog RSS（blog.google/rss）浏览器可直读（本页上方实时拉取）；Anthropic /news/rss.xml 实测 404、OpenAI /news/rss.xml 浏览器无 CORS——这两家只能经 Actions 抓取存 JSON，本静态页暂以人工策展作备份，已明示。</p></div>
 <div class="warn">⚠️ 诚实声明：本页 14 条策展条目均经 2026-11-09 网页搜索核实日期与来源（官方公告或可信报道汇总）；未核实的发布不收录。自动 diff 今日为首次快照，暂无“新增条目”结论。Carbon / Cyber / Rosalind 均为受限发布，普通人暂不可用，已在类型中标注。</div>
 </main>
 <script>
@@ -92,6 +103,8 @@ function drawChart(){
  if(chart)chart.destroy();
  chart=new Chart(document.getElementById('freqChart'),{type:'bar',data:{labels:['2026-09','2026-10','2026-11（截至 11 月 9 日）'],datasets:[{data:[counts['2026-09'],counts['2026-10'],counts['2026-11']],backgroundColor:['#4338ca','#7c3aed','#d946ef']}]},options:{plugins:{legend:{display:false}},scales:{y:{ticks:{stepSize:1},title:{display:true,text:'策展条目数'}}}}});
 }
+async function fetchText(u,ms=9000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.text();}
+async function loadGoogleRss(){const el=document.getElementById('googleRss');try{const xml=await fetchText('https://blog.google/rss/');const doc=new DOMParser().parseFromString(xml,'text/xml');const items=[...doc.querySelectorAll('item')].slice(0,5);if(!items.length)throw new Error('RSS 无条目');el.innerHTML='<ul style="margin:0;padding-left:18px;line-height:1.9">'+items.map(it=>{const t=it.querySelector('title')?.textContent||'（无标题）',l=it.querySelector('link')?.textContent||'',d=it.querySelector('pubDate')?.textContent||'';return `<li><a href="${l}" target="_blank" rel="noopener">${t.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</a> <span class="note">${d.slice(0,16)}</span></li>`;}).join('')+'</ul><p class="note">来源：blog.google/rss（浏览器直连成功，最新 5 条）。</p>';}catch(e){el.innerHTML='未获取：Google Blog RSS 拉取失败（'+(e.message||'请求失败')+'），见下方人工策展表。';}}
 async function fetchTO(u,ms=9000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.json();}
 function doDiff(ids,srcName){
  const key='mon08_snapshot_ids',prev=JSON.parse(localStorage.getItem(key)||'null');
@@ -100,7 +113,7 @@ function doDiff(ids,srcName){
  localStorage.setItem(key,JSON.stringify({date:new Date().toISOString().slice(0,10),ids}));
  return {status:added.length?('新增 '+added.length+' 条'):'无新增条目',added,total:ids.length,src:srcName,prevDate:prev.date};
 }
-async function refreshAll(){
+async function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','true');var _u=document.getElementById('updated');if(_u)_u.textContent='正在拉取…';setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},30000);
  const src=[];let diff=null,role='cache';
  try{const d=await fetchTO('https://openrouter.ai/api/v1/models');
    const ids=(d.data||[]).map(m=>m.id);
@@ -115,14 +128,15 @@ async function refreshAll(){
    }catch(e){src.push(['models.dev','替补','失败：'+e.message,'—']);}
  }
  src.push(['人工策展表','缓存','14 条，核实日期 2026-11-09','截至 2026-11-09']);
+ loadGoogleRss();
  const nov=CURATED.filter(m=>m.date.startsWith('2026-11')).length;
  document.getElementById('kpis').innerHTML=`<div class="card"><h3>策展条目</h3><div class="big">${CURATED.length} 条</div></div><div class="card"><h3>11 月新品</h3><div class="big">${nov} 条</div></div><div class="card"><h3>本周最大新闻</h3><div class="big" style="font-size:20px">GPT-Image-2.6</div><p class="note">2026-11-04</p></div><div class="card"><h3>自动 diff 新增</h3><div class="big" style="font-size:22px">${diff?diff.status:'未获取'}</div><p class="note">${diff?('来源：'+diff.src+'，目录 '+diff.total+' 条'+(diff.prevDate?'，上份快照 '+diff.prevDate:'')):'主源与替补均失败'}</p></div><div class="card"><h3>数据角色</h3><div class="big" style="font-size:22px">${role==='live'?'实时+策展':role==='backup'?'替补+策展':'仅策展'}</div></div>`;
  const b=document.getElementById('srcBadge');b.textContent=role==='live'?'OpenRouter 实时 + 策展':role==='backup'?'models.dev 替补 + 策展':'人工策展 2026-11-09';b.className='badge '+(role==='live'?'live':role==='backup'?'backup':'cache');
  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
- document.getElementById('diffBox').innerHTML=diff?`<div>${diff.src} 自动 diff：<b>${diff.status}</b>（目录 ${diff.total} 条）。${diff.added.length?('新增：'+diff.added.slice(0,20).join('、')+(diff.added.length>20?' 等':'')+'。'):'首次快照时无新增结论，下次刷新起比对。'}</div>`:'<div>主源与替补均失败，自动 diff 未获取；仅显示人工策展表。</div>';
+ document.getElementById('diffBox').innerHTML=diff?`<div>${diff.src} 自动 diff：<b>${diff.status}</b>（目录 ${diff.total} 条）。${diff.added.length?('新增：'+diff.added.slice(0,20).join('、')+(diff.added.length>20?`。<details><summary>展开其余 ${diff.added.length-20} 条</summary>${diff.added.slice(20).join('、')}</details>`:'。')):'首次快照时无新增结论，下次刷新起比对。'}</div>`:'<div>主源与替补均失败，自动 diff 未获取；仅显示人工策展表。</div>';
  document.getElementById('tableNote').textContent='策展条目核实于 2026-11-09；自动 diff 今日为首次快照（基线积累中），新增结论下次刷新起才有。';
- document.getElementById('sources').innerHTML=src.map(s=>`<div style="padding:6px 0;border-bottom:1px solid #f0f0f0">${s[0]} — <span class="badge ${s[1]==='主源'?'live':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+'<div style="padding:6px 0">官方博客 RSS — <span class="badge missing">无备份</span> 浏览器常被跨域拦、无稳定免费直连源；备份 = 人工策展定期核对（本页策展表），非技术实时备份，已明示。</div>';
- renderTable();drawChart();
+ document.getElementById('sources').innerHTML=src.map(s=>`<div style="padding:6px 0;border-bottom:1px solid #f0f0f0">${s[0]} — <span class="badge ${s[1]==='主源'?'live':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+'<div style="padding:6px 0;border-bottom:1px solid #f0f0f0">Google Blog RSS — <span class="badge live">浏览器直读</span> blog.google/rss 实测 200，CORS 反射 Origin，本页上方实时拉取。</div><div style="padding:6px 0;border-bottom:1px solid #f0f0f0">Anthropic /news/rss.xml — <span class="badge missing">404</span> 改抓 /news HTML 需 Actions；备份 = 人工策展定期核对。</div><div style="padding:6px 0">OpenAI /news/rss.xml — <span class="badge missing">仅 Actions</span> 浏览器无 CORS，只能经 Actions 存 JSON 后读；备份 = 人工策展定期核对。</div>';
+ renderTable();drawChart();document.querySelector('main')?.setAttribute('aria-busy','false');
 }
 refreshAll();
 </script></body></html>

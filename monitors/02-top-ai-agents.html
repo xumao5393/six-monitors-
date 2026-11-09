@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>头部AI与Agent监测</title><script src="chart.umd.min.js"></script>
+<title>头部AI与Agent监测</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -45,17 +45,27 @@ th{color:#6d28d9}
 .warn{background:#ede9fe;border:1px solid #c4b5fd}
 .big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
 .grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
 </style></head><body>
 <header><h1>🤖 头部AI与Agent监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge missing">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
-<section class="hero"><h2>头部 AI 与 Agent · 谁最能打</h2><p>GPT、Claude、Gemini、Grok、DeepSeek……智能、价格、上下文，一张散点图看清性价比。</p><div class="feed"><div><b>💰 最便宜</b>旗舰中最便宜：DeepSeek V4 Pro 输入价 $0.9553/M（OpenRouter 2026-11-09 核实价）。豆包 Seed 2.1 Turbo $0.50/M 更便宜，但为 Turbo 变体，仅作 Seed 2.1 家族代表。</div><div><b>🏆 缓存榜首</b>缓存分数为 AA 智能指数 v5（截至 2026-11-09）：Claude Opus 5.5 以 59.1 领跑。</div><div><b>🔄 唯一实时源</b>OpenRouter 直连；models.dev 已下线（302 跳转首页）不再使用；断了就用缓存并标注。</div></div></section>
+<section class="hero"><h2>头部 AI 与 Agent · 谁最能打</h2><p>GPT、Claude、Gemini、Grok、DeepSeek……智能、价格、上下文，一张图看清性价比（实时画价格条形图，缓存才画分数散点）。</p><div class="feed"><div><b>💰 最便宜</b>旗舰中最便宜：DeepSeek V4 Pro 输入价 $0.9553/M（OpenRouter 2026-11-09 核实价）。豆包 Seed 2.1 Turbo $0.50/M 更便宜，但为 Turbo 变体，仅作 Seed 2.1 家族代表。</div><div><b>🏆 缓存榜首</b>缓存分数为 AA 智能指数 v5（截至 2026-11-09）：Claude Opus 5.5 以 59.1 领跑。</div><div><b>🔄 唯一实时源</b>OpenRouter 直连；models.dev 已下线（302 跳转首页）不再使用；断了就用缓存并标注。</div></div></section>
 <div class="grid" id="kpis"></div>
-<div class="card"><h3>智能 × 价格散点图（价格为每百万 token 输入价，来源 OpenRouter）</h3><canvas id="scatter" height="100"></canvas><p class="note" id="scatterNote"></p></div>
+<div class="card"><h3 id="chartTitle">智能 × 价格散点图（价格为每百万 token 输入价，来源 OpenRouter）</h3><canvas id="scatter" height="100"></canvas><p class="note" id="scatterNote"></p></div>
 <div class="card"><h3>模型总表 <span class="note">点表头排序</span></h3>
 <input id="q" placeholder="搜索模型，如 Kimi / DeepSeek" oninput="renderTable()"><select id="vendor" onchange="renderTable()"><option value="">全部厂商</option><option>OpenAI</option><option>Anthropic</option><option>Google</option><option>xAI</option><option>DeepSeek</option><option>Qwen</option><option>Kimi</option><option>Zhipu</option><option>Doubao</option></select>
-<table><thead><tr><th onclick="sortBy('name')">模型</th><th onclick="sortBy('vendor')">厂商</th><th onclick="sortBy('score')">分数</th><th onclick="sortBy('price')">价格 $/M</th><th>上下文</th></tr></thead><tbody id="tbody"></tbody></table>
+<table><thead><tr><th onclick="sortBy('name')">模型 <span class="arr" data-arr="name"></span></th><th onclick="sortBy('vendor')">厂商 <span class="arr" data-arr="vendor"></span></th><th onclick="sortBy('score')">分数 <span class="arr" data-arr="score"></span></th><th onclick="sortBy('price')">价格 $/M <span class="arr" data-arr="price"></span></th><th>上下文</th></tr></thead><tbody id="tbody"></tbody></table>
 <p class="note" id="tableNote"></p></div>
-<div class="card"><h3>Agent 对比（5列）</h3><table><thead><tr><th>Agent</th><th>在哪跑</th><th>定时</th><th>模型</th><th>开源</th><th>价格</th></tr></thead><tbody>
+<div class="card"><h3>Agent 对比 <span class="badge cache">人工整理·非API</span></h3><table><thead><tr><th>Agent</th><th>在哪跑</th><th>定时</th><th>模型</th><th>开源</th><th>价格</th></tr></thead><tbody>
 <tr><td>Grok Bot</td><td>云端</td><td>是</td><td>Grok</td><td>否</td><td>随 Grok 订阅</td></tr>
 <tr><td>Muse</td><td>云端</td><td>否</td><td>多模型</td><td>否</td><td>免费起</td></tr>
 <tr><td>Claude Code</td><td>本地/云</td><td>否</td><td>Claude</td><td>否</td><td>随 Claude 订阅</td></tr>
@@ -88,6 +98,7 @@ const PREFIX_VENDOR={'openai':'OpenAI','anthropic':'Anthropic','google':'Google'
 // Google：目录中无 Gemini 3.8 Pro 文本 id，最高非 Flash 文本模型为 Gemini 4 Argon（$2.00/M，1M 上下文），暂作 Google 旗舰。
 // Doubao：目录中 Seed 2.1 仅有 Turbo 变体，未见非 Turbo 旗舰 id，暂以 seed-2-1-turbo 作 Seed 2.1 家族代表。
 const FLAGSHIPS=new Set(['openai/gpt-6.1-terra','openai/gpt-6.1-sol','anthropic/claude-opus-5.5','google/gemini-4-argon','x-ai/grok-4.7','deepseek/deepseek-v4-pro','qwen/qwen3.8-max-prime','moonshotai/kimi-k3.1-pro','z-ai/glm-5.3-prime','bytedance-seed/seed-2-1-turbo']);
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function vendorOf(id){const p=(id||'').split('/')[0];return PREFIX_VENDOR[p]||p||'未知';}
 function fmtPrice(p){return p==null?'未获取':'$'+(p<1?+p.toFixed(3):+p.toFixed(2));}
 async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.json();}
@@ -95,18 +106,29 @@ function renderTable(){
  const q=(document.getElementById('q').value||'').toLowerCase(),v=document.getElementById('vendor').value;
  let list=models.filter(m=>(!q||m.name.toLowerCase().includes(q))&&(!v||m.vendor===v));
  list.sort((a,b)=>{const av=a[sortKey]??-Infinity,bv=b[sortKey]??-Infinity;return (av>bv?1:av<bv?-1:0)*sortDir;});
- document.getElementById('tbody').innerHTML=list.map(m=>`<tr><td>${m.name}</td><td>${m.vendor}</td><td>${m.score??'未获取'}</td><td>${fmtPrice(m.price)}</td><td>${m.ctx||'—'}</td></tr>`).join('')||'<tr><td colspan="5">无匹配，未获取时不编数</td></tr>';
+ document.getElementById('tbody').innerHTML=list.map(m=>`<tr><td>${esc(m.name)}</td><td>${esc(m.vendor)}</td><td>${m.score??'未获取'}</td><td>${fmtPrice(m.price)}</td><td>${esc(m.ctx||'—')}</td></tr>`).join('')||'<tr><td colspan="5">无匹配，未获取时不编数</td></tr>';
 }
-function sortBy(k){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1;}renderTable();}
-function drawScatter(){
+function updateArrows(){document.querySelectorAll('.arr').forEach(s=>{s.textContent=s.dataset.arr===sortKey?(sortDir===-1?'▼':'▲'):'';});}
+function updateArrows(){document.querySelectorAll('.arr').forEach(s=>{s.textContent=s.dataset.arr===sortKey?(sortDir===-1?'▼':'▲'):'';});}
+function sortBy(k){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1;}renderTable();updateArrows();}
+function drawChart(role){
  const colors={OpenAI:'#10a37f',Anthropic:'#d97757',Google:'#4285f4',xAI:'#111',DeepSeek:'#4d6bfe',Qwen:'#615ced',Kimi:'#000',Zhipu:'#7c3aed',Doubao:'#0ea5e9'};
- // 散点只画「有分数且有价格」的模型；颜色数组与数据点取自同一过滤后数组，避免错位。
  const pts=models.filter(m=>m.score!=null&&m.price!=null);
- document.getElementById('scatterNote').textContent=pts.length?'':'暂无可画的点：OpenRouter 只提供价格与上下文，不提供基准分数，实时分数显示「未获取」。';
  if(chart)chart.destroy();
+ if(role==='live'||!pts.length){
+   // 实时模式：OpenRouter 只给价格与上下文、不给基准分数，散点必然空白——改画实时价格条形图。
+   const list=[...models].filter(m=>m.price!=null).sort((a,b)=>b.price-a.price);
+   document.getElementById('chartTitle').textContent='实时价格条形图（输入价 $/M，OpenRouter 实时）';
+   document.getElementById('scatterNote').textContent='实时模式无分数可画（OpenRouter 不提供基准分数，分数显示「未获取」），故画实时价格条形图；分数散点仅在缓存模式下出现（分数=缓存·价格=实时不混画）。';
+   if(!list.length){document.getElementById('scatterNote').textContent='未获取：实时价格拉取失败。';return;}
+   chart=new Chart(document.getElementById('scatter'),{type:'bar',data:{labels:list.map(m=>m.name),datasets:[{data:list.map(m=>m.price),backgroundColor:list.map(m=>colors[m.vendor]||'#999')}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:'价格 $/M（输入）'}},y:{ticks:{font:{size:11}}}}}});
+   return;
+ }
+ document.getElementById('chartTitle').textContent='智能 × 价格散点图（分数=缓存 AA v5 · 价格=缓存核实值）';
+ document.getElementById('scatterNote').textContent='缓存模式：分数为 AA 智能指数 v5（截至 2026-11-09），价格为 OpenRouter 2026-11-09 核实值。';
  chart=new Chart(document.getElementById('scatter'),{type:'scatter',data:{datasets:[{data:pts.map(m=>({x:m.price,y:m.score})),pointBackgroundColor:pts.map(m=>colors[m.vendor]||'#999'),pointRadius:6}]},options:{scales:{x:{title:{display:true,text:'价格 $/M（输入）'}},y:{title:{display:true,text:'分数（AA 智能指数 v5）'}}},plugins:{legend:{display:false}}}});
 }
-async function refreshAll(){
+async function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','true');var _u=document.getElementById('updated');if(_u)_u.textContent='正在拉取…';setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},30000);
  const src=[];let role='cache';
  // 唯一实时来源：OpenRouter。models.dev 已下线（/api/v1/models 返回 302 跳转首页），不再请求；OpenRouter 无镜像。
  try{const d=await fetchTO('https://openrouter.ai/api/v1/models');
@@ -118,12 +140,12 @@ async function refreshAll(){
  const priced=models.filter(m=>m.price!=null),scored=models.filter(m=>m.score!=null);
  const cheapest=priced.length?Math.min(...priced.map(m=>m.price)):null;
  const top=scored.length?Math.max(...scored.map(m=>m.score)):null;
- document.getElementById('kpis').innerHTML=`<div class="card"><h3>模型数</h3><div class="big">${models.length}</div></div><div class="card"><h3>最便宜（有价）</h3><div class="big">${cheapest!=null?fmtPrice(cheapest)+'/M':'未获取'}</div></div><div class="card"><h3>最高分</h3><div class="big">${top!=null?top:'未获取'}</div></div><div class="card"><h3>今日变化</h3><div class="big">见来源</div></div>`;
+ document.getElementById('kpis').innerHTML=`<div class="card"><h3>模型数</h3><div class="big">${models.length}</div></div><div class="card"><h3>最便宜（有价）</h3><div class="big">${cheapest!=null?fmtPrice(cheapest)+'/M':'未获取'}</div></div><div class="card"><h3>最高分</h3><div class="big">${top!=null?top:'未获取'}</div></div>`;
  const b=document.getElementById('srcBadge');b.textContent=role==='live'?'OpenRouter 实时':'缓存样本';b.className='badge '+(role==='live'?'':'cache');
  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
  document.getElementById('tableNote').textContent=role==='cache'?'当前为缓存样本（截至 2026-11-09），刷新成功后以实时接口为准。':'实时数据来自 OpenRouter：价格与上下文为实时值，分数 OpenRouter 不提供，显示「未获取」。';
  document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='缓存'?'cache':'backup'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
- renderTable();drawScatter();
+ renderTable();drawChart(role);updateArrows();document.querySelector('main')?.setAttribute('aria-busy','false');
 }
 refreshAll();
 </script></body></html>

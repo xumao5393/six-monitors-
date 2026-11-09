@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>跨境爆款监测</title><script src="chart.umd.min.js"></script>
+<title>跨境爆款监测</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -37,12 +37,23 @@ header{background:linear-gradient(90deg,#881337,#e11d48,#f97316);color:#fff;box-
 .grid .card:nth-child(2){background:linear-gradient(135deg,#ffedd5,#fdba74);border-top-color:#ea580c}
 .grid .card:nth-child(3){background:linear-gradient(135deg,#fff1f2,#fda4af);border-top-color:#be123c}
 .grid .card:nth-child(4){background:linear-gradient(135deg,#fef3c7,#fde68a);border-top-color:#f59e0b}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
 </style></head><body>
 <header><h1>🌍 跨境爆款监测</h1><span class="sub" id="updated">人工精选 · 缓存样本 · 更新 2026-11-09</span><span class="badge cache">人工精选 / 缓存样本</span><span class="badge backup" id="ageBadge">样本年龄计算中…</span><button onclick="refreshAll()">📥 载入样本</button></header>
 <main>
 <section class="hero"><h2>跨境爆款 · 下个月该上什么品，先看这里</h2><p>⚠️ 本页不是实时榜单。跨境平台没有稳定免费的实时榜单源，本页定位为「人工周更精选 + 趋势信号」，所有数字均为人工整理的缓存样本，更新日期 2026-11-09。请勿当作实时排名使用。</p><div class="feed"><div><b>🔥 海外最热 · 今日看点</b>遥控汽车 5,274 次搜索，海外热词第 1（义乌购海外榜样本）。</div><div><b>🧧 国内最热</b>手表 17,947 次搜索，国内热词第 1；袜子、玩具紧随其后。</div><div><b>⚽ 世界杯信号</b>体育用品出口 Q1 28.3 亿元、同比 +12%（样本）；空白球衣、LED 手环、毛绒吉祥物——勿碰 FIFA 队徽。</div></div></section>
 <p class="note">第一手来源：<a href="https://www.yiwugo.com/top.html" target="_blank" rel="noopener">义乌购排行榜 yiwugo.com/top.html</a> · <a href="https://www.ywindex.com" target="_blank" rel="noopener">义乌指数 ywindex.com</a>。两站无公开 JSON 接口，浏览器直接拉取常被拦截，本页用调研核实值作缓存并明确标注，请人工打开官网核对。Amazon / Temu / TikTok Shop 无免费官方榜单接口、反爬极强，本页不伪造其排名。</p>
 <div class="grid" id="kpis"></div>
+<p class="note">来源脚注：世界杯信号「体育用品出口 Q1 28.3 亿元、同比 +12%」为与监测 05 同一批调研样本值（整理于 2026-11-09），非海关实时统计；引用前请以义乌指数官网 / 海关数据核对。</p>
 <div class="card"><h3>热词搜索量 · 类目热度柱状图（样本）</h3><canvas id="chart" height="80"></canvas><p class="note">义乌购 30 天搜索量样本，更新 2026-11-09。数值来自监测 05 义乌页同一批调研核实值，未重新抓取。</p></div>
 <div class="card"><h3>爆品主表 <span class="note">人工精选 · 缓存样本 · 2026-11-09</span></h3>
 <input id="q" placeholder="搜索，如 遥控" oninput="render()"><select id="scope" onchange="render()"><option value="">全部市场</option><option>国内</option><option>海外</option></select>
@@ -55,8 +66,8 @@ header{background:linear-gradient(90deg,#881337,#e11d48,#f97316);color:#fff;box-
 <tr><td>全年</td><td>宠物玩具、轻户外折叠椅 / 露营车、宠物自动喂食器、小厨房硅胶收纳（样本）</td></tr>
 </tbody></table></div>
 <div class="card"><h3>选品提醒</h3><p>新手最容易踩的坑：你以为的爆款，利润可能被运费吃干净。先看监测 11 的「进销差」对照表，再决定上不上。跨境选品三问：批发端在涨吗？零售端有人求链接吗？海外榜上有位置吗？三同才下单。</p></div>
-<div class="card"><h3>数据源与备份 <span class="note">每个来源：主源 → 备用 → 缓存</span></h3><div id="sources"></div>
-<p class="note" style="margin-top:10px">⚠️ 无备份，已明示：Amazon Best Sellers、Temu、TikTok Shop —— 无免费官方接口、反爬极强，没有可用的实时主源，也就没有可用的实时备份源。本页对这三个平台只做人工精选，不呈现任何排名数字；如需其排名，请人工打开平台 App / 网页核对。</p></div>
+<div class="card"><h3>数据源与备份 <span class="note">每个来源：主源 → 备用 → 缓存</span></h3><details><summary>点击展开 / 收起数据源状态</summary><div id="sources"></div>
+<p class="note" style="margin-top:10px">⚠️ 无备份，已明示：Amazon Best Sellers、Temu、TikTok Shop —— 无免费官方接口、反爬极强，没有可用的实时主源，也就没有可用的实时备份源。本页对这三个平台只做人工精选，不呈现任何排名数字；如需其排名，请人工打开平台 App / 网页核对。</p></details></div>
 <div class="warn">诚实声明：本页全部数字均为人工精选缓存样本（更新 2026-11-09），非实时抓取。样本过期后请以官网为准；过期标记见顶部徽章（样本超过 14 天即标「已过期」）。</div>
 </main>
 <script>
@@ -71,6 +82,7 @@ let rows=[
  {k:'足球',s:'海外',n:4889,note:'世界杯关联'},
  {k:'遥控无人机',s:'海外',n:4612,note:'海外榜上有名'},
 ],sortDir=-1;
+async function loadSharedHotwords(){try{const r=await fetch('data/yiwu-hotwords.json');if(!r.ok)return false;const d=await r.json();if(!Array.isArray(d.hotwords)||!d.hotwords.length)return false;const notes={'手表':'国内热词第 1','遥控汽车':'海外热词第 1'};rows=d.hotwords.map(h=>({k:h.word,s:h.market,n:h.searches,note:notes[h.word]||(h.market==='国内'?'常年热销':'海外榜上有名')}));rows.forEach(r=>{if(r.k==='袜子'||r.k==='玩具')r.note='常年热销';if(r.k==='宠物玩具')r.note='全年品类';if(r.k==='保温杯')r.note='秋冬走量';if(r.k==='足球')r.note='世界杯关联';});return true;}catch(e){return false;}}
 let chart;
 function ageDays(){return Math.floor((new Date()-new Date('2026-11-09T00:00:00+08:00'))/86400000);}
 function render(){
@@ -78,7 +90,8 @@ function render(){
  let list=rows.filter(r=>(!q||r.k.includes(q))&&(!s||r.s===s));list.sort((a,b)=>(a.n-b.n)*sortDir);
  document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td>${r.k}</td><td>${r.s}</td><td>${r.n.toLocaleString()}</td><td>${r.note}</td></tr>`).join('');
 }
-function refreshAll(){
+async function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','true');var _u=document.getElementById('updated');if(_u)_u.textContent='正在拉取…';setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},30000);
+ await loadSharedHotwords();
  const age=ageDays();
  document.getElementById('ageBadge').textContent=age<=0?'样本新鲜 · 更新于 2026-11-09':(age<=14?`样本 ${age} 天前更新`:`⚠️ 样本已过期（${age} 天前）`);
  document.getElementById('ageBadge').className='badge '+(age>14?'missing':'backup');
@@ -93,7 +106,7 @@ function refreshAll(){
  <tr><td>Amazon Best Sellers</td><td>无免费官方接口</td><td>无</td><td>无</td><td><span class="badge missing">无备份 · 已明示</span></td></tr>
  <tr><td>Temu / TikTok Shop</td><td>几乎无稳定免费源</td><td>无</td><td>人工精选，无排名数字</td><td><span class="badge missing">无备份 · 已明示</span></td></tr>
  </tbody></table>`;
- render();
+ render();document.querySelector('main')?.setAttribute('aria-busy','false');
 }
 refreshAll();
 </script></body></html>

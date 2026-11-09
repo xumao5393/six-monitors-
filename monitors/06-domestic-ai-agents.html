@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>国内AI与Agent监测</title><script src="chart.umd.min.js"></script>
+<title>国内AI与Agent监测</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -45,24 +45,35 @@ th{color:#15803d}
 .warn{background:#f0fdf4;border:1px solid #86efac}
 .big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
 .grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
 </style></head><body>
 <header><h1>🇨🇳 国内AI与Agent监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge cache">缓存样本</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
 <section class="hero"><h2>国内 AI 与 Agent · 国产第一梯队</h2><p>豆包、千问、DeepSeek、混元、智谱、Kimi……国产模型与 Agent，一页比个明白。</p><div class="feed"><div><b>🇨🇳 国内榜首（缓存）</b>Qwen3.8 Max Prime AA 智能指数 33.6 领跑，DeepSeek V4 Pro 23.1 在后。</div><div><b>🎬 视频</b>可灵、万相、即梦、海螺、Vidu——国内视频模型一页看全。</div><div><b>⚠️ 星火</b>讯飞星火不在 OpenRouter 公开目录中，实时显示「未获取」，不编数。</div></div></section>
 <div class="grid" id="kpis"></div>
-<div class="card"><h3>智能 × 价格散点图（价格为每百万 token 输入价）</h3><canvas id="scatter" height="100"></canvas><p class="note" id="scatterNote"></p></div>
+<div class="card"><h3 id="chartTitle">智能 × 价格散点图（价格为每百万 token 输入价）</h3><canvas id="scatter" height="100"></canvas><p class="note" id="scatterNote"></p></div>
 <div class="card"><h3>国内模型总表</h3>
 <input id="q" placeholder="搜索，如 Kimi / 豆包" oninput="renderTable()"><select id="vendor" onchange="renderTable()"><option value="">全部厂商</option><option>Qwen</option><option>DeepSeek</option><option>Zhipu</option><option>Kimi</option><option>Doubao</option><option>Hunyuan</option><option>MiniMax</option><option>StepFun</option></select>
-<table><thead><tr><th onclick="sortBy('name')">模型</th><th onclick="sortBy('vendor')">厂商</th><th onclick="sortBy('score')">分数</th><th onclick="sortBy('price')">价格 $/M</th><th>上下文</th></tr></thead><tbody id="tbody"></tbody></table>
+<table><thead><tr><th onclick="sortBy('name')">模型 <span class="arr" data-arr="name"></span></th><th onclick="sortBy('vendor')">厂商 <span class="arr" data-arr="vendor"></span></th><th onclick="sortBy('score')">分数 <span class="arr" data-arr="score"></span></th><th onclick="sortBy('price')">价格 $/M <span class="arr" data-arr="price"></span></th><th>上下文</th></tr></thead><tbody id="tbody"></tbody></table>
 <p class="note" id="tableNote"></p></div>
-<div class="card"><h3>国内 Agent 对比（5列）</h3><table><thead><tr><th>Agent</th><th>在哪跑</th><th>定时</th><th>模型</th><th>开源</th><th>价格</th></tr></thead><tbody>
+<div class="card"><h3>国内 Agent 对比 <span class="badge cache">人工整理·非API</span></h3><table><thead><tr><th>Agent</th><th>在哪跑</th><th>定时</th><th>模型</th><th>开源</th><th>价格</th></tr></thead><tbody>
 <tr><td>扣子 Coze</td><td>云端</td><td>是</td><td>豆包等</td><td>否</td><td>免费起</td></tr>
 <tr><td>WorkBuddy</td><td>云端</td><td>是</td><td>多模型</td><td>否</td><td>未公开</td></tr>
 <tr><td>腾讯元器</td><td>云端</td><td>是</td><td>混元</td><td>否</td><td>免费起</td></tr>
 <tr><td>Trae</td><td>本地/云</td><td>否</td><td>多模型</td><td>否</td><td>免费起</td></tr>
 <tr><td>通义灵码</td><td>本地</td><td>否</td><td>通义</td><td>否</td><td>免费起</td></tr>
 </tbody></table></div>
-<div class="card"><h3>视频模型</h3><div>可灵 Kling · 万相 Wan · 即梦 Seedance · 清影 · 海螺 Hailuo · Vidu — 价格与额度以官网为准，不编数。</div></div>
+<div class="card"><h3>人工整理（非 API）</h3><div>Agent 数：<b>5</b>（扣子、WorkBuddy、腾讯元器、Trae、通义灵码，见上表）· 视频模型：<b>6</b>（可灵、万相、即梦、清影、海螺、Vidu）</div><p class="note">以上两数与 OpenRouter 实时接口无关，刷新不改变，故已移出 KPI，放在此处人工整理区块。</p></div>
+<div class="card"><h3>视频模型 <span class="badge cache">人工整理·非API</span></h3><div>可灵 Kling · 万相 Wan · 即梦 Seedance · 清影 · 海螺 Hailuo · Vidu — 价格与额度以官网为准，不编数。</div></div>
 <div class="card"><h3>数据源状态</h3><div id="sources"></div>
 <p class="note">唯一实时来源：OpenRouter（openrouter.ai/api/v1/models）。models.dev 已下线（302 跳转首页）不再使用；OpenRouter 无镜像，断了就用缓存（截至 2026-11-09）。讯飞星火与百度文心不在 OpenRouter 公开目录中，本页不收录、不编数；旧代码用 'spark' 子串匹配会误命中 Meta 的 muse-spark 模型，已改为仅认 id 前缀 iflytek/。豆包 Seed 2.1 在目录中仅有 Turbo 变体，暂作家族代表。</p></div>
 </main>
@@ -91,24 +102,35 @@ const FLAGSHIPS=new Set(['qwen/qwen3.8-max-prime','deepseek/deepseek-v4-pro','z-
 // 讯飞判定：仅 id 以 "iflytek/" 开头才算 iFlytek（当前目录中不存在，恒为 false，Spark 只留缓存行）。
 function isIFlytek(id){return (id||'').startsWith('iflytek/');}
 function vendorOf(id){if(isIFlytek(id))return 'iFlytek';const p=(id||'').split('/')[0];return PREFIX_VENDOR[p]||p||'未知';}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function fmtPrice(p){return p==null?'未获取':'$'+(p<1?+p.toFixed(3):+p.toFixed(2));}
 async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.json();}
 function renderTable(){
  const q=(document.getElementById('q').value||'').toLowerCase(),v=document.getElementById('vendor').value;
  let list=models.filter(m=>(!q||m.name.toLowerCase().includes(q))&&(!v||m.vendor===v));
  list.sort((a,b)=>{const av=a[sortKey]??-Infinity,bv=b[sortKey]??-Infinity;return (av>bv?1:av<bv?-1:0)*sortDir;});
- document.getElementById('tbody').innerHTML=list.map(m=>`<tr><td>${m.name}</td><td>${m.vendor}</td><td>${m.score??'未获取'}</td><td>${fmtPrice(m.price)}</td><td>${m.ctx||'—'}</td></tr>`).join('')||'<tr><td colspan="5">无匹配</td></tr>';
+ document.getElementById('tbody').innerHTML=list.map(m=>`<tr><td>${esc(m.name)}</td><td>${esc(m.vendor)}</td><td>${m.score??'未获取'}</td><td>${fmtPrice(m.price)}</td><td>${esc(m.ctx||'—')}</td></tr>`).join('')||'<tr><td colspan="5">无匹配</td></tr>';
 }
-function sortBy(k){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1;}renderTable();}
-function draw(){
+function updateArrows(){document.querySelectorAll('.arr').forEach(s=>{s.textContent=s.dataset.arr===sortKey?(sortDir===-1?'▼':'▲'):'';});}
+function updateArrows(){document.querySelectorAll('.arr').forEach(s=>{s.textContent=s.dataset.arr===sortKey?(sortDir===-1?'▼':'▲'):'';});}
+function sortBy(k){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1;}renderTable();updateArrows();}
+function drawChart(role){
  const colors={Qwen:'#615ced',DeepSeek:'#4d6bfe',Zhipu:'#7c3aed',Kimi:'#111827',Doubao:'#0ea5e9',Hunyuan:'#0891b2',ERNIE:'#2563eb',MiniMax:'#db2777',StepFun:'#ea580c',iFlytek:'#16a34a'};
- // 散点只画「有分数且有价格」的模型；颜色数组与数据点取自同一过滤后数组，避免错位（旧 bug：颜色取自未过滤的 models）。
  const pts=models.filter(m=>m.score!=null&&m.price!=null);
- document.getElementById('scatterNote').textContent=pts.length?'':'暂无可画的点：OpenRouter 只提供价格与上下文，不提供基准分数，实时分数显示「未获取」。';
  if(chart)chart.destroy();
+ if(role==='live'||!pts.length){
+   const list=[...models].filter(m=>m.price!=null).sort((a,b)=>b.price-a.price);
+   document.getElementById('chartTitle').textContent='实时价格条形图（输入价 $/M，OpenRouter 实时）';
+   document.getElementById('scatterNote').textContent='实时模式无分数可画（OpenRouter 不提供基准分数，分数显示「未获取」），故画实时价格条形图；分数散点仅在缓存模式下出现。';
+   if(!list.length){document.getElementById('scatterNote').textContent='未获取：实时价格拉取失败。';return;}
+   chart=new Chart(document.getElementById('scatter'),{type:'bar',data:{labels:list.map(m=>m.name),datasets:[{data:list.map(m=>m.price),backgroundColor:list.map(m=>colors[m.vendor]||'#16a34a')}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:'价格 $/M（输入）'}},y:{ticks:{font:{size:11}}}}}});
+   return;
+ }
+ document.getElementById('chartTitle').textContent='智能 × 价格散点图（分数=缓存 AA v5 · 价格=缓存核实值）';
+ document.getElementById('scatterNote').textContent='缓存模式：分数为 AA 智能指数 v5（截至 2026-11-09），价格为 OpenRouter 2026-11-09 核实值。';
  chart=new Chart(document.getElementById('scatter'),{type:'scatter',data:{datasets:[{data:pts.map(m=>({x:m.price,y:m.score})),pointBackgroundColor:pts.map(m=>colors[m.vendor]||'#16a34a'),pointRadius:6}]},options:{scales:{x:{title:{display:true,text:'价格 $/M（输入）'}},y:{title:{display:true,text:'分数（AA 智能指数 v5）'}}},plugins:{legend:{display:false}}}});
 }
-async function refreshAll(){
+async function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','true');var _u=document.getElementById('updated');if(_u)_u.textContent='正在拉取…';setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},30000);
  const src=[];let role='cache';
  // 唯一实时来源：OpenRouter。models.dev 已下线（/api/v1/models 返回 302 跳转首页），不再请求；OpenRouter 无镜像。
  try{const d=await fetchTO('https://openrouter.ai/api/v1/models');
@@ -117,14 +139,15 @@ async function refreshAll(){
    else src.push(['OpenRouter','主源','目录中无白名单模型','—']);
  }catch(e){src.push(['OpenRouter','主源','失败','—']);}
  if(!models.length){models=FALLBACK;role='cache';src.push(['缓存样本','缓存','实时源失败，分数为 AA 智能指数 v5、价格为 OpenRouter 核实值','截至 2026-11-09']);}
- const scored=models.filter(m=>m.score!=null);
- const top=scored.length?scored.sort((a,b)=>b.score-a.score)[0]:null;
- document.getElementById('kpis').innerHTML=`<div class="card"><h3>国内模型数</h3><div class="big">${models.length}</div></div><div class="card"><h3>国内榜首</h3><div class="big">${top?top.name:'未获取'}</div></div><div class="card"><h3>Agent 数</h3><div class="big">5</div></div><div class="card"><h3>视频模型</h3><div class="big">6</div></div>`;
+ const priced=models.filter(m=>m.price!=null);
+ const cheapest=priced.length?priced.slice().sort((a,b)=>a.price-b.price)[0]:null;
+ const longest=models.filter(m=>m.ctx).slice().sort((a,b)=>parseInt(b.ctx)-parseInt(a.ctx))[0]||null;
+ document.getElementById('kpis').innerHTML=`<div class="card"><h3>国内模型数</h3><div class="big">${models.length}</div></div><div class="card"><h3>最便宜国产</h3><div class="big" style="font-size:22px">${cheapest?esc(cheapest.name):'未获取'}</div><div>${cheapest?fmtPrice(cheapest.price)+'/M（输入价）':''}</div></div><div class="card"><h3>最长上下文</h3><div class="big" style="font-size:22px">${longest?esc(longest.name):'未获取'}</div><div>${longest?longest.ctx+' 上下文':''}</div></div>`;
  const b=document.getElementById('srcBadge');b.textContent=role==='live'?'OpenRouter 实时':'缓存样本';b.className='badge '+(role==='live'?'':'cache');
  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
  document.getElementById('tableNote').textContent=role==='cache'?'当前为缓存样本（截至 2026-11-09），刷新成功后以实时接口为准。星火、文心未被公开目录收录，本页不收录。':'实时数据来自 OpenRouter：价格与上下文为实时值，分数 OpenRouter 不提供，显示「未获取」。星火、文心未被公开目录收录，本页不收录。';
  document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='缓存'?'cache':'backup'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
- renderTable();draw();
+ renderTable();drawChart(role);updateArrows();document.querySelector('main')?.setAttribute('aria-busy','false');
 }
 refreshAll();
 </script></body></html>

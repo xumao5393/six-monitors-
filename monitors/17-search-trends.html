@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>搜索趋势监测</title><script src="chart.umd.min.js"></script>
+<title>搜索趋势监测</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -41,11 +41,12 @@ header{background:linear-gradient(90deg,#083344,#0f766e,#1d4ed8);color:#fff;box-
 .grid .card:nth-child(2){background:linear-gradient(135deg,#ccfbf1,#99f6e4);border-top-color:#0d9488}
 .grid .card:nth-child(3){background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-top-color:#2563eb}
 .grid .card:nth-child(4){background:linear-gradient(135deg,#f1f5f9,#e2e8f0);border-top-color:#475569}
+@media (max-width:720px){header{padding:12px 14px}h1{font-size:18px}.grid{grid-template-columns:1fr 1fr}.feed{grid-template-columns:1fr}.card{overflow-x:auto}table{display:block;overflow-x:auto;white-space:nowrap}.card canvas{height:200px !important}header button{margin-left:0;width:100%}.hero h2{font-size:22px}}
 </style></head><body>
 <header><h1>🔍 搜索趋势监测</h1><span class="sub">样本 / 人工判断 · 更新日期 2026-11-09</span><span class="badge manual">样本 · 非实测</span></header>
 <main>
-<section class="hero"><h2>今日看点：Claude 抬头，捏捏乐回落</h2><p>本页趋势方向全部是人工判断的样本结论，不是 Google Trends 实测数值。11 月上旬最值得跟的信号：Claude 因新模型与宕机事件讨论抬头，捏捏乐热度从年中高点回落，副业类话题年底持续走强。</p><div class="feed"><div><b>📊 样本，非实测</b>趋势箭头是人工判断的方向（↑/→/↓），不含任何百分比、指数或搜索量数字。</div><div><b>🔄 实时拉取已尝试</b>下方实时区块每次打开都会尝试拉 Google Trends 每日热榜 RSS，拉不到就老实写「未获取」。</div><div><b>🛡 备份铁律</b>每个数据源都有 主源 → 替补 → 缓存 三层；无备份的来源会明确写「无备份」，不假装有。</div></div></section>
-<div class="warn">⚠️ <b>本页无实测搜索量数字。</b>Google Trends 不提供浏览器直连的免费数值接口，百度指数需登录；因此趋势方向为人工样本判断（更新 2026-11-09），曲线图为样本趋势示意。任何百分比、指数值均未在本页出现——出现即为错误。</div>
+<section class="hero"><h2>今日看点：Claude 抬头，捏捏乐回落</h2><p>本页趋势方向全部是人工判断的样本结论，不是 Google Trends 实测数值。11 月上旬最值得跟的信号：Claude 因新模型与宕机事件讨论抬头，捏捏乐热度从年中高点回落，副业类话题年底持续走强。</p><div class="feed"><div><b>📊 样本，非实测</b>趋势箭头是人工判断的方向（↑/→/↓），不含任何百分比、指数或搜索量数字。</div><div><b>🔄 实时拉取已尝试</b>下方实时区块每次打开都会先读 Actions 快照 data/trends.json，再尝试新版 Google Trends RSS（geo=US / HK / TW，永不用 geo=CN），拉不到就老实写「未获取」。</div><div><b>🛡 备份铁律</b>每个数据源都有 主源 → 替补 → 缓存 三层；无备份的来源会明确写「无备份」，不假装有。</div></div></section>
+<div class="warn">⚠️ <b>本页无实测搜索量数字。</b>Google Trends 不提供浏览器直连的免费数值接口；因此趋势方向为人工样本判断（更新 2026-11-09），曲线图为样本趋势示意。任何百分比、指数值均未在本页出现——出现即为错误。</div>
 <div class="grid">
 <div class="card"><h3>跟踪关键词</h3><div class="big">8 个</div><p class="note">人工样本，更新 2026-11-09</p></div>
 <div class="card"><h3>上升 ↑</h3><div class="big">3 个</div><p class="note">副业、Claude、Gemini</p></div>
@@ -64,44 +65,60 @@ header{background:linear-gradient(90deg,#083344,#0f766e,#1d4ed8);color:#fff;box-
 <tr><td>ChatGPT</td><td><span class="badge flat">→ 平稳</span></td><td>GPT-6 发布讨论集中在科技圈，未扩散成大众搜索高峰。</td><td>GPT-6、ChatGPT 降价</td><td>选题</td></tr>
 <tr><td>Gemini</td><td><span class="badge up">↑ 上升</span></td><td>Gemini 3 / 4 发布传闻与谷歌新品消息带动关注。</td><td>Gemini 3、谷歌 AI</td><td>选题</td></tr>
 </tbody></table>
-<p class="note">口径：方向与依据均为人工判断（2026-11-09），非 Google Trends 或百度指数实测值；「相关上升词」为人工整理，非平台官方相关查询。</p></div>
-<div class="card"><h3>样本趋势示意（非实测数值）</h3><div style="position:relative;height:280px"><canvas id="trendChart"></canvas></div><p class="note">⚠️ 纵轴为人工设定的示意指数（0–100），仅用于比较四个关键词的走势方向，不代表真实搜索量、不是实测数据。请勿引用为数值。</p></div>
-<div class="card"><h3 class="section-title">实时尝试：Google Trends 每日热榜 RSS</h3>
-<p class="note">本区块每次打开页面时自动尝试浏览器直连拉取 Google Trends 每日热榜 RSS。Google Trends RSS 通常不带 CORS 头，浏览器大概率拉不到——拉不到就显示「未获取」，不编榜单。</p>
-<p><button onclick="tryTrends()">🔄 重新尝试拉取</button> <a href="https://trends.google.com/trends/" target="_blank" rel="noopener">手动打开 Google Trends →</a></p>
+<p class="note">口径：方向与依据均为人工判断（2026-11-09），非 Google Trends 实测值；「相关上升词」为人工整理，非平台官方相关查询。</p></div>
+<div class="card"><h3>样本趋势示意（非实测数值 · 图表带“示意”水印）</h3><div style="position:relative;height:280px"><canvas id="trendChart"></canvas></div><p class="note">⚠️ 纵轴为人工设定的示意指数（0–100），仅用于比较四个关键词的走势方向，不代表真实搜索量、不是实测数据。请勿引用为数值。</p></div>
+<div class="card"><h3 class="section-title">实时尝试：Google Trends 热榜（Actions 快照 → 新版 RSS）</h3>
+<p class="note">本区块每次打开页面时先读同域 Actions 快照 data/trends.json（另一 agent 在建；文件不存在时显示「未获取」），再尝试浏览器直连新版 RSS。Google Trends RSS 通常不带 CORS 头，浏览器大概率拉不到——拉不到就显示「未获取」，不编榜单。旧版每日热榜 RSS（trendingsearches/daily/rss）已 404，不再使用；geo=CN 返回 400，永不使用。</p>
+<p><button onclick="tryTrends()">🔄 尝试实时（多半被拦截）</button> <a href="https://trends.google.com/trends/" target="_blank" rel="noopener">打开 Google Trends →</a></p>
 <div id="trendLive"><p class="note">正在尝试拉取…</p></div>
-<p class="note">尝试地址：trends.google.com/trends/trendingsearches/daily/rss?geo=CN（中国）与 geo=US（美国）。若两者均失败，请手动打开上方链接查看实时热榜。</p></div>
+<p class="note">尝试地址（新版）：trends.google.com/trending/rss?geo=US（美国）、geo=HK（香港）、geo=TW（台湾）。geo=CN 返回 400，不用。若均失败，请手动打开上方链接查看实时热榜。</p></div>
 <div class="card"><h3 class="section-title">数据源与备份（三层，逐项标注）</h3><div class="srcs">
-<div>① Google Trends 每日热榜 RSS — <span class="badge primary">主源</span> trends.google.com RSS 直连（浏览器常被 CORS 拦） → <span class="badge backup">替补</span> 手动打开 trends.google.com 查看（上方链接） → <span class="badge cache">缓存</span> 本页人工样本趋势表（更新 2026-11-09，过期请勿当实时用）。</div>
+<div>① Google Trends 热榜 RSS（新版） — <span class="badge primary">主源</span> Actions 快照 data/trends.json（GitHub Actions 定时抓新版 RSS trends.google.com/trending/rss?geo=US 存 JSON） → <span class="badge backup">替补</span> 浏览器直连新版 RSS（geo=US / HK / TW，常被 CORS 拦）或手动打开 trends.google.com 查看 → <span class="badge cache">缓存</span> 本页人工样本趋势表（更新 2026-11-09，过期请勿当实时用）。旧版 trendingsearches/daily/rss 已 404，geo=CN 返回 400，均已停用。</div>
 <div>② Google Trends RSS 的 Actions 快照 — <span class="badge primary">主源</span> GitHub Actions 定时抓 RSS 存 JSON（稳定性中等） → <span class="badge backup">替补</span> 手动查看 trends.google.com → <span class="badge cache">缓存</span> 本页人工样本表。状态：<span class="badge missing">未启用</span>，快照尚未搭建，实时数值目前无来源。</div>
-<div>③ 百度指数 — <span class="badge missing">无备份</span>：百度指数需登录、无免费公开接口，浏览器直连不可行，且无可用的免费替补源；<b>本页不含任何百度指数数据</b>，相关关键词方向仅以人工判断呈现。</div>
-<div>④ 关键词方向人工判断 — <span class="badge primary">主源</span> 人工观察各平台讨论热度 → <span class="badge backup">替补</span> 监测 16 大事件表交叉验证（如 Claude 宕机/发布事件） → <span class="badge cache">缓存</span> 本页样本表（更新 2026-11-09，超过 7 天未更新即视为过期）。</div>
-</div><p class="note">备份铁律执行情况：①②④ 有三层；③ 明确标注无备份，不沉默缺省。人工样本缓存有效期：自 2026-11-09 起，超过 7 天未更新即视为过期。</p></div>
+<div>③ 关键词方向人工判断 — <span class="badge primary">主源</span> 人工观察各平台讨论热度 → <span class="badge backup">替补</span> 监测 16 大事件表交叉验证（如 Claude 宕机/发布事件） → <span class="badge cache">缓存</span> 本页样本表（更新 2026-11-09，超过 7 天未更新即视为过期）。</div>
+</div><p class="note">备份铁律执行情况：①②③ 有三层；无公开免费接口的来源不留空列，不沉默缺省。人工样本缓存有效期：自 2026-11-09 起，超过 7 天未更新即视为过期。</p></div>
 <div class="card"><h3 class="section-title">内容钩子（可直接用的选题）</h3><p class="note">「这个词的搜索这个月悄悄抬头，大部分人还没反应过来——现在做内容正是蓝海。」／「捏捏乐热度回落了，现在进场是抄底还是接盘？」／「副业话题年底走强，但九成『AI 月入过万』经不起拆——先看监测 10 的拆解。」</p></div>
 <p class="note">数据口径：本页全部为人工样本判断，更新日期 2026-11-09；无实测搜索量、无百分比、无指数值。页面设计：青 → teal → 蓝渐变；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底。</p>
 </main>
 <script>
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+/* 真实格式（2026-11-09 实测）：{fetched_at_cst, ok, geos:{US:{items:[{title,traffic,link}]}, HK:{...}, TW:{...}}}；也兼容顶层 items/trends 数组与字符串数组。*/
+function normTrends(raw){let arr=[];if(Array.isArray(raw))arr=raw;else if(raw&&(raw.items||raw.trends||raw.entries))arr=raw.items||raw.trends||raw.entries;else if(raw&&raw.geos){['US','HK','TW'].forEach(function(g){const it=raw.geos[g];if(it&&Array.isArray(it.items))arr=arr.concat(it.items.map(function(e){return{title:e.title,traffic:e.traffic,geo:g};}));});}
+if(!Array.isArray(arr))return[];return arr.map(e=>typeof e==='string'?{title:e,traffic:''}:{title:String(e.title||e.term||e.name||''),traffic:String(e.traffic||e.formattedTraffic||e.value||''),geo:e.geo||''}).filter(e=>e.title).slice(0,10);}
 async function tryTrends(){
   var el=document.getElementById('trendLive');
-  el.innerHTML='<p class="note">正在尝试拉取 Google Trends 每日热榜 RSS…</p>';
-  var urls=[['中国（geo=CN）','https://trends.google.com/trends/trendingsearches/daily/rss?geo=CN'],['美国（geo=US）','https://trends.google.com/trends/trendingsearches/daily/rss?geo=US']];
+  el.innerHTML='<p class="note">正在尝试拉取 Google Trends 热榜…（先读 Actions 快照 data/trends.json）</p>';
+  /* 1) 主源：同域 Actions 快照 data/trends.json（另一 agent 在建）。解析出条目才算获取；否则一律「未获取」，绝不编榜单。*/
+  try{
+    var r=await fetch('data/trends.json',{cache:'no-store'});
+    if(r.ok){var j=await r.json();var items=normTrends(j);
+      if(items.length){el.innerHTML='<p><span class="badge primary">已获取 · Actions 快照</span> data/trends.json（'+esc(j.fetched_at_cst||j.fetched_at||j.updated||'时间未标注')+'）</p><ol>'+items.map(function(it){return '<li>'+esc(it.title)+(it.traffic?' — '+esc(it.traffic):'')+(it.geo?'（'+esc(it.geo)+'）':'')+'</li>';}).join('')+'</ol><p class="note">尝试时间：'+new Date().toLocaleString('zh-CN')+'。</p>';return;}
+      el.innerHTML='<p class="note">Actions 快照存在但无可用条目，继续尝试直连 RSS…</p>';
+    } else { el.innerHTML='<p class="note">Actions 快照 data/trends.json 尚未生成（HTTP '+r.status+'，待建），继续尝试直连 RSS…</p>'; }
+  }catch(e){ el.innerHTML='<p class="note">Actions 快照 data/trends.json 未找到（待建），继续尝试直连 RSS…</p>'; }
+  /* 2) 备份：新版 RSS 直连 geo=US / HK / TW（永不用 geo=CN，400）。浏览器无 CORS，大概率失败——失败即「未获取」。*/
+  var urls=[['美国（geo=US）','https://trends.google.com/trending/rss?geo=US'],['香港（geo=HK）','https://trends.google.com/trending/rss?geo=HK'],['台湾（geo=TW）','https://trends.google.com/trending/rss?geo=TW']];
   var rows=[];
   for(var i=0;i<urls.length;i++){
     var label=urls[i][0],u=urls[i][1],ok=false,detail='';
     try{
       var c=new AbortController();setTimeout(function(){c.abort();},8000);
-      var r=await fetch(u,{signal:c.signal});
-      if(!r.ok)throw new Error('HTTP '+r.status);
-      var t=await r.text();
-      if(t.indexOf('<item>')>-1){ok=true;detail='已获取 RSS（含条目），解析未展开——请手动打开核对。';}
+      var rr=await fetch(u,{signal:c.signal});
+      if(!rr.ok)throw new Error('HTTP '+rr.status);
+      var t=await rr.text();
+      if(t.indexOf('<item>')>-1){var doc=new DOMParser().parseFromString(t,'text/xml');var its=[...doc.querySelectorAll('item title')].map(function(n){return n.textContent;}).filter(Boolean).slice(0,10);
+        if(its.length){ok=true;detail='已获取 RSS 并解析出 '+its.length+' 条：'+its.slice(0,5).join('、')+'。';}
+        else{detail='已返回但无条目。';}}
       else{detail='已返回但无条目。';}
     }catch(e){detail='浏览器跨域（CORS）拦截或网络失败（'+(e&&e.message?e.message:'fetch 失败')+'），未编造榜单。';}
-    rows.push('<div>'+label+' — '+(ok?'<span class="badge primary">已获取</span>':'<span class="badge missing">未获取</span>')+' '+detail+'</div>');
+    rows.push('<div>'+label+' — '+(ok?'<span class="badge primary">已获取</span>':'<span class="badge missing">未获取</span>')+' '+esc(detail)+'</div>');
   }
-  el.innerHTML=rows.join('')+'<p class="note">尝试时间：'+new Date().toLocaleString('zh-CN')+'。实时热榜请手动打开 <a href="https://trends.google.com/trends/" target="_blank" rel="noopener">trends.google.com/trends</a>。如需稳定实时数据，需搭建 GitHub Actions 定时抓取 RSS 存 JSON（见上方数据源 ②，目前未启用）。</p>';
+  el.innerHTML=rows.join('')+'<p class="note">尝试时间：'+new Date().toLocaleString('zh-CN')+'。实时热榜请手动打开 <a href="https://trends.google.com/trends/" target="_blank" rel="noopener">trends.google.com/trends</a>。如需稳定实时数据，需搭建 GitHub Actions 定时抓取新版 RSS 存 JSON（见上方数据源 ②，目前未启用）。旧版 daily/rss 已 404、geo=CN 返回 400，均已停用。</p>';
 }
 function draw(){if(!window.Chart){setTimeout(draw,300);return;}
-new Chart(document.getElementById('trendChart'),{type:'line',data:{labels:['第1周','第2周','第3周','第4周','第5周','第6周','第7周','第8周','第9周','第10周','第11周','第12周'],datasets:[
+/* 示意水印：图表上直接画「示意 · 非实测」，避免示意曲线被当成真实数据。*/
+var watermark={id:'watermark',afterDraw:function(ch){var ctx=ch.ctx;ctx.save();ctx.translate(ch.width/2,ch.height/2);ctx.rotate(-0.35);ctx.font='bold 34px system-ui,sans-serif';ctx.fillStyle='rgba(8,51,68,0.14)';ctx.textAlign='center';ctx.fillText('示 意 · 非 实 测',0,0);ctx.restore();}};
+new Chart(document.getElementById('trendChart'),{type:'line',plugins:[watermark],data:{labels:['第1周','第2周','第3周','第4周','第5周','第6周','第7周','第8周','第9周','第10周','第11周','第12周'],datasets:[
 {label:'副业（样本示意）',data:[55,58,60,62,65,68,70,72,75,78,80,82],borderColor:'#0d9488',backgroundColor:'transparent',tension:.3},
 {label:'AI（样本示意）',data:[78,80,79,81,80,82,81,83,82,84,83,85],borderColor:'#2563eb',backgroundColor:'transparent',tension:.3},
 {label:'DeepSeek（样本示意）',data:[70,68,66,65,64,63,62,62,61,61,60,60],borderColor:'#0891b2',backgroundColor:'transparent',tension:.3},

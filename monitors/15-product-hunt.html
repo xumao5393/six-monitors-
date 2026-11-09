@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI 产品热度日榜 · Product Hunt</title><script src="chart.umd.min.js"></script>
+<title>AI 产品热度日榜 · Product Hunt</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -45,22 +45,23 @@ th{color:#b45309}
 .warn{background:#fffbeb;border:1px solid #fcd34d}
 .big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
 .grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+@media (max-width:720px){header{padding:12px 14px}h1{font-size:18px}.grid{grid-template-columns:1fr 1fr}.feed{grid-template-columns:1fr}.card{overflow-x:auto}table{display:block;overflow-x:auto;white-space:nowrap}.card canvas{height:200px !important}header button{margin-left:0;width:100%}.hero h2{font-size:22px}}
 </style></head><body>
 <header><h1>🚀 AI 产品热度日榜 · Product Hunt</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
 <section class="hero"><h2>唯一核实到票数：Sage2 · 203 票，当日第 2</h2><p>Sage2 by Levanto Labs，把实时对话转成结构化数据并立即行动；2026-11-08 上线，获 Product of the Day 第 2 名，203 upvotes（hunted.space，2026-11-09 核实）。</p><div class="feed"><div><b>🚀 当日第 1（有争议）</b>不同来源的当日第 1 不一致：orangebot.ai 快照称 NoMac 第 1，Product Hunt 首页榜单则把 AXL 列第 2、NoMac 第 5。排名以时间为准，不宜当定论。</div><div><b>🤖 AI 浓度</b>8 个样本产品中 4 个 AI/Agent 相关：NoMac、Agent Clan、Sage2、AXL。</div><div><b>⚠️ 诚实说明</b>Product Hunt RSS 不含票数、浏览器跨域被拦，官方 API 要 token。本页是「样本 + 人工策展」，票数只写核实到的那一个，其余写「未获取」。</div></div></section>
-<p class="note">铁律：<b>每个数据源必须有备份（主源 → 备份 → 缓存）</b>，并标注抓取时间与过期状态。本页备份链：<b>主源</b> Product Hunt RSS（producthunt.com/feed，curl 200，浏览器跨域被拦）→ <b>备份</b> CORS 阅读器（api.allorigins.win）+ 第三方镜像 hunted.space / trendoday / ph.buzzing.cc（hunted.space curl 200 已核实）→ <b>缓存</b> 2026-11-09 人工策展样本（8 个产品，RSS + 网页搜索核实）。另有一处缺口已明确标注：<b>Actions 定时抓 RSS 存快照尚未搭建（待建）</b>，当前没有自动化的第二方实时源。</p>
+<p class="note">铁律：<b>每个数据源必须有备份（主源 → 备份 → 缓存）</b>，并标注抓取时间与过期状态。本页备份链：<b>主源</b> Actions 快照 data/ph.json（GitHub Actions 定时抓 Product Hunt RSS 存 JSON，另一 agent 在建；文件存在时优先读它）→ <b>备份</b> Product Hunt RSS 直连（producthunt.com/feed，curl 200，浏览器跨域被拦，成功时必须用 DOMParser 解析出 &lt;entry&gt;&lt;title&gt; 并渲染才算 live）→ <b>缓存</b> 2026-11-09 人工策展样本（8 个产品，RSS + 网页搜索核实）。allorigins 已下线：2026-11-09 实测超时/500，不再当备份。另有一处缺口已明确标注：<b>Actions 定时抓 RSS 存快照尚未搭建完成（待建）</b>，当前没有自动化的第二方实时源。</p>
 <div class="grid" id="kpis"></div>
-<div class="card"><h3>样本构成（8 个样本产品，按类别计数，非票数）</h3><div style="position:relative;height:260px"><canvas id="chart"></canvas></div><p class="note">RSS 不含票数，除 Sage2 外其余产品票数均未获取，故本图不画票数，只画样本的类别构成（人工分类）。</p></div>
-<div class="card"><h3>今日样本 · 人工策展 2026-11-09</h3>
+<div class="card"><h3>样本构成（按类别计数，非票数）</h3><div style="position:relative;height:260px"><canvas id="chart"></canvas></div><p class="note">⚠️ 非票数：RSS 不含票数，除 Sage2 外其余产品票数均未获取，故本图不画票数，只画样本的类别构成（人工分类）。柱高 = 该类别产品个数，不是票数。</p></div>
+<div class="card"><h3>今日榜单 · <span id="tableSrc">人工策展 2026-11-09</span></h3>
 <p class="note">样本，非实时榜单。产品名与一句话卖点来自 Product Hunt RSS（更新于 2026-11-08 23:15 -08:00，即 2026-11-09 15:15 CST）与网页搜索核实；票数栏只填核实到的值。</p>
 <input id="q" placeholder="搜索，如 NoMac" oninput="render()"><select id="cat" onchange="render()"><option value="">全部类别</option><option>AI / Agent</option><option>效率工具</option><option>其他</option></select>
 <table><thead><tr><th>产品</th><th>类别</th><th>一句话卖点</th><th>票数</th><th>是否 AI</th></tr></thead><tbody id="tbody"></tbody></table>
 <p class="note" id="note"></p></div>
-<div class="card"><h3>实时尝试（RSS 直连）</h3><div id="live"></div>
-<p class="note">浏览器直连 RSS 预期失败（Product Hunt 未返回 Access-Control-Allow-Origin）。失败是正常结果，不是故障：失败后本页仍显示上方人工策展样本。</p></div>
+<div class="card"><h3>实时尝试（Actions 快照 → RSS 直连）</h3><div id="live"></div>
+<p class="note">只有真正解析出条目并渲染到上表，才标「实时」；否则一律「样本+策展」。浏览器直连 RSS 预期失败（Product Hunt 未返回 Access-Control-Allow-Origin）。失败是正常结果，不是故障：失败后本页仍显示上方人工策展样本。allorigins 已下线（2026-11-09 实测超时/500），不再尝试。</p></div>
 <div class="card"><h3>数据源与备份链</h3><div id="sources"></div>
-<p class="note">未闭合缺口：Actions 定时抓取 producthunt.com/feed 存 JSON 快照——<b>尚未搭建，状态：待建</b>。搭建后，本页将以 Actions 快照为主源、RSS 直连为备份。当前实时尝试依赖 CORS 阅读器与第三方镜像，均不稳定；最稳的是人工策展样本。</p></div>
+<p class="note">未闭合缺口：Actions 定时抓取 producthunt.com/feed 存 JSON 快照（data/ph.json）——<b>尚未搭建完成，状态：待建</b>。搭建后，本页优先读该快照、RSS 直连为备份。当前实时尝试不依赖 CORS 阅读器与第三方镜像；最稳的是人工策展样本。</p></div>
 </main>
 <script>
 const CACHE_LABEL='2026-11-09 15:15 CST';
@@ -80,54 +81,66 @@ const SAMPLE=[
  {name:'Memorias',cat:'其他',desc:'（RSS 当日上榜产品，卖点未在 RSS 中给出）',votes:'未获取',ai:'否',url:'https://www.producthunt.com/products/memorias-3'},
 ];
 let chart;
+/* 当前渲染的数据 + 它到底来自哪里。live 只有解析出条目并渲染才为真——这是硬红线：fetch 成功但没解析/没渲染，一律不标 live。*/
+let items=SAMPLE.slice(),dataSource='sample',liveOk=false;
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function normPh(raw){const arr=Array.isArray(raw)?raw:(raw&&(raw.items||raw.products||raw.entries||[]));if(!Array.isArray(arr))return[];return arr.map(e=>{const name=String(e.name||e.title||'').trim();const desc=String(e.desc||e.tagline||e.summary||e.description||'（RSS 当日上榜产品，卖点未在 RSS 中给出）').trim().replace(/\s*Discussion\s*\|\s*Link\s*$/,'');const isAI=/ai|agent|llm|gpt|claude|mcp/i.test(name+' '+desc);return{name:name,cat:String(e.cat||e.category||(isAI?'AI / Agent':'其他')),desc:desc,votes:(e.votes==null||e.votes===''?'未获取':String(e.votes)),ai:isAI?'是':'否',url:String(e.url||e.link||'https://www.producthunt.com/feed')};}).filter(e=>e.name).slice(0,10);}
+function parseRss(text){const doc=new DOMParser().parseFromString(text,'text/xml');const entries=[...doc.querySelectorAll('entry')];if(!entries.length)return[];return entries.map(en=>{const t=en.querySelector('title'),l=en.querySelector('link'),s=en.querySelector('summary')||en.querySelector('content');return{name:(t?t.textContent:'').trim(),cat:'AI / Agent',desc:(s?s.textContent:'').trim()||'（RSS 当日上榜产品，卖点未在 RSS 中给出）',votes:'未获取',ai:/ai|agent|llm|gpt|claude/i.test((t?t.textContent:'')+'')?'是':'否',url:(l?(l.getAttribute('href')||l.textContent):'')||'https://www.producthunt.com/feed'};}).filter(e=>e.name).slice(0,10);}
 function render(){
  const q=(document.getElementById('q').value||'').toLowerCase(),c=document.getElementById('cat').value;
- const list=SAMPLE.filter(r=>(!q||r.name.toLowerCase().includes(q)||r.desc.includes(q))&&(!c||r.cat===c));
- document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td><a href="${r.url}" target="_blank" rel="noopener">${r.name}</a></td><td>${r.cat}</td><td>${r.desc}</td><td>${r.votes==='未获取'?'未获取':r.votes+' 票'}</td><td>${r.ai}</td></tr>`).join('')||'<tr><td colspan="5">无匹配</td></tr>';
+ const list=items.filter(r=>(!q||r.name.toLowerCase().includes(q)||r.desc.includes(q))&&(!c||r.cat===c));
+ document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a></td><td>${esc(r.cat)}</td><td>${esc(r.desc)}</td><td>${r.votes==='未获取'?'未获取':esc(r.votes)+' 票'}</td><td>${esc(r.ai)}</td></tr>`).join('')||'<tr><td colspan="5">无匹配</td></tr>';
 }
 function draw(){
  if(chart)chart.destroy();
- chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:['AI / Agent','效率工具','其他'],datasets:[{data:[4,3,1],backgroundColor:['#ea580c','#f59e0b','#facc15']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxRotation:0,minRotation:0}},y:{ticks:{stepSize:1}}}}});
+ const cats=['AI / Agent','效率工具','其他'];
+ const counts=cats.map(c=>items.filter(r=>r.cat===c).length);
+ const other=items.filter(r=>!cats.includes(r.cat)).length;
+ const labels=other?cats.concat(['其他（未分类）']):cats, data=other?counts.concat([other]):counts;
+ chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:labels,datasets:[{data:data,backgroundColor:['#ea580c','#f59e0b','#facc15','#94a3b8']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},title:{display:true,text:'非票数：柱高 = 该类别产品个数'}},scales:{x:{ticks:{maxRotation:0,minRotation:0}},y:{ticks:{stepSize:1}}}}});
 }
 function renderKpis(){
+ const known=items.filter(r=>r.votes!=='未获取').length, ai=items.filter(r=>r.ai==='是').length;
+ const top=items.find(r=>r.votes!=='未获取');
  document.getElementById('kpis').innerHTML=
-  `<div class="card"><h3>样本产品</h3><div class="big">8</div><div class="note">RSS 当日上榜（2026-11-08）</div></div>`+
-  `<div class="card"><h3>已核实票数</h3><div class="big">1 / 8</div><div class="note">仅 Sage2：203 票</div></div>`+
-  `<div class="card"><h3>AI 相关</h3><div class="big">4 / 8</div><div class="note">人工分类</div></div>`+
-  `<div class="card"><h3>当日第 2</h3><div class="big" style="font-size:20px">Sage2</div><div class="note">Product of the Day 第 2 名</div></div>`+
-  `<div class="card"><h3>数据来源</h3><div class="big" style="font-size:20px">样本+策展</div><div class="note">${CACHE_LABEL}</div></div>`;
+  `<div class="card"><h3>${dataSource==='sample'?'样本产品':'榜单产品'}</h3><div class="big">${items.length}</div><div class="note">${dataSource==='sample'?'RSS 当日上榜（2026-11-08）':dataSource==='actions'?'Actions 快照 data/ph.json':'RSS 直连解析'}</div></div>`+
+  `<div class="card"><h3>已核实票数</h3><div class="big">${known} / ${items.length}</div><div class="note">${top?esc(top.name)+'：'+esc(top.votes)+' 票':'无已核实票数'}</div></div>`+
+  `<div class="card"><h3>AI 相关</h3><div class="big">${ai} / ${items.length}</div><div class="note">人工分类</div></div>`+
+  `<div class="card"><h3>当日第 2</h3><div class="big" style="font-size:20px">${top?esc(top.name):'—'}</div><div class="note">${top?'Product of the Day 第 2 名':'未获取（RSS 不含票数）'}</div></div>`+
+  `<div class="card"><h3>数据来源</h3><div class="big" style="font-size:20px">${liveOk?(dataSource==='actions'?'Actions 快照':'RSS 实时'):'样本+策展'}</div><div class="note">${liveOk?'已解析条目并渲染':CACHE_LABEL}</div></div>`;
 }
 async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error('HTTP '+r.status);return r.text();}
-async function refreshAll(){
+async function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','true');var _u=document.getElementById('updated');if(_u)_u.textContent='正在拉取…';setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},30000);
+ document.getElementById('updated').textContent='正在拉取…';document.getElementById('tbody').innerHTML='<tr><td colspan="5">正在拉取…</td></tr>';
  const src=[];const liveEl=document.getElementById('live');
- /* 主源：RSS 直连（预期因 CORS 失败）；备份：allorigins 阅读器；再备份：hunted.space 镜像页。*/
- let liveOk=false,liveMsg='';
- try{const t=await fetchTO('https://www.producthunt.com/feed');if(t.includes('<feed')){liveOk=true;liveMsg='RSS 直连成功（意外：CORS 未拦截）';}}catch(e){liveMsg='RSS 直连失败（'+e.message+'，预期内：无 CORS 许可）';}
+ items=SAMPLE.slice();dataSource='sample';liveOk=false;let liveMsg='';
+ /* 1) 主源：Actions 快照 data/ph.json（同域，另一 agent 在建；文件不存在时 fetch 失败，正常落到下一步）。*/
+ try{const r=await fetch('data/ph.json',{cache:'no-store'});if(r.ok){const j=await r.json();const parsed=normPh(j);if(parsed.length){items=parsed;dataSource='actions';liveOk=true;liveMsg='Actions 快照 data/ph.json 解析出 '+parsed.length+' 条并已渲染（fetched_at：'+(j.fetched_at_cst||j.fetched_at||j.updated||'未标注')+'）。';}else liveMsg='Actions 快照存在但无可用条目。';}else liveMsg='Actions 快照 data/ph.json 尚未生成（HTTP '+r.status+'，待建）。';}
+ catch(e){liveMsg='Actions 快照 data/ph.json 未找到（待建）。';}
+ /* 2) 备份：RSS 直连 + DOMParser 解析 <entry><title>。只有解析出条目并渲染才算 live；allorigins 已下线，不再尝试。*/
  if(!liveOk){
-   try{const t=await fetchTO('https://api.allorigins.win/raw?url='+encodeURIComponent('https://www.producthunt.com/feed'));
-     if(t.includes('<feed')||t.includes('Product Hunt')){liveOk=true;liveMsg='备份阅读器 allorigins.win 成功拉取 RSS';}
-     else liveMsg+='；备份阅读器返回异常内容';
-   }catch(e){liveMsg+='；备份阅读器失败（'+e.message+'）';}
+   try{const t=await fetchTO('https://www.producthunt.com/feed');const parsed=parseRss(t);
+     if(parsed.length){items=parsed;dataSource='rss';liveOk=true;liveMsg='RSS 直连成功，DOMParser 解析出 '+parsed.length+' 条 <entry> 并已渲染；票数 RSS 不含，仍为「未获取」。';}
+     else liveMsg+=' RSS 直连返回但无 <entry> 条目。';
+   }catch(e){liveMsg+=' RSS 直连失败（'+e.message+'，预期内：无 CORS 许可）。';}
  }
- if(!liveOk){
-   try{const t=await fetchTO('https://hunted.space/top-products/latest');
-     if(t.length>1000){liveMsg+='；第三方镜像 hunted.space 可访问（仅作备份参考，不解析票数）';}
-   }catch(e){liveMsg+='；镜像 hunted.space 亦失败';}
- }
- liveEl.innerHTML=`<div class="chain"><b>主源：</b>Product Hunt RSS（producthunt.com/feed，curl 200）<br><b>备份：</b>CORS 阅读器 allorigins.win + 第三方镜像 hunted.space / trendoday / ph.buzzing.cc<br><b>缓存：</b>人工策展样本（${CACHE_LABEL}）</div><p style="font-size:14px;line-height:1.7">${liveOk?'✅ ':'⚠️ '}${liveMsg}。实时尝试 ${liveOk?'成功':'未获取'}——下方样本表不受影响。</p>`;
- src.push(['Product Hunt RSS（直连）','主源',liveOk?'成功':'失败（CORS 拦截，预期内）',new Date().toLocaleString('zh-CN')]);
- src.push(['CORS 阅读器 allorigins.win','备份',liveOk?'成功':'失败',new Date().toLocaleString('zh-CN')]);
- src.push(['第三方镜像 hunted.space','备份','curl 200 已核实（2026-11-09）；Sage2 票数 203 即由此核实','2026-11-09']);
+ if(!liveOk){liveMsg+=' 当前显示人工策展样本（'+CACHE_LABEL+'），不是实时榜单。';}
+ liveEl.innerHTML=`<div class="chain"><b>主源：</b>Actions 快照 data/ph.json（待建，存在时优先）<br><b>备份：</b>Product Hunt RSS 直连 + DOMParser 解析 &lt;entry&gt;&lt;title&gt;<br><b>缓存：</b>人工策展样本（${CACHE_LABEL}）<br><b>已下线：</b>allorigins（2026-11-09 实测超时/500）</div><p style="font-size:14px;line-height:1.7">${liveOk?'✅ ':'⚠️ '}${esc(liveMsg)} 上表数据实际来源：<b>${dataSource==='actions'?'Actions 快照':dataSource==='rss'?'RSS 直连解析':'人工策展样本'}</b>。</p>`;
+ src.push(['Actions 快照 data/ph.json','主源',dataSource==='actions'?'成功，解析并渲染 '+items.length+' 条':liveMsg.split('。')[0],new Date().toLocaleString('zh-CN')]);
+ src.push(['Product Hunt RSS（直连 + DOMParser）','备份',dataSource==='rss'?'成功，解析 '+items.length+' 条 <entry>':'失败或未启用（CORS 拦截，预期内）',new Date().toLocaleString('zh-CN')]);
+ src.push(['CORS 阅读器 allorigins.win','—','已下线：2026-11-09 实测超时（15s，0 字节）/ 500，不再使用','2026-11-09']);
+ src.push(['第三方镜像 hunted.space','—','仅作票数核实参考（Sage2 203 票由此核实），不解析榜单','2026-11-09']);
  src.push(['人工策展样本','缓存','8 个产品，RSS + 网页搜索核实',CACHE_LABEL]);
- src.push(['Actions RSS 快照','—','⚠️ 待建：无定时快照，当前没有自动化的第二方实时源','—']);
+ src.push(['Actions RSS 快照','—','⚠️ 待建：无定时快照时本页以样本为准', '—']);
  src.push(['Product Hunt 官方 API','—','需 token，不用','—']);
  renderKpis();
  const b=document.getElementById('srcBadge');
- b.textContent=liveOk?'实时尝试成功':'样本+策展';b.className='badge '+(liveOk?'live':'cache');
- document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN')+' · 样本 '+CACHE_LABEL;
- document.getElementById('note').textContent='样本产品 8 个，票数仅 Sage2 已核实（203 票，hunted.space，2026-11-09）。其余票数 RSS 不含、未获取，不编造。排名因来源与时间而异。';
- document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'live':s[1]==='备份'?'backup':s[1]==='缓存'?'cache':'missing'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+`<div style="margin-top:8px">${staleBadge()} <span class="note">样本超过 12 小时即标「已过期」。</span></div>`;
+ b.textContent=liveOk?(dataSource==='actions'?'实时 · Actions 快照':'实时 · RSS 解析'):'样本+策展';b.className='badge '+(liveOk?'live':'cache');
+ document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN')+' · 样本 '+CACHE_LABEL+' · 实际来源：'+(dataSource==='actions'?'Actions 快照':dataSource==='rss'?'RSS 直连解析':'人工策展样本');
+ document.getElementById('note').textContent='当前上表共 '+items.length+' 个产品，来源：'+(dataSource==='actions'?'Actions 快照 data/ph.json':dataSource==='rss'?'RSS 直连解析（DOMParser）':'人工策展样本')+'。票数仅 Sage2 已核实（203 票，hunted.space，2026-11-09）；其余票数 RSS 不含、未获取，不编造。排名因来源与时间而异。';
+ document.getElementById('sources').innerHTML=src.map(s=>`<div>${esc(s[0])} — <span class="badge ${s[1]==='主源'?'live':s[1]==='备份'?'backup':s[1]==='缓存'?'cache':'missing'}">${esc(s[1])}</span> ${esc(s[2])} · ${esc(s[3])}</div>`).join('')+`<div style="margin-top:8px">${staleBadge()} <span class="note">样本超过 12 小时即标「已过期」。</span></div>`;
  render();draw();
+ const ts=document.getElementById('tableSrc');if(ts)ts.textContent=dataSource==='actions'?'Actions 快照（实时）':dataSource==='rss'?'RSS 直连解析（实时）':'人工策展 2026-11-09（样本）';
 }
 refreshAll();
 </script></body></html>

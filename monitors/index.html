@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>十七个监测器 · 总览</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh;background:linear-gradient(160deg,#1e1b4b 0%,#7c3aed 50%,#0891b2 100%) fixed}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:linear-gradient(90deg,#312e81,#7c3aed,#0891b2);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+h1{font-size:22px;margin:0}
+.sub{font-size:13px;opacity:.85}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;background:linear-gradient(120deg,#312e81,#7c3aed 55%,#06b6d4);box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.hero h2{margin:0 0 8px;font-size:28px}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:680px;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{display:block;border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid rgba(0,0,0,.15);text-decoration:none;color:#1a1d29}
+.card h3{margin:6px 0 8px;font-size:16px}
+.card p{margin:8px 0 0;font-size:13px;line-height:1.6;color:#374151}
+.num{font-size:12px;font-weight:800;color:#6b7280}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.live{background:#d1fae5;color:#065f46}.badge.cache{background:#fee2e2;color:#991b1b}.badge.manual{background:#fef3c7;color:#92400e}.badge.static{background:#ede9fe;color:#5b21b6}
+.note{font-size:12px;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 16px;line-height:1.7}
+a{color:#fff}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
+</style></head><body>
+<header><h1>🧭 十七个监测器 · 总览</h1><span class="sub">17 张卡片 · 每张标明 实时 / 样本 / 人工</span></header>
+<main>
+<section class="hero"><h2>一个入口，看全 17 个监测器</h2><p>标签说明：<b>实时</b> = 打开即拉公开接口（失败时显示未获取或切缓存并标注）；<b>样本</b> = 缓存样本 / 人工整理值，非实时；<b>人工</b> = 人工策展 / 人工录入，无实时源，过期会标明。本页在 monitors/ 内，各卡片链到同目录的监测页。</p></section>
+<div class="grid">
+<a class="card" style="background:linear-gradient(135deg,#fef3c7,#fde68a)" href="01-a-share-hk.html"><span class="num">01</span><h3>📈 A股+港股监测</h3><span class="badge live">实时 · 部分缓存</span><p>五大指数腾讯实时；涨跌家数 / 分时 / AH 溢价为缓存样本·非实时；自选拉腾讯行情。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)" href="02-top-ai-agents.html"><span class="num">02</span><h3>🤖 头部AI与Agent监测</h3><span class="badge live">实时价格 · 缓存分数</span><p>OpenRouter 实时价格与上下文；分数仅缓存 AA v5；实时画价格条形图。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)" href="03-open-source-ai.html"><span class="num">03</span><h3>🧭 开源AI监测</h3><span class="badge live">实时</span><p>GitHub Core API 逐仓拉 24 个白名单仓库；周增 Star 靠本机快照差分。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#cffafe,#a5f3fc)" href="04-x-monitor.html"><span class="num">04</span><h3>𝕏 X账号只读监测</h3><span class="badge live">实时</span><p>FxTwitter 主源；VxTwitter 替补已失效（2026-11-09 实测 403），不再尝试。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#ffedd5,#fdba74)" href="05-yiwu-small-goods.html"><span class="num">05</span><h3>🧧 义乌小商品监测</h3><span class="badge cache">样本</span><p>2026年9月景气指数样本；热词与 10 共用 data/yiwu-hotwords.json；分项图已删。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0)" href="06-domestic-ai-agents.html"><span class="num">06</span><h3>🇨🇳 国内AI与Agent监测</h3><span class="badge live">实时价格 · 缓存分数</span><p>同 02；榜首为最便宜国产；Agent 数 / 视频模型在人工整理区块。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#fee2e2,#fecaca)" href="07-ai-price-drop.html"><span class="num">07</span><h3>💰 AI工具降价/额度监测</h3><span class="badge live">实时 + 快照差分</span><p>OpenRouter 实时价；localStorage 每日快照算涨跌，无上一份快照时只标基线。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#fae8ff,#f5d0fe)" href="08-ai-new-launches.html"><span class="num">08</span><h3>🚀 AI新品上线监测</h3><span class="badge live">实时 diff + 人工策展</span><p>OpenRouter / models.dev 目录 diff；Google Blog RSS 直读；Anthropic RSS 404。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#fef9c3,#fde047)" href="09-ai-side-hustle.html"><span class="num">09</span><h3>🔍 AI副业玩法监测</h3><span class="badge manual">人工策展</span><p>8 个话术拆解；样本超过 30 天标「需重新策展」。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#ffe4e6,#fecdd3)" href="10-cross-border-hot.html"><span class="num">10</span><h3>🌍 跨境爆款监测</h3><span class="badge manual">人工精选</span><p>热词与 05 共用 data/yiwu-hotwords.json；样本超过 14 天标「已过期」。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#e0e7ff,#c7d2fe)" href="11-1688-pdd-price.html"><span class="num">11</span><h3>💰 1688 / 拼多多价格趋势</h3><span class="badge manual">人工录入 · 可自行录入</span><p>拿货价 vs 零售价；表单录入自动算毛利（毛利未扣运费），存本机浏览器。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)" href="12-festival-calendar.html"><span class="num">12</span><h3>📅 节日选品日历</h3><span class="badge static">静态</span><p>零外部依赖；七夕已按香港天文台核对；日期一律 +08:00。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#ffedd5,#fed7aa)" href="13-hot-search.html"><span class="num">13</span><h3>🔥 热搜热榜聚合</h3><span class="badge live">Actions 快照</span><p>微博 / 抖音服务端快照 data/hot.json；知乎固定未获取；Hero 由快照 Top 1 生成。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)" href="14-github-trending.html"><span class="num">14</span><h3>⭐ GitHub Trending 日榜</h3><span class="badge live">实时</span><p>GitHub Search API 直连；查询窗口为动态近 7 日。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)" href="15-product-hunt.html"><span class="num">15</span><h3>🚀 Product Hunt 热度日榜</h3><span class="badge live">Actions 快照</span><p>服务端快照 data/ph.json；只有解析出条目才标 live；票数未获取不编数。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#fee2e2,#fecaca)" href="16-ai-events.html"><span class="num">16</span><h3>🚨 AI大事件 / 监管动态</h3><span class="badge manual">人工策展</span><p>10 条双源核实事件；样本超过 7 天标「已过期·需重策展」。</p></a>
+<a class="card" style="background:linear-gradient(135deg,#cffafe,#a5f3fc)" href="17-search-trends.html"><span class="num">17</span><h3>📊 搜索趋势监测</h3><span class="badge live">Actions 快照</span><p>新版 trending/rss?geo=US/HK/TW 快照 data/trends.json；geo=CN 返回 400，不用。</p></a>
+</div>
+<p class="note">打开方式：用本地静态服务器（<code>python3 -m http.server 8000</code>）或 GitHub Pages 打开；直接双击文件也能看，但部分公开接口会因 CORS 拒绝 <code>file://</code> 请求，页面会如实显示「未获取 / 缓存」。Chart.js 随仓库内置（<code>monitors/chart.umd.min.js</code>），各页用同目录相对路径 <code>./chart.umd.min.js</code> 引用，须从 <code>monitors/</code> 内打开各页。</p>
+</main></body></html>

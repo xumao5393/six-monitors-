@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>开源AI监测</title><script src="chart.umd.min.js"></script>
+<title>开源AI监测</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -45,17 +45,43 @@ th{color:#047857}
 .warn{background:#ecfdf5;border:1px solid #6ee7b7}
 .big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
 .grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
+
+@media (max-width:720px){
+header{padding:12px 14px}
+h1{font-size:18px}
+.hero h2{font-size:22px}
+.grid{grid-template-columns:1fr 1fr}
+.feed{grid-template-columns:1fr}
+.card{overflow-x:auto}
+table{display:block;overflow-x:auto;white-space:nowrap}
+.card canvas{height:200px !important}
+header button{margin-left:0;width:100%}
+main{padding:14px}
+}
 </style></head><body>
 <header><h1>🧭 开源AI监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
-<section class="hero"><h2>开源 AI · 谁在涨 Star</h2><p>不看总 Star，看周增 Star。涨得快的项目，才是正在发生的趋势。</p><div class="feed"><div><b>⭐ 第一指标</b>看周增 Star（Δ Star），不是总 Star——涨得快的才是真热。</div><div><b>🔥 老将</b>transformers 约 16.9 万 Star、ollama 约 18.6 万 Star，仍是开源 AI 的压舱石。</div><div><b>⚠️ 限额</b>GitHub Core API 未登录每小时限 60 次，本页按白名单逐仓拉取；超限时显示已加载部分或缓存并标注。</div></div></section>
-<p class="note">第一指标是 <b>周增 Star（Δ Star）</b>，不是总 Star。Δ Star 由本机 localStorage 快照差分算出：每次加载记录当日 Star，与 ≥6 天前的最早快照对比；第一天只有基线，显示“积累中”，不拿总 Star 冒充周增。仓库来自人工核实的白名单（逐仓拉取），不再用 topic 搜索过滤。</p>
+<section class="hero"><h2>开源 AI · 谁在涨 Star</h2><p>不看总 Star，看周增 Star。涨得快的项目，才是正在发生的趋势。</p><div class="feed"><div><b>⭐ 第一指标</b>看周增 Star（Δ Star），不是总 Star——涨得快的才是真热。</div><div><b>🔥 老将</b>transformers 约 16.9 万 Star、ollama 约 18.6 万 Star，仍是开源 AI 的压舱石。</div><div><b>⚠️ 限额</b>主源是 Actions 快照（每 6 小时逐仓拉取 24 仓）；浏览器直连作替补，未登录 Core API 每小时限 60 次，超限时显示已加载部分或缓存并标注。</div></div></section>
+<p class="note">第一指标是 <b>周增 Star（Δ Star）</b>，不是总 Star。主源是 <b>Actions 快照 data/oss.json</b>（GitHub Actions 每 6 小时逐仓拉取 24 个白名单仓库，history 连续 ≥7 天后给出全站统一 Δ Star；第 1 天只有基线，显示“积累中”，不拿总 Star 冒充周增）。本机 localStorage 快照差分只作补充。仓库来自人工核实的白名单（逐仓拉取），不再用 topic 搜索过滤。GitHub Search topic:llm 只出现在页面底部的「发现」区块，绝不进主表和 KPI。</p>
 <div class="grid" id="kpis"></div>
 <div class="card"><h3>分类总 Star 条形图（总 Star，不是周增）</h3><canvas id="chart" height="80"></canvas><p class="note">此图只汇总各分类的总 Star；涨幅请看榜单的 Δ Star 列。</p></div>
 <div class="card"><h3>榜单</h3>
 <input id="q" placeholder="搜索，如 ollama" oninput="render()"><select id="cat" onchange="render()"><option value="">全部分类</option><option>LLM</option><option>Agent</option><option>MCP</option><option>编码</option><option>视觉</option><option>音频</option></select>
 <table><thead><tr><th onclick="sortBy('name')">仓库</th><th>分类</th><th onclick="sortBy('stars')">Star</th><th onclick="sortBy('delta')">Δ Star</th><th onclick="sortBy('forks')">Fork</th><th>语言</th><th>最近推送</th></tr></thead><tbody id="tbody"></tbody></table>
 <p class="note" id="note"></p></div>
+<div class="card" id="discoverCard" style="display:none"><h3>🔍 发现（GitHub Search topic:llm，仅供发现）</h3>
+<p class="note">此区块与主表、KPI 完全无关：仅当 Actions 快照与 GitHub 直连均失败时，用一次 Search 找新仓库；分类一律标 LLM，不参与任何排名与统计。</p>
+<div id="discover"></div></div>
 <div class="card"><h3>数据源状态</h3><div id="sources"></div></div>
 </main>
 <script>
@@ -114,8 +140,8 @@ function computeDelta(name,stars){
  if(!base&&list.length)base=list[0];
  let delta=null;
  if(base)delta={value:stars-base.stars,ageDays:Math.max(0,Math.floor((now-base.t)/DAY))};
- const today=new Date(now).toDateString();
- if(!list.some(s=>new Date(s.t).toDateString()===today)){
+ const today=new Date(now).toLocaleDateString('en-CA',{timeZone:'Asia/Shanghai'});
+ if(!list.some(s=>new Date(s.t).toLocaleDateString('en-CA',{timeZone:'Asia/Shanghai'})===today)){
    list.push({t:now,stars});
    const pruned=list.filter(s=>now-s.t<=30*DAY).slice(-10);
    snaps[name]=pruned;saveSnaps(snaps);
@@ -133,7 +159,7 @@ function render(){
    const an=(sortKey==='delta')?(av==null?-Infinity:av.value):av, bn=(sortKey==='delta')?(bv==null?-Infinity:bv.value):bv;
    return (an>bn?1:an<bn?-1:0)*sortDir;
  });
- document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td><a href="https://github.com/${r.name}" target="_blank" rel="noopener">${r.name}</a></td><td>${r.cat}</td><td>${r.stars?.toLocaleString()}</td><td>${deltaText(r)}</td><td>${r.forks?.toLocaleString()??'—'}</td><td>${r.lang||'—'}</td><td>${r.pushed||'—'}</td></tr>`).join('')||'<tr><td colspan="7">无匹配</td></tr>';
+ document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td><a href="https://github.com/${r.name}" target="_blank" rel="noopener">${r.name}</a></td><td>${r.cat}</td><td>${r.stars?.toLocaleString()}</td><td>${deltaText(r)}</td><td>${r.forks?.toLocaleString()??'—'}</td><td>${r.lang||'—'}</td><td>${(r.pushed||'—').slice(0,10)}</td></tr>`).join('')||'<tr><td colspan="7">无匹配</td></tr>';
 }
 function sortBy(k){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1;}render();}
 function draw(){
@@ -143,45 +169,68 @@ function draw(){
 function renderKpis(role){
  const gained=repos.filter(r=>r.delta!=null).sort((a,b)=>b.delta.value-a.delta.value);
  const top=gained[0];
- const active=repos.filter(r=>r.pushed&&(Date.now()-new Date(r.pushed+'T00:00:00').getTime())<=7*DAY).length;
+ const active=repos.filter(r=>r.pushed&&!isNaN(new Date(r.pushed))&&(Date.now()-new Date(r.pushed).getTime())<=7*DAY).length;
  const topHtml=top
    ?`<div class="big">+${top.delta.value.toLocaleString()}</div><div class="note">${top.name}（${top.delta.ageDays}天）</div>`
-   :`<div class="big" style="font-size:22px">积累中</div><div class="note">第1天基线，7天后出周增</div>`;
+   :`<div class="big" style="font-size:22px">积累中</div><div class="note">需连续打开 ≥7 天（Actions 快照统一 Δ，第 1 天只有基线）</div>`;
  document.getElementById('kpis').innerHTML=
   `<div class="card"><h3>仓库数</h3><div class="big">${repos.length}</div></div>`+
   `<div class="card"><h3>总 Star</h3><div class="big">${repos.reduce((s,r)=>s+(r.stars||0),0).toLocaleString()}</div></div>`+
   `<div class="card"><h3>周增 Star 榜</h3>${topHtml}</div>`+
   `<div class="card"><h3>活跃仓库</h3><div class="big">${active}</div><div class="note">7 天内有推送</div></div>`+
-  `<div class="card"><h3>数据来源</h3><div class="big" style="font-size:22px">${role==='primary'?'白名单逐仓':role==='backup'?'搜索替补':'缓存样本'}</div></div>`;
+  `<div class="card"><h3>数据来源</h3><div class="big" style="font-size:22px">${role==='snapshot'?'Actions 快照':role==='primary'?'白名单逐仓':role==='backup'?'搜索替补':'缓存样本'}</div><div class="note">${role==='snapshot'?'Actions 快照统一 Δ（需连续快照 ≥7 天）':'本机快照差分补充'}</div></div>`;
 }
 async function refreshAll(){
  const src=[];let role='cache';repos=[];
+ document.getElementById('note').textContent='正在拉取 Actions 快照 data/oss.json…';
+ document.getElementById('discoverCard').style.display='none';
+ document.getElementById('discover').innerHTML='';
+ /* 主源：Actions 快照 data/oss.json（同域）。失败才走浏览器直连。*/
+ try{
+   const r=await fetch('data/oss.json',{cache:'no-store'});
+   if(r.ok){
+     const d=await r.json();
+     if(d&&Array.isArray(d.repos)&&d.repos.length){
+       repos=d.repos.map(x=>({name:x.name,cat:x.cat,stars:x.stars,forks:x.forks,lang:x.language,pushed:x.pushed_at,
+         delta:(x.delta_7d!=null?{value:x.delta_7d,ageDays:7,from:'snapshot'}:computeDelta(x.name,x.stars))}));
+       role='snapshot';
+       src.push(['Actions 快照 data/oss.json','主源','正常 '+repos.length+'/24 仓 · 快照 '+(d.fetched_at_cst||d.fetched_at),d.fetched_at_cst||d.fetched_at]);
+       if(d.failed&&d.failed.length)src.push(['快照失败仓库','—',d.failed.join('；')+'（已保留上次成功值）','—']);
+     }
+   }
+ }catch(e){src.push(['Actions 快照 data/oss.json','主源','失败（'+e.message+'），改走浏览器直连','—']);}
  const failed=[];let rateLimited=false;
- /* 主源：白名单逐仓 GET /repos/{full_name}，顺序拉取、每次间隔 300ms，
-    未登录 Core 限额 60/小时；遇 403 限额即停，保留已加载部分。*/
+ if(!repos.length){
+ /* 直连：白名单逐仓 GET /repos/{full_name}，顺序拉取、每次间隔 300ms，
+    未登录 Core 限额 60/小时；遇 403 限额即停，保留已加载部分。
+    注意：批量渲染——循环内不再 render()/draw()，全部拉完只渲染一次。*/
  for(const [name,cat] of WHITELIST){
    try{
      const r=await fetchTO('https://api.github.com/repos/'+name);
      if(r.status===403){rateLimited=true;failed.push(name+'（403 限额）');break;}
      if(!r.ok){failed.push(name+'（HTTP '+r.status+'）');continue;}
      const d=r.data;
-     const repo={name:d.full_name,cat,stars:d.stargazers_count,forks:d.forks_count,lang:d.language,pushed:(d.pushed_at||'').slice(0,10)};
+     const repo={name:d.full_name,cat,stars:d.stargazers_count,forks:d.forks_count,lang:d.language,pushed:d.pushed_at};
      repo.delta=computeDelta(repo.name,repo.stars);
-     repos.push(repo);render();draw();renderKpis('primary');
+     repos.push(repo);
    }catch(e){failed.push(name+'（网络失败）');}
    await sleep(300);
  }
- if(repos.length){role='primary';src.push(['GitHub Core API（白名单逐仓）','主源',rateLimited?'部分加载（遇 403 限额，已停）':'正常 '+repos.length+'/'+WHITELIST.length+' 仓',new Date().toLocaleString('zh-CN')]);}
+ if(repos.length){role='primary';src.push(['GitHub Core API（白名单逐仓）','直连',rateLimited?'部分加载（遇 403 限额，已停）':'正常 '+repos.length+'/'+WHITELIST.length+' 仓',new Date().toLocaleString('zh-CN')]);}
  if(failed.length)src.push(['拉取失败','—',failed.join('；'),'—']);
- /* 替补：仅当主源一仓未取到时，用一次 GitHub Search 做发现（已标注为替补发现）。*/
+ }
+ /* 发现：仅当快照与直连均失败时，用一次 GitHub Search 做「发现」，
+    结果只进底部「发现」区块，绝不进主表与 KPI。*/
  if(!repos.length){
    try{
      const r=await fetchTO('https://api.github.com/search/repositories?q='+encodeURIComponent('topic:llm')+'&sort=stars&per_page=5');
      if(r.ok&&(r.data.items||[]).length){
-       repos=r.data.items.map(it=>({name:it.full_name,cat:'LLM',stars:it.stargazers_count,forks:it.forks_count,lang:it.language,pushed:(it.pushed_at||'').slice(0,10),delta:computeDelta(it.full_name,it.stargazers_count)}));
-       role='backup';src.push(['GitHub Search API','替补（发现）','正常（主源全失败后启用）',new Date().toLocaleString('zh-CN')]);
-     }else src.push(['GitHub Search API','替补（发现）','失败（HTTP '+r.status+'）','—']);
-   }catch(e){src.push(['GitHub Search API','替补（发现）','失败（网络）','—']);}
+       const disc=r.data.items.map(it=>({name:it.full_name,stars:it.stargazers_count,lang:it.language}));
+       document.getElementById('discoverCard').style.display='';
+       document.getElementById('discover').innerHTML='<table><thead><tr><th>仓库</th><th>Star</th><th>语言</th></tr></thead><tbody>'+disc.map(x=>`<tr><td><a href="https://github.com/${x.name}" target="_blank" rel="noopener">${x.name}</a></td><td>${x.stars?.toLocaleString()}</td><td>${x.lang||'—'}</td></tr>`).join('')+'</tbody></table>';
+       src.push(['GitHub Search API','发现','仅发现区块（主源全失败后启用），不进主表/KPI',new Date().toLocaleString('zh-CN')]);
+     }else src.push(['GitHub Search API','发现','失败（HTTP '+r.status+'）','—']);
+   }catch(e){src.push(['GitHub Search API','发现','失败（网络）','—']);}
  }
  if(!repos.length){
    repos=FALLBACK.map(r=>({...r,delta:computeDelta(r.name,r.stars)}));
@@ -189,12 +238,12 @@ async function refreshAll(){
  }
  const snaps=loadSnaps(),oldBase=Object.keys(snaps).filter(k=>snaps[k]&&snaps[k].some(s=>Date.now()-s.t>=DAY)).length;
  const todayBase=Object.keys(snaps).filter(k=>snaps[k]&&snaps[k].length).length;
- src.push(['本地快照 localStorage','快照',oldBase?oldBase+' 个仓库有 ≥1 天前基线（Δ 按 ≥6 天快照差分）':'今日为第1天基线（'+todayBase+' 仓已记今日快照），7 天后出周增','—']);
+ src.push(['本地快照 localStorage','快照',oldBase?oldBase+' 个仓库有 ≥1 天前基线（Δ 按 ≥6 天快照差分，北京日键）':'今日为第1天基线（'+todayBase+' 仓已记今日快照），需连续打开 ≥7 天', '—']);
  renderKpis(role);
- const b=document.getElementById('srcBadge');b.textContent=role==='primary'?'主源':role==='backup'?'替补源':'缓存样本';b.className='badge '+(role==='primary'?'':role);
+ const b=document.getElementById('srcBadge');b.textContent=role==='snapshot'?'Actions 快照':role==='primary'?'主源':role==='backup'?'替补源':'缓存样本';b.className='badge '+(role==='snapshot'||role==='primary'?'':role);
  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
- document.getElementById('note').textContent=role==='cache'?'当前为缓存样本（2026-11-09 核实）。Δ Star 仍按本机快照差分计算。':'数据来自 GitHub 公开 API（白名单逐仓）。Δ Star = 当前 Star − 本机 ≥6 天前快照，基线不足时显示“积累中”。';
- document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补（发现）'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
+ document.getElementById('note').textContent=role==='snapshot'?'数据来自 Actions 快照 data/oss.json。Δ Star = 快照统一 Δ（history ≥6 天基线，7 天后出数）或本机快照差分；基线不足时显示“积累中”，需连续打开 ≥7 天。':role==='cache'?'当前为缓存样本（2026-11-09 核实）。Δ Star 仍按本机快照差分计算，需连续打开 ≥7 天。':'数据来自 GitHub 公开 API（白名单逐仓）。Δ Star = 当前 Star − 本机 ≥6 天前快照（北京日键），基线不足时显示“积累中”，需连续打开 ≥7 天。';
+ document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='发现'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
  render();draw();
 }
 refreshAll();

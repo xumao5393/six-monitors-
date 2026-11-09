@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>义乌小商品监测</title><script src="chart.umd.min.js"></script>
+<title>义乌小商品监测</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -54,17 +54,27 @@ th{color:#c2410c}
 .warn{background:#fff7ed;border:1px solid #fdba74}
 .big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
 .grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
 </style></head><body>
-<header><h1>🧧 义乌小商品监测</h1><span class="sub" id="updated">缓存样本 · 2026年9月</span><span id="srcBadge" class="badge cache">缓存样本</span><button onclick="refreshAll()">📥 载入样本</button></header>
+<header><h1>🧧 义乌小商品监测</h1><span class="sub" id="updated">缓存样本 · 2026年9月</span><span id="srcBadge" class="badge cache">缓存样本</span><span class="badge backup" id="ageBadge">样本年龄计算中…</span><button onclick="refreshAll()">📥 载入样本</button></header>
 <main>
 <section class="hero"><h2>义乌小商品 · 商户的风向标</h2><p>义乌指数、义乌购热词榜、国内外爆款与季节日历——批发端在涨什么，这里先知道。</p><div class="feed"><div><b>🔥 国内最热</b>义乌购 30 天热词：手表 17,947 次搜索，袜子、玩具紧随其后。</div><div><b>🌍 海外最热</b>遥控汽车 5,274 次，文具、足球、遥控无人机都在榜上。</div><div><b>📈 景气</b>2026年9月样本：义乌景气指数 1554.97，环比 +0.55%。</div></div></section>
 <p class="note">第一手来源：<a href="https://www.ywindex.com" target="_blank" rel="noopener">义乌指数 ywindex.com</a> · <a href="https://www.yiwugo.com/top.html" target="_blank" rel="noopener">义乌购排行榜 yiwugo.com/top.html</a>。两站无公开 JSON 接口，浏览器直接拉取常被拦截，本页用调研核实值作缓存并明确标注，请人工打开官网核对。1688 生意参谋完整数据需商家账号，本页只写公开方法，不伪造后台数据。</p>
 <div class="grid" id="kpis"></div>
-<div class="card"><h3>义乌指数 · 景气五维度</h3><canvas id="chart" height="80"></canvas><p class="note">2026年9月样本：景气 1554.97 点，环比 +0.55%（缓存样本，非实时）。</p></div>
+<div class="card"><h3>义乌指数 · 景气总指数（唯一有来源的数）</h3><div class="big">1554.97</div><div>环比 +0.55% · 2026年9月样本</div><p class="note">景气分项柱状图已删除：5 个分项数无官方出处，画成柱图看起来像官方分项；只有总指数 1554.97 有 2026年9月样本标注。分项如需恢复，必须逐项注明来源或标「示意/未核实」。</p></div>
 <div class="card"><h3>爆款图墙</h3><div class="wall"><div>⌚<br><small>手表</small></div><div>🧦<br><small>袜子</small></div><div>🧸<br><small>玩具</small></div><div>🐾<br><small>宠物玩具</small></div><div>🥤<br><small>保温杯</small></div><div>🚗<br><small>遥控汽车</small></div></div></div>
 <div class="card"><h3>热词榜 <span class="note">国内 / 海外分开</span></h3>
 <input id="q" placeholder="搜索，如 贴纸" oninput="render()"><select id="scope" onchange="render()"><option value="">全部</option><option>国内</option><option>海外</option></select>
-<table><thead><tr><th>关键词</th><th>市场</th><th onclick="sortBy('n')">搜索量</th></tr></thead><tbody id="tbody"></tbody></table></div>
+<table><thead><tr><th>关键词</th><th>市场</th><th onclick="sortBy('n')">搜索量</th></tr></thead><tbody id="tbody"></tbody></table><p class="note">热词数据与监测 10 共用 monitors/data/yiwu-hotwords.json（同一批 2026-11-09 调研核实值）；直读失败时用本页内置同批值。</p></div>
 <div class="card"><h3>季节日历 <span class="note">样本数据</span></h3><table><tbody>
 <tr><td>世界杯</td><td>体育用品出口 Q1 28.3亿 +12%，空白球衣、LED手环、毛绒吉祥物；勿碰 FIFA 队徽</td></tr>
 <tr><td>夏季</td><td>冷感毛巾日出货 16万包</td></tr>
@@ -83,15 +93,18 @@ let chart;
 function render(){
  const q=(document.getElementById('q').value||'').toLowerCase(),s=document.getElementById('scope').value;
  let list=rows.filter(r=>(!q||r.k.includes(q))&&(!s||r.s===s));list.sort((a,b)=>(a.n-b.n)*sortDir);
- document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td>${r.k}</td><td>${r.s}</td><td>${r.n.toLocaleString()}</td></tr>`).join('');
+ document.getElementById('tbody').innerHTML=list.map(r=>`<tr><td>${r.k}</td><td>${r.s}</td><td>${r.n.toLocaleString()}</td></tr>`).join('')||'<tr><td colspan="3">无匹配</td></tr>';
 }
 function sortBy(){sortDir*=-1;render();}
-function refreshAll(){
+async function loadSharedHotwords(){try{const r=await fetch('data/yiwu-hotwords.json');if(!r.ok)return false;const d=await r.json();if(!Array.isArray(d.hotwords)||!d.hotwords.length)return false;rows=d.hotwords.map(h=>({k:h.word,s:h.market,n:h.searches}));return true;}catch(e){return false;}}
+function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','true');var _u=document.getElementById('updated');if(_u)_u.textContent='正在拉取…';setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},30000);
+ const age=Math.floor((new Date()-new Date('2026-11-09T00:00:00+08:00'))/86400000);
+ const ab=document.getElementById('ageBadge');ab.textContent=age<=0?'样本新鲜 · 更新于 2026-11-09':(age<=14?`样本 ${age} 天前更新`:`⚠️ 样本已过期（${age} 天前）`);ab.className='badge '+(age>14?'missing':'backup');
  document.getElementById('kpis').innerHTML=`<div class="card"><h3>景气指数 · 2026年9月样本</h3><div class="big">1554.97</div><div>环比 +0.55%</div></div><div class="card"><h3>周价格指数（样本）</h3><div class="big">101.22</div></div><div class="card"><h3>国内热词第1（样本）</h3><div class="big">手表</div></div><div class="card"><h3>海外热词第1（样本）</h3><div class="big">遥控汽车</div></div>`;
- if(chart)chart.destroy();chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:['规模','商户信心','顾客人气','物流','资金活跃'],datasets:[{data:[1550,1560,1545,1565,1555],backgroundColor:['#ea580c','#f59e0b','#e11d48','#ca8a04','#059669']}]},options:{plugins:{legend:{display:false}}}});
+ loadSharedHotwords().then(()=>{render();});
  document.getElementById('updated').textContent='缓存样本 · 2026年9月';
  document.getElementById('sources').innerHTML=`<div>义乌购官网 — <span class="badge cache">缓存</span> 浏览器直连常被拦截，样本为调研核实值</div><div>义乌指数官网 — <span class="badge cache">缓存</span> 同上，景气指数为 2026年9月样本</div><div>1688 生意参谋 — <span class="badge cache">方法</span> 完整数据需商家账号，不伪造</div>`;
- render();
+ render();document.querySelector('main')?.setAttribute('aria-busy','false');
 }
 refreshAll();
 </script></body></html>

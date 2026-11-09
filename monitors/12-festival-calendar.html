@@ -40,6 +40,22 @@ header{background:linear-gradient(90deg,#4c1d95,#7c3aed,#db2777);color:#fff;box-
 .tl .lbl{position:absolute;top:14px;transform:translateX(-50%);font-size:11px;color:#6b7280;white-space:nowrap}
 .mbar{display:grid;grid-template-columns:90px 1fr 30px;gap:8px;align-items:center;font-size:13px;margin:6px 0}
 .mbar .bar{height:18px;border-radius:999px;background:linear-gradient(90deg,#7c3aed,#db2777,#f472b6)}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
+@media (max-width:720px){
+      .tl{height:auto;border-top:0;border-left:3px solid #e9d5ff;padding:2px 0 2px 16px;display:flex;flex-direction:column;gap:12px;margin:18px 4px 6px}
+      .tl .dot{position:static;top:auto;transform:none;flex:none}
+      .tl .dot.next{width:19px;height:19px}
+      .tl .lbl{position:static;top:auto;transform:none;white-space:normal}
+    }
 </style></head><body>
 <header><h1>📅 节日 / 季节选品日历</h1><span class="sub">纯静态 · 零外部依赖 · 内置数据 2026-11 至 2027-12</span><span class="badge cache">静态日历</span><span class="badge live" id="todayBadge">今天</span></header>
 <main>
@@ -97,9 +113,9 @@ const NODES=[
  {n:'双12',d:'2027-12-12',t:'电商大促',cat:'全品类、日用、零食',topic:'双12 2027：年终捡漏'},
  {n:'圣诞节',d:'2027-12-25',t:'海外节日',cat:'圣诞树、装饰、礼物包装',topic:'圣诞 2027：十月开始布局'},
 ];
-const START=new Date('2026-11-01T00:00:00'),END=new Date('2027-12-31T00:00:00');
+const START=new Date('2026-11-01T00:00:00+08:00'),END=new Date('2027-12-31T00:00:00+08:00');
 function dayOnly(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate());}
-function daysTo(ds){return Math.round((new Date(ds+'T00:00:00')-dayOnly(new Date()))/86400000);}
+function daysTo(ds){return Math.round((new Date(ds+'T00:00:00+08:00')-dayOnly(new Date()))/86400000);}
 function cd(ds){const x=daysTo(ds);return x>0?'还有 '+x+' 天':(x===0?'就是今天':'已过 '+(-x)+' 天');}
 function render(){
  const q=(document.getElementById('q').value||'').toLowerCase(),s=document.getElementById('scope').value;
@@ -118,7 +134,7 @@ function init(){
  document.getElementById('kpis').innerHTML=`<div class="card"><h3>下一个大节点</h3><div class="big">${next?next.n:'—'}</div><div>${next?next.d+' · '+cd(next.d):''}</div></div><div class="card"><h3>最近 30 天内节点</h3><div class="big">${in30.length}</div><div>${in30.map(r=>r.n).join('、')||'无'}</div></div><div class="card"><h3>节点总数</h3><div class="big">${NODES.length}</div><div>2026-11 至 2027-12</div></div><div class="card"><h3>覆盖月份</h3><div class="big">14</div><div>2026年11月 – 2027年12月</div></div>`;
  const tl=document.getElementById('timeline');
  const MAJOR={'2026-11-11':'双11','2026-12-25':'圣诞','2027-02-06':'春节','2027-06-18':'618','2027-09-15':'中秋','2027-10-01':'国庆','2027-11-11':'双11','2027-12-25':'圣诞'};
- tl.innerHTML=NODES.map(r=>{const p=((new Date(r.d+'T00:00:00')-START)/(END-START)*100).toFixed(2);const isNext=next&&r.d===next.d&&r.n===next.n;const lab=MAJOR[r.d]||(isNext?r.n:'');return `<span class="dot${isNext?' next':''}" style="left:${p}%" title="${r.n} ${r.d}"></span>${lab?`<span class="lbl" style="left:${p}%">${lab}</span>`:''}`;}).join('');
+ tl.innerHTML=NODES.map(r=>{const p=((new Date(r.d+'T00:00:00+08:00')-START)/(END-START)*100).toFixed(2);const isNext=next&&r.d===next.d&&r.n===next.n;const lab=MAJOR[r.d]||(isNext?r.n:'');return `<span class="dot${isNext?' next':''}" style="left:${p}%" title="${r.n} ${r.d}"></span>${lab?`<span class="lbl" style="left:${p}%">${lab}</span>`:''}`;}).join('');
  const months={};NODES.forEach(r=>{const m=r.d.slice(0,7);months[m]=(months[m]||0)+1;});
  const max=Math.max(...Object.values(months));
  document.getElementById('monthBars').innerHTML=Object.keys(months).sort().map(m=>`<div class="mbar"><span>${m}</span><div class="bar" style="width:${months[m]/max*100}%"></div><span>${months[m]} 个</span></div>`).join('');

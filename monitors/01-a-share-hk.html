@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>A股+港股监测</title><script src="chart.umd.min.js"></script>
+<title>A股+港股监测</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -30,6 +30,8 @@ input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size
 canvas{max-width:100%}
 .card canvas{height:260px !important}
 .section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+.btn-sec{background:transparent !important;color:#be123c !important;border:2px solid #be123c;box-shadow:none;margin-left:0}
+.btn-sec{background:transparent !important;color:#be123c !important;border:2px solid #be123c;box-shadow:none;margin-left:0}
 main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
 
 body{background:linear-gradient(160deg,#1e1b4b 0%,#7f1d1d 45%,#f59e0b 100%) fixed;}
@@ -46,18 +48,28 @@ th{color:#be123c}
 .warn{background:#fffbeb;border:1px solid #fde68a}
 .big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
 .grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
 </style></head><body>
 <header><h1>📈 A股+港股监测</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge missing">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
 <section class="hero"><h2>A股 + 港股 · 今日盘面</h2><p>五大指数、涨跌家数、AH 溢价一页看完，红涨绿跌，盘面冷热一眼见分晓。</p><div class="feed"><div id="heroBreadth"><b>📉 市场温度</b>缓存样本：上涨 725 家，下跌 4,483 家，平盘 87 家——跌多涨少，情绪偏冷。（涨跌家数未实时更新）</div><div id="heroIndex"><b>📈 指数</b>2026-11-09 14:48（缓存样本，盘中快照）：上证 3663.18（+0.38%）、恒生 24528.81（+0.19%）。</div><div><b>⏰ 提醒</b>港股免费行情约延迟 15 分钟；北向资金只报成交额，不编净买额。</div></div></section>
 <div class="warn">港股免费行情约延迟 15 分钟，不冒充实时。北向资金只报成交额，不编净买额（港交所不再披露实时买卖金额）。本页不构成投资建议。</div>
 <div class="grid" id="indices"></div>
-<div class="card"><h3>指数走势（上证，分时点为缓存示例）</h3><canvas id="chart" height="90"></canvas><p class="note" id="chartNote"></p></div>
-<div class="card"><h3>涨跌家数（全市场）</h3><div id="breadth">未获取</div><canvas id="breadthChart" height="60"></canvas></div>
-<div class="card"><h3>AH 溢价（示例对，价格为缓存样本，标注为准）</h3>
+<div class="card"><h3>指数走势（上证，分时点为缓存示例） <span class="badge cache">缓存样本·非实时</span></h3><canvas id="chart" height="90"></canvas><p class="note" id="chartNote"></p></div>
+<div class="card"><h3>涨跌家数（全市场） <span class="badge cache">缓存样本·非实时</span></h3><div id="breadth">未获取</div><canvas id="breadthChart" height="60"></canvas></div>
+<div class="card"><h3>AH 溢价（示例对） <span class="badge cache">缓存样本·非实时</span></h3>
 <table id="ahTable"><thead><tr><th>股票</th><th>A股</th><th>H股(¥)</th><th>溢价</th></tr></thead><tbody></tbody></table>
 <p class="note">AH 溢价 = A股 / (H股×汇率) − 1。实时 AH 名单需东财接口，浏览器 CORS 拦截时用缓存样本。</p></div>
-<div class="card"><h3>自选（本地保存）</h3><input id="watchInput" placeholder="输入代码，如 600519"><button onclick="addWatch()">添加</button><div id="watchList" style="margin-top:10px"></div></div>
+<div class="card"><h3>自选（本地保存）</h3><input id="watchInput" placeholder="输入代码，如 600519"><button class="btn-sec" onclick="addWatch()">添加</button><div id="watchList" style="margin-top:10px"></div></div>
 <div class="card"><h3>数据源状态</h3><div id="sources"></div></div>
 </main>
 <script>
@@ -69,12 +81,13 @@ const CACHED={indices:{'上证指数':{v:3663.18,c:0.38},'深证成指':{v:11166
 let chart,bChart;
 async function fetchTO(url,ms=30000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(url,{signal:c.signal});if(!r.ok)throw new Error(r.status);return r.text();}
 function parseTencent(t){const out={};INDICES.forEach(idx=>{const m=t.match(new RegExp('v_'+TENCENT_KEY[idx.code]+'="([^"]*)"'));if(!m)return;const f=m[1].split('~');const v=parseFloat(f[3]),c=parseFloat(f[32]);if(Number.isFinite(v)&&Number.isFinite(c))out[idx.name]={v,c,ts:f[30]||''};});return out;}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function fmtPct(c){return (c>=0?'+':'')+c.toFixed(2)+'%';}
 function fmtV(v){return v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function setBadge(el,role,label){el.textContent=label;el.className='badge '+(role==='primary'?'':role);}
 function renderIndices(data,role,when){
   document.getElementById('indices').innerHTML=INDICES.map(idx=>{const d=data[idx.name];if(!d)return '';return `<div class="card"><h3>${idx.name}${d.cached?' <span class="note">缓存</span>':''}</h3><div class="big">${fmtV(d.v)}</div><div class="${(d.c??0)>=0?'up':'down'}">${fmtPct(d.c??0)}</div></div>`;}).join('');
-  setBadge(document.getElementById('srcBadge'),role,role==='primary'?'主源 · 腾讯':role==='backup'?'主源 · 腾讯（部分缓存）':'缓存样本');
+  setBadge(document.getElementById('srcBadge'),role,role==='primary'?'主源 · 腾讯':role==='backup'?'腾讯实时 + 部分缓存补齐':'缓存样本');
   document.getElementById('updated').textContent='更新：'+when;
 }
 function renderHero(data,when,isCache){
@@ -95,7 +108,7 @@ function drawCharts(isCache,when){
   if(bChart)bChart.destroy();bChart=new Chart(document.getElementById('breadthChart'),{type:'bar',data:{labels:['上涨','下跌','平盘'],datasets:[{data:[b.up,b.down,b.flat],backgroundColor:['#e11d48','#16a34a','#9ca3af']}]},options:{indexAxis:'y',plugins:{legend:{display:false}}}});
   document.getElementById('breadth').textContent='上涨 '+b.up+' · 下跌 '+b.down+' · 平盘 '+b.flat+'（缓存样本，涨跌家数未实时更新）';
 }
-async function refreshAll(){
+async function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','true');var _u=document.getElementById('updated');if(_u)_u.textContent='正在拉取…';setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},30000);
   document.getElementById('sources').innerHTML='正在刷新…';
   const sources=[];let data={},role='cache',when=CACHED.updated,isCache=true;
   try{
@@ -116,11 +129,13 @@ async function refreshAll(){
   // 新浪已移除：hq.sinajs.cn 直连返回 HTTP 403，且不返回 Access-Control-Allow-Origin，浏览器 CORS 拦截——两项都不满足，无法作为有效替补；只写“可达”会误导
   sources.push(['新浪行情','替补','已移除：直连 403 且无 CORS 头，浏览器拦截，非有效替补','—']);
   sources.push(['缓存样本','缓存','2026-11-09 14:48 盘中快照（腾讯实测值）',CACHED.updated]);
-  renderIndices(data,role,when);renderHero(data,when,isCache);renderAH();drawCharts(isCache,when);renderWatch();
+  renderIndices(data,role,when);renderHero(data,when,isCache);renderAH();drawCharts(isCache,when);renderWatch();document.querySelector('main')?.setAttribute('aria-busy','false');document.querySelector('main')?.setAttribute('aria-busy','false');
   document.getElementById('sources').innerHTML=sources.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
 }
-function renderWatch(){const w=JSON.parse(localStorage.getItem('watch')||'[]');document.getElementById('watchList').innerHTML=w.length?w.map((c,i)=>`<div>${c} <a href="#" onclick="delWatch(${i});return false">删除</a></div>`).join(''):'暂无自选，添加后保存在本机浏览器。';}
-function addWatch(){const v=document.getElementById('watchInput').value.trim();if(!v)return;const w=JSON.parse(localStorage.getItem('watch')||'[]');w.push(v);localStorage.setItem('watch',JSON.stringify(w));renderWatch();}
+function normCode(v){v=v.trim().toLowerCase();if(/^(sh|sz|hk)/.test(v))return v;if(/^\d{6}$/.test(v))return (v[0]==='6'?'sh':'sz')+v;if(/^\d{5}$/.test(v))return 'hk'+v;return v;}
+async function fetchWatchQuote(code){try{const t=await fetchTO('https://qt.gtimg.cn/q='+code,8000);const m=t.match(new RegExp('v_'+code+'="([^"]*)"'));if(!m)return null;const f=m[1].split('~');const v=parseFloat(f[3]),c=parseFloat(f[32]);if(!Number.isFinite(v))return null;return{name:f[1]||code,v,c};}catch(e){return null;}}
+async function renderWatch(){const w=JSON.parse(localStorage.getItem('watch')||'[]');const el=document.getElementById('watchList');if(!w.length){el.innerHTML='暂无自选，添加后保存在本机浏览器。输入 600519（自动补 sh）或 000001（自动补 sz）或 00700（自动补 hk）。';return;}el.innerHTML=w.map((c,i)=>`<div>${esc(c)} · 正在拉取… <a href="#" onclick="delWatch(${i});return false">删除</a></div>`).join('');const qs=await Promise.all(w.map(c=>fetchWatchQuote(normCode(c))));el.innerHTML=w.map((c,i)=>{const q=qs[i];if(!q)return `<div>${esc(c)} · 未获取 <a href="#" onclick="delWatch(${i});return false">删除</a></div>`;return `<div><b>${esc(q.name)}</b> ${esc(c)} · ${fmtV(q.v)}（${fmtPct(q.c)}） <a href="#" onclick="delWatch(${i});return false">删除</a></div>`;}).join('');}
+function addWatch(){const v=document.getElementById('watchInput').value.trim();if(!v)return;const w=JSON.parse(localStorage.getItem('watch')||'[]');if(!w.includes(v))w.push(v);localStorage.setItem('watch',JSON.stringify(w));document.getElementById('watchInput').value='';renderWatch();}
 function delWatch(i){const w=JSON.parse(localStorage.getItem('watch')||'[]');w.splice(i,1);localStorage.setItem('watch',JSON.stringify(w));renderWatch();}
 refreshAll();
 </script></body></html>

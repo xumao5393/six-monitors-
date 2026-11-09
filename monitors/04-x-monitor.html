@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>X监测（只读）</title><script src="chart.umd.min.js"></script>
+<title>X监测（只读）</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -45,12 +45,37 @@ th{color:#0369a1}
 .warn{background:#f0f9ff;border:1px solid #7dd3fc}
 .big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
 .grid .card .big{color:#111827;-webkit-text-fill-color:#111827}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
+
+.err{display:none;border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6;background:#fef2f2;border:1px solid #fca5a5;color:#991b1b}
+@media (max-width:720px){
+header{padding:12px 14px}
+h1{font-size:18px}
+.hero h2{font-size:22px}
+.grid{grid-template-columns:1fr 1fr}
+.feed{grid-template-columns:1fr}
+.card{overflow-x:auto}
+table{display:block;overflow-x:auto;white-space:nowrap}
+.card canvas{height:200px !important}
+header button{margin-left:0;width:100%}
+main{padding:14px}
+#handle{width:100% !important}
+}
 </style></head><body>
 <header><h1>𝕏 X监测（只读）</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge">未获取</span></header>
 <main>
-<section class="hero"><h2>X 监测 · 只读</h2><p>输入任意公开账号，看粉丝与帖子。不登录、不发帖、不打扰。</p><div class="feed"><div><b>👁 只读</b>不登录、不发帖、不回复、不关注——只看公开数据。</div><div><b>🔄 双通道</b>FxTwitter 主源 → VxTwitter 替补，哪个通了用哪个，都标清楚。</div><div><b>⚠️ 缺失不编</b>接口没给的字段就写「未获取」，绝不编数。</div></div></section>
-<div class="warn">只读监测：不登录、不发帖、不回复、不关注。输入任意<b>公开</b> X 账号（不预设任何账号），数据来自 FxTwitter / VxTwitter 公开接口，帖子来自 FxTwitter 时间线接口。接口未返回的字段显示「未获取」，不编数。</div>
-<div class="card"><input id="handle" placeholder="输入公开账号，如 nasa" style="width:260px"> <button onclick="refreshAll()">🔄 刷新</button></div>
+<section class="hero"><h2>X 监测 · 只读</h2><p>输入任意公开账号，看粉丝与帖子。不登录、不发帖、不打扰。</p><div class="feed"><div><b>👁 只读</b>不登录、不发帖、不回复、不关注——只看公开数据。</div><div><b>🔄 单通道</b>只走 FxTwitter 主源；VxTwitter 替补已失效（2026-11-09 实测 403 Cloudflare），不再尝试，失败就如实显示「未获取」。</div><div><b>⚠️ 缺失不编</b>接口没给的字段就写「未获取」，绝不编数。</div></div></section>
+<div class="warn">只读监测：不登录、不发帖、不回复、不关注。输入任意<b>公开</b> X 账号（不预设任何账号），数据只来自 FxTwitter 公开接口（/2/profile/{账号} 与 /statuses）。VxTwitter 替补已失效（2026-11-09 实测 403 Cloudflare），不做替补；不接 Worker / 官方 API（需用户 token）。接口未返回的字段显示「未获取」，不编数。</div>
+<div class="card"><input id="handle" placeholder="输入公开账号，如 nasa" style="width:260px"> <button onclick="refreshAll()">🔄 刷新</button><div id="err" class="err" role="alert"></div></div>
 <div class="grid" id="kpis"></div>
 <div class="card"><h3>热搜（美国）</h3><p class="note">trends24.in 只提供 HTML 页面且不带 CORS 头，浏览器无法直接读取；本页不伪造榜单。请手动打开 <a href="https://trends24.in/united-states/" target="_blank" rel="noopener">trends24.in/united-states</a> 查看实时热搜。</p></div>
 <div class="card"><h3>帖子明细</h3><table><thead><tr><th>时间</th><th>内容</th><th>点赞</th><th>回复</th><th>转发</th></tr></thead><tbody id="posts"><tr><td colspan="5">未刷新 — 输入账号并刷新后加载；若公开接口不提供时间线，将如实标注</td></tr></tbody></table></div>
@@ -65,9 +90,11 @@ function setKPIs(p){
   ['粉丝',fmt(p?.followers)],['关注',fmt(p?.following)],['帖子',fmt(p?.tweets)],['总获赞',fmt(p?.likes)]
  ].map(([k,v])=>`<div class="card"><h3>${k}</h3><div class="big">${v}</div></div>`).join('');
 }
-async function refreshAll(){
+async function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','true');var _u=document.getElementById('updated');if(_u)_u.textContent='正在拉取…';setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},30000);
  const h=document.getElementById('handle').value.trim().replace(/^@/,'');
- if(!h){alert('请先输入公开账号');return;}
+ const errEl=document.getElementById('err');
+ if(!h){errEl.style.display='block';errEl.textContent='请先输入公开账号（例如 nasa），再点刷新。';return;}
+ errEl.style.display='none';errEl.textContent='';
  const src=[];let profile=null,role='missing';
  // 主源：FxTwitter /2/profile/{handle} -> {user:{followers,following,statuses,likes}}
  try{const d=await fetchTO('https://api.fxtwitter.com/2/profile/'+encodeURIComponent(h));
@@ -75,17 +102,13 @@ async function refreshAll(){
    if(u&&typeof u.followers==='number'){profile={followers:u.followers,following:u.following,tweets:u.statuses,likes:u.likes};role='primary';src.push(['FxTwitter','主源','正常',new Date().toLocaleString('zh-CN')]);}
    else throw new Error('no user');
  }catch(e){src.push(['FxTwitter','主源','失败','—']);}
- // 替补：VxTwitter /{handle} -> 顶层 {followers_count,following_count,tweet_count}，无 user 包装、无总获赞
- if(!profile){
-   try{const d=await fetchTO('https://api.vxtwitter.com/'+encodeURIComponent(h));
-     if(d&&typeof d.followers_count==='number'){profile={followers:d.followers_count,following:d.following_count,tweets:d.tweet_count,likes:undefined};role='backup';src.push(['VxTwitter','替补','正常',new Date().toLocaleString('zh-CN')]);}
-     else throw new Error('no user');
-   }catch(e){src.push(['VxTwitter','替补','失败','—']);}
- }
+ // VxTwitter 替补已下线：2026-11-09 实测 403 Cloudflare 挑战页，不再尝试。
+ // （不接 Worker / 官方 API：需用户 token，超出纯静态范围。）
+ if(!profile){src.push(['VxTwitter','替补失效','替补失效（2026-11-09 实测 403 CF），未尝试','—']);}
  setKPIs(profile);
- const b=document.getElementById('srcBadge');b.textContent=profile?(role==='primary'?'主源 · FxTwitter':'替补源 · VxTwitter'):'未获取';b.className='badge '+(role==='primary'?'':role==='backup'?'backup':'cache');
+ const b=document.getElementById('srcBadge');b.textContent=profile?'主源 · FxTwitter':'未获取';b.className='badge '+(role==='primary'?'':'cache');
  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
- document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补'?'backup':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+'<p class="note">帖子：FxTwitter 时间线接口 /2/profile/{账号}/statuses；VxTwitter 无时间线接口（404），不做替补。字段以接口实测为准：转发为 reposts；浏览量接口有返回，但本表不展示。</p>';
+ document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补失效'?'missing':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+'<p class="note">帖子：FxTwitter 时间线接口 /2/profile/{账号}/statuses。VxTwitter 替补失效（2026-11-09 实测 403 CF），不做替补。字段以接口实测为准：转发为 reposts；浏览量接口有返回，但本表不展示。</p>';
  // 帖子明细：FxTwitter 时间线（/2/profile/{handle}/statuses -> {results:[{created_at,created_timestamp,text,likes,replies,reposts,views}]})
  const postsEl=document.getElementById('posts');
  try{
@@ -99,7 +122,8 @@ async function refreshAll(){
      return `<tr><td>${time}</td><td><a href="${esc(t.url||('https://x.com/'+encodeURIComponent(h)+'/status/'+t.id))}" target="_blank" rel="noopener">${text}</a></td><td>${fmt(t.likes)}</td><td>${fmt(t.replies)}</td><td>${fmt(t.reposts)}</td></tr>`;
    }).join('');
  }catch(e){
-   postsEl.innerHTML='<tr><td colspan="5">未获取 — 公开接口不提供时间线（FxTwitter 时间线接口失败，VxTwitter 无时间线接口）</td></tr>';
+   postsEl.innerHTML='<tr><td colspan="5">未获取 — 公开接口不提供时间线（FxTwitter 时间线接口失败）</td></tr>';
  }
 }
+setKPIs(null);
 </script></body></html>

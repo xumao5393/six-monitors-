@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>热搜热榜聚合</title><script src="chart.umd.min.js"></script>
+<title>热搜热榜聚合</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -51,15 +51,44 @@ th{color:#be123c}
 .warn{background:#fff1f2;border:1px solid #fda4af}
 .big{background:linear-gradient(120deg,#111827,#374151);-webkit-background-clip:text;background-clip:text;color:transparent}
 .grid.card.big{color:#111827;-webkit-text-fill-color:#111827}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
+
+.tabs{display:none;gap:8px;flex-wrap:wrap}
+.tabs .tab{margin:0;background:#fff;color:#991b1b;box-shadow:none;border:1px solid #fecaca;padding:8px 14px}
+.tabs .tab.on{background:#991b1b;color:#fff}
+@media (max-width:720px){
+header{padding:12px 14px}
+h1{font-size:18px}
+.hero h2{font-size:22px}
+.grid{grid-template-columns:1fr 1fr}
+.feed{grid-template-columns:1fr}
+.plat{grid-template-columns:1fr}
+.card{overflow-x:auto}
+table{display:block;overflow-x:auto;white-space:nowrap}
+.card canvas{height:200px !important}
+header button{margin-left:0;width:100%}
+.tabs{display:flex}
+main{padding:14px}
+}
 </style></head><body>
 <header><h1>🔥 热搜热榜聚合</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
-<section class="hero"><h2>全网刷屏：BLG 战胜 T1，挺进决赛</h2><p>抖音热度 1,213 万（第 1 名）、B 站电竞榜第 8 名同场话题、微博多条电竞热搜同上榜。三个平台同时刷屏，是今天最确定的流量。</p><div class="feed"><div><b>✍️ 这个能怎么写</b>「电竞决赛夜，普通人怎么用 AI 蹭这波」——AI 剪决赛高光、AI 做赛后梗图、AI 写观赛文案，三步出片。</div><div><b>🔥 次热</b>「外资持续看好中国发展前景」抖音第 3（1,113 万热度），财经/副业号可接「外资看好什么赛道」。</div><div><b>⚠️ 诚实说明</b>热榜源都不稳：微博要登录、知乎 401、第三方聚合 404。本页每个平台块独立降级，拉不到就显示「未获取」，绝不编数字。</div></div></section>
-<p class="note">铁律：<b>每个数据源必须有备份（主源 → 备份 → 缓存）</b>，并标注抓取时间与过期状态。知乎是例外——主源与备份均被拦截、且无可用缓存，<b>本页明确说明它没有备份</b>，不假装有。缓存快照核实于 <b>2026-11-09 15:15 CST</b>（curl 实测），超过 12 小时自动标「已过期」。</p>
+<section class="hero"><h2 id="heroTitle">正在读取 Actions 快照…</h2><p id="heroDesc">Hero 由快照 Top 1 生成，不再写死旧热点。</p><div class="feed"><div><b>✍️ 这个能怎么写</b>把今日 Top 1 变成选题：AI 剪高光、AI 做梗图、AI 写文案，三步出片。</div><div id="heroFeed2"><b>🔥 次热</b>读取中…</div><div><b>⚠️ 诚实说明</b>热榜源都不稳：微博要登录、知乎 401、第三方聚合 404。本页每个平台块独立降级，拉不到就显示「未获取」，绝不编数字。</div></div></section>
+<p class="note">主源是 <b>Actions 快照 data/hot.json</b>（GitHub Actions 每 6 小时在 runner 上 curl 微博国际版 + 抖音热搜，浏览器直连因 CORS 必然失败，改读同域快照）。某平台快照失败时该块独立显示「未获取」，不拿旧榜冒充。知乎 curl 亦 401，固定「未获取 + 手动链接」。只有快照文件本身读不到时，才显示嵌入式缓存（2026-11-09 15:15 CST curl 实测），超过 12 小时自动标「已过期」。</p>
 <div class="grid" id="kpis"></div>
-<div class="card"><h3>各平台 Top 1 热度对比（缓存样本，2026-11-09 15:15 CST 核实）</h3><div style="position:relative;height:260px"><canvas id="chart"></canvas></div><p class="note">B 站排行榜不公布热度数值，故无柱形；知乎未获取，故无柱形。抖音、微博数值为 curl 实测的 Top 1 热度值。</p></div>
+<div class="card"><h3>各平台 Top 1 热度对比（Actions 快照）</h3><div style="position:relative;height:260px"><canvas id="chart"></canvas></div><p class="note" id="chartNote">各平台 Top 1 热度（Actions 快照）。</p></div>
 
 <h2 class="section-title" style="color:#fff">📋 各平台 Top 榜（每块独立状态）</h2>
+<div class="tabs" id="tabs"></div>
 <div class="plat" id="plats"></div>
 
 <div class="card"><h3>✍️ 今日值得写话题 · 人工策展 2026-11-09</h3>
@@ -76,92 +105,148 @@ th{color:#be123c}
 <script>
 const CACHE_TS=new Date('2026-11-09T15:15:00+08:00').getTime();
 const CACHE_LABEL='2026-11-09 15:15 CST';
-function staleBadge(){const h=(Date.now()-CACHE_TS)/3600000;return h>12?'<span class="badge stale">已过期（缓存 '+Math.floor(h)+' 小时前）</span>':'<span class="badge cache">缓存样本 · '+CACHE_LABEL+'</span>';}
-/* 缓存样本：2026-11-09 15:15 CST curl 实测，非编造。微博：weibointl.api.weibo.cn（HTTP 200）；
-抖音：iesdouyin.com hotsearch（HTTP 200）；B站：api.bilibili.com ranking v2（HTTP 200，无热度值）。
-知乎：api/v3 hot-lists 返回 401 身份未验证，备份 top_search 返回 403，无缓存。*/
+/* 嵌入式缓存：仅当 data/hot.json 本身读不到时才用（2026-11-09 15:15 CST curl 实测）。
+   正常情况下页面只读 Actions 快照 data/hot.json，绝不拿缓存冒充当日热点。*/
 const CACHE={
 weibo:[['iG投资人开团AL',1164166],['Doran说T1本可以赢BLG',826914],['为了守护万家灯火他们迎难而上',697958],['日本地铁太压抑了',661475],['为什么满地都是口腔诊所',621747],['再婚皇后道具疑似是在拼多多买的',570308]],
 douyin:[['BLG战胜T1挺进决赛',12135323],['后知后觉又过了一个秋',11157762],['外资持续看好中国发展前景',11131960],['今日寒衣节',10888230],['76人送公牛7连败',10318245],['攻击11全方位展示',10097102]],
 bili:[['《崩坏：星穹铁道》星神★阿哈角色PV——「让骰子飞」','手机游戏'],['近十几年的梗都在这里了','人力VOCALOID'],['火柴人 VS 动画师 第十四集 黑暗时代','日常'],['《再飞行！》MV：终于完整的旋律','综合'],['人类饲养指南','绘画'],['11月9日 BLG vs T1','电子竞技']],
 };
 const PLATS=[
-{id:'weibo',name:'微博',icon:'🔴',primary:'微博国际版接口 weibointl.api.weibo.cn（curl 200）',backup:'m.weibo.cn 实时热搜接口（curl 302，不稳定）',manual:'https://s.weibo.com/top/summary',cache:'有',endpoint:'https://weibointl.api.weibo.cn/portal.php?ct=feed&a=search_topic'},
-{id:'douyin',name:'抖音',icon:'🎵',primary:'抖音热搜榜 iesdouyin.com（curl 200）',backup:'⚠️ 无独立备份源——未找到第二个可用的抖音热搜接口，已明确标注',manual:'https://www.douyin.com/',cache:'有',endpoint:'https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/'},
-{id:'zhihu',name:'知乎',icon:'📘',primary:'知乎热榜 api/v3 hot-lists（curl 401 身份未验证）',backup:'⚠️ 无可用备份源——备份接口 top_search 返回 403，且无缓存',manual:'https://www.zhihu.com/hot',cache:'无',endpoint:'https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10'},
-{id:'bili',name:'B站',icon:'📺',primary:'B站排行榜 api.bilibili.com ranking v2（curl 200）',backup:'B站热搜词 search/square（curl 200，已核实）',manual:'https://www.bilibili.com/v/popular/rank/all',cache:'有',endpoint:'https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all'},
+{id:'weibo',name:'微博',icon:'🔴',curl:'微博国际版 weibointl.api.weibo.cn（curl 200）',browser:'跨域拦截（无 CORS 头）',manual:'https://s.weibo.com/top/summary',endpoint:'https://weibointl.api.weibo.cn/portal.php?ct=feed&a=search_topic'},
+{id:'douyin',name:'抖音',icon:'🎵',curl:'抖音热搜榜 iesdouyin.com（curl 200）',browser:'跨域拦截（无 Allow-Origin）',manual:'https://www.douyin.com/',endpoint:'https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/'},
+{id:'zhihu',name:'知乎',icon:'📘',curl:'知乎热榜 api/v3 hot-lists（curl 401 身份未验证）',browser:'401（同源拦截）',manual:'https://www.zhihu.com/hot',endpoint:'https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10'},
+{id:'bili',name:'B站',icon:'📺',curl:'B站排行榜 api.bilibili.com ranking v2（curl 200，无热度值）',browser:'跨域拦截 / WAF 不稳',manual:'https://www.bilibili.com/v/popular/rank/all',endpoint:'https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all'},
 ];
-let chart;
-function fmt(n){return n>=10000?(n/10000).toFixed(1)+'万':n.toLocaleString();}
-function renderPlats(states){
-document.getElementById('plats').innerHTML=PLATS.map(p=>{
-const s=states[p.id]||{role:'cache'};
-const badge=s.role==='live'?'<span class="badge live">主源 · 直连成功</span>':s.role==='backup'?'<span class="badge backup">备份源</span>':s.role==='missing'?'<span class="badge missing">未获取</span>':staleBadge();
-const time=s.time||(s.role==='missing'?'—':CACHE_LABEL);
-let body='';
-if(s.role==='missing'){
-body=`<div class="missing-box">未获取：主源与备份均失败，且无可用缓存。<br>请手动打开 <a href="${p.manual}" target="_blank" rel="noopener">官方热榜 ↗</a> 查看。</div>`;
-}else{
-const rows=(s.items||CACHE[p.id]||[]).map((it,i)=>{
-if(p.id==='bili')return `<li>${it[0]} <span>${it[1]}</span></li>`;
-return `<li>${it[0]} <span>${fmt(it[1])}</span></li>`;
-}).join('');
-body=`<ol>${rows}</ol><p class="note">来源：${s.role==='live'?'主源直连':s.role==='backup'?'备份源':'缓存样本（'+CACHE_LABEL+' 核实）'} · <a href="${p.manual}" target="_blank" rel="noopener">官方榜单 ↗</a></p>`;
+let chart, SNAP=null, SNAP_OK=false, activeTab='weibo';
+function fmt(n){return n==null?'—':(n>=10000?(n/10000).toFixed(1)+'万':Number(n).toLocaleString());}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function platItems(id){
+  if(SNAP_OK&&SNAP&&SNAP.platforms&&SNAP.platforms[id])return SNAP.platforms[id];
+  return null;
 }
-return `<div class="card"><h3>${p.icon} ${p.name} ${badge}</h3><div class="chain"><b>主源：</b>${p.primary}<br><b>备份：</b>${p.backup}<br><b>缓存：</b>${p.cache==='有'?'有（'+CACHE_LABEL+'）':'无'} · 更新：${time}</div>${body}</div>`;
-}).join('');
+function top1List(){
+  // snapshot Top1 per platform (heat-bearing only: douyin, weibo)
+  const out=[];
+  for(const id of ['douyin','weibo']){
+    const p=platItems(id);
+    if(p&&p.ok&&p.items&&p.items.length&&typeof p.items[0].heat==='number')out.push({id,title:p.items[0].title,heat:p.items[0].heat});
+  }
+  return out.sort((a,b)=>b.heat-a.heat);
 }
-async function fetchTO(u,ms=8000){const c=new AbortController();setTimeout(()=>c.abort(),ms);const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
-function renderKpis(liveCount){
-document.getElementById('kpis').innerHTML=
-`<div class="card"><h3>监测平台</h3><div class="big">4</div><div class="note">微博 / 抖音 / 知乎 / B站</div></div>`+
-`<div class="card"><h3>curl 核实成功</h3><div class="big">3 / 4</div><div class="note">微博、抖音、B站（2026-11-09）</div></div>`+
-`<div class="card"><h3>浏览器直连成功</h3><div class="big">${liveCount}</div><div class="note">跨域拦截时自动降级为缓存</div></div>`+
-`<div class="card"><h3>未获取</h3><div class="big">1</div><div class="note">知乎（401/403，无备份无缓存）</div></div>`+
-`<div class="card"><h3>全网同上榜</h3><div class="big">1</div><div class="note">BLG vs T1（抖音/B站/微博）</div></div>`;
+function renderHero(){
+  const tops=top1List();
+  const h2=document.getElementById('heroTitle'), desc=document.getElementById('heroDesc'), feed2=document.getElementById('heroFeed2');
+  if(!tops.length){
+    h2.textContent='暂无实时热点（快照未获取）';
+    desc.textContent='Actions 快照本次未取到任何平台 Top 1（或快照文件未生成）。各平台块会独立显示「未获取」，绝不拿旧热点冒充今日新闻。';
+    feed2.innerHTML='<b>🔥 次热</b>未获取。';
+    return;
+  }
+  const t=tops[0];
+  const platName=PLATS.find(p=>p.id===t.id).name;
+  h2.textContent=t.title;
+  desc.textContent=platName+'热度 '+fmt(t.heat)+'（第 1 名）'+(tops[1]?'；'+PLATS.find(p=>p.id===tops[1].id).name+' Top 1 为「'+tops[1].title+'」（'+fmt(tops[1].heat)+'）':'')+'。数据来自 Actions 快照 data/hot.json。';
+  // 次热：同一平台第 2 名，或另一平台 Top 1
+  const p=platItems(t.id);
+  const second=(p&&p.items&&p.items[1])?p.items[1]:null;
+  feed2.innerHTML=second?'<b>🔥 次热</b>'+esc(second.title)+'（'+platName+'第 2，'+fmt(second.heat)+'）':'<b>🔥 次热</b>'+esc(tops[1]?tops[1].title:'未获取');
+}
+function renderKpis(){
+  const plats=SNAP&&SNAP.platforms?SNAP.platforms:{};
+  const okCount=PLATS.filter(p=>plats[p.id]&&plats[p.id].ok).length;
+  const missCount=PLATS.filter(p=>!(plats[p.id]&&plats[p.id].ok)).length;
+  const snapTime=SNAP?((SNAP.fetched_at_cst||SNAP.fetched_at||'—')):'—';
+  // 全网同上榜：标题在 ≥2 个平台 Top 10 中出现
+  const seen={};let cross=0;
+  PLATS.forEach(p=>{const pl=plats[p.id];(pl&&pl.items||[]).forEach(it=>{const t=it.title;seen[t]=(seen[t]||new Set());seen[t].add(p.id);});});
+  cross=Object.values(seen).filter(s=>s.size>=2).length;
+  const badge=SNAP_OK?'Actions 快照':'缓存样本';
+  document.getElementById('kpis').innerHTML=
+  `<div class="card"><h3>监测平台</h3><div class="big">4</div><div class="note">微博 / 抖音 / 知乎 / B站</div></div>`+
+  `<div class="card"><h3>Actions 快照成功</h3><div class="big">${okCount} / 4</div><div class="note">上次 Actions 成功平台数（${badge} · ${esc(snapTime)}）</div></div>`+
+  `<div class="card"><h3>未获取</h3><div class="big">${missCount}</div><div class="note">快照失败的平台独立显示「未获取」</div></div>`+
+  `<div class="card"><h3>全网同上榜</h3><div class="big">${cross}</div><div class="note">标题同时出现在 ≥2 个平台 Top 10</div></div>`+
+  `<div class="card"><h3>快照时间</h3><div class="big" style="font-size:20px">${esc(snapTime)}</div><div class="note">${SNAP_OK?'Actions 每 6 小时更新':'快照文件未读到，显示嵌入式缓存'}</div></div>`;
 }
 function draw(){
-if(chart)chart.destroy();
-chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:['抖音','微博'],datasets:[{data:[12135323,1164166],backgroundColor:['#e11d48','#f97316']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxRotation:0,minRotation:0}},y:{ticks:{callback:v=>fmt(v)}}}}});
+  const tops=top1List();
+  const labels=tops.map(t=>PLATS.find(p=>p.id===t.id).name), data=tops.map(t=>t.heat);
+  document.getElementById('chartNote').textContent=tops.length?'各平台 Top 1 热度（Actions 快照）。B 站排行榜不公布热度数值，故无柱形；知乎未获取，故无柱形。':'快照未获取，暂无 Top 1 热度可画。';
+  if(chart)chart.destroy();
+  chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:labels.length?labels:['暂无数据'],datasets:[{data:data.length?data:[0],backgroundColor:['#e11d48','#f97316']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxRotation:0,minRotation:0}},y:{ticks:{callback:v=>fmt(v)}}}}});
+}
+function renderPlats(){
+  const tabs=document.getElementById('tabs');
+  tabs.innerHTML=PLATS.map(p=>`<button class="tab${activeTab===p.id?' on':''}" onclick="setTab('${p.id}')">${p.icon} ${p.name}</button>`).join('');
+  document.getElementById('plats').innerHTML=PLATS.map(p=>{
+    const sp=platItems(p.id);
+    let badge, time, body;
+    if(SNAP_OK&&sp){
+      if(sp.ok&&sp.items&&sp.items.length){
+        badge='<span class="badge live">Actions 快照 · 成功</span>'; time=SNAP.fetched_at_cst||SNAP.fetched_at;
+        const rows=sp.items.slice(0,6).map(it=>{
+          if(p.id==='bili')return `<li>${esc(it.title)} <span>${esc(it.category||'')}</span></li>`;
+          return `<li>${esc(it.title)} <span>${fmt(it.heat)}</span></li>`;
+        }).join('');
+        body=`<ol>${rows}</ol><p class="note">来源：Actions 快照（curl 服务端） · <a href="${p.manual}" target="_blank" rel="noopener">官方榜单 ↗</a></p>`;
+      }else{
+        badge='<span class="badge missing">未获取</span>'; time='—';
+        body=`<div class="missing-box">未获取：Actions 本次抓取失败${sp.http?'（HTTP '+sp.http+'）':''}${sp.error?' · '+esc(sp.error):''}，且不拿旧榜冒充当前榜。<br>请手动打开 <a href="${p.manual}" target="_blank" rel="noopener">官方热榜 ↗</a> 查看。</div>`;
+      }
+    }else{
+      // 嵌入式缓存兜底（快照文件读不到时）
+      const h=(Date.now()-CACHE_TS)/3600000;
+      badge=h>12?'<span class="badge stale">已过期（缓存 '+Math.floor(h)+' 小时前）</span>':'<span class="badge cache">缓存样本 · '+CACHE_LABEL+'</span>';
+      time=CACHE_LABEL;
+      if(p.id==='zhihu'||!CACHE[p.id]){
+        badge='<span class="badge missing">未获取</span>';
+        body=`<div class="missing-box">未获取：主源与备份均失败，且无可用缓存。<br>请手动打开 <a href="${p.manual}" target="_blank" rel="noopener">官方热榜 ↗</a> 查看。</div>`;
+      }else{
+        const rows=CACHE[p.id].map(it=>{
+          if(p.id==='bili')return `<li>${esc(it[0])} <span>${esc(it[1])}</span></li>`;
+          return `<li>${esc(it[0])} <span>${fmt(it[1])}</span></li>`;
+        }).join('');
+        body=`<ol>${rows}</ol><p class="note">来源：缓存样本（${CACHE_LABEL} 核实） · <a href="${p.manual}" target="_blank" rel="noopener">官方榜单 ↗</a></p>`;
+      }
+    }
+    return `<div class="card plat-card" data-plat="${p.id}"><h3>${p.icon} ${p.name} ${badge}</h3><div class="chain"><b>curl（服务端）：</b>${esc(p.curl)}<br><b>浏览器：</b>${esc(p.browser)}<br><b>更新：</b>${esc(time)}</div>${body}</div>`;
+  }).join('');
+  applyTab();
+}
+function setTab(id){activeTab=id;renderPlats();}
+function applyTab(){
+  // 移动端（≤720px）只显示当前 tab 的平台卡；桌面端全部显示
+  const mobile=window.matchMedia('(max-width:720px)').matches;
+  document.querySelectorAll('.plat-card').forEach(el=>{
+    el.style.display=(!mobile||el.dataset.plat===activeTab)?'':'none';
+  });
+}
+window.addEventListener('resize',applyTab);
+function renderSources(){
+  const rows=PLATS.map(p=>{
+    const sp=platItems(p.id);
+    const curl=SNAP_OK&&sp?(sp.ok?'✅ 成功（HTTP '+(sp.http||200)+'）':'❌ 失败'+(sp.http?'（HTTP '+sp.http+'）':'')+(sp.error?' · '+sp.error:'')):'—（快照未读到）';
+    const brow=p.browser;
+    return `<tr><td>${p.icon} ${p.name}</td><td>${esc(curl)}</td><td>${esc(brow)}</td></tr>`;
+  }).join('');
+  document.getElementById('sources').innerHTML=`<table><thead><tr><th>平台</th><th>curl（服务端 · Actions）</th><th>浏览器直连</th></tr></thead><tbody>${rows}</tbody></table><p class="note">curl 列 = Actions runner 上 curl 的实测结果（快照文件 data/hot.json）；浏览器列 = 浏览器直连的预期结果——微博/抖音/B站无 CORS 头，直连失败是预期，页面改读同域快照。知乎 curl 亦 401，固定「未获取 + 手动链接」。</p>`;
 }
 async function refreshAll(){
-const states={};let liveCount=0;const src=[];
-for(const p of PLATS){
-let done=false;
-try{
-const d=await fetchTO(p.endpoint);
-let items=null;
-if(p.id==='weibo'&&d.data)items=d.data.slice(0,6).map(x=>[x.title,x.number]);
-if(p.id==='douyin'&&d.word_list)items=d.word_list.slice(0,6).map(x=>[x.word,x.hot_value]);
-if(p.id==='bili'&&d.data&&d.data.list)items=d.data.list.slice(0,6).map(x=>[x.title,x.tname]);
-if(items&&items.length){states[p.id]={role:'live',items,time:new Date().toLocaleString('zh-CN')};liveCount++;done=true;src.push([p.name+' 主源','主源','直连成功',new Date().toLocaleString('zh-CN')]);}
-}catch(e){src.push([p.name+' 主源','主源','失败（跨域/网络，'+e.message+'）','—']);}
-if(!done){
-/* 备份源：B站有已核实的热搜词接口；微博 m 端 302 不稳定，仍尝试一次；抖音、知乎无可用备份，直接进缓存/未获取。*/
-if(p.id==='bili'){
-try{const d=await fetchTO('https://api.bilibili.com/x/web-interface/search/square?limit=10');
-if(d.data&&d.data.trending&&d.data.trending.list){states[p.id]={role:'backup',items:d.data.trending.list.slice(0,6).map(x=>[x.show_name,'热搜词']),time:new Date().toLocaleString('zh-CN')};done=true;src.push(['B站备份（热搜词）','备份','成功',new Date().toLocaleString('zh-CN')]);}
-}catch(e){src.push(['B站备份（热搜词）','备份','失败','—']);}
-} else if(p.id==='weibo'){
-try{const d=await fetchTO('https://m.weibo.cn/api/container/getIndex?containerid=106003type%3D25%26t%3D3%26disable_hot%3D1%26filter_type%3Drealtimehot');
-const cards=(d.data&&d.data.cards)||[];const items=[];
-cards.forEach(c=>(c.card_group||[]).forEach(g=>{if(g.desc)items.push([g.desc.replace(/^#|#$/g,''),null]);}));
-if(items.length){states[p.id]={role:'backup',items:items.slice(0,6),time:new Date().toLocaleString('zh-CN')};done=true;src.push(['微博备份（m 端）','备份','成功',new Date().toLocaleString('zh-CN')]);}
-}catch(e){src.push(['微博备份（m 端）','备份','失败（302/跨域）','—']);}
-} else {
-src.push([p.name+' 备份','备份',p.id==='douyin'?'无独立备份源（已明确标注）':'无可用备份源（403）','—']);
-}
-}
-if(!done){
-if(CACHE[p.id]){states[p.id]={role:'cache',time:CACHE_LABEL};src.push([p.name+' 缓存','缓存','主/备份均失败，显示 '+CACHE_LABEL+' 核实样本',CACHE_LABEL]);}
-else{states[p.id]={role:'missing'};src.push([p.name,'—','主源 401/403、备份 403、无缓存 → 未获取',CACHE_LABEL]);}
-}
-}
-renderPlats(states);renderKpis(liveCount);draw();
-const b=document.getElementById('srcBadge');
-b.textContent=liveCount>0?'部分直连':'缓存样本';b.className='badge '+(liveCount>0?'live':'cache');
-document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN')+' · 缓存核实 '+CACHE_LABEL;
-document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'live':s[1]==='备份'?'backup':s[1]==='缓存'?'cache':'missing'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
+  document.getElementById('updated').textContent='正在拉取 Actions 快照…';
+  SNAP=null;SNAP_OK=false;
+  try{
+    const r=await fetch('data/hot.json',{cache:'no-store'});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const d=await r.json();
+    if(d&&d.platforms){SNAP=d;SNAP_OK=true;}
+  }catch(e){SNAP=null;SNAP_OK=false;}
+  renderHero();renderKpis();draw();renderPlats();renderSources();
+  const b=document.getElementById('srcBadge');
+  if(SNAP_OK){const n=PLATS.filter(p=>SNAP.platforms[p.id]&&SNAP.platforms[p.id].ok).length;b.textContent='Actions 快照 · '+n+'/4 平台';b.className='badge '+(n===4?'live':'backup');}
+  else{b.textContent='缓存样本';b.className='badge cache';}
+  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN')+(SNAP_OK?' · 快照 '+(SNAP.fetched_at_cst||SNAP.fetched_at):' · 快照未读到，显示 '+CACHE_LABEL+' 缓存');
 }
 refreshAll();
+
 </script></body></html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI大事件 / 监管动态监测</title><script src="chart.umd.min.js"></script>
+<title>AI大事件 / 监管动态监测</title><script src="./chart.umd.min.js"></script>
 <script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
@@ -26,6 +26,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;b
 th{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#991b1b}
 .note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6;background:#fff7ed;border:1px solid #fdba74}
 input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+button{background:#fff;margin-left:auto;color:#991b1b;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 canvas{max-width:100%}
 .card canvas{height:260px !important}
 .section-title{font-size:18px;font-weight:800;margin:6px 0 0}
@@ -41,8 +42,18 @@ header{background:linear-gradient(90deg,#0f172a,#7f1d1d,#b45309);color:#fff;box-
 .grid .card:nth-child(3){background:linear-gradient(135deg,#ede9fe,#ddd6fe);border-top-color:#7c3aed}
 .grid .card:nth-child(4){background:linear-gradient(135deg,#f1f5f9,#e2e8f0);border-top-color:#475569}
 .grid .card:nth-child(5){background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-top-color:#059669}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+    }
 </style></head><body>
-<header><h1>🚨 AI大事件 / 监管动态监测</h1><span class="sub">人工策展 · 非实时抓取 · 更新日期 2026-11-09</span><span class="badge manual">人工策展</span></header>
+<header><h1>🚨 AI大事件 / 监管动态监测</h1><span class="sub" id="updated">人工策展 · 非实时抓取 · 更新日期 2026-11-09</span><span class="badge manual">人工策展</span><span class="badge backup" id="ageBadge">样本年龄计算中…</span><button onclick="loadSample()">📥 载入样本</button></header>
 <main>
 <section class="hero"><h2>今日看点：水印来了，宕机没停</h2><p>Anthropic 11 月 3 日起给老模型加文本水印，欧盟 8 月 2 日起可对大模型厂商罚款；9–10 月 ChatGPT 与 Claude 各宕机一次，全栈停摆约 1 小时。负面与争议天然是流量，但每一条都先核对来源再写。</p><div class="feed"><div><b>✋ 人工策展</b>本页事件由人工逐条核对后录入，非实时抓取；无自动更新，过期请看更新日期。</div><div><b>🔗 双源核对</b>每条事件至少两个独立来源：主源 + 替补源，两个都列出；只有一个来源的会明确标注。</div><div><b>🛡 备份铁律</b>每个数据源都有 主源 → 替补 → 缓存 三层；无备份的来源会明确写「无备份」，不假装有。</div></div></section>
 <div class="warn">⚠️ <b>人工策展，非实时抓取。</b>本页不声称实时：事件表更新于 <b>2026-11-09</b>，之后的新事件尚未录入。所有日期、影响描述均来自所列来源的公开报道；厂商 status 页与科技媒体 RSS 需 Actions 快照才能稳定抓取（见下方数据源与备份），本静态页暂以人工快照呈现。</div>
@@ -83,8 +94,10 @@ header{background:linear-gradient(90deg,#0f172a,#7f1d1d,#b45309);color:#fff;box-
 </main>
 <script>
 function filterTable(){var t=document.getElementById('typeFilter').value,v=document.getElementById('vendorFilter').value;document.querySelectorAll('#events tr').forEach(function(r){r.style.display=(!t||r.dataset.type===t)&&(!v||r.dataset.vendor===v)?'':'none';});}
+function ageDays16(){return Math.floor((new Date()-new Date('2026-11-09T00:00:00+08:00'))/86400000);}
+function loadSample(){document.querySelector('main')?.setAttribute('aria-busy','true');const age=ageDays16();const ab=document.getElementById('ageBadge');ab.textContent=age<=0?'样本新鲜 · 策展于 2026-11-09':(age<=7?`样本 ${age} 天前策展`:`⚠️ 已过期 · 需重策展（${age} 天前）`);ab.className='badge '+(age>7?'missing':'backup');document.getElementById('updated').textContent='样本载入：'+new Date().toLocaleString('zh-CN')+'（仅刷新显示时间，不拉取新数据；策展于 2026-11-09）';draw();setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},2000);}
 function draw(){if(!window.Chart){setTimeout(draw,300);return;}
 new Chart(document.getElementById('typeChart'),{type:'bar',data:{labels:['监管','宕机','发布','调价','争议'],datasets:[{label:'事件数（条）',data:[3,3,3,1,0],backgroundColor:['#7c3aed','#dc2626','#0284c7','#059669','#ea580c']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});
 new Chart(document.getElementById('timeChart'),{type:'line',data:{labels:['2026-07','2026-08','2026-09','2026-10','2026-11'],datasets:[{label:'当月收录事件数（条）',data:[3,2,2,2,1],borderColor:'#dc2626',backgroundColor:'rgba(220,38,38,.15)',fill:true,tension:.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});}
-draw();
+loadSample();
 </script></body></html>
