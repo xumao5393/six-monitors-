@@ -1,6 +1,8 @@
 {
-  "fetched_at": "2026-11-09T14:46:40Z",
-  "fetched_at_cst": "2026-11-09 22:46:40 CST",
+  "fetched_at": "2026-11-09T23:46:35Z",
+  "fetched_at_cst": "2026-11-10 07:46:35 CST",
+  "checked_at": "2026-11-09T23:46:35Z",
+  "checked_at_cst": "2026-11-10 07:46:35 CST",
   "ok": true,
   "source": "GitHub Actions snapshot (curl, server-side) — see .github/workflows/snapshot.yml; browser direct fetch is CORS-blocked",
   "platforms": {
@@ -10,46 +12,48 @@
       "source": "https://weibointl.api.weibo.cn/portal.php?ct=feed&a=search_topic",
       "items": [
         {
-          "title": "W盛典内场",
-          "heat": 1745478
-        },
-        {
-          "title": "大型SUV第一名是小米澎程N90",
-          "heat": 1330254
-        },
-        {
-          "title": "铸牢共同体中华一家亲",
-          "heat": 1139073
-        },
-        {
-          "title": "尚公主官方拆cp",
-          "heat": 1134009
-        },
-        {
-          "title": "金鸡奖最佳男主角提名",
-          "heat": 1132933
-        },
-        {
-          "title": "王楚钦发文反思总结",
-          "heat": 1128034
-        },
-        {
-          "title": "Faker的格局",
-          "heat": 1122916
+          "title": "老人将6亿遗产留给再婚妻子",
+          "heat": 1033626
         },
         {
           "title": "白小纯 王子璇",
-          "heat": 1113381
+          "heat": 816156
         },
         {
-          "title": "比亚迪大唐前后轮毂装反",
-          "heat": 1108543
+          "title": "铸牢共同体中华一家亲",
+          "heat": 597064
         },
         {
-          "title": "哈尔滨烤地瓜原价1688到手8元",
-          "heat": 1105858
+          "title": "石家庄天降陨石最大单体35公斤",
+          "heat": 533343
+        },
+        {
+          "title": "美股高开高走科技股大涨",
+          "heat": 230939
+        },
+        {
+          "title": "张凌赫是真升咖了",
+          "heat": 212808
+        },
+        {
+          "title": "德牧不是狗是家里人",
+          "heat": 168822
+        },
+        {
+          "title": "男子搬家遭敲诈威胁除非把房子卖了",
+          "heat": 162994
+        },
+        {
+          "title": "大型SUV第一名是小米澎程N90",
+          "heat": 160407
+        },
+        {
+          "title": "骨科医生做手术要戴可撕式面罩",
+          "heat": 148766
         }
-      ]
+      ],
+      "updated_at": "2026-11-09T23:46:35Z",
+      "updated_at_cst": "2026-11-10 07:46:35 CST"
     },
     "douyin": {
       "ok": true,
@@ -57,46 +61,48 @@
       "source": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
       "items": [
         {
-          "title": "全网老吃家带着绝活开锅了",
-          "heat": 11849915
-        },
-        {
-          "title": "今日寒衣节",
-          "heat": 11829280
-        },
-        {
-          "title": "在互动中感受进博会多元魅力",
-          "heat": 11301088
-        },
-        {
-          "title": "我的家乡申请出战",
-          "heat": 11131821
-        },
-        {
-          "title": "爱旅游的人已拿到双11大结果",
-          "heat": 10490256
+          "title": "张可依青奥会100米栏夺冠",
+          "heat": 11296166
         },
         {
           "title": "攻击11全方位展示",
-          "heat": 10428521
+          "heat": 10986889
         },
         {
-          "title": "76人送公牛7连败",
-          "heat": 9279441
+          "title": "在互动中感受进博会多元魅力",
+          "heat": 10964985
         },
         {
-          "title": "波兰枪击事件致9死16伤",
-          "heat": 9079592
+          "title": "爱旅游的人已拿到双11大结果",
+          "heat": 10952966
         },
         {
-          "title": "张可依青奥会100米栏夺冠",
-          "heat": 8924977
+          "title": "全网老吃家带着绝活开锅了",
+          "heat": 10304361
+        },
+        {
+          "title": "我的家乡申请出战",
+          "heat": 10208687
         },
         {
           "title": "外交部回应美输华芯片相关问题",
-          "heat": 8844052
+          "heat": 9080697
+        },
+        {
+          "title": "说好的暖冬为啥寒潮这么凶",
+          "heat": 9038796
+        },
+        {
+          "title": "原来是冬天来了",
+          "heat": 8964457
+        },
+        {
+          "title": "王楚钦发文反思",
+          "heat": 8896972
         }
-      ]
+      ],
+      "updated_at": "2026-11-09T23:46:35Z",
+      "updated_at_cst": "2026-11-10 07:46:35 CST"
     },
     "zhihu": {
       "ok": false,
@@ -152,9 +158,176 @@
         }
       ],
       "error": "空响应（列表为空）"
+    },
+    "baidu": {
+      "ok": true,
+      "http": 200,
+      "source": "https://top.baidu.com/api/board?platform=pc&tab=realtime",
+      "items": [
+        {
+          "title": "养老金要崩盘？有压力≠会崩盘",
+          "heat": "7808799"
+        },
+        {
+          "title": "官方回应招医生月薪最高2499元",
+          "heat": "7711922"
+        },
+        {
+          "title": "进博“购物车”含“科”量足",
+          "heat": "7618048"
+        },
+        {
+          "title": "纳指大涨近3% 英伟达缩水12800亿元",
+          "heat": "7521247"
+        },
+        {
+          "title": "环卫工电子工牌惹争议",
+          "heat": "7429236"
+        },
+        {
+          "title": "特朗普称没必要再对伊朗采取军事行动",
+          "heat": "7333476"
+        },
+        {
+          "title": "男子因亲人去世失联 家属：人不在了",
+          "heat": "7233229"
+        },
+        {
+          "title": "伊朗最高领袖下令结束非战非和状态",
+          "heat": "7140016"
+        },
+        {
+          "title": "几块钱一瓶的尿素霜火了 医生提醒",
+          "heat": "7043491"
+        },
+        {
+          "title": "山姆“低价”始祖鸟到底值不值得冲",
+          "heat": "6947398"
+        }
+      ],
+      "updated_at": "2026-11-09T23:46:35Z",
+      "updated_at_cst": "2026-11-10 07:46:35 CST"
+    },
+    "toutiao": {
+      "ok": true,
+      "http": 200,
+      "source": "https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc",
+      "items": [
+        {
+          "title": "英伟达市值一夜蒸发12800亿元",
+          "link": "https://www.toutiao.com/trending/7706309750610202153/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%225%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706309750610202153%22%2C%22hot_board_impr_id%22%3A%22202611100746447A6810D5AA2B0FA15B24%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%8B%B1%E4%BC%9F%E8%BE%BE%E5%B8%82%E5%80%BC%E4%B8%80%E5%A4%9C%E8%92%B8%E5%8F%9112800%E4%BA%BF%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7706309750610202153"
+        },
+        {
+          "title": "中国骑手遇害案嫌犯大闹法庭",
+          "link": "https://www.toutiao.com/trending/7706179240496250916/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706179240496250916%22%2C%22hot_board_impr_id%22%3A%22202611100746447A6810D5AA2B0FA15B24%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E5%9B%BD%E9%AA%91%E6%89%8B%E9%81%87%E5%AE%B3%E6%A1%88%E5%AB%8C%E7%8A%AF%E5%A4%A7%E9%97%B9%E6%B3%95%E5%BA%AD%22%7D&rank=&style_id=40132&topic_id=7706179240496250916"
+        },
+        {
+          "title": "三大变化折射进博会开放新内涵",
+          "link": "https://www.toutiao.com/article/7706085493029454387"
+        },
+        {
+          "title": "山姆为何低价甩卖始祖鸟加拿大鹅",
+          "link": "https://www.toutiao.com/trending/7706095473626451510/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706095473626451510%22%2C%22hot_board_impr_id%22%3A%22202611100746447A6810D5AA2B0FA15B24%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B1%B1%E5%A7%86%E4%B8%BA%E4%BD%95%E4%BD%8E%E4%BB%B7%E7%94%A9%E5%8D%96%E5%A7%8B%E7%A5%96%E9%B8%9F%E5%8A%A0%E6%8B%BF%E5%A4%A7%E9%B9%85%22%7D&rank=&style_id=40132&topic_id=7706095473626451510"
+        },
+        {
+          "title": "老人立遗嘱将6亿遗产留给再婚妻子",
+          "link": "https://www.toutiao.com/trending/7706132006567968804/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706132006567968804%22%2C%22hot_board_impr_id%22%3A%22202611100746447A6810D5AA2B0FA15B24%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%80%81%E4%BA%BA%E7%AB%8B%E9%81%97%E5%98%B1%E5%B0%866%E4%BA%BF%E9%81%97%E4%BA%A7%E7%95%99%E7%BB%99%E5%86%8D%E5%A9%9A%E5%A6%BB%E5%AD%90%22%7D&rank=&style_id=40132&topic_id=7706132006567968804"
+        },
+        {
+          "title": "NBA官宣周最佳球员",
+          "link": "https://www.toutiao.com/trending/7706278189106135578/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706278189106135578%22%2C%22hot_board_impr_id%22%3A%22202611100746447A6810D5AA2B0FA15B24%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22NBA%E5%AE%98%E5%AE%A3%E5%91%A8%E6%9C%80%E4%BD%B3%E7%90%83%E5%91%98%22%7D&rank=&style_id=40132&topic_id=7706278189106135578"
+        },
+        {
+          "title": "东方新能拟斥资超9亿采购GPU算力板卡",
+          "link": "https://www.toutiao.com/trending/7706163130640204338/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706163130640204338%22%2C%22hot_board_impr_id%22%3A%22202611100746447A6810D5AA2B0FA15B24%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%9C%E6%96%B9%E6%96%B0%E8%83%BD%E6%8B%9F%E6%96%A5%E8%B5%84%E8%B6%859%E4%BA%BF%E9%87%87%E8%B4%ADGPU%E7%AE%97%E5%8A%9B%E6%9D%BF%E5%8D%A1%22%7D&rank=&style_id=40132&topic_id=7706163130640204338"
+        },
+        {
+          "title": "猪肉又便宜了",
+          "link": "https://www.toutiao.com/trending/7706168308793376819/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706168308793376819%22%2C%22hot_board_impr_id%22%3A%22202611100746447A6810D5AA2B0FA15B24%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%8C%AA%E8%82%89%E5%8F%88%E4%BE%BF%E5%AE%9C%E4%BA%86%22%7D&rank=&style_id=40132&topic_id=7706168308793376819"
+        },
+        {
+          "title": "Fable 5.2性价比反超Opus 5.5",
+          "link": "https://www.toutiao.com/trending/7706306643604016703/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706306643604016703%22%2C%22hot_board_impr_id%22%3A%22202611100746447A6810D5AA2B0FA15B24%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22Fable+5.2%E6%80%A7%E4%BB%B7%E6%AF%94%E5%8F%8D%E8%B6%85Opus+5.5%22%7D&rank=&style_id=40132&topic_id=7706306643604016703"
+        },
+        {
+          "title": "俄常驻联合国代表称不接受冻结乌冲突",
+          "link": "https://www.toutiao.com/trending/7706218011941782054/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227706218011941782054%22%2C%22hot_board_impr_id%22%3A%22202611100746447A6810D5AA2B0FA15B24%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BF%84%E5%B8%B8%E9%A9%BB%E8%81%94%E5%90%88%E5%9B%BD%E4%BB%A3%E8%A1%A8%E7%A7%B0%E4%B8%8D%E6%8E%A5%E5%8F%97%E5%86%BB%E7%BB%93%E4%B9%8C%E5%86%B2%E7%AA%81%22%7D&rank=&style_id=40132&topic_id=7706218011941782054"
+        }
+      ],
+      "updated_at": "2026-11-09T23:46:35Z",
+      "updated_at_cst": "2026-11-10 07:46:35 CST"
+    },
+    "x_us": {
+      "ok": true,
+      "http": 200,
+      "source": "https://trends24.in/united-states/",
+      "items": [
+        {
+          "title": "Jags",
+          "link": "https://twitter.com/search?q=Jags"
+        },
+        {
+          "title": "Jordan Davis",
+          "link": "https://twitter.com/search?q=Jordan%20Davis"
+        },
+        {
+          "title": "Jaguars",
+          "link": "https://twitter.com/search?q=Jaguars"
+        },
+        {
+          "title": "Howie",
+          "link": "https://twitter.com/search?q=Howie"
+        },
+        {
+          "title": "Massie",
+          "link": "https://twitter.com/search?q=Massie"
+        },
+        {
+          "title": "Gunn",
+          "link": "https://twitter.com/search?q=Gunn"
+        },
+        {
+          "title": "Fable 5.2",
+          "link": "https://twitter.com/search?q=Fable%205.2"
+        },
+        {
+          "title": "Superman",
+          "link": "https://twitter.com/search?q=Superman"
+        },
+        {
+          "title": "Ojomo",
+          "link": "https://twitter.com/search?q=Ojomo"
+        },
+        {
+          "title": "Eagles",
+          "link": "https://twitter.com/search?q=Eagles"
+        },
+        {
+          "title": "Batman",
+          "link": "https://twitter.com/search?q=Batman"
+        },
+        {
+          "title": "Snyder",
+          "link": "https://twitter.com/search?q=Snyder"
+        },
+        {
+          "title": "Bills",
+          "link": "https://twitter.com/search?q=Bills"
+        },
+        {
+          "title": "Pete Hegseth",
+          "link": "https://twitter.com/search?q=Pete%20Hegseth"
+        },
+        {
+          "title": "#DUUUVAL",
+          "link": "https://twitter.com/search?q=%23DUUUVAL"
+        }
+      ],
+      "updated_at": "2026-11-09T23:46:35Z",
+      "updated_at_cst": "2026-11-10 07:46:35 CST"
     }
   },
   "browser": {
-    "note": "浏览器直连：微博/抖音/B站均无 CORS 头，直连失败是预期；本文件为服务端 curl 快照，页面只读同域 JSON。知乎 curl 亦 401。"
+    "note": "浏览器直连：微博/抖音/B站/百度/头条均无 CORS 头，直连失败是预期；本文件为服务端 curl 快照，页面只读同域 JSON。知乎 curl 亦 401；X 美国趋势来自 trends24.in HTML 解析。"
   }
 }
