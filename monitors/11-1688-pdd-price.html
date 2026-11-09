@@ -107,7 +107,7 @@ function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','
  <tr><td>拼多多零售价</td><td>拼多多站内价（需登录，无公开接口）</td><td>淘宝同款零售价人工对照</td><td>本页样本区间</td><td><span class="badge backup">人工核对</span></td></tr>
  <tr><td>实时价格接口</td><td>无免费公开接口</td><td>无</td><td>无</td><td><span class="badge missing">无备份 · 已明示</span></td></tr>
  </tbody></table>`;
- render();document.querySelector('main')?.setAttribute('aria-busy','false');
+ document.getElementById('updated').textContent='缓存样本 · 更新于 2026-11-09';render();document.querySelector('main')?.setAttribute('aria-busy','false');
 }
 refreshAll();
 </script></body></html>
