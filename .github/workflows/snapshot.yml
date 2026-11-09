@@ -25,6 +25,11 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Sync to latest
+        run: |
+          git fetch origin main
+          git rebase origin/main
+
       - name: Run snapshot
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -34,12 +39,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin main
-          git rebase origin/main
           git add monitors/data/*.json
           if git diff --cached --quiet; then
             echo "No data changes."
           else
             git commit -m "chore(data): refresh snapshot [skip ci]"
-            git push || (git fetch origin main && git reset --hard origin/main && python .github/scripts/snapshot.py && git add monitors/data/*.json && git commit -m "chore(data): refresh snapshot [skip ci]" && git push)
+            git push || (git pull --rebase origin main || (git checkout --theirs monitors/data/*.json && git add monitors/data/*.json && git rebase --continue); git push)
           fi
