@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T19:47:08Z",
-  "fetched_at_cst": "2026-11-11 03:47:08 CST",
-  "checked_at": "2026-11-10T19:47:08Z",
-  "checked_at_cst": "2026-11-11 03:47:08 CST",
+  "fetched_at": "2026-11-10T20:47:09Z",
+  "fetched_at_cst": "2026-11-11 04:47:09 CST",
+  "checked_at": "2026-11-10T20:47:09Z",
+  "checked_at_cst": "2026-11-11 04:47:09 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -895,8 +895,8 @@
     {
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek: DeepSeek V4 Pro 0423",
-      "prompt_per_m": 0.9553,
-      "completion_per_m": 1.9105,
+      "prompt_per_m": 0.8973,
+      "completion_per_m": 1.7946,
       "context_length": 1048576
     },
     {
@@ -1916,41 +1916,6 @@
     }
   ],
   "models_dev_models": {
-    "google/gemini-4-argon": {
-      "provider": "google",
-      "id": "gemini-4-argon",
-      "name": "Gemini 4 Argon",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "google/gemini-4-carbon": {
-      "provider": "google",
-      "id": "gemini-4-carbon",
-      "name": "Gemini 4 Carbon",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "deepseek/deepseek-v4-pro": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-pro",
-      "name": "DeepSeek V4 Pro",
-      "input_per_m": 0.66,
-      "output_per_m": 1.98
-    },
-    "deepseek/deepseek-v4-flash": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
-    },
-    "deepseek/deepseek-v4-flash-vision-exp": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-flash-vision-exp",
-      "name": "DeepSeek V4 Flash Vision Exp",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
-    },
     "openai/gpt-6.1-sol": {
       "provider": "openai",
       "id": "gpt-6.1-sol",
@@ -1965,19 +1930,19 @@
       "input_per_m": 1,
       "output_per_m": 5
     },
-    "moonshotai/kimi-k3.1-pro": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro",
-      "name": "Kimi K3.1 Pro",
+    "google/gemini-4-carbon": {
+      "provider": "google",
+      "id": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
       "input_per_m": 2,
       "output_per_m": 10
     },
-    "moonshotai/kimi-k3.1-pro-highspeed": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro-highspeed",
-      "name": "Kimi K3.1 Pro Highspeed",
-      "input_per_m": 4,
-      "output_per_m": 20
+    "google/gemini-4-argon": {
+      "provider": "google",
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "input_per_m": 2,
+      "output_per_m": 10
     },
     "moonshotai/kimi-k3": {
       "provider": "moonshotai",
@@ -1986,17 +1951,38 @@
       "input_per_m": 3,
       "output_per_m": 15
     },
-    "anthropic/claude-opus-4-5-20251101": {
+    "moonshotai/kimi-k3.1-pro-highspeed": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro-highspeed",
+      "name": "Kimi K3.1 Pro Highspeed",
+      "input_per_m": 4,
+      "output_per_m": 20
+    },
+    "moonshotai/kimi-k3.1-pro": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "anthropic/claude-opus-5-5": {
       "provider": "anthropic",
-      "id": "claude-opus-4-5-20251101",
-      "name": "Claude Opus 4.5",
-      "input_per_m": 5,
-      "output_per_m": 25
+      "id": "claude-opus-5-5",
+      "name": "Claude Opus 5.5",
+      "input_per_m": 4,
+      "output_per_m": 20
     },
     "anthropic/claude-opus-5": {
       "provider": "anthropic",
       "id": "claude-opus-5",
       "name": "Claude Opus 5",
+      "input_per_m": 5,
+      "output_per_m": 25
+    },
+    "anthropic/claude-opus-4-5-20251101": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5-20251101",
+      "name": "Claude Opus 4.5",
       "input_per_m": 5,
       "output_per_m": 25
     },
@@ -2007,12 +1993,26 @@
       "input_per_m": 5,
       "output_per_m": 25
     },
-    "anthropic/claude-opus-5-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-5-5",
-      "name": "Claude Opus 5.5",
-      "input_per_m": 4,
-      "output_per_m": 20
+    "deepseek/deepseek-v4-flash": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
+    },
+    "deepseek/deepseek-v4-pro": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "input_per_m": 0.66,
+      "output_per_m": 1.98
+    },
+    "deepseek/deepseek-v4-flash-vision-exp": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek V4 Flash Vision Exp",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
     }
   },
   "history": {
@@ -4642,8 +4642,8 @@
         "completion_per_m": 15.0
       },
       "deepseek/deepseek-v4-pro": {
-        "prompt_per_m": 0.9553,
-        "completion_per_m": 1.9105
+        "prompt_per_m": 0.8973,
+        "completion_per_m": 1.7946
       },
       "deepseek/deepseek-v4-flash": {
         "prompt_per_m": 0.091,
