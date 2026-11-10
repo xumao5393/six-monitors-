@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T12:47:08Z",
-  "fetched_at_cst": "2026-11-10 20:47:08 CST",
-  "checked_at": "2026-11-10T12:47:08Z",
-  "checked_at_cst": "2026-11-10 20:47:08 CST",
+  "fetched_at": "2026-11-10T13:47:10Z",
+  "fetched_at_cst": "2026-11-10 21:47:10 CST",
+  "checked_at": "2026-11-10T13:47:10Z",
+  "checked_at_cst": "2026-11-10 21:47:10 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "david walliams",
+          "title": "gary sinise",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "todd monken browns quarterback decision",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "anthropic ipo",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "john malkovich",
+          "title": "cpi data",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "vitamin k deficiency bleeding",
+          "title": "gma deals and steals",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "cpi today",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ed gallrein",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "alex michelsen",
+          "title": "oviedo, spain",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "tommy lee jones",
+          "title": "south korea",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "troy aikman monday night football",
-          "traffic": "10000+",
+          "title": "dustin hoffman",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "houston weather",
+          "title": "india national under-19 cricket team vs united arab emirates national under-19 cricket team standings",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "cpi",
+          "title": "veterans",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,12 +68,42 @@
       "http": 200,
       "items": [
         {
-          "title": "yoasobi 香港演唱會",
+          "title": "cpi",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "麥當勞",
+          "title": "姚子羚",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "weather tomorrow",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "麥當勞 pokemon",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "明天的天氣",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "cuaca besok",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "陳自瑤",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "yoasobi 香港演唱會",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -83,37 +113,7 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "陳百祥",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "希威森",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "林淑茵",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "朱智賢",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "幻彩詠香江",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "周國豐",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "寵物",
+          "title": "蘇民峰",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
@@ -124,23 +124,43 @@
       "http": 200,
       "items": [
         {
+          "title": "黃 樂 照片",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "膽固醇",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "台灣積體電路製造股份有限公司",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "群創光電",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "明天的天氣",
           "traffic": "100000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "weather tomorrow",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "cuaca besok",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "李灝宇",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -150,27 +170,7 @@
         },
         {
           "title": "周曉芸",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "延三夜市",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "美國cpi",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "sxmb",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "林百里",
-          "traffic": "200+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
