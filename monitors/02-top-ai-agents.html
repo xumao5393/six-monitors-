@@ -208,16 +208,15 @@ function renderTable(){
  document.getElementById('tbody').innerHTML=list.map(m=>`<tr><td>${esc(m.name)}</td><td>${esc(m.vendor)}</td><td>${m.score??'未获取'}</td><td>${fmtPrice(m.price)}</td><td>${esc(m.ctx||'—')}</td></tr>`).join('')||'<tr><td colspan="5">无匹配，未获取时不编数</td></tr>';
 }
 function updateArrows(){document.querySelectorAll('.arr').forEach(s=>{s.textContent=s.dataset.arr===sortKey?(sortDir===-1?'▼':'▲'):'';});}
-function updateArrows(){document.querySelectorAll('.arr').forEach(s=>{s.textContent=s.dataset.arr===sortKey?(sortDir===-1?'▼':'▲'):'';});}
 function sortBy(k){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1;}renderTable();updateArrows();}
 function drawChart(role){
  const colors={OpenAI:'#10a37f',Anthropic:'#d97757',Google:'#4285f4',xAI:'#111',DeepSeek:'#4d6bfe',Qwen:'#615ced',Kimi:'#000',Zhipu:'#7c3aed',Doubao:'#0ea5e9'};
  const pts=models.filter(m=>m.score!=null&&m.price!=null);
  if(chart)chart.destroy();
- if(role==='live'||!pts.length){
+ if(role==='live'||role==='backup'||!pts.length){
    // 实时模式：OpenRouter 只给价格与上下文、不给基准分数，散点必然空白——改画实时价格条形图。
    const list=[...models].filter(m=>m.price!=null).sort((a,b)=>b.price-a.price);
-   document.getElementById('chartTitle').textContent='实时价格条形图（输入价 $/M，OpenRouter 实时）';
+   document.getElementById('chartTitle').textContent=role==='backup'?'价格条形图（输入价 $/M，Actions 快照里的 OpenRouter 价）':'实时价格条形图（输入价 $/M，OpenRouter 实时）';
    document.getElementById('scatterNote').textContent='实时模式无分数可画（OpenRouter 不提供基准分数，分数显示「未获取」），故画实时价格条形图；分数散点仅在缓存模式下出现（分数=缓存·价格=实时不混画）。';
    if(!list.length){document.getElementById('scatterNote').textContent='未获取：实时价格拉取失败。';return;}
    chart=new Chart(document.getElementById('scatter'),{type:'bar',data:{labels:list.map(m=>m.name),datasets:[{data:list.map(m=>m.price),backgroundColor:list.map(m=>colors[m.vendor]||'#999')}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:__T('价格 $/M（输入）')}},y:{ticks:{font:{size:11}}}}}});
@@ -229,20 +228,26 @@ function drawChart(role){
 }
 async function refreshAll(){document.querySelector('main')?.setAttribute('aria-busy','true');var _u=document.getElementById('updated');if(_u)_u.textContent='正在拉取…';setTimeout(function(){var m=document.querySelector('main');if(m)m.setAttribute('aria-busy','false');},30000);
  const src=[];let role='cache';
- // 唯一实时来源：OpenRouter。models.dev 已下线（/api/v1/models 返回 302 跳转首页），不再请求；OpenRouter 无镜像。
+  // 主源：OpenRouter（浏览器直连，实测允许跨域）。替补：本站 Actions 快照 data/prices.json 里的 OpenRouter 价格（同域，不受跨域影响）。
+  // 注：models.dev 只是 /api/v1/models 路径失效（302），/api.json 仍可用，见监测 07；本页不需要它。
  try{const d=await fetchTO('https://openrouter.ai/api/v1/models');
    const picked=(d.data||[]).filter(m=>FLAGSHIPS.has(m.id)).map(m=>({name:m.name||m.id,vendor:vendorOf(m.id),score:null,price:m.pricing?.prompt!=null?+((parseFloat(m.pricing.prompt)*1e6).toFixed(4)):null,ctx:m.context_length?Math.round(m.context_length/1000)+'K':''}));
    if(picked.length){models=picked;role='live';src.push(['OpenRouter','主源','正常',new Date().toLocaleString('zh-CN')]);}
    else src.push(['OpenRouter','主源','目录中无白名单模型','—']);
  }catch(e){src.push(['OpenRouter','主源','失败','—']);}
- if(!models.length){models=FALLBACK;role='cache';src.push(['缓存样本','缓存','实时源失败，分数为 AA 智能指数 v5、价格为 OpenRouter 核实值','截至 2026-11-09']);}
+  if(!models.length){try{const r=await fetch('data/prices.json',{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();
+    const picked=(j.openrouter_models||[]).filter(m=>FLAGSHIPS.has(m.id)).map(m=>({name:m.name||m.id,vendor:vendorOf(m.id),score:null,price:m.prompt_per_m!=null?+m.prompt_per_m:null,ctx:m.context_length?Math.round(m.context_length/1000)+'K':''}));
+    if(picked.length){models=picked;role='backup';src.push(['Actions 快照 data/prices.json','替补','正常（OpenRouter 价格的服务端快照）',j.fetched_at_cst||j.fetched_at||'时间未知']);}
+    else src.push(['Actions 快照 data/prices.json','替补','快照里没有白名单模型','—']);
+  }catch(e){src.push(['Actions 快照 data/prices.json','替补','失败（'+e.message+'）','—']);}}
+  if(!models.length){models=FALLBACK;role='cache';src.push(['缓存样本','缓存','实时源失败，分数为 AA 智能指数 v5、价格为 OpenRouter 核实值','截至 2026-11-09']);}
  const priced=models.filter(m=>m.price!=null),scored=models.filter(m=>m.score!=null);
  const cheapest=priced.length?Math.min(...priced.map(m=>m.price)):null;
  const top=scored.length?Math.max(...scored.map(m=>m.score)):null;
  document.getElementById('kpis').innerHTML=`<div class="card"><h3>模型数</h3><div class="big">${models.length}</div></div><div class="card"><h3>最便宜（有价）</h3><div class="big">${cheapest!=null?fmtPrice(cheapest)+'/M':'未获取'}</div></div><div class="card"><h3>最高分</h3><div class="big">${top!=null?top:'未获取'}</div></div>`;
- const b=document.getElementById('srcBadge');b.textContent=role==='live'?'OpenRouter 实时':'缓存样本';b.className='badge '+(role==='live'?'':'cache');
+ const b=document.getElementById('srcBadge');b.textContent=role==='live'?'OpenRouter 实时':role==='backup'?'替补 · Actions 快照':'缓存样本';b.className='badge '+(role==='live'?'':role==='backup'?'backup':'cache');
  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN');
- document.getElementById('tableNote').textContent=role==='cache'?'当前为缓存样本（截至 2026-11-09），刷新成功后以实时接口为准。':'实时数据来自 OpenRouter：价格与上下文为实时值，分数 OpenRouter 不提供，显示「未获取」。';
+ document.getElementById('tableNote').textContent=role==='backup'?'OpenRouter 直连失败，当前为 Actions 快照里的 OpenRouter 价格（时间见数据源状态）；分数不提供，显示「未获取」。':role==='cache'?'当前为缓存样本（截至 2026-11-09），刷新成功后以实时接口为准。':'实时数据来自 OpenRouter：价格与上下文为实时值，分数 OpenRouter 不提供，显示「未获取」。';
  document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='缓存'?'cache':'backup'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('');
  renderTable();drawChart(role);updateArrows();document.querySelector('main')?.setAttribute('aria-busy','false');
 }

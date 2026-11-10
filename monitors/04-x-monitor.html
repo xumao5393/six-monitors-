@@ -213,13 +213,17 @@ async function refreshAll(){document.querySelector('main')?.setAttribute('aria-b
  const postsEl=document.getElementById('posts');
  try{
    const d=await fxGet('https://api.fxtwitter.com/2/profile/'+encodeURIComponent(h)+'/statuses');
-   const list=Array.isArray(d&&d.results)?d.results:[];
+   // 时间线里有转发：转发帖的 author 是原作者，不是本账号（实测 sama 时间线第 1 条作者是 fouadmatin）。
+   // 所以：按时间倒序；补资料只用 author 等于本账号的帖子；转发行标明「转发 @原作者」。
+   const list=(Array.isArray(d&&d.results)?d.results:[]).slice().sort((x,y)=>(y.created_timestamp||Date.parse(y.created_at)/1000||0)-(x.created_timestamp||Date.parse(x.created_at)/1000||0));
    if(!list.length)throw new Error('empty timeline');
-   if(!profile&&list[0]&&list[0].author){const a=list[0].author;profile={followers:a.followers,following:a.following,tweets:a.statuses,likes:a.likes};setKPIs(profile);const b2=document.getElementById('srcBadge');if(b2){b2.textContent='主源 · FxTwitter（时间线作者补）';b2.className='badge cache';}src.push(['FxTwitter','主源','个人资料失败，时间线作者信息补数',new Date().toLocaleString('zh-CN')]);document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补失效'?'missing':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+'<p class="note">帖子：FxTwitter 时间线接口 /2/profile/{账号}/statuses。VxTwitter 替补失效（2026-11-09 实测 403 CF），不做替补。字段以接口实测为准：转发为 reposts；浏览量接口有返回，但本表不展示。</p>';}
+   const own=list.find(t=>t.author&&String(t.author.screen_name||'').toLowerCase()===String(h).toLowerCase());
+   if(!profile&&own){const a=own.author;profile={followers:a.followers,following:a.following,tweets:a.statuses,likes:a.likes};setKPIs(profile);const b2=document.getElementById('srcBadge');if(b2){b2.textContent='主源 · FxTwitter（时间线作者补）';b2.className='badge cache';}src.push(['FxTwitter','主源','个人资料失败，时间线作者信息补数',new Date().toLocaleString('zh-CN')]);document.getElementById('sources').innerHTML=src.map(s=>`<div>${s[0]} — <span class="badge ${s[1]==='主源'?'':s[1]==='替补失效'?'missing':'cache'}">${s[1]}</span> ${s[2]} · ${s[3]}</div>`).join('')+'<p class="note">帖子：FxTwitter 时间线接口 /2/profile/{账号}/statuses。VxTwitter 替补失效（2026-11-09 实测 403 CF），不做替补。字段以接口实测为准：转发为 reposts；浏览量接口有返回，但本表不展示。</p>';}
    postsEl.innerHTML=list.slice(0,10).map(t=>{
      const ts=t.created_timestamp?new Date(t.created_timestamp*1000):(t.created_at?new Date(t.created_at):null);
      const time=ts&&!isNaN(ts)?ts.toLocaleString('zh-CN'):'未获取';
-     const text=t.text?esc(t.text.length>140?t.text.slice(0,140)+'…':t.text):'未获取';
+     const rt=t.reposted_by&&t.author&&String(t.author.screen_name||'').toLowerCase()!==String(h).toLowerCase();
+     const text=(rt?'🔁 转发 @'+esc(t.author.screen_name)+'：':'')+(t.text?esc(t.text.length>140?t.text.slice(0,140)+'…':t.text):'未获取');
      return `<tr><td>${time}</td><td><a href="${esc(t.url||('https://x.com/'+encodeURIComponent(h)+'/status/'+t.id))}" target="_blank" rel="noopener">${text}</a></td><td>${fmt(t.likes)}</td><td>${fmt(t.replies)}</td><td>${fmt(t.reposts)}</td></tr>`;
    }).join('');
  }catch(e){

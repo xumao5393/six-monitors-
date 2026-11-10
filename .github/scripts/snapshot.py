@@ -27,6 +27,7 @@ Sources (all curl-verified 2026-11-09, see audit doc):
               (GITHUB_TOKEN via Authorization header for rate limits)
 """
 import json
+import time
 import os
 import re
 import html
@@ -48,11 +49,7 @@ TODAY = NOW_UTC.astimezone(CST).strftime("%Y-%m-%d")  # Beijing date key
 DAY = 86400
 
 
-def fetch(url, timeout=25, headers=None):
-    """Return (http_status, bytes) or (None, b'') on network failure."""
-    h = dict(UA)
-    if headers:
-        h.update(headers)
+def _fetch_once(url, timeout, h):
     req = urllib.request.Request(url, headers=h)
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -61,6 +58,21 @@ def fetch(url, timeout=25, headers=None):
         return e.code, e.read() if hasattr(e, "read") else b""
     except Exception:
         return None, b""
+
+
+def fetch(url, timeout=25, headers=None):
+    """Return (http_status, bytes) or (None, b'') on network failure.
+    One retry after 3 s on network failure / 429 / 5xx: a single transient
+    blip (seen 2026-11-09 on 2 of 24 GitHub repos) used to cost the whole
+    day's history row."""
+    h = dict(UA)
+    if headers:
+        h.update(headers)
+    st, body = _fetch_once(url, timeout, h)
+    if st is None or st == 429 or st >= 500:
+        time.sleep(3)
+        st, body = _fetch_once(url, timeout, h)
+    return st, body
 
 
 def load_old(name):
@@ -309,7 +321,7 @@ def build_hot():
         "error": "401 身份未验证" if st == 401 else (f"HTTP {st}" if st else "network failure"), "items": []}
     plats["bili"] = hot_platform("bili", old_plats.get("bili"),
         "https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all", _parse_bili,
-        headers={"Referer": "https://www.bilibili.com"})
+        headers={"Referer": "https://www.bilibili.com/", **BROWSER_UA})  # 机器人 UA 会被 B 站返回 code -352
     plats["baidu"] = hot_platform("baidu", old_plats.get("baidu"),
         "https://top.baidu.com/api/board?platform=pc&tab=realtime", _parse_baidu,
         headers=BROWSER_UA)
@@ -509,7 +521,7 @@ def build_oss():
     headers = {"Accept": "application/vnd.github+json"}
     if GH_TOKEN:
         headers["Authorization"] = f"Bearer {GH_TOKEN}"  # rate limits only; never written to files
-    repos, failed = [], []
+    repos, failed, failed_http = [], [], {}
     fetched_ok = 0
     for name, cat in WHITELIST:
         st, body = fetch(f"https://api.github.com/repos/{name}", headers=headers)
@@ -524,6 +536,8 @@ def build_oss():
             except Exception:
                 pass
         failed.append(name)
+        failed_http[name] = st or 0  # 记录失败码，方便日后排查（本地实测出现过偶发失败）
+        print("oss fetch failed", name, st)
         if name in old_repos:  # keep last successful repo row on failure
             repos.append(old_repos[name])
     hist = prune_history(old.get("history", {}))
@@ -537,16 +551,62 @@ def build_oss():
     save("oss.json", {"fetched_at": t["fetched_at"], "fetched_at_cst": t["fetched_at_cst"],
                       "checked_at": t["checked_at"], "checked_at_cst": t["checked_at_cst"],
                       "ok": len(failed) == 0, "ok_count": fetched_ok,
-                      "count": len(WHITELIST), "failed": failed,
+                      "count": len(WHITELIST), "failed": failed, "failed_http": failed_http,
                       "source": "GitHub Core API https://api.github.com/repos/{full} (24 whitelist repos, GITHUB_TOKEN in Actions)",
                       "note": "周增 Δ Star 需连续快照 ≥7 天：delta_7d 由 history 中 ≥6 天前的基线算出，第 1 周为 null，之后全站统一 Δ；页面同时保留本机 localStorage 差分作补充。",
                       "repos": repos, "history": hist})
 
 
+# ------------------------------------------------------- yiwu-hotwords.json
+YIWU_TOP = "https://www.yiwugo.com/top.html"
+
+
+def _yiwu_map(s, key):
+    m = re.search(r'"%s":\{([^{}]*)\}' % key, s)
+    if not m:
+        return []
+    pairs = json.loads("{" + m.group(1) + "}")
+    return [{"word": k, "market": "义乌购站内", "searches": int(v)}
+            for k, v in sorted(pairs.items(), key=lambda kv: -int(kv[1]))]
+
+
+def build_yiwu():
+    """义乌购排行榜「热门关键词（30天）」是服务端渲染在 top.html 里的
+    keywords30Map / keywords7Map。抓不到就保留旧文件（ok:false），绝不编数。"""
+    old = load_old("yiwu-hotwords.json") or {}
+    if cb_tripped("yiwu") and not cb_probe_due("yiwu"):
+        old.update(ok=False, error="熔断中，跳过", checked_at=FETCHED_AT, checked_at_cst=FETCHED_CST)
+        save("yiwu-hotwords.json", old)
+        return
+    st, body = fetch(YIWU_TOP, headers=BROWSER_UA)
+    words, words7 = [], []
+    if st == 200:
+        s = body.decode("utf-8", errors="ignore")
+        try:
+            words, words7 = _yiwu_map(s, "keywords30Map"), _yiwu_map(s, "keywords7Map")
+        except Exception:
+            words = []
+    ok = len(words) >= 5
+    cb_record("yiwu", ok)
+    t = time_fields(old if isinstance(old.get("fetched_at"), str) and "T" in old.get("fetched_at", "") else None, ok)
+    if ok:
+        out = {"ok": True, "http": 200, "hotwords": words, "hotwords_7d": words7}
+    else:
+        out = dict(old, ok=False, http=st or 0, error=f"HTTP {st}" if st != 200 else "页面里没找到 keywords30Map")
+    out.update(t)
+    out["source"] = YIWU_TOP + "（「热门关键词（30天）」服务端渲染数据 keywords30Map；义乌购没有公开的海外热词榜）"
+    save("yiwu-hotwords.json", out)
+
+
 if __name__ == "__main__":
-    build_hot()
-    build_ph()
-    build_trends()
-    build_prices()
-    build_oss()
-    print("snapshot done", FETCHED_AT, FETCHED_CST)
+    # 每个文件单独 try：一个源抛异常不能让后面几个文件都不更新。
+    import traceback
+    errors = 0
+    for job in (build_hot, build_ph, build_trends, build_prices, build_oss, build_yiwu):
+        try:
+            job()
+        except Exception:
+            errors += 1
+            print("FAILED", job.__name__)
+            traceback.print_exc()
+    print("snapshot done", FETCHED_AT, FETCHED_CST, "errors:", errors)

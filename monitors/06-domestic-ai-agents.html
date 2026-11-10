@@ -112,7 +112,6 @@ function renderTable(){
  document.getElementById('tbody').innerHTML=list.map(m=>`<tr><td>${esc(m.name)}</td><td>${esc(m.vendor)}</td><td>${m.score??'未获取'}</td><td>${fmtPrice(m.price)}</td><td>${esc(m.ctx||'—')}</td></tr>`).join('')||'<tr><td colspan="5">无匹配</td></tr>';
 }
 function updateArrows(){document.querySelectorAll('.arr').forEach(s=>{s.textContent=s.dataset.arr===sortKey?(sortDir===-1?'▼':'▲'):'';});}
-function updateArrows(){document.querySelectorAll('.arr').forEach(s=>{s.textContent=s.dataset.arr===sortKey?(sortDir===-1?'▼':'▲'):'';});}
 function sortBy(k){if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=-1;}renderTable();updateArrows();}
 function drawChart(role){
  const colors={Qwen:'#615ced',DeepSeek:'#4d6bfe',Zhipu:'#7c3aed',Kimi:'#111827',Doubao:'#0ea5e9',Hunyuan:'#0891b2',ERNIE:'#2563eb',MiniMax:'#db2777',StepFun:'#ea580c',iFlytek:'#16a34a'};

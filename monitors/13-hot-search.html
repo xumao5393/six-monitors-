@@ -82,7 +82,7 @@ main{padding:14px}
 </style></head><body>
 <header><h1>🔥 热搜热榜聚合</h1><span class="sub" id="updated">未刷新</span><span id="srcBadge" class="badge">未获取</span><button onclick="refreshAll()">🔄 刷新</button></header>
 <main>
-<section class="hero"><h2 id="heroTitle">正在读取 Actions 快照…</h2><p id="heroDesc">Hero 由快照 Top 1 生成，不再写死旧热点。</p><div class="feed"><div><b>✍️ 这个能怎么写</b>把今日 Top 1 变成选题：AI 剪高光、AI 做梗图、AI 写文案，三步出片。</div><div id="heroFeed2"><b>🔥 次热</b>读取中…</div><div><b>⚠️ 诚实说明</b>热榜源都不稳：微博要登录、知乎 401、第三方聚合 404。本页每个平台块独立降级，本次失败显示旧数据并标明时间，没有旧数据才显示「未获取」，绝不编数字。</div></div></section>
+<section class="hero"><h2 id="heroTitle">正在读取 Actions 快照…</h2><p id="heroDesc">Hero 由快照 Top 1 生成，不再写死旧热点。</p><div class="feed"><div><b>✍️ 这个能怎么写</b>把今日 Top 1 变成选题：AI 剪高光、AI 做梗图、AI 写文案，三步出片。</div><div id="heroFeed2"><b>🔥 次热</b>读取中…</div><div><b>⚠️ 诚实说明</b>热榜接口随时会变：知乎要登录（实测 401/403），B 站会拦机器人请求。本页每个平台块独立降级，本次失败显示旧数据并标明时间，没有旧数据才显示「未获取」，绝不编数字。</div></div></section>
 <p class="note">主源是 <b>Actions 快照 data/hot.json</b>（GitHub Actions 每小时在 runner 上 curl 7 个平台：微博、抖音、知乎、B站、百度、头条、美国 X 趋势，浏览器直连因 CORS 必然失败，改读同域快照）。某平台本次失败时，该块显示上次成功数据并标明旧时间（「旧数据」），没有旧数据才显示「未获取」，绝不拿旧榜冒充当日榜。知乎 curl 亦 401，固定「未获取 + 手动链接」。只有快照文件本身读不到时，才显示嵌入式缓存（2026-11-09 15:15 CST curl 实测），超过 12 小时自动标「已过期」。</p>
 <div class="grid" id="kpis"></div>
 <div class="card"><h3>各平台 Top 1 热度对比（Actions 快照）</h3><div style="position:relative;height:260px"><canvas id="chart"></canvas></div><p class="note" id="chartNote">各平台 Top 1 热度（Actions 快照）。</p></div>
@@ -91,16 +91,12 @@ main{padding:14px}
 <div class="tabs" id="tabs"></div>
 <div class="plat" id="plats"></div>
 
-<div class="card"><h3>✍️ 今日值得写话题 · 人工策展 2026-11-09</h3>
-<p class="note">人工策展，非实时抓取。话题来自当日已核实的热榜，角度为人工撰写。</p>
-<table><thead><tr><th>话题</th><th>来源平台</th><th>可写角度</th></tr></thead><tbody>
-<tr><td>BLG 战胜 T1 挺进决赛</td><td>抖音 #1、微博多条、B 站电竞榜</td><td>AI 剪决赛高光 / AI 做梗图 / 决赛夜观赛文案</td></tr>
-<tr><td>外资持续看好中国发展前景</td><td>抖音 #3（热度 1,113 万）</td><td>外资看好什么赛道？普通人能跟的三个方向</td></tr>
-<tr><td>今日寒衣节</td><td>抖音 #4（热度 1,089 万）</td><td>传统节日选题：习俗科普 + 应季选品（保暖、祭扫）</td></tr>
-</tbody></table></div>
+<div class="card"><h3>✍️ 选题候选 · 自动取自快照</h3>
+<p class="note" id="topicNote">自动从快照里挑：先列同时上了 ≥2 个平台的话题，不够再补各平台第 1 名。写作角度请自己定，本页不代写。</p>
+<table><thead><tr><th>话题</th><th>来源平台（名次）</th></tr></thead><tbody id="topicRows"><tr><td colspan="2">读取中…</td></tr></tbody></table></div>
 
 <div class="card"><h3>数据源与备份链</h3><div id="sources"></div>
-<p class="note">备份链说明：主源失败 → 自动试备份源 → 仍失败则显示缓存样本（带核实时间与过期标记）→ 连缓存都没有则显示「未获取」。知乎：主源 401、备份源 403，均无可用备份，也无缓存——已在本页明确标注。</p></div>
+<p class="note">数据链说明：每个平台只有一条抓取链路——GitHub Actions 在服务端 curl，写进 data/hot.json，页面只读这个文件；没有第二个备份源。某平台本次抓取失败 → 显示它上次成功的旧榜并标出旧时间；从没成功过 → 显示「未获取」。整个快照超过 2 小时没更新 → 顶部和每个平台都标「已过期」。快照文件读不到时，才退回页面内嵌的 2026-11-09 15:15 样本（只有微博/抖音/B站）。知乎接口需要登录（实测 401/403），没有可用来源。</p></div>
 </main>
 <script>
 const CACHE_TS=new Date('2026-11-09T15:15:00+08:00').getTime();
@@ -124,6 +120,10 @@ const PLATS=[
 let chart, SNAP=null, SNAP_OK=false, activeTab='weibo';
 function fmt(n){return n==null?'—':(n>=10000?(n/10000).toFixed(1)+'万':Number(n).toLocaleString());}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+const STALE_H=2;
+function snapAgeH(){if(!SNAP)return null;const t=Date.parse(SNAP.fetched_at||'');return isNaN(t)?null:(Date.now()-t)/3600000;}
+function ageText(h){if(h==null)return '时间未知';if(h<1)return Math.max(0,Math.round(h*60))+' 分钟前';if(h<48)return Math.floor(h)+' 小时前';return Math.floor(h/24)+' 天前';}
+function itemAgeH(sp){const t=Date.parse((sp&&sp.updated_at)||'');return isNaN(t)?null:(Date.now()-t)/3600000;}
 function platItems(id){
   if(SNAP_OK&&SNAP&&SNAP.platforms&&SNAP.platforms[id])return SNAP.platforms[id];
   return null;
@@ -149,7 +149,7 @@ function renderHero(){
   const t=tops[0];
   const platName=PLATS.find(p=>p.id===t.id).name;
   h2.textContent=t.title;
-  desc.textContent=platName+'热度 '+fmt(t.heat)+'（第 1 名）'+(tops[1]?'；'+PLATS.find(p=>p.id===tops[1].id).name+' Top 1 为「'+tops[1].title+'」（'+fmt(tops[1].heat)+'）':'')+'。数据来自 Actions 快照 data/hot.json。';
+  desc.textContent=platName+'热度 '+fmt(t.heat)+'（第 1 名）'+(tops[1]?'；'+PLATS.find(p=>p.id===tops[1].id).name+' Top 1 为「'+tops[1].title+'」（'+fmt(tops[1].heat)+'）':'')+'。数据来自 Actions 快照 data/hot.json（'+(SNAP.fetched_at_cst||SNAP.fetched_at)+'，'+ageText(snapAgeH())+'）'+(snapAgeH()>STALE_H?'。⚠️ 快照已超过 '+STALE_H+' 小时没更新，这条可能已经不是现在的第一。':'。');
   // 次热：同一平台第 2 名，或另一平台 Top 1
   const p=platItems(t.id);
   const second=(p&&p.items&&p.items[1])?p.items[1]:null;
@@ -160,6 +160,7 @@ function renderKpis(){
   const okCount=PLATS.filter(p=>plats[p.id]&&plats[p.id].ok).length;
   const missCount=PLATS.filter(p=>{const sp=plats[p.id];return !(sp&&sp.ok)&&!(sp&&sp.items&&sp.items.length);}).length;
   const snapTime=SNAP?((SNAP.fetched_at_cst||SNAP.fetched_at||'—')):'—';
+  const ageH=snapAgeH(), stale=ageH!=null&&ageH>STALE_H;
   // 全网同上榜：标题在 ≥2 个平台 Top 10 中出现
   const seen={};let cross=0;
   PLATS.forEach(p=>{const pl=plats[p.id];(pl&&pl.items||[]).forEach(it=>{const t=it.title;seen[t]=(seen[t]||new Set());seen[t].add(p.id);});});
@@ -170,12 +171,13 @@ function renderKpis(){
   `<div class="card"><h3>Actions 快照成功</h3><div class="big">${okCount} / 7</div><div class="note">上次 Actions 成功平台数（${badge} · ${esc(snapTime)}）</div></div>`+
   `<div class="card"><h3>未获取</h3><div class="big">${missCount}</div><div class="note">快照失败且无旧数据的平台</div></div>`+
   `<div class="card"><h3>全网同上榜</h3><div class="big">${cross}</div><div class="note">标题同时出现在 ≥2 个平台 Top 10</div></div>`+
-  `<div class="card"><h3>快照时间</h3><div class="big" style="font-size:20px">${esc(snapTime)}</div><div class="note">${SNAP_OK?'Actions 每小时更新':'快照文件未读到，显示嵌入式缓存'}</div></div>`;
+  `<div class="card"><h3>快照时间</h3><div class="big" style="font-size:20px">${esc(snapTime)}</div><div class="note">${SNAP_OK?(stale?'⚠️ 已过期：'+ageText(ageH)+'（超过 '+STALE_H+' 小时没更新）':ageText(ageH)+' · 设计为每小时更新'):'快照文件未读到，显示嵌入式缓存'}</div></div>`;
 }
 function draw(){
   const tops=top1List();
   const labels=tops.map(t=>PLATS.find(p=>p.id===t.id).name), data=tops.map(t=>t.heat);
-  document.getElementById('chartNote').textContent=tops.length?'各平台 Top 1 热度（Actions 快照）。B 站排行榜不公布热度数值，故无柱形；头条、美国 X 无热度数值，故无柱形；知乎未获取，故无柱形。':'快照未获取，暂无 Top 1 热度可画。';
+  const noBar=PLATS.filter(p=>!tops.some(t=>t.id===p.id)).map(p=>{const sp=platItems(p.id);if(p.id==='bili'||p.id==='toutiao'||p.id==='x_us')return p.name+'（该平台不公布热度数值）';if(!sp)return p.name+'（快照里还没有）';if(!sp.ok)return p.name+'（本次抓取失败）';return p.name+'（无热度数值）';});
+  document.getElementById('chartNote').textContent=tops.length?'各平台 Top 1 热度（Actions 快照，只画本次抓取成功、且有热度数值的平台）。没有柱子的：'+noBar.join('、')+'。':'快照未获取，暂无 Top 1 热度可画。';
   if(chart)chart.destroy();
   chart=new Chart(document.getElementById('chart'),{type:'bar',data:{labels:labels.length?labels:['暂无数据'],datasets:[{data:data.length?data:[0],backgroundColor:['#e11d48','#f97316','#7c3aed']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxRotation:0,minRotation:0}},y:{ticks:{callback:v=>fmt(v)}}}}});
 }
@@ -185,9 +187,14 @@ function renderPlats(){
   document.getElementById('plats').innerHTML=PLATS.map(p=>{
     const sp=platItems(p.id);
     let badge, time, body;
-    if(SNAP_OK&&sp){
+    if(SNAP_OK&&!sp){
+      // 快照文件读到了，但里面还没有这个平台（新加的平台，快照还没跑过）：不能退回缓存分支冒充「主源与备份均失败」
+      badge='<span class="badge missing">快照里还没有</span>'; time='—';
+      body=`<div class="missing-box">当前快照（${esc(SNAP.fetched_at_cst||SNAP.fetched_at||'—')}）里还没有这个平台的数据——通常是新加的平台、快照还没重新跑过。<br>请先手动打开 <a href="${p.manual}" target="_blank" rel="noopener">官方热榜 ↗</a> 查看。</div>`;
+    }else if(SNAP_OK&&sp){
       if(sp.ok&&sp.items&&sp.items.length){
-        badge='<span class="badge live">Actions 快照 · 成功</span>'; time=sp.updated_at_cst||sp.updated_at||SNAP.fetched_at_cst||SNAP.fetched_at;
+        const ih=itemAgeH(sp)??snapAgeH();
+        badge=ih!=null&&ih>STALE_H?'<span class="badge stale">已过期 · '+ageText(ih)+'</span>':'<span class="badge live">Actions 快照 · 成功</span>'; time=(sp.updated_at_cst||sp.updated_at||SNAP.fetched_at_cst||SNAP.fetched_at)+'（'+ageText(ih)+'）';
         const rows=sp.items.slice(0,6).map(it=>{
           if(p.id==='bili')return `<li>${esc(it.title)} <span>${esc(it.category||'')}</span></li>`;
           if(it.link)return `<li><a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a> <span>${fmt(it.heat)}</span></li>`;
@@ -196,7 +203,8 @@ function renderPlats(){
         body=`<ol>${rows}</ol><p class="note">来源：Actions 快照（curl 服务端） · <a href="${p.manual}" target="_blank" rel="noopener">官方榜单 ↗</a></p>`;
       }else if(sp.items&&sp.items.length){
         // 本次失败，但 JSON 里还保留着上次成功内容：显示旧榜并标明旧时间，绝不冒充当日榜
-        const oldTime=sp.updated_at_cst||sp.updated_at||SNAP.fetched_at_cst||SNAP.fetched_at||'—';
+        // 没有 updated_at 时不能拿整份快照的时间顶替（那是别的平台成功的时间）
+        const oldTime=sp.updated_at_cst||sp.updated_at||'时间未知（旧版快照没记录）';
         badge='<span class="badge stale">旧数据 · 更新于 '+esc(oldTime)+'</span>'; time=oldTime;
         const rows=sp.items.slice(0,6).map(it=>{
           if(p.id==='bili')return `<li>${esc(it.title)} <span>${esc(it.category||'')}</span></li>`;
@@ -214,8 +222,8 @@ function renderPlats(){
       badge=h>12?'<span class="badge stale">已过期（缓存 '+Math.floor(h)+' 小时前）</span>':'<span class="badge cache">缓存样本 · '+CACHE_LABEL+'</span>';
       time=CACHE_LABEL;
       if(p.id==='zhihu'||!CACHE[p.id]){
-        badge='<span class="badge missing">未获取</span>';
-        body=`<div class="missing-box">未获取：主源与备份均失败，且无可用缓存。<br>请手动打开 <a href="${p.manual}" target="_blank" rel="noopener">官方热榜 ↗</a> 查看。</div>`;
+        badge='<span class="badge missing">未获取</span>'; time='—';
+        body=`<div class="missing-box">未获取：快照文件读不到，页面里也没有这个平台的内置样本（内置样本只有微博/抖音/B站）。<br>请手动打开 <a href="${p.manual}" target="_blank" rel="noopener">官方热榜 ↗</a> 查看。</div>`;
       }else{
         const rows=CACHE[p.id].map(it=>{
           if(p.id==='bili')return `<li>${esc(it[0])} <span>${esc(it[1])}</span></li>`;
@@ -227,6 +235,20 @@ function renderPlats(){
     return `<div class="card plat-card" data-plat="${p.id}"><h3>${p.icon} ${p.name} ${badge}</h3><div class="chain"><b>curl（服务端）：</b>${esc(p.curl)}<br><b>浏览器：</b>${esc(p.browser)}<br><b>更新：</b>${esc(time)}</div>${body}</div>`;
   }).join('');
   applyTab();
+  renderTopics();
+}
+function renderTopics(){
+  const tb=document.getElementById('topicRows');if(!tb)return;
+  const ok=PLATS.filter(p=>{const sp=platItems(p.id);return sp&&sp.ok&&sp.items&&sp.items.length;});
+  if(!ok.length){tb.innerHTML='<tr><td colspan="2">未获取：快照里没有本次抓取成功的平台，不列旧话题。</td></tr>';return;}
+  const norm=t=>String(t||'').replace(/[#\s·，。、！？!?“”"'：:]/g,'').toLowerCase();
+  const map={};
+  ok.forEach(p=>platItems(p.id).items.slice(0,10).forEach((it,i)=>{const k=norm(it.title);if(!k)return;(map[k]=map[k]||{title:it.title,hits:[]}).hits.push(p.name+' #'+(i+1));}));
+  let list=Object.values(map).filter(x=>x.hits.length>=2);
+  ok.forEach(p=>{if(list.length>=5)return;const it=platItems(p.id).items[0];const k=norm(it.title);if(!list.some(x=>norm(x.title)===k))list.push(map[k]);});
+  tb.innerHTML=list.slice(0,6).map(x=>`<tr><td>${esc(x.title)}</td><td>${esc(x.hits.join('、'))}</td></tr>`).join('');
+  const ah=snapAgeH();
+  document.getElementById('topicNote').textContent='自动从快照（'+(SNAP.fetched_at_cst||SNAP.fetched_at)+'，'+ageText(ah)+'）里挑：先列同时上了 ≥2 个平台的话题，不够再补各平台第 1 名。写作角度请自己定，本页不代写。'+(ah!=null&&ah>STALE_H?' ⚠️ 快照已过期，话题可能已经不热。':'');
 }
 function setTab(id){activeTab=id;renderPlats();}
 function applyTab(){
@@ -257,9 +279,10 @@ async function refreshAll(){
   }catch(e){SNAP=null;SNAP_OK=false;}
   renderHero();renderKpis();draw();renderPlats();renderSources();
   const b=document.getElementById('srcBadge');
-  if(SNAP_OK){const n=PLATS.filter(p=>SNAP.platforms[p.id]&&SNAP.platforms[p.id].ok).length;b.textContent='Actions 快照 · '+n+'/7 平台';b.className='badge '+(n===7?'live':'backup');}
+  const ageH=snapAgeH(), stale=ageH!=null&&ageH>STALE_H;
+  if(SNAP_OK){const n=PLATS.filter(p=>SNAP.platforms[p.id]&&SNAP.platforms[p.id].ok).length;b.textContent=stale?'⚠️ 快照已过期 '+ageText(ageH):'Actions 快照 · '+n+'/7 平台';b.className='badge '+(stale?'stale':(n===7?'live':'backup'));}
   else{b.textContent='缓存样本';b.className='badge cache';}
-  document.getElementById('updated').textContent='更新：'+new Date().toLocaleString('zh-CN')+(SNAP_OK?' · 快照 '+(SNAP.fetched_at_cst||SNAP.fetched_at):' · 快照未读到，显示 '+CACHE_LABEL+' 缓存');
+  document.getElementById('updated').textContent=SNAP_OK?'快照 '+(SNAP.fetched_at_cst||SNAP.fetched_at)+'（'+ageText(ageH)+'）':'快照未读到，显示 '+CACHE_LABEL+' 缓存';
 }
 refreshAll();
 

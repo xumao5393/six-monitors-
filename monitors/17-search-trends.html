@@ -63,10 +63,10 @@ header{background:linear-gradient(90deg,#083344,#0f766e,#1d4ed8);color:#fff;box-
 <tr><td>DeepSeek</td><td><span class="badge flat">→ 平稳</span></td><td>年初爆火后进入平稳期，讨论集中在深度使用而非尝鲜。</td><td>DeepSeek 教程、DeepSeek 写作</td><td>选题</td></tr>
 <tr><td>Claude</td><td><span class="badge up">↑ 上升</span></td><td>11 月新模型发布叠加 9–10 月两次宕机，讨论度抬头。</td><td>Claude 宕机、Claude 水印</td><td>选题 / 大事件联动</td></tr>
 <tr><td>ChatGPT</td><td><span class="badge flat">→ 平稳</span></td><td>GPT-6 发布讨论集中在科技圈，未扩散成大众搜索高峰。</td><td>GPT-6、ChatGPT 降价</td><td>选题</td></tr>
-<tr><td>Gemini</td><td><span class="badge up">↑ 上升</span></td><td>Gemini 3 / 4 发布传闻与谷歌新品消息带动关注。</td><td>Gemini 3、谷歌 AI</td><td>选题</td></tr>
+<tr><td>Gemini</td><td><span class="badge up">↑ 上升</span></td><td>Gemini 4 Argon 已正式发布（<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/" target="_blank" rel="noopener">Google 博客</a>），限时价 11-30 截止，带动关注。</td><td>Gemini 3、谷歌 AI</td><td>选题</td></tr>
 </tbody></table>
 <p class="note">口径：方向与依据均为人工判断（2026-11-09），非 Google Trends 实测值；「相关上升词」为人工整理，非平台官方相关查询。</p></div>
-<div class="card"><h3>样本趋势示意（非实测数值 · 图表带“示意”水印）</h3><div style="position:relative;height:280px"><canvas id="trendChart"></canvas></div><p class="note">⚠️ 纵轴为人工设定的示意指数（0–100），仅用于比较四个关键词的走势方向，不代表真实搜索量、不是实测数据。请勿引用为数值。</p></div>
+<div class="card"><h3 id="trendChartTitle">Google Trends 美国热搜 · 搜索量（实测，来自快照）</h3><div style="position:relative;height:300px"><canvas id="trendChart"></canvas></div><p class="note" id="trendChartNote">读取中…</p></div>
 <div class="card"><h3 class="section-title">实时尝试：Google Trends 热榜（Actions 快照 → 新版 RSS）</h3>
 <p class="note">本区块每次打开页面时先读同域 Actions 快照 data/trends.json（已建成并在用；文件不存在时显示「未获取」），再尝试浏览器直连新版 RSS。Google Trends RSS 通常不带 CORS 头，浏览器大概率拉不到——拉不到就显示「未获取」，不编榜单。旧版每日热榜 RSS（trendingsearches/daily/rss）已 404，不再使用；geo=CN 返回 400，永不使用。</p>
 <p><button onclick="tryTrends()">🔄 尝试实时（多半被拦截）</button> <a href="https://trends.google.com/trends/" target="_blank" rel="noopener">打开 Google Trends →</a></p>
@@ -74,11 +74,11 @@ header{background:linear-gradient(90deg,#083344,#0f766e,#1d4ed8);color:#fff;box-
 <p class="note">尝试地址（新版）：trends.google.com/trending/rss?geo=US（美国）、geo=HK（香港）、geo=TW（台湾）。geo=CN 返回 400，不用。若均失败，请手动打开上方链接查看实时热榜。</p></div>
 <div class="card"><h3 class="section-title">数据源与备份（三层，逐项标注）</h3><div class="srcs">
 <div>① Google Trends 热榜 RSS（新版） — <span class="badge primary">主源</span> Actions 快照 data/trends.json（GitHub Actions 定时抓新版 RSS trends.google.com/trending/rss?geo=US 存 JSON） → <span class="badge backup">替补</span> 浏览器直连新版 RSS（geo=US / HK / TW，常被 CORS 拦）或手动打开 trends.google.com 查看 → <span class="badge cache">缓存</span> 本页人工样本趋势表（更新 2026-11-09，过期请勿当实时用）。旧版 trendingsearches/daily/rss 已 404，geo=CN 返回 400，均已停用。</div>
-<div>② Google Trends RSS 的 Actions 快照 — <span class="badge primary">主源</span> GitHub Actions 定时抓 RSS 存 JSON（稳定性中等） → <span class="badge backup">替补</span> 手动查看 trends.google.com → <span class="badge cache">缓存</span> 本页人工样本表。状态：<span class="badge missing">未启用</span>，快照尚未搭建，实时数值目前无来源。</div>
+<div>② Google Trends RSS 的 Actions 快照 — <span class="badge primary">主源</span> GitHub Actions 定时抓 RSS 存 JSON（稳定性中等） → <span class="badge backup">替补</span> 手动查看 trends.google.com → <span class="badge cache">缓存</span> 本页人工样本表。状态：<span class="badge" id="snapState">读取中</span></div>
 <div>③ 关键词方向人工判断 — <span class="badge primary">主源</span> 人工观察各平台讨论热度 → <span class="badge backup">替补</span> 监测 16 大事件表交叉验证（如 Claude 宕机/发布事件） → <span class="badge cache">缓存</span> 本页样本表（更新 2026-11-09，超过 7 天未更新即视为过期）。</div>
 </div><p class="note">备份铁律执行情况：①②③ 有三层；无公开免费接口的来源不留空列，不沉默缺省。人工样本缓存有效期：自 2026-11-09 起，超过 7 天未更新即视为过期。</p></div>
 <div class="card"><h3 class="section-title">内容钩子（可直接用的选题）</h3><p class="note">「这个词的搜索这个月悄悄抬头，大部分人还没反应过来——现在做内容正是蓝海。」／「捏捏乐热度回落了，现在进场是抄底还是接盘？」／「副业话题年底走强，但九成『AI 月入过万』经不起拆——先看监测 10 的拆解。」</p></div>
-<p class="note">数据口径：本页全部为人工样本判断，更新日期 2026-11-09；无实测搜索量、无百分比、无指数值。页面设计：青 → teal → 蓝渐变；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底。</p>
+<p class="note">数据口径：「Google Trends 热榜」区块和柱状图是 Actions 快照的实测数据（Google 只给区间，如 2000+）；「关键词趋势表」和「内容钩子」是人工判断（2026-11-09），没有实测搜索量。页面设计：青 → teal → 蓝渐变；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底。</p>
 </main>
 <!-- i18n-v1 -->
 
@@ -99,6 +99,7 @@ var PATTERNS=[[/^(\d+) 个$/,"$1"],[/^(\d+) 条$/,"$1"],[/^样本 (\d+) 天前�
 [/^快照 (\d+) 个产品中 (\d+) 个 AI\/Agent 相关$/,function(m,t,a){t=+t;a=+a;return a+" of "+t+" snapshot product"+(t===1?"":"s")+" "+(a===1?"is":"are")+" AI / Agent-related";}],
 [/^样本 (\d+) 个产品中 (\d+) 个 AI\/Agent 相关$/,function(m,t,a){t=+t;a=+a;return a+" of "+t+" sample product"+(t===1?"":"s")+" "+(a===1?"is":"are")+" AI / Agent-related";}],[/^新增 (\d+) 条$/,"$1 new"],[/^对比快照 (\d{4}-\d{2}-\d{2})（北京日期）$/,"vs snapshot $1 (Beijing date)"],[/^基线积累中，无上一份快照可比对$/,"Baseline accumulating — no earlier snapshot to compare"],[/^当前无(.+)数据，请选全部\/基线$/,function(m,a){return "No "+toEN(a)+" data yet — pick All / Baseline";}],[/^当前为缓存样本（截至 2026-11-09，(.+)），主源与替补均失败时显示。$/,function(m,a){return "Showing cached sample (as of 2026-11-09, "+toEN(a)+"); primary and backup both failed.";}],[/^截至 2026-11-09 · (.+)$/,function(m,a){return "As of 2026-11-09 · "+toEN(a); }],[/^下一个大节点：(.+) · (\d{4}-\d{2}-\d{2}) · (.+)$/,function(m,a,b,c){return "Next big date: "+toEN(a)+" · "+b+" · "+toEN(c); }],[/^尝试时间：(.+)。(实时热榜请手动打开)$/,"Tried at: $1. For the live hot list, open"],[/^data\/trends.json（(.+)）$/,function(m,a){return "data/trends.json ("+toEN(a)+")";}],[/^Actions 快照 data\/trends.json 尚未生成（HTTP (\d+)），继续尝试直连 RSS…$/,"Actions snapshot data/trends.json not generated yet (HTTP $1); trying direct RSS…"],[/^已获取 RSS 并解析出 (\d+) 条：(.*)$/,"Fetched RSS and parsed $1 items: $2"],[/^浏览器跨域（CORS）拦截或网络失败（(.*)），未编造榜单。$/,"Blocked cross-origin (CORS) or network failure ($1); no ranking invented."],[/^已获取 RSS 并解析出 (\d+) 条$/,"Fetched RSS and parsed $1 items"]];
 var SUBS=[[/（403 限额）/g," (403 rate limit)"],[/（网络失败）/g," (network failure)"],[/ RSS 直连失败（([^，]*)，预期内：无 CORS 许可）。?/g," Direct RSS failed ($1 — expected: no CORS permission)."],[/失败（([^）]*)）/g,"Failed ($1)"],[/（已保留上次成功值）/g," (kept the last good values)"],[/，改走浏览器直连/g,", falling back to direct browser fetch"],[/缓存核实/g,"cache verified"],[/上表数据实际来源：/g,"Actual source of the table above:"],[/Actions 快照 data\/ph.json 未找到。?/g,"Actions snapshot data/ph.json not found."],[/Actions 快照存在但无可用条目。?/g,"The Actions snapshot exists but has no usable items."],[/ RSS 直连返回但无 <entry> 条目。?/g," The direct RSS returned but had no <entry> items."],[/ 当前显示人工策展样本（2026-11-09 15:15 CST），不是实时榜单。?/g," Currently showing the hand-curated sample (2026-11-09 15:15 CST), not a live ranking."],[/Actions 快照 data\/ph.json 解析出 (\d+) 条并已渲染（fetched_at：([^）]*)）。?/g,"Actions snapshot data/ph.json parsed $1 items and rendered them (fetched_at: $2)."],[/RSS 直连成功，DOMParser 解析出 (\d+) 条 <entry> 并已渲染；票数 RSS 不含，仍为「未获取」。?/g,"Direct RSS succeeded; DOMParser parsed $1 <entry> items and rendered them; RSS carries no vote counts, so they stay “Not available”."],[/Actions 快照 data\/ph.json 尚未生成（HTTP (\d+)）。?/g,"Actions snapshot data/ph.json not generated yet (HTTP $1)."],[/（(US|HK|TW)）/g," ($1)"],[/。/g,"."],[/，/g,", "],[/：/g,": "],[/；/g,"; "],[/、/g,", "],[/？/g,"?"],[/！/g,"!"],[/（/g," ("],[/）/g,")"],[/未标注/g,"not labelled"]];
+/* FIX-EN 2026-11-09 */(function(){function ag(n,u){n=+n;return n+({'分钟':' min','小时':' h','天':' d'}[u]||'')+' ago';}function pc(s){return String(s).replace(/、/g,', ');}var F={"Gemini 4 Argon 已正式发布（": "Gemini 4 Argon has officially launched (", "Google 博客": "Google blog", "），限时价 11-30 截止，带动关注。": "); its limited-time price ends 11-30, driving interest.", "Google Trends 美国热搜 · 搜索量（实测，来自快照）": "Google Trends US trending · search volume (measured, from snapshot)", "数据口径：「Google Trends 热榜」区块和柱状图是 Actions 快照的实测数据（Google 只给区间，如 2000+）；「关键词趋势表」和「内容钩子」是人工判断（2026-11-09），没有实测搜索量。页面设计：青 → teal → 蓝渐变；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底。": "Data basis: the “Google Trends trending” block and bar chart are measured Actions snapshot data (Google only gives ranges, e.g. 2000+); the “keyword trend table” and “content hooks” are manual judgement (2026-11-09) with no measured search volume. Design: cyan → teal → blue gradient; the chart uses the local Chart.js file chart.umd.min.js and falls back to a CDN if it fails to load.", "搜索量下限": "Search volume (lower bound)", "搜索量（Google 只给区间下限，如 2000+）": "Search volume (Google gives only a lower bound, e.g. 2000+)"};for(var k in F)DICT[k]=F[k];var P=[[/^快照 (.+? CST)（(\d+) (分钟|小时|天)前）$/,function(m,t,n,u){return 'Snapshot '+t+' ('+ag(n,u)+')';}],[/^已启用 · (.+)$/,'Enabled · $1'],[/^来源：Actions 快照 data\/trends.json（(.+?)），Google Trends 美国热搜前 (\d+) 名的搜索量。Google 只公布区间（如「2000\+」），柱长按区间下限画，不是精确值。$/,'Source: Actions snapshot data/trends.json ($1), search volume of the top $2 Google Trends US trending searches. Google publishes only ranges (e.g. “2000+”); bars use the lower bound, not exact values.']];for(var i=P.length-1;i>=0;i--)PATTERNS.unshift(P[i]);var S=[[/⚠️ 快照已超过 2 小时没更新。?/g,'⚠️ Snapshot not updated for over 2 hours. '],[/⚠️ 快照已过期/g,'⚠️ Snapshot stale'],[/(\d+) 分钟前/g,'$1 min ago'],[/(\d+) 小时前/g,'$1 h ago'],[/(\d+) 天前/g,'$1 d ago']];for(i=S.length-1;i>=0;i--)SUBS.unshift(S[i]);var Q=[[/Actions 快照/g,'Actions snapshot'],[/北京日期/g,'Beijing date'],[/已过期/g,'stale'],[/时间未知/g,'time unknown']];for(i=0;i<Q.length;i++)SUBS.push(Q[i]);})();
 function hasCJK(s){return /[\u4e00-\u9fff]/.test(s);}
 function toEN(s){
   if(!s)return s;
@@ -183,8 +184,8 @@ window.__rerender=function(){try{draw();}catch(e){}};
 <script>
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 /* 真实格式（2026-11-09 实测）：{fetched_at_cst, ok, geos:{US:{items:[{title,traffic,link}]}, HK:{...}, TW:{...}}}；也兼容顶层 items/trends 数组与字符串数组。*/
-function normTrends(raw){let arr=[];if(Array.isArray(raw))arr=raw;else if(raw&&(raw.items||raw.trends||raw.entries))arr=raw.items||raw.trends||raw.entries;else if(raw&&raw.geos){['US','HK','TW'].forEach(function(g){const it=raw.geos[g];if(it&&Array.isArray(it.items))arr=arr.concat(it.items.map(function(e){return{title:e.title,traffic:e.traffic,geo:g};}));});}
-if(!Array.isArray(arr))return[];return arr.map(e=>typeof e==='string'?{title:e,traffic:''}:{title:String(e.title||e.term||e.name||''),traffic:String(e.traffic||e.formattedTraffic||e.value||''),geo:e.geo||''}).filter(e=>e.title).slice(0,10);}
+function normTrends(raw){let arr=[];if(Array.isArray(raw))arr=raw;else if(raw&&(raw.items||raw.trends||raw.entries))arr=raw.items||raw.trends||raw.entries;else if(raw&&raw.geos){['US','HK','TW'].forEach(function(g){const it=raw.geos[g];if(it&&Array.isArray(it.items))arr=arr.concat(it.items.slice(0,5).map(function(e){return{title:e.title,traffic:e.traffic,geo:g};}));});}
+if(!Array.isArray(arr))return[];return arr.map(e=>typeof e==='string'?{title:e,traffic:''}:{title:String(e.title||e.term||e.name||''),traffic:String(e.traffic||e.formattedTraffic||e.value||''),geo:e.geo||''}).filter(e=>e.title).slice(0,15);}
 async function tryTrends(){
   var el=document.getElementById('trendLive');
   el.innerHTML='<p class="note">正在尝试拉取 Google Trends 热榜…（先读 Actions 快照 data/trends.json）</p>';
@@ -192,7 +193,7 @@ async function tryTrends(){
   try{
     var r=await fetch('data/trends.json',{cache:'no-store'});
     if(r.ok){var j=await r.json();var items=normTrends(j);
-      if(items.length){el.innerHTML='<p><span class="badge primary">已获取 · Actions 快照</span> data/trends.json（'+esc(j.fetched_at_cst||j.fetched_at||j.updated||'时间未标注')+'）</p><ol>'+items.map(function(it){return '<li>'+esc(it.title)+(it.traffic?' — '+esc(it.traffic):'')+(it.geo?(window.__MON_LANG==='en'?' ('+esc(it.geo)+')':'（'+esc(it.geo)+'）'):'')+'</li>';}).join('')+'</ol><p class="note">尝试时间：'+new Date().toLocaleString('zh-CN')+'。</p>';return;}
+      if(items.length){var ah=(Date.now()-Date.parse(j.fetched_at||''))/36e5;var stale=!(ah<=2);setSnapState(j,ah);el.innerHTML='<p>'+(stale?'<span class="badge missing">⚠️ 快照已过期 · '+(isNaN(ah)?'时间未知':Math.floor(ah)+' 小时前')+'</span>':'<span class="badge primary">已获取 · Actions 快照</span>')+' data/trends.json（'+esc(j.fetched_at_cst||j.fetched_at||j.updated||'时间未标注')+'）</p><ol>'+items.map(function(it){return '<li>'+esc(it.title)+(it.traffic?' — '+esc(it.traffic):'')+(it.geo?(window.__MON_LANG==='en'?' ('+esc(it.geo)+')':'（'+esc(it.geo)+'）'):'')+'</li>';}).join('')+'</ol><p class="note">尝试时间：'+new Date().toLocaleString('zh-CN')+'。</p>';return;}
       el.innerHTML='<p class="note">Actions 快照存在但无可用条目，继续尝试直连 RSS…</p>';
     } else { el.innerHTML='<p class="note">Actions 快照 data/trends.json 尚未生成（HTTP '+r.status+'），继续尝试直连 RSS…</p>'; }
   }catch(e){ el.innerHTML='<p class="note">Actions 快照 data/trends.json 未找到，继续尝试直连 RSS…</p>'; }
@@ -213,17 +214,20 @@ async function tryTrends(){
     }catch(e){detail='浏览器跨域（CORS）拦截或网络失败（'+(e&&e.message?e.message:'fetch 失败')+'），未编造榜单。';}
     rows.push('<div>'+label+' — '+(ok?'<span class="badge primary">已获取</span>':'<span class="badge missing">未获取</span>')+' '+esc(detail)+'</div>');
   }
-  el.innerHTML=rows.join('')+'<p class="note">尝试时间：'+new Date().toLocaleString('zh-CN')+'。实时热榜请手动打开 <a href="https://trends.google.com/trends/" target="_blank" rel="noopener">trends.google.com/trends</a>。实时热榜已由上方 Actions 快照提供（见数据源 ②）；快照失败时请手动打开 trends.google.com/trends。旧版 daily/rss 已 404、geo=CN 返回 400，均已停用。</p>';
+  setSnapState(null,NaN);el.innerHTML=rows.join('')+'<p class="note">尝试时间：'+new Date().toLocaleString('zh-CN')+'。快照没读到，直连也被拦时，请手动打开 <a href="https://trends.google.com/trends/" target="_blank" rel="noopener">trends.google.com/trends</a>。旧版 daily/rss 已 404、geo=CN 返回 400，均已停用。</p>';
 }
-function draw(){if(!window.Chart){setTimeout(draw,300);return;}
+function setSnapState(j,ah){var b=document.getElementById('snapState');if(!b)return;if(!j){b.textContent='未读到快照';b.className='badge missing';return;}if(ah<=2){b.textContent='已启用 · '+(j.fetched_at_cst||j.fetched_at);b.className='badge primary';}else{b.textContent='⚠️ 已过期 · '+(isNaN(ah)?'时间未知':Math.floor(ah)+' 小时前')+'（'+(j.fetched_at_cst||j.fetched_at||'—')+'）';b.className='badge missing';}}
+/* 原来这里是 4 条人工编的「示意」曲线（副业 55→82 等），即使加了水印也是编的数。改为画快照里 Google Trends 美国热搜的真实搜索量区间下限。*/
+function parseTraffic(s){var m=String(s||'').replace(/,/g,'').match(/^(\d+(?:\.\d+)?)\s*([KkMm万]?)/);if(!m)return null;var v=parseFloat(m[1]);var u=m[2];if(u==='K'||u==='k')v*=1e3;else if(u==='M'||u==='m')v*=1e6;else if(u==='万')v*=1e4;return v;}
+async function draw(){if(!window.Chart){setTimeout(draw,300);return;}
 var _cc=window.Chart.getChart(document.getElementById('trendChart'));if(_cc)_cc.destroy();
-/* 示意水印：图表上直接画「示意 · 非实测」，避免示意曲线被当成真实数据。*/
-var watermark={id:'watermark',afterDraw:function(ch){var ctx=ch.ctx;ctx.save();ctx.translate(ch.width/2,ch.height/2);ctx.rotate(-0.35);ctx.font='bold 34px system-ui,sans-serif';ctx.fillStyle='rgba(8,51,68,0.14)';ctx.textAlign='center';ctx.fillText(__T('示 意 · 非 实 测'),0,0);ctx.restore();}};
-new Chart(document.getElementById('trendChart'),{type:'line',plugins:[watermark],data:{labels:[__T('第1周'),__T('第2周'),__T('第3周'),__T('第4周'),__T('第5周'),__T('第6周'),__T('第7周'),__T('第8周'),__T('第9周'),__T('第10周'),__T('第11周'),__T('第12周')],datasets:[
-{label:__T('副业（样本示意）'),data:[55,58,60,62,65,68,70,72,75,78,80,82],borderColor:'#0d9488',backgroundColor:'transparent',tension:.3},
-{label:__T('AI（样本示意）'),data:[78,80,79,81,80,82,81,83,82,84,83,85],borderColor:'#2563eb',backgroundColor:'transparent',tension:.3},
-{label:__T('DeepSeek（样本示意）'),data:[70,68,66,65,64,63,62,62,61,61,60,60],borderColor:'#0891b2',backgroundColor:'transparent',tension:.3},
-{label:__T('捏捏乐（样本示意）'),data:[85,82,78,74,70,66,62,58,55,52,50,48],borderColor:'#f59e0b',backgroundColor:'transparent',tension:.3}
-]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{min:0,max:100,title:{display:true,text:__T('示意指数（人工设定，非实测）')}}}}});}
+var note=document.getElementById('trendChartNote');
+try{var r=await fetch('data/trends.json',{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);var j=await r.json();
+var us=(j.geos&&j.geos.US&&j.geos.US.items)||[];var rows=us.map(function(e){return {t:e.title,v:parseTraffic(e.traffic),raw:e.traffic};}).filter(function(e){return e.v!=null;}).sort(function(a,b){return b.v-a.v;}).slice(0,10);
+if(!rows.length)throw new Error('快照里没有带搜索量的条目');
+new Chart(document.getElementById('trendChart'),{type:'bar',data:{labels:rows.map(function(e){return e.t;}),datasets:[{label:__T('搜索量下限'),data:rows.map(function(e){return e.v;}),backgroundColor:'#0d9488'}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return rows[c.dataIndex].raw;}}}},scales:{x:{beginAtZero:true,title:{display:true,text:__T('搜索量（Google 只给区间下限，如 2000+）')}}}}});
+var ah=(Date.now()-Date.parse(j.fetched_at||''))/36e5;
+note.textContent='来源：Actions 快照 data/trends.json（'+(j.fetched_at_cst||j.fetched_at||'时间未知')+'），Google Trends 美国热搜前 10 名的搜索量。Google 只公布区间（如「2000+」），柱长按区间下限画，不是精确值。'+(ah>2?' ⚠️ 快照已超过 2 小时没更新。':'');
+}catch(e){note.textContent='未获取：'+e.message+'。不画示意数据。';}}
 draw();tryTrends();
 </script></body></html>
