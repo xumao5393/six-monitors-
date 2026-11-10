@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T15:34:26Z",
-  "fetched_at_cst": "2026-11-10 23:34:26 CST",
-  "checked_at": "2026-11-10T15:34:26Z",
-  "checked_at_cst": "2026-11-10 23:34:26 CST",
+  "fetched_at": "2026-11-10T15:47:12Z",
+  "fetched_at_cst": "2026-11-10 23:47:12 CST",
+  "checked_at": "2026-11-10T15:47:12Z",
+  "checked_at_cst": "2026-11-10 23:47:12 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,18 +12,28 @@
       "http": 200,
       "items": [
         {
+          "title": "ring drone cam",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "wow forever patch notes",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "arthur rinderknech",
-          "traffic": "500+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "ayesha curry",
-          "traffic": "500+",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "adam schefter",
+          "traffic": "20000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -34,11 +44,6 @@
         {
           "title": "mississippi senate race election results",
           "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "cloud gaming",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -54,11 +59,6 @@
         {
           "title": "lauren sanchez",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "country music singer dies",
-          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -129,6 +129,11 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "宋岡陵",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "6919",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -166,11 +171,6 @@
         {
           "title": "群創光電",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "明天的天氣",
-          "traffic": "100000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
