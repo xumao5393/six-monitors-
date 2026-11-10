@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T06:47:10Z",
-  "fetched_at_cst": "2026-11-10 14:47:10 CST",
-  "checked_at": "2026-11-10T06:47:10Z",
-  "checked_at_cst": "2026-11-10 14:47:10 CST",
+  "fetched_at": "2026-11-10T07:12:39Z",
+  "fetched_at_cst": "2026-11-10 15:12:39 CST",
+  "checked_at": "2026-11-10T07:12:39Z",
+  "checked_at_cst": "2026-11-10 15:12:39 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -706,8 +706,8 @@
     {
       "id": "z-ai/glm-5.2:batch",
       "name": "Z.ai: GLM 5.2 (batch)",
-      "prompt_per_m": 0.573,
-      "completion_per_m": 1.169,
+      "prompt_per_m": 0.527,
+      "completion_per_m": 1.075,
       "context_length": 1048576
     },
     {
@@ -3443,8 +3443,8 @@
         "completion_per_m": 6.8
       },
       "z-ai/glm-5.2:batch": {
-        "prompt_per_m": 0.573,
-        "completion_per_m": 1.169
+        "prompt_per_m": 0.527,
+        "completion_per_m": 1.075
       },
       "moonshotai/kimi-k2.7-code": {
         "prompt_per_m": 0.6,

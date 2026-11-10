@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T06:47:10Z",
-  "fetched_at_cst": "2026-11-10 14:47:10 CST",
-  "checked_at": "2026-11-10T06:47:10Z",
-  "checked_at_cst": "2026-11-10 14:47:10 CST",
+  "fetched_at": "2026-11-10T07:12:39Z",
+  "fetched_at_cst": "2026-11-10 15:12:39 CST",
+  "checked_at": "2026-11-10T07:12:39Z",
+  "checked_at_cst": "2026-11-10 15:12:39 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -11,6 +11,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "disability",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
         {
           "title": "adria arjona",
           "traffic": "100+",
@@ -55,11 +60,6 @@
           "title": "francis lawrence",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "andy richter",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
     },
@@ -68,18 +68,13 @@
       "http": 200,
       "items": [
         {
-          "title": "麥 可 卡 里 克",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
           "title": "蘇民峰",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "陳百祥",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -89,7 +84,7 @@
         },
         {
           "title": "幻彩詠香江",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -116,6 +111,11 @@
           "title": "warriors vs pelicans",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "fraud",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -123,6 +123,36 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "林淑茵",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "5269",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "芝加哥小熊",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "6271",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "2308",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "6269",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "加權指數",
           "traffic": "5000+",
@@ -140,36 +170,6 @@
         },
         {
           "title": "2449",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "1802",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "台積電營收",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "祥碩",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "謝國樑",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "布蘭登·威廉斯",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "狄安東尼·梅爾頓",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
