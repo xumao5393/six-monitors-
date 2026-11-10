@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T05:47:08Z",
-  "fetched_at_cst": "2026-11-10 13:47:08 CST",
-  "checked_at": "2026-11-10T05:47:08Z",
-  "checked_at_cst": "2026-11-10 13:47:08 CST",
+  "fetched_at": "2026-11-10T06:47:10Z",
+  "fetched_at_cst": "2026-11-10 14:47:10 CST",
+  "checked_at": "2026-11-10T06:47:10Z",
+  "checked_at_cst": "2026-11-10 14:47:10 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "bill murray",
+          "title": "adria arjona",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "olivia cooke",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "new zealand vs india",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "warriors",
-          "traffic": "20000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "brandin podziemski",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "julian reese",
+          "title": "henry cavill",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "celtics vs 76ers",
+          "title": "heated rivalry theaters",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "government jobs",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "julia louis-dreyfus",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "uefa nations league",
+          "title": "karely ruiz",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "stanford basketball",
+          "title": "francis lawrence",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "andy richter",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "wainwright",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "brandon williams",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jimmy butler",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,8 +68,13 @@
       "http": 200,
       "items": [
         {
+          "title": "麥 可 卡 里 克",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "蘇民峰",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -79,7 +84,7 @@
         },
         {
           "title": "林淑茵",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -89,7 +94,7 @@
         },
         {
           "title": "周國豐",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -108,11 +113,6 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "容祖兒演唱會2027",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
           "title": "warriors vs pelicans",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -124,53 +124,53 @@
       "http": 200,
       "items": [
         {
+          "title": "加權指數",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "國道馬拉松",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "3017",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "2449",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "1802",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "台積電營收",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "祥碩",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "謝國樑",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "布蘭登·威廉斯",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "布蘭丁·波傑姆斯基",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "赫伯特·瓊斯",
+          "title": "狄安東尼·梅爾頓",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "張本智和",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "台 揚",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "維克托·文班亞馬",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "勇士直播",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
