@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T18:47:09Z",
-  "fetched_at_cst": "2026-11-11 02:47:09 CST",
-  "checked_at": "2026-11-10T18:47:09Z",
-  "checked_at_cst": "2026-11-11 02:47:09 CST",
+  "fetched_at": "2026-11-10T19:47:08Z",
+  "fetched_at_cst": "2026-11-11 03:47:08 CST",
+  "checked_at": "2026-11-10T19:47:08Z",
+  "checked_at_cst": "2026-11-11 03:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "keenan allen",
-          "traffic": "2000+",
+          "title": "jonathan taylor",
+          "traffic": "20000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "kirk cousins vikings",
+          "title": "riq woolen",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "michelle randolph",
+          "title": "jim jordan",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "mark robinson",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "abc, nbc cbs evening news ratings",
+          "title": "lorenzo musetti",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "leicester city vs walsall",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "matthew farwell",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "mac jones",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "blackman high school",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "nintendo",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "kobe bryant",
+          "title": "chiefs trade",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "stubhub",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "don leonard",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ohio stadium",
+          "title": "starlink mini 2",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,18 +68,23 @@
       "http": 200,
       "items": [
         {
-          "title": "星島日報",
+          "title": "雙11優惠",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "雙11優惠",
+          "title": "星島日報",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "雙十一優惠",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "保溫瓶",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -111,11 +116,6 @@
           "title": "明天的天氣",
           "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "cuaca besok",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -136,11 +136,6 @@
         {
           "title": "古裝劇",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "nvda股價",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -170,6 +165,11 @@
         },
         {
           "title": "伊隆·馬斯克",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "阿格麗希",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
