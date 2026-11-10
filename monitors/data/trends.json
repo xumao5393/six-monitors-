@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T14:47:09Z",
-  "fetched_at_cst": "2026-11-10 22:47:09 CST",
-  "checked_at": "2026-11-10T14:47:09Z",
-  "checked_at_cst": "2026-11-10 22:47:09 CST",
+  "fetched_at": "2026-11-10T15:34:26Z",
+  "fetched_at_cst": "2026-11-10 23:34:26 CST",
+  "checked_at": "2026-11-10T15:34:26Z",
+  "checked_at_cst": "2026-11-10 23:34:26 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,13 +12,23 @@
       "http": 200,
       "items": [
         {
+          "title": "wow forever patch notes",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "arthur rinderknech",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "ayesha curry",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "adam schefter",
-          "traffic": "200+",
+          "title": "chris o'donnell",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -28,17 +38,17 @@
         },
         {
           "title": "cloud gaming",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "big walk game ai",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
+          "title": "big walk game ai",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "jordan elliott",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -50,16 +60,6 @@
           "title": "country music singer dies",
           "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "michael sanft attorney",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "lorenzo sonego",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
     },
@@ -69,12 +69,12 @@
       "items": [
         {
           "title": "david walliams",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "cpi",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -83,13 +83,13 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "weather tomorrow",
-          "traffic": "2000+",
+          "title": "麥當勞 pokemon",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "麥當勞 pokemon",
-          "traffic": "500+",
+          "title": "weather tomorrow",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,13 +124,18 @@
       "http": 200,
       "items": [
         {
+          "title": "伊隆·馬斯克",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "6919",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "股票市場",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -150,7 +155,7 @@
         },
         {
           "title": "膽固醇",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -166,11 +171,6 @@
         {
           "title": "明天的天氣",
           "traffic": "100000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "weather tomorrow",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
