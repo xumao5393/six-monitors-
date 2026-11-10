@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T07:47:12Z",
-  "fetched_at_cst": "2026-11-10 15:47:12 CST",
-  "checked_at": "2026-11-10T07:47:12Z",
-  "checked_at_cst": "2026-11-10 15:47:12 CST",
+  "fetched_at": "2026-11-10T08:47:09Z",
+  "fetched_at_cst": "2026-11-10 16:47:09 CST",
+  "checked_at": "2026-11-10T08:47:09Z",
+  "checked_at_cst": "2026-11-10 16:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,8 +12,43 @@
       "http": 200,
       "items": [
         {
-          "title": "lake powell",
+          "title": "黄乐",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "when is black friday 2026",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "theo james",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jemima goldsmith",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "oj simpson",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "sam darnold",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "grand theft auto vi",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "lake powell",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -22,43 +57,8 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "aldo de nigris",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "leonardo dicaprio",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
           "title": "pluto",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "gabourey sidibe",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "disability",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "adria arjona",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "olivia cooke",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "henry cavill",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -89,7 +89,7 @@
         },
         {
           "title": "朱智賢",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -103,6 +103,11 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "将军澳",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "clock",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -111,11 +116,6 @@
           "title": "warriors vs pelicans",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "fraud",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -123,6 +123,16 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "熊海靈",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "牛排",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "胡采蘋",
           "traffic": "2000+",
@@ -144,11 +154,6 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "5269",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "6271",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -161,11 +166,6 @@
         {
           "title": "6269",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "加權指數",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
