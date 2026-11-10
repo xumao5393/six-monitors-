@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T07:12:39Z",
-  "fetched_at_cst": "2026-11-10 15:12:39 CST",
-  "checked_at": "2026-11-10T07:12:39Z",
-  "checked_at_cst": "2026-11-10 15:12:39 CST",
+  "fetched_at": "2026-11-10T07:47:12Z",
+  "fetched_at_cst": "2026-11-10 15:47:12 CST",
+  "checked_at": "2026-11-10T07:47:12Z",
+  "checked_at_cst": "2026-11-10 15:47:12 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -1902,6 +1902,13 @@
     }
   ],
   "models_dev_models": {
+    "moonshotai/kimi-k3.1-pro": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
     "moonshotai/kimi-k3": {
       "provider": "moonshotai",
       "id": "kimi-k3",
@@ -1916,12 +1923,12 @@
       "input_per_m": 4,
       "output_per_m": 20
     },
-    "moonshotai/kimi-k3.1-pro": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro",
-      "name": "Kimi K3.1 Pro",
-      "input_per_m": 2,
-      "output_per_m": 10
+    "deepseek/deepseek-v4-flash-vision-exp": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek V4 Flash Vision Exp",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
     },
     "deepseek/deepseek-v4-pro": {
       "provider": "deepseek",
@@ -1936,34 +1943,6 @@
       "name": "DeepSeek V4 Flash",
       "input_per_m": 0.15,
       "output_per_m": 0.6
-    },
-    "deepseek/deepseek-v4-flash-vision-exp": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-flash-vision-exp",
-      "name": "DeepSeek V4 Flash Vision Exp",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
-    },
-    "openai/gpt-6.1-terra": {
-      "provider": "openai",
-      "id": "gpt-6.1-terra",
-      "name": "GPT-6.1 Terra",
-      "input_per_m": 1,
-      "output_per_m": 5
-    },
-    "openai/gpt-6.1-sol": {
-      "provider": "openai",
-      "id": "gpt-6.1-sol",
-      "name": "GPT-6.1 Sol",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "google/gemini-4-argon": {
-      "provider": "google",
-      "id": "gemini-4-argon",
-      "name": "Gemini 4 Argon",
-      "input_per_m": 2,
-      "output_per_m": 10
     },
     "anthropic/claude-opus-5-5": {
       "provider": "anthropic",
@@ -1992,6 +1971,27 @@
       "name": "Claude Opus 4.5",
       "input_per_m": 5,
       "output_per_m": 25
+    },
+    "openai/gpt-6.1-terra": {
+      "provider": "openai",
+      "id": "gpt-6.1-terra",
+      "name": "GPT-6.1 Terra",
+      "input_per_m": 1,
+      "output_per_m": 5
+    },
+    "openai/gpt-6.1-sol": {
+      "provider": "openai",
+      "id": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "google/gemini-4-argon": {
+      "provider": "google",
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "input_per_m": 2,
+      "output_per_m": 10
     }
   },
   "history": {

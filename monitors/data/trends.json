@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T07:12:39Z",
-  "fetched_at_cst": "2026-11-10 15:12:39 CST",
-  "checked_at": "2026-11-10T07:12:39Z",
-  "checked_at_cst": "2026-11-10 15:12:39 CST",
+  "fetched_at": "2026-11-10T07:47:12Z",
+  "fetched_at_cst": "2026-11-10 15:47:12 CST",
+  "checked_at": "2026-11-10T07:47:12Z",
+  "checked_at_cst": "2026-11-10 15:47:12 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,13 +12,43 @@
       "http": 200,
       "items": [
         {
-          "title": "disability",
+          "title": "lake powell",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "adria arjona",
+          "title": "amanda nunes",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "aldo de nigris",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "leonardo dicaprio",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "pluto",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "gabourey sidibe",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "disability",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "adria arjona",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -27,38 +57,8 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "new zealand vs india",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
           "title": "henry cavill",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "heated rivalry theaters",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "government jobs",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "julia louis-dreyfus",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "karely ruiz",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "francis lawrence",
-          "traffic": "100+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -79,7 +79,7 @@
         },
         {
           "title": "林淑茵",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -88,13 +88,13 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "周國豐",
+          "title": "朱智賢",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "朱智賢",
-          "traffic": "200+",
+          "title": "周國豐",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,18 +124,28 @@
       "http": 200,
       "items": [
         {
-          "title": "林淑茵",
+          "title": "胡采蘋",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "jordan poole",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "5269",
+          "title": "林淑茵",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "芝加哥小熊",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "5269",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -155,21 +165,11 @@
         },
         {
           "title": "加權指數",
-          "traffic": "5000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "國道馬拉松",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "3017",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2449",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
