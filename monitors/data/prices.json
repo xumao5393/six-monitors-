@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T09:47:10Z",
-  "fetched_at_cst": "2026-11-10 17:47:10 CST",
-  "checked_at": "2026-11-10T09:47:10Z",
-  "checked_at_cst": "2026-11-10 17:47:10 CST",
+  "fetched_at": "2026-11-10T10:47:08Z",
+  "fetched_at_cst": "2026-11-10 18:47:08 CST",
+  "checked_at": "2026-11-10T10:47:08Z",
+  "checked_at_cst": "2026-11-10 18:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -699,7 +699,7 @@
     {
       "id": "z-ai/glm-5.2",
       "name": "Z.ai: GLM 5.2",
-      "prompt_per_m": 0.0341,
+      "prompt_per_m": 0.009,
       "completion_per_m": 6.8,
       "context_length": 1048576
     },
@@ -1909,19 +1909,26 @@
       "input_per_m": 2,
       "output_per_m": 10
     },
-    "anthropic/claude-opus-5-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-5-5",
-      "name": "Claude Opus 5.5",
+    "moonshotai/kimi-k3": {
+      "provider": "moonshotai",
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "input_per_m": 3,
+      "output_per_m": 15
+    },
+    "moonshotai/kimi-k3.1-pro-highspeed": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro-highspeed",
+      "name": "Kimi K3.1 Pro Highspeed",
       "input_per_m": 4,
       "output_per_m": 20
     },
-    "anthropic/claude-opus-4-5-20251101": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5-20251101",
-      "name": "Claude Opus 4.5",
-      "input_per_m": 5,
-      "output_per_m": 25
+    "moonshotai/kimi-k3.1-pro": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
+      "input_per_m": 2,
+      "output_per_m": 10
     },
     "anthropic/claude-opus-4-5": {
       "provider": "anthropic",
@@ -1937,24 +1944,24 @@
       "input_per_m": 5,
       "output_per_m": 25
     },
-    "moonshotai/kimi-k3.1-pro-highspeed": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro-highspeed",
-      "name": "Kimi K3.1 Pro Highspeed",
+    "anthropic/claude-opus-4-5-20251101": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5-20251101",
+      "name": "Claude Opus 4.5",
+      "input_per_m": 5,
+      "output_per_m": 25
+    },
+    "anthropic/claude-opus-5-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-5-5",
+      "name": "Claude Opus 5.5",
       "input_per_m": 4,
       "output_per_m": 20
     },
-    "moonshotai/kimi-k3": {
-      "provider": "moonshotai",
-      "id": "kimi-k3",
-      "name": "Kimi K3",
-      "input_per_m": 3,
-      "output_per_m": 15
-    },
-    "moonshotai/kimi-k3.1-pro": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro",
-      "name": "Kimi K3.1 Pro",
+    "openai/gpt-6.1-sol": {
+      "provider": "openai",
+      "id": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
       "input_per_m": 2,
       "output_per_m": 10
     },
@@ -1965,19 +1972,12 @@
       "input_per_m": 1,
       "output_per_m": 5
     },
-    "openai/gpt-6.1-sol": {
-      "provider": "openai",
-      "id": "gpt-6.1-sol",
-      "name": "GPT-6.1 Sol",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "deepseek/deepseek-v4-pro": {
+    "deepseek/deepseek-v4-flash": {
       "provider": "deepseek",
-      "id": "deepseek-v4-pro",
-      "name": "DeepSeek V4 Pro",
-      "input_per_m": 0.66,
-      "output_per_m": 1.98
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
     },
     "deepseek/deepseek-v4-flash-vision-exp": {
       "provider": "deepseek",
@@ -1986,12 +1986,12 @@
       "input_per_m": 0.15,
       "output_per_m": 0.6
     },
-    "deepseek/deepseek-v4-flash": {
+    "deepseek/deepseek-v4-pro": {
       "provider": "deepseek",
-      "id": "deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "input_per_m": 0.66,
+      "output_per_m": 1.98
     }
   },
   "history": {
@@ -3439,7 +3439,7 @@
         "completion_per_m": 12.0
       },
       "z-ai/glm-5.2": {
-        "prompt_per_m": 0.0341,
+        "prompt_per_m": 0.009,
         "completion_per_m": 6.8
       },
       "z-ai/glm-5.2:batch": {
