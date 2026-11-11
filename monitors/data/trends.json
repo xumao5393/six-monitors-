@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-10T23:47:10Z",
-  "fetched_at_cst": "2026-11-11 07:47:10 CST",
-  "checked_at": "2026-11-10T23:47:10Z",
-  "checked_at_cst": "2026-11-11 07:47:10 CST",
+  "fetched_at": "2026-11-11T00:47:09Z",
+  "fetched_at_cst": "2026-11-11 08:47:09 CST",
+  "checked_at": "2026-11-11T00:47:09Z",
+  "checked_at_cst": "2026-11-11 08:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "bucks vs knicks",
+          "title": "cfp rankings",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ryan seacrest",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "duke basketball schedule",
+          "title": "will venable",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ncaa men's basketball",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "cayden boozer",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "duke basketball",
-          "traffic": "5000+",
+          "title": "charlie sheen",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "rick van vactor",
+          "title": "georgetown basketball",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "iowa basketball",
+          "title": "wild game",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "drummer",
+          "title": "la salle vs villanova",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "cma awards 2026",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "texas tech basketball",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "capitals vs senators",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "devils vs jets",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "kent state vs bowling green",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,21 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "投資",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "東北季風",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "周俊樂",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "weather",
           "traffic": "1000+",
@@ -79,17 +94,17 @@
         },
         {
           "title": "張與辰",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "大快活",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "香港",
-          "traffic": "500+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -99,22 +114,7 @@
         },
         {
           "title": "中年好聲音",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "星岛日报",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "長者",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "門票",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,22 +124,42 @@
       "http": 200,
       "items": [
         {
+          "title": "kidzania taipei 奇薩尼亞台北",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "迷客夏新品",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "76人 對 塞爾提克",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "尼克 對 公鹿",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "稅",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "林淑茵",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "旅行社",
+          "title": "anthropic",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "anthropic",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "台股夜盤指數",
+          "title": "旅行社",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
@@ -150,27 +170,7 @@
         },
         {
           "title": "南亞科技",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "新聞",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "中華 民國 勞動 部",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "lori",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "สภาพอากาศ",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]

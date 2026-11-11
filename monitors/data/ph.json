@@ -1,68 +1,20 @@
 {
-  "fetched_at": "2026-11-10T23:47:10Z",
-  "fetched_at_cst": "2026-11-11 07:47:10 CST",
-  "checked_at": "2026-11-10T23:47:10Z",
-  "checked_at_cst": "2026-11-11 07:47:10 CST",
+  "fetched_at": "2026-11-11T00:47:09Z",
+  "fetched_at_cst": "2026-11-11 08:47:09 CST",
+  "checked_at": "2026-11-11T00:47:09Z",
+  "checked_at_cst": "2026-11-11 08:47:09 CST",
   "ok": true,
   "source": "https://www.producthunt.com/feed",
   "note": "RSS 无 CORS，浏览器必失败；本文件为服务端 curl 快照。票数 RSS 不提供，一律未获取，不编造。",
   "error": null,
   "items": [
     {
-      "title": "AppTraction",
-      "link": "https://www.producthunt.com/products/apptraction",
-      "published": "2026-10-20T13:30:58-07:00",
+      "title": "TK by Medium",
+      "link": "https://www.producthunt.com/products/medium",
+      "published": "2026-11-05T06:33:24-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Supercharge Apple App Store analytics Discussion | Link"
-    },
-    {
-      "title": "Alsona",
-      "link": "https://www.producthunt.com/products/alsona",
-      "published": "2026-10-21T08:41:38-07:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "AI agents that turn buying signals into booked sales calls Discussion | Link"
-    },
-    {
-      "title": "Daytwo",
-      "link": "https://www.producthunt.com/products/daytwo-2",
-      "published": "2026-11-09T07:17:34-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Let your team change your custom site without touching code Discussion | Link"
-    },
-    {
-      "title": "Maxma",
-      "link": "https://www.producthunt.com/products/maxma-2",
-      "published": "2026-10-23T17:59:22-07:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "The 24/7 AI teammate that scales your paid ad performance Discussion | Link"
-    },
-    {
-      "title": "Latch.ai",
-      "link": "https://www.producthunt.com/products/latch-ai-2",
-      "published": "2026-10-28T13:19:05-07:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Automate complex accounting work without a single prompt Discussion | Link"
-    },
-    {
-      "title": "Obsiva",
-      "link": "https://www.producthunt.com/products/obsiva",
-      "published": "2026-11-09T11:41:51-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Turn site pics + voice notes into a PDF inspection report Discussion | Link"
-    },
-    {
-      "title": "gitmanual",
-      "link": "https://www.producthunt.com/products/gitmanual",
-      "published": "2026-11-06T09:01:01-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "See if a GitHub repo runs on your OS, and how to set it up Discussion | Link"
+      "summary": "An agentic notebook to build your best thinking Discussion | Link"
     },
     {
       "title": "Tokens by UI Colors",
@@ -73,12 +25,20 @@
       "summary": "Build your product’s visual language with design tokens Discussion | Link"
     },
     {
-      "title": "Ownkube",
-      "link": "https://www.producthunt.com/products/ownkube",
-      "published": "2026-10-20T07:25:22-07:00",
+      "title": "SideKick By Open",
+      "link": "https://www.producthunt.com/products/open-for-sales",
+      "published": "2026-11-09T04:59:46-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Deploy apps from your coding agent with one prompt Discussion | Link"
+      "summary": "“Claude, but for your product” is here. Discussion | Link"
+    },
+    {
+      "title": "Clive",
+      "link": "https://www.producthunt.com/products/clive",
+      "published": "2026-11-09T16:23:22-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Let Claude and other AIs set your iPhone alarms Discussion | Link"
     },
     {
       "title": "TOWeb 15",
@@ -89,6 +49,70 @@
       "summary": "Rewritten as a native Mac & Windows app, with AI and MCP Discussion | Link"
     },
     {
+      "title": "CloakPane",
+      "link": "https://www.producthunt.com/products/cloakpane",
+      "published": "2026-11-06T22:51:00-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "A Mac browser that stays out of your screen shares Discussion | Link"
+    },
+    {
+      "title": "ZUS",
+      "link": "https://www.producthunt.com/products/zus-2",
+      "published": "2026-11-09T09:01:49-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "AI-native IDE: agents code with human review Discussion | Link"
+    },
+    {
+      "title": "gitmanual",
+      "link": "https://www.producthunt.com/products/gitmanual",
+      "published": "2026-11-06T09:01:01-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "See if a GitHub repo runs on your OS, and how to set it up Discussion | Link"
+    },
+    {
+      "title": "Seldon",
+      "link": "https://www.producthunt.com/products/seldon",
+      "published": "2026-11-09T17:18:21-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Behavioral QA agents that use your product like customers do Discussion | Link"
+    },
+    {
+      "title": "Kata Send",
+      "link": "https://www.producthunt.com/products/kata-send",
+      "published": "2026-11-05T00:50:12-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Cold email infrastructure for AI agents Discussion | Link"
+    },
+    {
+      "title": "Operum",
+      "link": "https://www.producthunt.com/products/operum",
+      "published": "2026-10-10T20:07:59-07:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Your AI product team, with expert workflows built in Discussion | Link"
+    },
+    {
+      "title": "CollaboTokyo",
+      "link": "https://www.producthunt.com/products/collabotokyo",
+      "published": "2026-11-08T22:24:12-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Explore a virtual Tokyo to network, market, and collaborate Discussion | Link"
+    },
+    {
+      "title": "Daytwo",
+      "link": "https://www.producthunt.com/products/daytwo-2",
+      "published": "2026-11-09T07:17:34-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Let your team change your custom site without touching code Discussion | Link"
+    },
+    {
       "title": "Wipecraft",
       "link": "https://www.producthunt.com/products/wipecraft",
       "published": "2026-11-09T03:50:59-08:00",
@@ -97,36 +121,12 @@
       "summary": "Mac System Data cleaner with on-device AI mode Discussion | Link"
     },
     {
-      "title": "Opal Reader",
-      "link": "https://www.producthunt.com/products/opal-reader",
-      "published": "2026-11-07T19:57:34-08:00",
+      "title": "ChromePing",
+      "link": "https://www.producthunt.com/products/chromeping",
+      "published": "2026-11-04T22:37:36-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Read PDFs and EPUBs on iPhone Duo Discussion | Link"
-    },
-    {
-      "title": "TK by Medium",
-      "link": "https://www.producthunt.com/products/medium",
-      "published": "2026-11-05T06:33:24-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "An agentic notebook to build your best thinking Discussion | Link"
-    },
-    {
-      "title": "Quillo",
-      "link": "https://www.producthunt.com/products/quillo-2",
-      "published": "2026-11-05T07:57:02-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Listen to any PDF in a natural voice, then ask Quillo Ai Discussion | Link"
-    },
-    {
-      "title": "Lottie AI",
-      "link": "https://www.producthunt.com/products/lottiefiles",
-      "published": "2026-11-09T00:16:41-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Editable vector animations from a text prompt Discussion | Link"
+      "summary": "Talk to anyone by phone, in a language you don't speak Discussion | Link"
     }
   ]
 }
