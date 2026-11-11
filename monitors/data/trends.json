@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-11T17:47:08Z",
-  "fetched_at_cst": "2026-11-12 01:47:08 CST",
-  "checked_at": "2026-11-11T17:47:08Z",
-  "checked_at_cst": "2026-11-12 01:47:08 CST",
+  "fetched_at": "2026-11-11T17:52:33Z",
+  "fetched_at_cst": "2026-11-12 01:52:33 CST",
+  "checked_at": "2026-11-11T17:52:33Z",
+  "checked_at_cst": "2026-11-12 01:52:33 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -124,6 +124,11 @@
       "http": 200,
       "items": [
         {
+          "title": "復仇者聯盟5",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "光洋科",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -154,22 +159,17 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "夫家",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "康康",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "景 碩",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "金屬",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "黑色 星期五",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
