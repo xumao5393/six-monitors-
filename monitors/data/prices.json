@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-11T01:47:08Z",
-  "fetched_at_cst": "2026-11-11 09:47:08 CST",
-  "checked_at": "2026-11-11T01:47:08Z",
-  "checked_at_cst": "2026-11-11 09:47:08 CST",
+  "fetched_at": "2026-11-11T01:54:50Z",
+  "fetched_at_cst": "2026-11-11 09:54:50 CST",
+  "checked_at": "2026-11-11T01:54:50Z",
+  "checked_at_cst": "2026-11-11 09:54:50 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -727,7 +727,7 @@
     {
       "id": "moonshotai/kimi-k2.7-code",
       "name": "MoonshotAI: Kimi K2.7 Code",
-      "prompt_per_m": 0.7125,
+      "prompt_per_m": 0.6,
       "completion_per_m": 3.5,
       "context_length": 262144
     },
@@ -4539,7 +4539,7 @@
         "completion_per_m": 1.075
       },
       "moonshotai/kimi-k2.7-code": {
-        "prompt_per_m": 0.7125,
+        "prompt_per_m": 0.6,
         "completion_per_m": 3.5
       },
       "anthropic/claude-fable-5": {
