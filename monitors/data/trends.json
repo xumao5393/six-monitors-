@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-11T09:20:05Z",
-  "fetched_at_cst": "2026-11-11 17:20:05 CST",
-  "checked_at": "2026-11-11T09:20:05Z",
-  "checked_at_cst": "2026-11-11 17:20:05 CST",
+  "fetched_at": "2026-11-11T09:47:08Z",
+  "fetched_at_cst": "2026-11-11 17:47:08 CST",
+  "checked_at": "2026-11-11T09:47:08Z",
+  "checked_at_cst": "2026-11-11 17:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,13 +12,33 @@
       "http": 200,
       "items": [
         {
-          "title": "spectrum outage",
+          "title": "new york times",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "mauricio pochettino",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "pochettino",
+          "title": "reggie virgil",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "pakistan vs sri lanka",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "travis etienne",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "spectrum outage",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -27,18 +47,8 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "qwen 4",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
           "title": "cj daniels",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "leonardo dicaprio",
-          "traffic": "100+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -47,18 +57,8 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "x.",
+          "title": "leonardo dicaprio",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ryan gosling",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "scott laux blue angels removal",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -74,12 +74,12 @@
         },
         {
           "title": "霍啟山",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "詐騙",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,6 +124,16 @@
       "http": 200,
       "items": [
         {
+          "title": "徐熙娣",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "外資買賣超",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "8299",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -131,6 +141,11 @@
         {
           "title": "apec",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "江蕙",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -155,21 +170,6 @@
         },
         {
           "title": "英雄联盟全球总决赛",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "8112",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2356",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "3044",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
