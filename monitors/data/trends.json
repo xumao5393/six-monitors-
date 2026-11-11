@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-11T16:47:09Z",
-  "fetched_at_cst": "2026-11-12 00:47:09 CST",
-  "checked_at": "2026-11-11T16:47:09Z",
-  "checked_at_cst": "2026-11-12 00:47:09 CST",
+  "fetched_at": "2026-11-11T17:47:08Z",
+  "fetched_at_cst": "2026-11-12 01:47:08 CST",
+  "checked_at": "2026-11-11T17:47:08Z",
+  "checked_at_cst": "2026-11-12 01:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "rex ryan",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "east texas a&m basketball",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "suspect",
+          "title": "casper ruud",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "saudi arabia",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "usman nurmagomedov",
+          "title": "baseball",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "whoopi goldberg",
-          "traffic": "200+",
+          "title": "will scharf",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "walmart black friday ad",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "new heights",
+          "title": "applebees menu",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "tatjana maria",
+          "title": "russian ambassador to us",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "chipotle tattoo deal",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "obama presidential library",
+          "title": "vanguard",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "rex ryan",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "east texas a&m basketball",
           "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "storage units",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "入境處",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "陳楨怡",
           "traffic": "200+",
@@ -93,8 +98,13 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "王羽佳",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "羅大佑",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -106,16 +116,6 @@
           "title": "谷 婭 溦",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "普捷天奴",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "希威森",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -123,6 +123,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "光洋科",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "基泰大直",
           "traffic": "100+",
@@ -134,18 +139,23 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "鄭麗文",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "sk海力士",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "神田沙也加",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "康康",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -159,18 +169,8 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "士官",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "黑色 星期五",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "哈林",
-          "traffic": "100+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
