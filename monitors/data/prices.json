@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-11T03:47:07Z",
-  "fetched_at_cst": "2026-11-11 11:47:07 CST",
-  "checked_at": "2026-11-11T03:47:07Z",
-  "checked_at_cst": "2026-11-11 11:47:07 CST",
+  "fetched_at": "2026-11-11T04:47:08Z",
+  "fetched_at_cst": "2026-11-11 12:47:08 CST",
+  "checked_at": "2026-11-11T04:47:08Z",
+  "checked_at_cst": "2026-11-11 12:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -1909,19 +1909,19 @@
     }
   ],
   "models_dev_models": {
-    "openai/gpt-6.1-terra": {
-      "provider": "openai",
-      "id": "gpt-6.1-terra",
-      "name": "GPT-6.1 Terra",
-      "input_per_m": 1,
-      "output_per_m": 5
-    },
     "openai/gpt-6.1-sol": {
       "provider": "openai",
       "id": "gpt-6.1-sol",
       "name": "GPT-6.1 Sol",
       "input_per_m": 2,
       "output_per_m": 10
+    },
+    "openai/gpt-6.1-terra": {
+      "provider": "openai",
+      "id": "gpt-6.1-terra",
+      "name": "GPT-6.1 Terra",
+      "input_per_m": 1,
+      "output_per_m": 5
     },
     "moonshotai/kimi-k3": {
       "provider": "moonshotai",
@@ -1944,34 +1944,6 @@
       "input_per_m": 2,
       "output_per_m": 10
     },
-    "anthropic/claude-opus-5-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-5-5",
-      "name": "Claude Opus 5.5",
-      "input_per_m": 4,
-      "output_per_m": 20
-    },
-    "anthropic/claude-opus-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-5",
-      "name": "Claude Opus 5",
-      "input_per_m": 5,
-      "output_per_m": 25
-    },
-    "anthropic/claude-opus-4-5-20251101": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5-20251101",
-      "name": "Claude Opus 4.5",
-      "input_per_m": 5,
-      "output_per_m": 25
-    },
-    "anthropic/claude-opus-4-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5",
-      "name": "Claude Opus 4.5 (latest)",
-      "input_per_m": 5,
-      "output_per_m": 25
-    },
     "google/gemini-4-carbon": {
       "provider": "google",
       "id": "gemini-4-carbon",
@@ -1986,6 +1958,41 @@
       "input_per_m": 2,
       "output_per_m": 10
     },
+    "anthropic/claude-opus-4-5-20251101": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5-20251101",
+      "name": "Claude Opus 4.5",
+      "input_per_m": 5,
+      "output_per_m": 25
+    },
+    "anthropic/claude-opus-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "input_per_m": 5,
+      "output_per_m": 25
+    },
+    "anthropic/claude-opus-5-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-5-5",
+      "name": "Claude Opus 5.5",
+      "input_per_m": 4,
+      "output_per_m": 20
+    },
+    "anthropic/claude-opus-4-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5",
+      "name": "Claude Opus 4.5 (latest)",
+      "input_per_m": 5,
+      "output_per_m": 25
+    },
+    "deepseek/deepseek-v4-flash": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
+    },
     "deepseek/deepseek-v4-pro": {
       "provider": "deepseek",
       "id": "deepseek-v4-pro",
@@ -1997,13 +2004,6 @@
       "provider": "deepseek",
       "id": "deepseek-v4-flash-vision-exp",
       "name": "DeepSeek V4 Flash Vision Exp",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
-    },
-    "deepseek/deepseek-v4-flash": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash",
       "input_per_m": 0.15,
       "output_per_m": 0.6
     }
