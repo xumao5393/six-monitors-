@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-11T12:47:08Z",
-  "fetched_at_cst": "2026-11-11 20:47:08 CST",
-  "checked_at": "2026-11-11T12:47:08Z",
-  "checked_at_cst": "2026-11-11 20:47:08 CST",
+  "fetched_at": "2026-11-11T13:47:08Z",
+  "fetched_at_cst": "2026-11-11 21:47:08 CST",
+  "checked_at": "2026-11-11T13:47:08Z",
+  "checked_at_cst": "2026-11-11 21:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 469,
+      "total_models": 466,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
@@ -895,8 +895,8 @@
     {
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek: DeepSeek V4 Pro 0423",
-      "prompt_per_m": 0.9553,
-      "completion_per_m": 1.9105,
+      "prompt_per_m": 0.8923,
+      "completion_per_m": 1.7845,
       "context_length": 1048576
     },
     {
@@ -4635,8 +4635,8 @@
         "completion_per_m": 15.0
       },
       "deepseek/deepseek-v4-pro": {
-        "prompt_per_m": 0.9553,
-        "completion_per_m": 1.9105
+        "prompt_per_m": 0.8923,
+        "completion_per_m": 1.7845
       },
       "deepseek/deepseek-v4-flash": {
         "prompt_per_m": 0.09,
