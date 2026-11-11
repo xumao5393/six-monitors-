@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-11T18:47:08Z",
-  "fetched_at_cst": "2026-11-12 02:47:08 CST",
-  "checked_at": "2026-11-11T18:47:08Z",
-  "checked_at_cst": "2026-11-12 02:47:08 CST",
+  "fetched_at": "2026-11-11T19:47:07Z",
+  "fetched_at_cst": "2026-11-12 03:47:07 CST",
+  "checked_at": "2026-11-11T19:47:07Z",
+  "checked_at_cst": "2026-11-12 03:47:07 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,6 +12,46 @@
       "http": 200,
       "items": [
         {
+          "title": "chase young",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "adults season 3",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "pep guardiola",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "uc davis basketball",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "joao below deck",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "michael jackson estate value $2 billion",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "dartmouth basketball",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "confession movie",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "lauri markkanen",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
@@ -19,46 +59,6 @@
         {
           "title": "nfl football trade deadline",
           "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "los angeles lakers bronny james",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "landfill",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "casper ruud",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "will scharf",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "applebees menu",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "russian ambassador to us",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "chipotle tattoo deal",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "vanguard",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,13 @@
       "http": 200,
       "items": [
         {
-          "title": "bigbang 香港演唱會",
+          "title": "長者日",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "入境處",
-          "traffic": "1000+",
+          "title": "bigbang 香港演唱會",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,6 +124,11 @@
       "http": 200,
       "items": [
         {
+          "title": "外資 空 單",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "復仇者聯盟5",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -134,12 +139,12 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "基泰大直",
+          "title": "戈偉如",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "戈偉如",
+          "title": "基泰大直",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
@@ -160,17 +165,12 @@
         },
         {
           "title": "夫家",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "康康",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "景 碩",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
