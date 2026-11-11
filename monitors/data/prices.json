@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-11T05:47:09Z",
-  "fetched_at_cst": "2026-11-11 13:47:09 CST",
-  "checked_at": "2026-11-11T05:47:09Z",
-  "checked_at_cst": "2026-11-11 13:47:09 CST",
+  "fetched_at": "2026-11-11T06:47:07Z",
+  "fetched_at_cst": "2026-11-11 14:47:07 CST",
+  "checked_at": "2026-11-11T06:47:07Z",
+  "checked_at_cst": "2026-11-11 14:47:07 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -1909,19 +1909,33 @@
     }
   ],
   "models_dev_models": {
-    "openai/gpt-6.1-sol": {
-      "provider": "openai",
-      "id": "gpt-6.1-sol",
-      "name": "GPT-6.1 Sol",
-      "input_per_m": 2,
-      "output_per_m": 10
+    "deepseek/deepseek-v4-pro": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "input_per_m": 0.66,
+      "output_per_m": 1.98
     },
-    "openai/gpt-6.1-terra": {
-      "provider": "openai",
-      "id": "gpt-6.1-terra",
-      "name": "GPT-6.1 Terra",
-      "input_per_m": 1,
-      "output_per_m": 5
+    "deepseek/deepseek-v4-flash": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
+    },
+    "deepseek/deepseek-v4-flash-vision-exp": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek V4 Flash Vision Exp",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
+    },
+    "anthropic/claude-opus-4-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5",
+      "name": "Claude Opus 4.5 (latest)",
+      "input_per_m": 5,
+      "output_per_m": 25
     },
     "anthropic/claude-opus-5": {
       "provider": "anthropic",
@@ -1930,10 +1944,10 @@
       "input_per_m": 5,
       "output_per_m": 25
     },
-    "anthropic/claude-opus-4-5": {
+    "anthropic/claude-opus-4-5-20251101": {
       "provider": "anthropic",
-      "id": "claude-opus-4-5",
-      "name": "Claude Opus 4.5 (latest)",
+      "id": "claude-opus-4-5-20251101",
+      "name": "Claude Opus 4.5",
       "input_per_m": 5,
       "output_per_m": 25
     },
@@ -1944,26 +1958,19 @@
       "input_per_m": 4,
       "output_per_m": 20
     },
-    "anthropic/claude-opus-4-5-20251101": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5-20251101",
-      "name": "Claude Opus 4.5",
-      "input_per_m": 5,
-      "output_per_m": 25
+    "openai/gpt-6.1-terra": {
+      "provider": "openai",
+      "id": "gpt-6.1-terra",
+      "name": "GPT-6.1 Terra",
+      "input_per_m": 1,
+      "output_per_m": 5
     },
-    "moonshotai/kimi-k3": {
-      "provider": "moonshotai",
-      "id": "kimi-k3",
-      "name": "Kimi K3",
-      "input_per_m": 3,
-      "output_per_m": 15
-    },
-    "moonshotai/kimi-k3.1-pro-highspeed": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro-highspeed",
-      "name": "Kimi K3.1 Pro Highspeed",
-      "input_per_m": 4,
-      "output_per_m": 20
+    "openai/gpt-6.1-sol": {
+      "provider": "openai",
+      "id": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "input_per_m": 2,
+      "output_per_m": 10
     },
     "moonshotai/kimi-k3.1-pro": {
       "provider": "moonshotai",
@@ -1972,38 +1979,31 @@
       "input_per_m": 2,
       "output_per_m": 10
     },
-    "deepseek/deepseek-v4-flash": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
+    "moonshotai/kimi-k3.1-pro-highspeed": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro-highspeed",
+      "name": "Kimi K3.1 Pro Highspeed",
+      "input_per_m": 4,
+      "output_per_m": 20
     },
-    "deepseek/deepseek-v4-pro": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-pro",
-      "name": "DeepSeek V4 Pro",
-      "input_per_m": 0.66,
-      "output_per_m": 1.98
-    },
-    "deepseek/deepseek-v4-flash-vision-exp": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-flash-vision-exp",
-      "name": "DeepSeek V4 Flash Vision Exp",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
-    },
-    "google/gemini-4-argon": {
-      "provider": "google",
-      "id": "gemini-4-argon",
-      "name": "Gemini 4 Argon",
-      "input_per_m": 2,
-      "output_per_m": 10
+    "moonshotai/kimi-k3": {
+      "provider": "moonshotai",
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "input_per_m": 3,
+      "output_per_m": 15
     },
     "google/gemini-4-carbon": {
       "provider": "google",
       "id": "gemini-4-carbon",
       "name": "Gemini 4 Carbon",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "google/gemini-4-argon": {
+      "provider": "google",
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
       "input_per_m": 2,
       "output_per_m": 10
     }
