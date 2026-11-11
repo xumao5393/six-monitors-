@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-11T08:47:08Z",
-  "fetched_at_cst": "2026-11-11 16:47:08 CST",
-  "checked_at": "2026-11-11T08:47:08Z",
-  "checked_at_cst": "2026-11-11 16:47:08 CST",
+  "fetched_at": "2026-11-11T09:20:05Z",
+  "fetched_at_cst": "2026-11-11 17:20:05 CST",
+  "checked_at": "2026-11-11T09:20:05Z",
+  "checked_at_cst": "2026-11-11 17:20:05 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,7 +12,37 @@
       "http": 200,
       "items": [
         {
+          "title": "spectrum outage",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "pochettino",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "michael j fox",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "qwen 4",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "cj daniels",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "leonardo dicaprio",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "odessa a'zion",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
@@ -30,36 +60,6 @@
           "title": "scott laux blue angels removal",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "kevin garnett",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "armistice day",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ram",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ryan garcia",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "james franco",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "lake powell",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
     },
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "城巴",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "霍啟山",
           "traffic": "200+",
@@ -94,12 +99,12 @@
         },
         {
           "title": "林淑敏",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "富衛集團有限公司",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -111,11 +116,6 @@
           "title": "倪詩蓓",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "油麻地",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,18 +124,28 @@
       "http": 200,
       "items": [
         {
+          "title": "8299",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "apec",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "東京 巨 蛋",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "施振榮",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "英雄聯盟世界大賽",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -160,17 +170,7 @@
         },
         {
           "title": "3044",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "德尼·阿夫迪亞",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "3149",
-          "traffic": "200+",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
