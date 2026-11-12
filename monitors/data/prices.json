@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-12T01:47:14Z",
-  "fetched_at_cst": "2026-11-12 09:47:14 CST",
-  "checked_at": "2026-11-12T01:47:14Z",
-  "checked_at_cst": "2026-11-12 09:47:14 CST",
+  "fetched_at": "2026-11-12T02:47:09Z",
+  "fetched_at_cst": "2026-11-12 10:47:09 CST",
+  "checked_at": "2026-11-12T02:47:09Z",
+  "checked_at_cst": "2026-11-12 10:47:09 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -1007,8 +1007,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.143,
-      "completion_per_m": 0.21,
+      "prompt_per_m": 0.096,
+      "completion_per_m": 0.141,
       "context_length": 262144
     },
     {
@@ -1909,55 +1909,6 @@
     }
   ],
   "models_dev_models": {
-    "anthropic/claude-opus-4-5-20251101": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5-20251101",
-      "name": "Claude Opus 4.5",
-      "input_per_m": 5,
-      "output_per_m": 25
-    },
-    "anthropic/claude-opus-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-5",
-      "name": "Claude Opus 5",
-      "input_per_m": 5,
-      "output_per_m": 25
-    },
-    "anthropic/claude-opus-5-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-5-5",
-      "name": "Claude Opus 5.5",
-      "input_per_m": 4,
-      "output_per_m": 20
-    },
-    "anthropic/claude-opus-4-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5",
-      "name": "Claude Opus 4.5 (latest)",
-      "input_per_m": 5,
-      "output_per_m": 25
-    },
-    "moonshotai/kimi-k3.1-pro": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro",
-      "name": "Kimi K3.1 Pro",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "moonshotai/kimi-k3.1-pro-highspeed": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro-highspeed",
-      "name": "Kimi K3.1 Pro Highspeed",
-      "input_per_m": 4,
-      "output_per_m": 20
-    },
-    "moonshotai/kimi-k3": {
-      "provider": "moonshotai",
-      "id": "kimi-k3",
-      "name": "Kimi K3",
-      "input_per_m": 3,
-      "output_per_m": 15
-    },
     "openai/gpt-6.1-terra": {
       "provider": "openai",
       "id": "gpt-6.1-terra",
@@ -1971,6 +1922,34 @@
       "name": "GPT-6.1 Sol",
       "input_per_m": 2,
       "output_per_m": 10
+    },
+    "anthropic/claude-opus-4-5-20251101": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5-20251101",
+      "name": "Claude Opus 4.5",
+      "input_per_m": 5,
+      "output_per_m": 25
+    },
+    "anthropic/claude-opus-4-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5",
+      "name": "Claude Opus 4.5 (latest)",
+      "input_per_m": 5,
+      "output_per_m": 25
+    },
+    "anthropic/claude-opus-5-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-5-5",
+      "name": "Claude Opus 5.5",
+      "input_per_m": 4,
+      "output_per_m": 20
+    },
+    "anthropic/claude-opus-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "input_per_m": 5,
+      "output_per_m": 25
     },
     "deepseek/deepseek-v4-flash-vision-exp": {
       "provider": "deepseek",
@@ -1993,6 +1972,13 @@
       "input_per_m": 0.15,
       "output_per_m": 0.6
     },
+    "google/gemini-4-argon": {
+      "provider": "google",
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
     "google/gemini-4-carbon": {
       "provider": "google",
       "id": "gemini-4-carbon",
@@ -2000,12 +1986,26 @@
       "input_per_m": 2,
       "output_per_m": 10
     },
-    "google/gemini-4-argon": {
-      "provider": "google",
-      "id": "gemini-4-argon",
-      "name": "Gemini 4 Argon",
+    "moonshotai/kimi-k3.1-pro": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
       "input_per_m": 2,
       "output_per_m": 10
+    },
+    "moonshotai/kimi-k3.1-pro-highspeed": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro-highspeed",
+      "name": "Kimi K3.1 Pro Highspeed",
+      "input_per_m": 4,
+      "output_per_m": 20
+    },
+    "moonshotai/kimi-k3": {
+      "provider": "moonshotai",
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "input_per_m": 3,
+      "output_per_m": 15
     }
   },
   "history": {
@@ -5773,8 +5773,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.143,
-        "completion_per_m": 0.21
+        "prompt_per_m": 0.096,
+        "completion_per_m": 0.141
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
