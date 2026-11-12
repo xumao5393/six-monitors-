@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-12T13:47:09Z",
-  "fetched_at_cst": "2026-11-12 21:47:09 CST",
-  "checked_at": "2026-11-12T13:47:09Z",
-  "checked_at_cst": "2026-11-12 21:47:09 CST",
+  "fetched_at": "2026-11-12T14:47:08Z",
+  "fetched_at_cst": "2026-11-12 22:47:08 CST",
+  "checked_at": "2026-11-12T14:47:08Z",
+  "checked_at_cst": "2026-11-12 22:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "xochitl gomez",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "active shooter dc",
+          "title": "avgo stock",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "gma deals and steals",
+          "title": "robinhood",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "connections answers",
+          "title": "tsmc stock",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "social security trust fund depletion 2032",
-          "traffic": "5000+",
+          "title": "finance",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "resident evil code veronica remake",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "mark mcguinn",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "prince",
+          "title": "teri polo",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "jacey birch",
-          "traffic": "200+",
+          "title": "amd stock price",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "lpga",
+          "title": "terafab",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "avgo",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "cloud gaming",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "bill cosby",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,8 +68,23 @@
       "http": 200,
       "items": [
         {
-          "title": "玫瑰戰爭",
+          "title": "鍾麗淇",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "amd stock",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "黃仁勳辭職",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "黄仁勋辞职",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -78,43 +93,28 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "明天的天氣",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "cuaca besok",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "weather tomorrow",
+          "title": "玫瑰戰爭",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "tony leung ka-fai",
+          "title": "明天的天氣",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "cuaca besok",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "nbis",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "汪明荃",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "國泰航空",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "豹貓",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "收入 中 位 數",
-          "traffic": "500+",
+          "title": "weather tomorrow",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,52 +124,52 @@
       "http": 200,
       "items": [
         {
-          "title": "三峽火災",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "威力彩開獎號碼",
+          "title": "夜盤",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "井口資仁",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "009826",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "柯峯茗",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "nbis",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "梁文傑",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "中國統一",
+          "title": "amd stock",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "李貴發",
+          "title": "amd 股價",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "輝達概念股",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "魏哲家",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "抗議",
+          "title": "nvdl",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "美股盤前",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "nvidia 美股",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "bbc",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "黃露瑤",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
