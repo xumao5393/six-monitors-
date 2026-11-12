@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-12T18:47:11Z",
-  "fetched_at_cst": "2026-11-13 02:47:11 CST",
-  "checked_at": "2026-11-12T18:47:11Z",
-  "checked_at_cst": "2026-11-13 02:47:11 CST",
+  "fetched_at": "2026-11-12T19:47:09Z",
+  "fetched_at_cst": "2026-11-13 03:47:09 CST",
+  "checked_at": "2026-11-12T19:47:09Z",
+  "checked_at_cst": "2026-11-13 03:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "microsoft stock",
+          "title": "flash flood warning",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "france",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "microsoft ceo",
+          "title": "italie – france",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "venezuela",
+          "title": "outlook cyber attack",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "hail",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tornado delaware",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "internet outage",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tommy mcmillen",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "needham",
+          "title": "spain",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "microsoft down?",
-          "traffic": "2000+",
+          "title": "cyber attacks today",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "tornado warning nyc",
-          "traffic": "1000+",
+          "title": "microsoft cyber attack",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "inglaterra - croacia",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "albania vs finland",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "microsoft layoffs",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,16 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "英格蘭對克羅埃西亞",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "outlook",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "土耳其對比利時",
           "traffic": "200+",
@@ -88,7 +98,12 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "tim cook",
+          "title": "amd stock",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "nvda股價",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -101,21 +116,6 @@
           "title": "colette kress",
           "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "肥媽",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "玫瑰戰爭",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "明天的天氣",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,13 +124,33 @@
       "http": 200,
       "items": [
         {
+          "title": "英格蘭 對 克羅埃西亞",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "捷克 對 西班牙",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "ps5",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "outlook",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "twitch",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "鄭朝方",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -151,26 +171,6 @@
         {
           "title": "莊瑞雄",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "星街彗星",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "tim cook",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "harvey jones",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "qqq",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
