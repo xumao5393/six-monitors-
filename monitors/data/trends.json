@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-12T23:35:13Z",
-  "fetched_at_cst": "2026-11-13 07:35:13 CST",
-  "checked_at": "2026-11-12T23:35:13Z",
-  "checked_at_cst": "2026-11-13 07:35:13 CST",
+  "fetched_at": "2026-11-12T23:47:08Z",
+  "fetched_at_cst": "2026-11-13 07:47:08 CST",
+  "checked_at": "2026-11-12T23:47:08Z",
+  "checked_at_cst": "2026-11-13 07:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,8 +12,28 @@
       "http": 200,
       "items": [
         {
-          "title": "ny giants schedule",
+          "title": "uconn vs ohio state",
           "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "yousri belgaroui",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "tennessee tech vs indiana",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "j. d. vance",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "martinsville nascar penalty carson hocevar",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -28,7 +48,7 @@
         },
         {
           "title": "federal reserve bitcoin price impact",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -40,26 +60,6 @@
           "title": "pistons vs wizards",
           "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "canadiens vs bruins",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "avalanche vs senators",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "capitals vs devils",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "lightning vs blue jackets",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
     },
@@ -68,8 +68,13 @@
       "http": 200,
       "items": [
         {
-          "title": "天氣",
-          "traffic": "20000+",
+          "title": "長者 日",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "香港商报",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -79,7 +84,7 @@
         },
         {
           "title": "cold front",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -88,7 +93,17 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "張智霖",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "王楚欽",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "italy vs france",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -101,21 +116,6 @@
           "title": "蔡天鳳",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "england vs croatia",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "nations league",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "英格蘭對克羅埃西亞",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,8 +124,18 @@
       "http": 200,
       "items": [
         {
-          "title": "76人 對 暴龍",
+          "title": "outlook 當機",
           "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "全家咖啡",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "76人 對 暴龍",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -144,32 +154,22 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "wta年終總決賽",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "日本",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "劉揚偉",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "夜盤指數",
+          "title": "台 股 夜 盤",
           "traffic": "20000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "米拉·安祖莉娃",
-          "traffic": "200+",
+          "title": "報酬 率",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "聖嬰現象",
+          "title": "日本",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "劉揚偉",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
