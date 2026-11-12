@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-12T20:47:10Z",
-  "fetched_at_cst": "2026-11-13 04:47:10 CST",
-  "checked_at": "2026-11-12T20:47:10Z",
-  "checked_at_cst": "2026-11-13 04:47:10 CST",
+  "fetched_at": "2026-11-12T21:47:09Z",
+  "fetched_at_cst": "2026-11-13 05:47:09 CST",
+  "checked_at": "2026-11-12T21:47:09Z",
+  "checked_at_cst": "2026-11-13 05:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "aaron taylor johnson",
+          "title": "act",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jane seymour stacy keach tribute",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "josh simmons",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "csco",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "cbrs stock",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "amat stock price",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "love is blind",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "montenegro vs latvia",
+          "title": "saúl lisazo",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "mbappe",
+          "title": "españa",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "lt. col. brandon tyner",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "marta kostyuk",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "george mason basketball",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "pio esposito",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "immigration",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tesla driver asleep ottawa highway 417",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "evan phillips",
-          "traffic": "5000+",
+          "title": "mark zuckerberg",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,13 @@
       "http": 200,
       "items": [
         {
-          "title": "england vs croatia",
+          "title": "wta finals",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "英格蘭對克羅埃西亞",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -98,23 +98,23 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "英伟达股票",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "糖",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "鍾麗淇",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "amd stock",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "黄仁勋辞职",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "肥媽",
-          "traffic": "2000+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,8 +124,43 @@
       "http": 200,
       "items": [
         {
+          "title": "發票",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "駭客",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "雨",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "報酬率",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "郵局",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "愛情",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "英格蘭 對 克羅埃西亞",
           "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "歐洲國家聯賽",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -134,43 +169,8 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "ps5",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "outlook",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "twitch",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "鄭朝方",
+          "title": "劉歡",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "smci",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "陳華",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "張士綸",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "土耳其 對 比利時",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
