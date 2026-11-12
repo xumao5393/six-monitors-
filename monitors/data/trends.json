@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-12T08:17:44Z",
-  "fetched_at_cst": "2026-11-12 16:17:44 CST",
-  "checked_at": "2026-11-12T08:17:44Z",
-  "checked_at_cst": "2026-11-12 16:17:44 CST",
+  "fetched_at": "2026-11-12T08:47:09Z",
+  "fetched_at_cst": "2026-11-12 16:47:09 CST",
+  "checked_at": "2026-11-12T08:47:09Z",
+  "checked_at_cst": "2026-11-12 16:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,8 +12,23 @@
       "http": 200,
       "items": [
         {
+          "title": "yellowjackets",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ultron",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "gta 6 pc",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "黄仁勋",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -42,22 +57,7 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "el niño 2026",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
           "title": "sasha obama",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "a24",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ps6",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -124,6 +124,11 @@
       "http": 200,
       "items": [
         {
+          "title": "邱澤",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "鴻海法說會",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -144,13 +149,13 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "白馨儒",
-          "traffic": "100+",
+          "title": "3037",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "3037",
-          "traffic": "500+",
+          "title": "白馨儒",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -166,11 +171,6 @@
         {
           "title": "6669",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "00991a",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
