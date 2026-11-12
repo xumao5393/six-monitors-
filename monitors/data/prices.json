@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-12T03:47:12Z",
-  "fetched_at_cst": "2026-11-12 11:47:12 CST",
-  "checked_at": "2026-11-12T03:47:12Z",
-  "checked_at_cst": "2026-11-12 11:47:12 CST",
+  "fetched_at": "2026-11-12T04:47:11Z",
+  "fetched_at_cst": "2026-11-12 12:47:11 CST",
+  "checked_at": "2026-11-12T04:47:11Z",
+  "checked_at_cst": "2026-11-12 12:47:11 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -118,8 +118,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash-1017",
       "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
-      "prompt_per_m": 0.3,
-      "completion_per_m": 1.2,
+      "prompt_per_m": 0.15,
+      "completion_per_m": 0.6,
       "context_length": 1048576
     },
     {
@@ -419,8 +419,8 @@
     {
       "id": "z-ai/glm-5.3-flash:batch",
       "name": "Z.ai: GLM 5.3 Flash (batch)",
-      "prompt_per_m": 0.047,
-      "completion_per_m": 0.061,
+      "prompt_per_m": 0.05,
+      "completion_per_m": 0.18,
       "context_length": 1048576
     },
     {
@@ -1007,8 +1007,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.081,
-      "completion_per_m": 0.119,
+      "prompt_per_m": 0.071,
+      "completion_per_m": 0.105,
       "context_length": 262144
     },
     {
@@ -1546,8 +1546,8 @@
     {
       "id": "openai/gpt-oss-20b",
       "name": "OpenAI: gpt-oss-20b",
-      "prompt_per_m": 0.018,
-      "completion_per_m": 0.09,
+      "prompt_per_m": 0.03,
+      "completion_per_m": 0.13,
       "context_length": 131072
     },
     {
@@ -1909,6 +1909,41 @@
     }
   ],
   "models_dev_models": {
+    "google/gemini-4-argon": {
+      "provider": "google",
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "google/gemini-4-carbon": {
+      "provider": "google",
+      "id": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "moonshotai/kimi-k3.1-pro-highspeed": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro-highspeed",
+      "name": "Kimi K3.1 Pro Highspeed",
+      "input_per_m": 4,
+      "output_per_m": 20
+    },
+    "moonshotai/kimi-k3.1-pro": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "moonshotai/kimi-k3": {
+      "provider": "moonshotai",
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "input_per_m": 3,
+      "output_per_m": 15
+    },
     "anthropic/claude-opus-4-5-20251101": {
       "provider": "anthropic",
       "id": "claude-opus-4-5-20251101",
@@ -1958,13 +1993,6 @@
       "input_per_m": 0.66,
       "output_per_m": 1.98
     },
-    "deepseek/deepseek-v4-flash": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
-    },
     "deepseek/deepseek-v4-flash-vision-exp": {
       "provider": "deepseek",
       "id": "deepseek-v4-flash-vision-exp",
@@ -1972,40 +2000,12 @@
       "input_per_m": 0.15,
       "output_per_m": 0.6
     },
-    "google/gemini-4-argon": {
-      "provider": "google",
-      "id": "gemini-4-argon",
-      "name": "Gemini 4 Argon",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "google/gemini-4-carbon": {
-      "provider": "google",
-      "id": "gemini-4-carbon",
-      "name": "Gemini 4 Carbon",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "moonshotai/kimi-k3.1-pro": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro",
-      "name": "Kimi K3.1 Pro",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "moonshotai/kimi-k3": {
-      "provider": "moonshotai",
-      "id": "kimi-k3",
-      "name": "Kimi K3",
-      "input_per_m": 3,
-      "output_per_m": 15
-    },
-    "moonshotai/kimi-k3.1-pro-highspeed": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro-highspeed",
-      "name": "Kimi K3.1 Pro Highspeed",
-      "input_per_m": 4,
-      "output_per_m": 20
+    "deepseek/deepseek-v4-flash": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
     }
   },
   "history": {
@@ -5265,8 +5265,8 @@
         "completion_per_m": 10.0
       },
       "deepseek/deepseek-v4.1-flash-1017": {
-        "prompt_per_m": 0.3,
-        "completion_per_m": 1.2
+        "prompt_per_m": 0.15,
+        "completion_per_m": 0.6
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
         "prompt_per_m": 0.011,
@@ -5437,8 +5437,8 @@
         "completion_per_m": 0.0784
       },
       "z-ai/glm-5.3-flash:batch": {
-        "prompt_per_m": 0.047,
-        "completion_per_m": 0.061
+        "prompt_per_m": 0.05,
+        "completion_per_m": 0.18
       },
       "deepseek/deepseek-v4-flash-vision-exp": {
         "prompt_per_m": 0.44,
@@ -5773,8 +5773,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.081,
-        "completion_per_m": 0.119
+        "prompt_per_m": 0.071,
+        "completion_per_m": 0.105
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
@@ -6081,8 +6081,8 @@
         "completion_per_m": 0.136
       },
       "openai/gpt-oss-20b": {
-        "prompt_per_m": 0.018,
-        "completion_per_m": 0.09
+        "prompt_per_m": 0.03,
+        "completion_per_m": 0.13
       },
       "openai/gpt-oss-20b:batch": {
         "prompt_per_m": 0.024,
