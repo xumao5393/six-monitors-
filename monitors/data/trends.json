@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-12T07:47:08Z",
-  "fetched_at_cst": "2026-11-12 15:47:08 CST",
-  "checked_at": "2026-11-12T07:47:08Z",
-  "checked_at_cst": "2026-11-12 15:47:08 CST",
+  "fetched_at": "2026-11-12T08:17:44Z",
+  "fetched_at_cst": "2026-11-12 16:17:44 CST",
+  "checked_at": "2026-11-12T08:17:44Z",
+  "checked_at_cst": "2026-11-12 16:17:44 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "cathay pacific",
+          "title": "黄仁勋",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "weather los angeles",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "dhs proposed h-1b extension rule",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "katherine kealoha",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "game of thrones",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "pete davidson",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "el niño 2026",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "sasha obama",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "a24",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "ps6",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jeremiah smith ohio state football news",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "kylie jenner former staff lawsuits",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "alexandra daddario",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "philippine airlines",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "england vs croatia",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "karla souza",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "aspyn ovard 10 year secret",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "hltv",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -69,7 +69,7 @@
       "items": [
         {
           "title": "潘焯鴻",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,18 +124,28 @@
       "http": 200,
       "items": [
         {
+          "title": "鴻海法說會",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "鄭運鵬",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "交通部中央气象署",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "勵馨基金會",
-          "traffic": "200+",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "白馨儒",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -161,16 +171,6 @@
         {
           "title": "00991a",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2449",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2383",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
