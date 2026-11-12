@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-12T17:33:48Z",
-  "fetched_at_cst": "2026-11-13 01:33:48 CST",
-  "checked_at": "2026-11-12T17:33:48Z",
-  "checked_at_cst": "2026-11-13 01:33:48 CST",
+  "fetched_at": "2026-11-12T17:47:16Z",
+  "fetched_at_cst": "2026-11-13 01:47:16 CST",
+  "checked_at": "2026-11-12T17:47:16Z",
+  "checked_at_cst": "2026-11-13 01:47:16 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -1014,8 +1014,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.159,
-      "completion_per_m": 0.233,
+      "prompt_per_m": 0.169,
+      "completion_per_m": 0.249,
       "context_length": 262144
     },
     {
@@ -6862,8 +6862,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.159,
-        "completion_per_m": 0.233
+        "prompt_per_m": 0.169,
+        "completion_per_m": 0.249
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
