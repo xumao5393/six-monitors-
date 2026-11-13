@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-13T20:47:07Z",
-  "fetched_at_cst": "2026-11-14 04:47:07 CST",
-  "checked_at": "2026-11-13T20:47:07Z",
-  "checked_at_cst": "2026-11-14 04:47:07 CST",
+  "fetched_at": "2026-11-13T21:47:08Z",
+  "fetched_at_cst": "2026-11-14 05:47:08 CST",
+  "checked_at": "2026-11-13T21:47:08Z",
+  "checked_at_cst": "2026-11-14 05:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -741,8 +741,8 @@
     {
       "id": "z-ai/glm-5.2:batch",
       "name": "Z.ai: GLM 5.2 (batch)",
-      "prompt_per_m": 0.322,
-      "completion_per_m": 0.989,
+      "prompt_per_m": 0.347,
+      "completion_per_m": 1.068,
       "context_length": 1048576
     },
     {
@@ -1826,8 +1826,8 @@
     {
       "id": "meta-llama/llama-3.2-3b-instruct",
       "name": "Meta: Llama 3.2 3B Instruct",
-      "prompt_per_m": 0.05,
-      "completion_per_m": 0.33,
+      "prompt_per_m": 0.0509,
+      "completion_per_m": 0.335,
       "context_length": 131072
     },
     {
@@ -7813,8 +7813,8 @@
         "completion_per_m": 6.8
       },
       "z-ai/glm-5.2:batch": {
-        "prompt_per_m": 0.322,
-        "completion_per_m": 0.989
+        "prompt_per_m": 0.347,
+        "completion_per_m": 1.068
       },
       "moonshotai/kimi-k2.7-code": {
         "prompt_per_m": 0.6,
@@ -8433,8 +8433,8 @@
         "completion_per_m": 0.201
       },
       "meta-llama/llama-3.2-3b-instruct": {
-        "prompt_per_m": 0.05,
-        "completion_per_m": 0.33
+        "prompt_per_m": 0.0509,
+        "completion_per_m": 0.335
       },
       "qwen/qwen-2.5-72b-instruct": {
         "prompt_per_m": 0.36,
