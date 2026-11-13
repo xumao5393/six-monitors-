@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-13T05:47:13Z",
-  "fetched_at_cst": "2026-11-13 13:47:13 CST",
-  "checked_at": "2026-11-13T05:47:13Z",
-  "checked_at_cst": "2026-11-13 13:47:13 CST",
+  "fetched_at": "2026-11-13T06:37:42Z",
+  "fetched_at_cst": "2026-11-13 14:37:42 CST",
+  "checked_at": "2026-11-13T06:37:42Z",
+  "checked_at_cst": "2026-11-13 14:37:42 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -139,8 +139,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash-1017",
       "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
-      "prompt_per_m": 0.15,
-      "completion_per_m": 0.6,
+      "prompt_per_m": 0.3,
+      "completion_per_m": 1.2,
       "context_length": 1048576
     },
     {
@@ -741,8 +741,8 @@
     {
       "id": "z-ai/glm-5.2:batch",
       "name": "Z.ai: GLM 5.2 (batch)",
-      "prompt_per_m": 0.298,
-      "completion_per_m": 0.916,
+      "prompt_per_m": 0.322,
+      "completion_per_m": 0.989,
       "context_length": 1048576
     },
     {
@@ -916,8 +916,8 @@
     {
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek: DeepSeek V4 Pro 0423",
-      "prompt_per_m": 0.9553,
-      "completion_per_m": 1.9105,
+      "prompt_per_m": 0.9,
+      "completion_per_m": 1.5,
       "context_length": 1048576
     },
     {
@@ -1028,8 +1028,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.097,
-      "completion_per_m": 0.143,
+      "prompt_per_m": 0.14,
+      "completion_per_m": 0.206,
       "context_length": 262144
     },
     {
@@ -1930,19 +1930,40 @@
     }
   ],
   "models_dev_models": {
-    "openai/gpt-6.1-terra": {
-      "provider": "openai",
-      "id": "gpt-6.1-terra",
-      "name": "GPT-6.1 Terra",
-      "input_per_m": 1,
-      "output_per_m": 5
+    "google/gemini-4-hydrogen": {
+      "provider": "google",
+      "id": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "input_per_m": 1.5,
+      "output_per_m": 7.5
     },
-    "openai/gpt-6.1-sol": {
-      "provider": "openai",
-      "id": "gpt-6.1-sol",
-      "name": "GPT-6.1 Sol",
+    "google/gemini-4-argon": {
+      "provider": "google",
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
       "input_per_m": 2,
       "output_per_m": 10
+    },
+    "google/gemini-4-carbon": {
+      "provider": "google",
+      "id": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "anthropic/claude-opus-4-5-20251101": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5-20251101",
+      "name": "Claude Opus 4.5",
+      "input_per_m": 5,
+      "output_per_m": 25
+    },
+    "anthropic/claude-opus-4-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5",
+      "name": "Claude Opus 4.5 (latest)",
+      "input_per_m": 5,
+      "output_per_m": 25
     },
     "anthropic/claude-opus-5-5": {
       "provider": "anthropic",
@@ -1958,19 +1979,19 @@
       "input_per_m": 5,
       "output_per_m": 25
     },
-    "anthropic/claude-opus-4-5-20251101": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5-20251101",
-      "name": "Claude Opus 4.5",
-      "input_per_m": 5,
-      "output_per_m": 25
+    "openai/gpt-6.1-terra": {
+      "provider": "openai",
+      "id": "gpt-6.1-terra",
+      "name": "GPT-6.1 Terra",
+      "input_per_m": 1,
+      "output_per_m": 5
     },
-    "anthropic/claude-opus-4-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5",
-      "name": "Claude Opus 4.5 (latest)",
-      "input_per_m": 5,
-      "output_per_m": 25
+    "openai/gpt-6.1-sol": {
+      "provider": "openai",
+      "id": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "input_per_m": 2,
+      "output_per_m": 10
     },
     "moonshotai/kimi-k3.1-pro-highspeed": {
       "provider": "moonshotai",
@@ -1993,17 +2014,17 @@
       "input_per_m": 3,
       "output_per_m": 15
     },
-    "deepseek/deepseek-v4-flash": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
-    },
     "deepseek/deepseek-v4-flash-vision-exp": {
       "provider": "deepseek",
       "id": "deepseek-v4-flash-vision-exp",
       "name": "DeepSeek V4 Flash Vision Exp",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
+    },
+    "deepseek/deepseek-v4-flash": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
       "input_per_m": 0.15,
       "output_per_m": 0.6
     },
@@ -2013,27 +2034,6 @@
       "name": "DeepSeek V4 Pro",
       "input_per_m": 0.66,
       "output_per_m": 1.98
-    },
-    "google/gemini-4-argon": {
-      "provider": "google",
-      "id": "gemini-4-argon",
-      "name": "Gemini 4 Argon",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "google/gemini-4-carbon": {
-      "provider": "google",
-      "id": "gemini-4-carbon",
-      "name": "Gemini 4 Carbon",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "google/gemini-4-hydrogen": {
-      "provider": "google",
-      "id": "gemini-4-hydrogen",
-      "name": "Gemini 4 Hydrogen",
-      "input_per_m": 1.5,
-      "output_per_m": 7.5
     }
   },
   "history": {
@@ -6383,8 +6383,8 @@
         "completion_per_m": 6.0
       },
       "deepseek/deepseek-v4.1-flash-1017": {
-        "prompt_per_m": 0.15,
-        "completion_per_m": 0.6
+        "prompt_per_m": 0.3,
+        "completion_per_m": 1.2
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
         "prompt_per_m": 0.05,
@@ -6727,8 +6727,8 @@
         "completion_per_m": 6.8
       },
       "z-ai/glm-5.2:batch": {
-        "prompt_per_m": 0.298,
-        "completion_per_m": 0.916
+        "prompt_per_m": 0.322,
+        "completion_per_m": 0.989
       },
       "moonshotai/kimi-k2.7-code": {
         "prompt_per_m": 0.6,
@@ -6827,8 +6827,8 @@
         "completion_per_m": 15.0
       },
       "deepseek/deepseek-v4-pro": {
-        "prompt_per_m": 0.9553,
-        "completion_per_m": 1.9105
+        "prompt_per_m": 0.9,
+        "completion_per_m": 1.5
       },
       "deepseek/deepseek-v4-flash": {
         "prompt_per_m": 0.09,
@@ -6891,8 +6891,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.097,
-        "completion_per_m": 0.143
+        "prompt_per_m": 0.14,
+        "completion_per_m": 0.206
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,

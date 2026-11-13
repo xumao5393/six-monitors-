@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-13T05:47:13Z",
-  "fetched_at_cst": "2026-11-13 13:47:13 CST",
-  "checked_at": "2026-11-13T05:47:13Z",
-  "checked_at_cst": "2026-11-13 13:47:13 CST",
+  "fetched_at": "2026-11-13T06:37:42Z",
+  "fetched_at_cst": "2026-11-13 14:37:42 CST",
+  "checked_at": "2026-11-13T06:37:42Z",
+  "checked_at_cst": "2026-11-13 14:37:42 CST",
   "ok": true,
   "ok_count": 24,
   "count": 24,
@@ -14,7 +14,7 @@
     {
       "name": "ollama/ollama",
       "cat": "LLM",
-      "stars": 186831,
+      "stars": 186838,
       "forks": 19055,
       "language": "Go",
       "pushed_at": "2026-11-13T00:02:20Z",
@@ -23,28 +23,28 @@
     {
       "name": "huggingface/transformers",
       "cat": "LLM",
-      "stars": 168937,
-      "forks": 35233,
+      "stars": 168938,
+      "forks": 35234,
       "language": "Python",
-      "pushed_at": "2026-11-13T02:43:25Z",
+      "pushed_at": "2026-11-13T05:49:32Z",
       "delta_7d": null
     },
     {
       "name": "ggml-org/llama.cpp",
       "cat": "LLM",
-      "stars": 134676,
-      "forks": 25519,
+      "stars": 134703,
+      "forks": 25522,
       "language": "C++",
-      "pushed_at": "2026-11-13T05:22:32Z",
+      "pushed_at": "2026-11-13T06:32:41Z",
       "delta_7d": null
     },
     {
       "name": "vllm-project/vllm",
       "cat": "LLM",
-      "stars": 96848,
-      "forks": 24751,
+      "stars": 96851,
+      "forks": 24750,
       "language": "Python",
-      "pushed_at": "2026-11-13T05:27:27Z",
+      "pushed_at": "2026-11-13T06:21:35Z",
       "delta_7d": null
     },
     {
@@ -59,7 +59,7 @@
     {
       "name": "oobabooga/textgen",
       "cat": "LLM",
-      "stars": 47739,
+      "stars": 47740,
       "forks": 5974,
       "language": "Python",
       "pushed_at": "2026-08-17T17:38:16Z",
@@ -68,7 +68,7 @@
     {
       "name": "langchain-ai/langchain",
       "cat": "Agent",
-      "stars": 149428,
+      "stars": 149429,
       "forks": 25113,
       "language": "Python",
       "pushed_at": "2026-11-12T19:39:11Z",
@@ -77,7 +77,7 @@
     {
       "name": "langchain-ai/langgraph",
       "cat": "Agent",
-      "stars": 44881,
+      "stars": 44883,
       "forks": 7737,
       "language": "Python",
       "pushed_at": "2026-11-13T05:39:48Z",
@@ -98,22 +98,22 @@
       "stars": 60832,
       "forks": 9164,
       "language": "Python",
-      "pushed_at": "2026-11-13T05:36:57Z",
+      "pushed_at": "2026-11-13T06:31:38Z",
       "delta_7d": null
     },
     {
       "name": "Significant-Gravitas/AutoGPT",
       "cat": "Agent",
-      "stars": 188013,
+      "stars": 188012,
       "forks": 45871,
       "language": "Python",
-      "pushed_at": "2026-11-13T05:43:56Z",
+      "pushed_at": "2026-11-13T06:36:47Z",
       "delta_7d": null
     },
     {
       "name": "modelcontextprotocol/servers",
       "cat": "MCP",
-      "stars": 91956,
+      "stars": 91957,
       "forks": 11960,
       "language": "TypeScript",
       "pushed_at": "2026-11-12T05:37:52Z",
@@ -123,7 +123,7 @@
       "name": "modelcontextprotocol/typescript-sdk",
       "cat": "MCP",
       "stars": 13755,
-      "forks": 2382,
+      "forks": 2383,
       "language": "TypeScript",
       "pushed_at": "2026-11-10T14:38:41Z",
       "delta_7d": null
@@ -131,16 +131,16 @@
     {
       "name": "openai/codex",
       "cat": "编码",
-      "stars": 135097,
+      "stars": 135110,
       "forks": 21427,
       "language": "Rust",
-      "pushed_at": "2026-11-13T05:17:02Z",
+      "pushed_at": "2026-11-13T06:07:39Z",
       "delta_7d": null
     },
     {
       "name": "continuedev/continue",
       "cat": "编码",
-      "stars": 36464,
+      "stars": 36466,
       "forks": 5559,
       "language": "TypeScript",
       "pushed_at": "2026-11-05T15:28:28Z",
@@ -149,8 +149,8 @@
     {
       "name": "Aider-AI/aider",
       "cat": "编码",
-      "stars": 50094,
-      "forks": 5161,
+      "stars": 50095,
+      "forks": 5162,
       "language": "Python",
       "pushed_at": "2026-05-22T14:02:20Z",
       "delta_7d": null
@@ -167,16 +167,16 @@
     {
       "name": "Comfy-Org/ComfyUI",
       "cat": "视觉",
-      "stars": 146560,
-      "forks": 17466,
+      "stars": 146565,
+      "forks": 17467,
       "language": "Python",
-      "pushed_at": "2026-11-13T04:54:30Z",
+      "pushed_at": "2026-11-13T05:52:38Z",
       "delta_7d": null
     },
     {
       "name": "AUTOMATIC1111/stable-diffusion-webui",
       "cat": "视觉",
-      "stars": 165307,
+      "stars": 165306,
       "forks": 31148,
       "language": "Python",
       "pushed_at": "2026-03-02T07:00:53Z",
@@ -188,14 +188,14 @@
       "stars": 34916,
       "forks": 7479,
       "language": "Python",
-      "pushed_at": "2026-11-13T04:09:37Z",
+      "pushed_at": "2026-11-13T06:05:49Z",
       "delta_7d": null
     },
     {
       "name": "openai/whisper",
       "cat": "音频",
-      "stars": 112621,
-      "forks": 13655,
+      "stars": 112625,
+      "forks": 13656,
       "language": "Python",
       "pushed_at": "2026-08-31T17:19:19Z",
       "delta_7d": null
@@ -203,7 +203,7 @@
     {
       "name": "SYSTRAN/faster-whisper",
       "cat": "音频",
-      "stars": 26708,
+      "stars": 26710,
       "forks": 2237,
       "language": "Python",
       "pushed_at": "2026-11-12T09:05:56Z",
@@ -221,7 +221,7 @@
     {
       "name": "RVC-Boss/GPT-SoVITS",
       "cat": "音频",
-      "stars": 64910,
+      "stars": 64912,
       "forks": 6795,
       "language": "Python",
       "pushed_at": "2026-11-11T16:26:18Z",
@@ -334,30 +334,30 @@
       "RVC-Boss/GPT-SoVITS": 64871
     },
     "2026-11-13": {
-      "ollama/ollama": 186831,
-      "huggingface/transformers": 168937,
-      "ggml-org/llama.cpp": 134676,
-      "vllm-project/vllm": 96848,
+      "ollama/ollama": 186838,
+      "huggingface/transformers": 168938,
+      "ggml-org/llama.cpp": 134703,
+      "vllm-project/vllm": 96851,
       "mlc-ai/mlc-llm": 23419,
-      "oobabooga/textgen": 47739,
-      "langchain-ai/langchain": 149428,
-      "langchain-ai/langgraph": 44881,
+      "oobabooga/textgen": 47740,
+      "langchain-ai/langchain": 149429,
+      "langchain-ai/langgraph": 44883,
       "microsoft/autogen": 61800,
       "crewAIInc/crewAI": 60832,
-      "Significant-Gravitas/AutoGPT": 188013,
-      "modelcontextprotocol/servers": 91956,
+      "Significant-Gravitas/AutoGPT": 188012,
+      "modelcontextprotocol/servers": 91957,
       "modelcontextprotocol/typescript-sdk": 13755,
-      "openai/codex": 135097,
-      "continuedev/continue": 36464,
-      "Aider-AI/aider": 50094,
+      "openai/codex": 135110,
+      "continuedev/continue": 36466,
+      "Aider-AI/aider": 50095,
       "opencode-ai/opencode": 13895,
-      "Comfy-Org/ComfyUI": 146560,
-      "AUTOMATIC1111/stable-diffusion-webui": 165307,
+      "Comfy-Org/ComfyUI": 146565,
+      "AUTOMATIC1111/stable-diffusion-webui": 165306,
       "huggingface/diffusers": 34916,
-      "openai/whisper": 112621,
-      "SYSTRAN/faster-whisper": 26708,
+      "openai/whisper": 112625,
+      "SYSTRAN/faster-whisper": 26710,
       "coqui-ai/TTS": 46220,
-      "RVC-Boss/GPT-SoVITS": 64910
+      "RVC-Boss/GPT-SoVITS": 64912
     }
   }
 }
