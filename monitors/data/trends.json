@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-13T12:47:07Z",
-  "fetched_at_cst": "2026-11-13 20:47:07 CST",
-  "checked_at": "2026-11-13T12:47:07Z",
-  "checked_at_cst": "2026-11-13 20:47:07 CST",
+  "fetched_at": "2026-11-13T13:47:09Z",
+  "fetched_at_cst": "2026-11-13 21:47:09 CST",
+  "checked_at": "2026-11-13T13:47:09Z",
+  "checked_at_cst": "2026-11-13 21:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "kim jong un flag redesign",
+          "title": "christian bale",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "taylor swift announcement",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "hailey bieber",
+          "title": "king charles",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "viernes 13",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "keyata harman",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "freeze",
+          "title": "economic calendar",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "gta 6 map leak selfridges",
-          "traffic": "100+",
+          "title": "ppi data",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "putin news",
-          "traffic": "5000+",
+          "title": "gma deals and steals",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ashley graham",
-          "traffic": "100+",
+          "title": "gma",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ilhan omar news",
-          "traffic": "100+",
+          "title": "sam hartman",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "seguridad social",
+          "title": "ppi report",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "alejandro tabilo",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,7 +68,22 @@
       "http": 200,
       "items": [
         {
-          "title": "张慕童",
+          "title": "ppi",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "cuaca besok",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "玫瑰戰爭",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "apec 深圳",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -79,7 +94,7 @@
         },
         {
           "title": "big bang 演唱會",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -101,21 +116,6 @@
           "title": "王書麒",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "林百欣",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "clockenflap 2026",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "clockenflap",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,53 +124,53 @@
       "http": 200,
       "items": [
         {
+          "title": "宗山塁",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "謝龍介",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "井口資仁",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "麻善大橋",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "軍事演習",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "宗山壘",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "普 發 2 萬",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "陳亭妃",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "明天的天氣",
-          "traffic": "20000+",
+          "traffic": "50000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "cuaca besok",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "weather tomorrow",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "資料中心",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "thời tiết ngày mai",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "始源",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "債券 市場",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "廖凱原",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "王彩樺",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "金倒永",
-          "traffic": "200+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]

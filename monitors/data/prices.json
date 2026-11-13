@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-13T12:47:07Z",
-  "fetched_at_cst": "2026-11-13 20:47:07 CST",
-  "checked_at": "2026-11-13T12:47:07Z",
-  "checked_at_cst": "2026-11-13 20:47:07 CST",
+  "fetched_at": "2026-11-13T13:47:09Z",
+  "fetched_at_cst": "2026-11-13 21:47:09 CST",
+  "checked_at": "2026-11-13T13:47:09Z",
+  "checked_at_cst": "2026-11-13 21:47:09 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 472,
+      "total_models": 470,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
@@ -342,8 +342,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash",
       "name": "DeepSeek: DeepSeek V4.1 Flash",
-      "prompt_per_m": 0.3,
-      "completion_per_m": 1.2,
+      "prompt_per_m": 0.0507,
+      "completion_per_m": 0.2028,
       "context_length": 1048576
     },
     {
@@ -594,7 +594,7 @@
     {
       "id": "moonshotai/kimi-k3",
       "name": "MoonshotAI: Kimi K3",
-      "prompt_per_m": 0.192,
+      "prompt_per_m": 0.2,
       "completion_per_m": 16.0,
       "context_length": 1048576
     },
@@ -741,8 +741,8 @@
     {
       "id": "z-ai/glm-5.2:batch",
       "name": "Z.ai: GLM 5.2 (batch)",
-      "prompt_per_m": 0.298,
-      "completion_per_m": 0.916,
+      "prompt_per_m": 0.322,
+      "completion_per_m": 0.989,
       "context_length": 1048576
     },
     {
@@ -1028,8 +1028,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.027,
-      "completion_per_m": 0.04,
+      "prompt_per_m": 0.024,
+      "completion_per_m": 0.035,
       "context_length": 262144
     },
     {
@@ -6499,8 +6499,8 @@
         "completion_per_m": 1.25
       },
       "deepseek/deepseek-v4.1-flash": {
-        "prompt_per_m": 0.3,
-        "completion_per_m": 1.2
+        "prompt_per_m": 0.0507,
+        "completion_per_m": 0.2028
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "prompt_per_m": 0.112,
@@ -6643,7 +6643,7 @@
         "completion_per_m": 1.25
       },
       "moonshotai/kimi-k3": {
-        "prompt_per_m": 0.192,
+        "prompt_per_m": 0.2,
         "completion_per_m": 16.0
       },
       "moonshotai/kimi-k3:batch": {
@@ -6727,8 +6727,8 @@
         "completion_per_m": 6.8
       },
       "z-ai/glm-5.2:batch": {
-        "prompt_per_m": 0.298,
-        "completion_per_m": 0.916
+        "prompt_per_m": 0.322,
+        "completion_per_m": 0.989
       },
       "moonshotai/kimi-k2.7-code": {
         "prompt_per_m": 0.6,
@@ -6891,8 +6891,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.027,
-        "completion_per_m": 0.04
+        "prompt_per_m": 0.024,
+        "completion_per_m": 0.035
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
