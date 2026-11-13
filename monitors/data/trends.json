@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-13T15:21:35Z",
-  "fetched_at_cst": "2026-11-13 23:21:35 CST",
-  "checked_at": "2026-11-13T15:21:35Z",
-  "checked_at_cst": "2026-11-13 23:21:35 CST",
+  "fetched_at": "2026-11-13T15:47:08Z",
+  "fetched_at_cst": "2026-11-13 23:47:08 CST",
+  "checked_at": "2026-11-13T15:47:08Z",
+  "checked_at_cst": "2026-11-13 23:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -11,6 +11,36 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "laura samson",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "avgo",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "nigeria vs tanzania",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "zelda ocarina of time remake sales",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "alex murdaugh",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ruby bridges",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
         {
           "title": "cj henderson",
           "traffic": "1000+",
@@ -27,38 +57,8 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "honduras",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
           "title": "michael wilbon",
           "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bergen reilly",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "stockholm open",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "rory culkin",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "pat desiato passing rock bassist",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jamie dornan",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,16 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "坪輋",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "高市早苗",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "ppi",
           "traffic": "100+",
@@ -106,16 +116,6 @@
           "title": "郭羨妮",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "new zealand vs india",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "王書麒",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -123,6 +123,16 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "東發號",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "nbis",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "郑明典",
           "traffic": "500+",
@@ -135,7 +145,7 @@
         },
         {
           "title": "詐騙集團",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -160,16 +170,6 @@
         },
         {
           "title": "宗山塁",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "謝龍介",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "軍事演習",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
