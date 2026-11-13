@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-13T08:47:08Z",
-  "fetched_at_cst": "2026-11-13 16:47:08 CST",
-  "checked_at": "2026-11-13T08:47:08Z",
-  "checked_at_cst": "2026-11-13 16:47:08 CST",
+  "fetched_at": "2026-11-13T09:47:08Z",
+  "fetched_at_cst": "2026-11-13 17:47:08 CST",
+  "checked_at": "2026-11-13T09:47:08Z",
+  "checked_at_cst": "2026-11-13 17:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 475,
+      "total_models": 472,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
@@ -1028,8 +1028,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.076,
-      "completion_per_m": 0.112,
+      "prompt_per_m": 0.098,
+      "completion_per_m": 0.144,
       "context_length": 262144
     },
     {
@@ -6891,8 +6891,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.076,
-        "completion_per_m": 0.112
+        "prompt_per_m": 0.098,
+        "completion_per_m": 0.144
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
