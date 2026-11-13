@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>就业监测</title><script src="./chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
+header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
+h1{font-size:22px;margin:0;letter-spacing:.5px}
+.sub{font-size:13px;opacity:.85}
+main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
+.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2;max-width:640px}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:680px}
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent;background:#fff}
+.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
+.big{font-size:30px;font-weight:900;line-height:1.1;color:#111827}
+.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
+.badge.primary{background:#1e3a5f;color:#fff}.badge.backup{background:#fef3c7;color:#92400e}.badge.cache{background:#fee2e2;color:#991b1b}.badge.manual{background:#b45309;color:#fff}.badge.missing{background:#f3f4f6;color:#6b7280}
+.badge.gA{background:#dcfce7;color:#166534}.badge.gB{background:#dbeafe;color:#1d4ed8}.badge.gC{background:#fef3c7;color:#92400e}.badge.gNone{background:#f3f4f6;color:#6b7280;border:1px dashed #9ca3af}
+.badge.lane1{background:#dbeafe;color:#1e40af}.badge.lane2{background:#fef3c7;color:#92400e}.badge.lane3{background:#d1fae5;color:#047857}.badge.lane4{background:#fee2e2;color:#991b1b}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #e5e7eb;text-align:left;vertical-align:top}
+th{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#1e3a5f}
+.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6;background:#fff7ed;border:1px solid #fdba74}
+.alert{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6;background:#fef2f2;border:1px solid #fca5a5}
+input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
+button{background:#fff;margin-left:auto;color:#1e3a5f;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+canvas{max-width:100%}
+.card canvas{height:260px !important}
+.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
+main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
+.srcs{font-size:12px;line-height:1.9}
+.srcs a{color:#1d4ed8}
+a{color:#1d4ed8}
+ul.leads{margin:8px 0 0;padding-left:20px;font-size:14px;line-height:1.9}
+ul.leads li{margin-bottom:4px}
+.card.lane{border-top-width:5px}
+.card.l1{border-top-color:#1e40af}.card.l1 .section-title{color:#1e40af}
+.card.l2{border-top-color:#b45309}.card.l2 .section-title{color:#b45309}
+.card.l3{border-top-color:#047857}.card.l3 .section-title{color:#047857}
+.card.l4{border-top-color:#b91c1c}.card.l4 .section-title{color:#b91c1c}
+details{font-size:14px;line-height:1.8}
+details summary{cursor:pointer;font-weight:700;color:#1e3a5f}
+body{background:linear-gradient(160deg,#eef2f7 0%,#dbe4ef 55%,#c3d2e4 100%) fixed;}
+header{background:linear-gradient(90deg,#0f2440,#1d3a5f,#33507d);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.hero{background:linear-gradient(120deg,#0f2440,#1d3a5f 60%,#b45309)}
+.grid .card:nth-child(1){background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-top-color:#1e40af}
+.grid .card:nth-child(2){background:linear-gradient(135deg,#fef3c7,#fde68a);border-top-color:#b45309}
+.grid .card:nth-child(3){background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-top-color:#047857}
+.grid .card:nth-child(4){background:linear-gradient(135deg,#e0e7ff,#c7d2fe);border-top-color:#3730a3}
+.grid .card:nth-child(5){background:linear-gradient(135deg,#fee2e2,#fecaca);border-top-color:#b91c1c}
+@media (max-width:720px){
+      header{padding:12px 14px}
+      h1{font-size:18px}
+      .grid{grid-template-columns:1fr 1fr}
+      .feed{grid-template-columns:1fr}
+      .card{overflow-x:auto}
+      table{display:block;overflow-x:auto;white-space:nowrap}
+      .card canvas{height:200px !important}
+      header button{margin-left:0;width:100%}
+      .hero h2{max-width:100%}
+    }</style></head><body>
+<header><h1>🏢 就业监测</h1><span class="sub" id="updated">人工核验 · 数据期 2026-09 · 更新日期 2026-11-14</span><span class="badge manual">人工核验</span><span class="badge primary">中文 only</span><button onclick="location.reload()">🔄 刷新</button></header>
+<main>
+<section class="hero"><h2>今日看点：9 月总量 5.2%，青年 18.0%，前三季度新增就业 1052 万人</h2><p>9 月：总量 5.2%（环比 −0.1 个百分点，同比持平）；16–24 岁 18.0%（环比 −0.9，仍高于去年同期 17.7%）；前三季度新增就业 1052 万人，完成全年目标 87.7%。只写数字，不下结论。</p><div class="feed"><div><b>✋ 只写数字不下结论</b>同比只写数字；同期变化不代表因果关系；追回数大不等于骗保多，写数不写判断。</div><div><b>🔗 每条有来源有日期</b>每条数字同时标数据期和发布日期，缺一不可；同比写清对照年份。</div><div><b>⚠️ 断点处断开</b>2023-08 暂停发布，2024-01-17 恢复并改口径；新口径只画新口径，旧口径单独放历史区，跨断点不算同比。</div></div></section>
+<div class="alert">🚨 <b>年份错位警示：「9 月 17.6%」是 2024 年的数据，不是 2026 年。</b>三个「9 月」的 16–24 岁失业率各不相同：2024-09 为 17.6%，2025-09 为 17.7%，2026-09 为 18.0%。<b>页面铁律：</b>每条数字必须同时标数据期和发布日期；转载标题里只写「9 月」不写年份的，一律视为可疑，查原文再上。</div>
+<div class="grid">
+<div class="card"><h3>全国城镇调查失业率</h3><div class="big">5.2%</div><p class="note">2026-09 · 环比 −0.1 个百分点 · 同比持平 · 统计局 2026-10-19 发布 · B 级</p></div>
+<div class="card"><h3>16–24 岁失业率（不含在校生）</h3><div class="big">18.0%</div><p class="note">2026-09 · 环比 −0.9 · 同比 +0.3（2025-09 为 17.7%）· 统计局 2026-10-21 发布 · B 级</p></div>
+<div class="card"><h3>25–29 岁失业率</h3><div class="big">7.4%</div><p class="note">2026-09 · 环比 −0.1 · 2025-09 为 7.2% · 与 16–24 同批发布 · B 级</p></div>
+<div class="card"><h3>30–59 岁失业率</h3><div class="big">3.9%</div><p class="note">2026-09 · 环比持平 · 2025-09 为 3.9% · 与 16–24 同批发布 · B 级</p></div>
+<div class="card"><h3>城镇新增就业（累计）</h3><div class="big">1052 万人</div><p class="note">2026-01–09 · 完成全年目标 87.7% · 人社部 2026-10-10 / 10-31 发布 · B 级</p></div>
+</div>
+<div class="card"><h3>总量与青年失业率月度走势（%，单轴）</h3><div style="position:relative;height:280px"><canvas id="chartMain"></canvas></div><p class="note">新口径（不含在校生），2023-12 起；2023-09–11 分年龄组暂停发布，图中断开。每年 7–8 月 16–24 岁因毕业季冲高，9 月回落是季节性规律，写「回落」时必须同时写「仍高于去年同期」。图下固定：同期变化，不代表因果关系。</p></div>
+<div class="card"><h3>25–29 岁与 30–59 岁月度走势（%，单轴）</h3><div style="position:relative;height:280px"><canvas id="chartAux"></canvas></div><p class="note">与 16–24 同批发布、同张表；25–29 岁 2024-01 起新增发布，反映青年从毕业到稳定工作的全过程。同期变化，不代表因果关系。</p></div>
+<div class="card"><h3 class="section-title">月度回填表（2023-09 → 2026-09）</h3><span class="badge gC">C 级 · 待逐月核对</span>
+<p class="note">来源：MacroDataHub 整理（源：国家统计局），2026-10-23 更新。已交叉验证的点：2026-01 16–24 为 16.3%、2026-03 为 16.9%、2026-07/08/09 全组、2023-12 首值 14.9%/6.1%/3.9%。2026 年 1–6 月月度总量值仅见于该整理，须与 NBS 数据发布库逐月核对后升 B。2023-09 至 2023-11 分年龄组为空白——暂停发布期，非零值，不得补零、不得插值。</p>
+<table><thead><tr><th>数据期</th><th>总量</th><th>16–24</th><th>25–29</th><th>30–59</th><th>31 大城市</th><th>周均工时</th></tr></thead><tbody id="monthlyBody"></tbody></table></div>
+<div class="card lane l1"><h3 class="section-title">Lane 1 · 指标线</h3><span class="badge lane1">人工核验</span>
+<table><thead><tr><th>指标</th><th>最新值</th><th>环比 / 同比</th><th>数据期</th><th>发布日期</th><th>等级</th></tr></thead><tbody>
+<tr><td>全国城镇调查失业率</td><td><b>5.2%</b></td><td>环比 −0.1 个百分点；同比持平</td><td>2026-09</td><td>2026-10-19（国新办发布会）</td><td><span class="badge gB">B</span></td></tr>
+<tr><td>16–24 岁劳动力失业率（不含在校生）</td><td><b>18.0%</b></td><td>环比 −0.9；同比 +0.3（2025-09 为 17.7%）</td><td>2026-09</td><td>2026-10-21（数据发布库）</td><td><span class="badge gB">B</span></td></tr>
+<tr><td>城镇新增就业（累计）</td><td><b>1052 万人</b>，完成全年目标 87.7%</td><td>1–6 月为 695 万人（同比持平）</td><td>2026-01–09</td><td>2026-10-10 / 10-31</td><td><span class="badge gB">B</span></td></tr>
+<tr><td>25–29 岁劳动力失业率</td><td><b>7.4%</b></td><td>环比 −0.1；2025-09 为 7.2%</td><td>2026-09</td><td>2026-10-21</td><td><span class="badge gB">B</span></td></tr>
+<tr><td>30–59 岁劳动力失业率</td><td><b>3.9%</b></td><td>环比持平；2025-09 为 3.9%</td><td>2026-09</td><td>2026-10-21</td><td><span class="badge gB">B</span></td></tr>
+</tbody></table>
+<p class="note">背景行（同批发布）：31 个大城市 5.2%（环比 −0.1）；本地户籍 / 外来户籍 5.2% / 5.1%（外来农业户籍 5.0%）；前三季度均值 5.2%（与上年同期持平）；企业就业人员周平均工作时间 48.3 小时；外出务工农村劳动力三季度末 19270 万人（同比 +0.4%）；失业保险参保 2.51 亿人（截至 9 月底，中国就业网转载，C 级，待取 mohrss.gov.cn 原文）。</p>
+<p class="note">年度目标锚：2026 年城镇新增就业 1200 万人以上，城镇调查失业率 5.5% 左右（政府工作报告 2026-03-05）；「十五五」时期城镇调查失业率控制在 5.5% 以内，补贴性职业技能培训超 5000 万人次（《实施就业优先战略「十五五」规划》，2026-06）。</p></div>
+<div class="card lane l2"><h3 class="section-title">Lane 2 · 政策线</h3><span class="badge lane2">人工策展</span>
+<table><thead><tr><th>日期</th><th>政策 / 文件</th><th>要点</th><th>来源</th></tr></thead><tbody>
+<tr><td>2026-01-05</td><td>人社部《关于开展 2026 年全国公共就业招聘专项活动的通知》（人社部函〔2026〕1号）</td><td>全年招聘专项活动：春招 4–5 月、秋招 10–11 月、直播带岗 9 月上旬</td><td>B · 湖南 / 福建省政府网转载</td></tr>
+<tr><td>2026-02-13</td><td>人社部、财政部《关于做好 2026 年高校毕业生等青年就业工作的通知》（人社部发〔2026〕19号）</td><td>挖潜拓宽就业渠道；民营企业促就业行动；小微企业吸纳高校毕业生可享创业担保贷款；执行至 2026-12-31</td><td><span class="badge gA">A</span> · <a href="https://www.gov.cn/zhengce/zhengceku/202603/content_7063305.htm" target="_blank" rel="noopener">gov.cn 全文</a></td></tr>
+<tr><td>2026-03-05</td><td>2026 年政府工作报告</td><td>城镇调查失业率 5.5% 左右，城镇新增就业 1200 万人以上</td><td>B · 新华社 + 多家研报一致</td></tr>
+<tr><td>2026-06</td><td>国务院《实施就业优先战略「十五五」规划》</td><td>「十五五」城镇调查失业率控制在 5.5% 以内；补贴性职业技能培训超 5000 万人次；部署 AI 发展促进就业创业</td><td>C · 凤凰网 / 中新经纬 / 澎湃 10-10 报道；待取规划原文</td></tr>
+<tr><td>2026-07-06</td><td>人社部等四部门《关于失业保险支持企业稳岗扩岗的通知》（人社部发〔2026〕39号）</td><td>「两延续一优化」：稳岗返还延续、一次性扩岗补助延续、技能提升补贴优化；延续至 2026 年底；1–6 月发放稳岗返还 36 亿、扩岗补助 9 亿、技能提升补贴 12 亿</td><td>B · 界面 07-22 + 人社部解读转载</td></tr>
+<tr><td>2026-10-08</td><td>《新就业形态劳动者权益保障办法（征求意见稿）》公开征求意见</td><td>基本劳动权益、平台算法规范及相关责任</td><td>C · 第一财经 10-15 报道；待取 mohrss.gov.cn 原文</td></tr>
+<tr><td>2026-10-10</td><td>国新办「开局起步『十五五』」系列发布会（人社部）</td><td>适应人工智能发展促就业行动、「技能照亮前程」培训行动、农民工就业促进行动等；「十五五」就业工作「1、3、2」框架</td><td>B · 中新经纬 / 凤凰网 / 第一财经多源</td></tr>
+<tr><td>2026-10-16</td><td>国办《关于适应人工智能技术发展助力构建就业友好型发展方式的意见》（国办发〔2026〕29号，10-23 发布）</td><td>6 个方面 18 项任务；增强 AI 创造就业的正面效应，减缓替代影响；鼓励企业探索建立失业缓冲期制度</td><td>B · 新华社 + 财联社 + 人民日报多源</td></tr>
+<tr><td>2026-10-26</td><td>人社部等四部门《关于加快推进「人工智能+人社」应用发展的实施意见》（人社部发〔2026〕40号）</td><td>67 个应用场景；2026 年打造 20 个左右应用场景，2027 年探索 50 个左右</td><td>C · HR 校招助手引人社部信息公开网；待取 mohrss.gov.cn 原文</td></tr>
+</tbody></table>
+<p class="note">政策线只列已发布的文件与已发生的事件，不预测未出台的政策；每条附文号与来源。</p></div>
+<div class="card lane l3"><h3 class="section-title">Lane 3 · 事件线</h3><span class="badge lane3">人工核验</span>
+<table><thead><tr><th>日期</th><th>事件</th><th>内容</th><th>来源</th></tr></thead><tbody>
+<tr><td>2026-04–07</td><td>教育部「百日冲刺」促就业行动</td><td>2026 届：校园招聘活动 4000 余场，提供岗位信息超 500 万个</td><td>C · 搜狐 / 网易引教育部</td></tr>
+<tr><td>2026-07–12</td><td>高校毕业生等青年就业服务攻坚行动</td><td>人社厅函〔2026〕79号；面向未就业高校毕业生等青年</td><td>C · 北京人社局转载；待取人社部原文</td></tr>
+<tr><td>2026-09-20</td><td>「职引未来」全国城市联合招聘秋季专场启动</td><td>面向 2027 届及往届未就业高校毕业生；中国国家人才网设主会场；持续至 11 月底</td><td>B · 人民日报 2026-09-21 08 版；人社部</td></tr>
+<tr><td>2026-10-19</td><td>前三季度经济数据发布</td><td>前三季度 GDP +4.6%，城镇调查失业率均值 5.2%（与上年同期持平）；居民人均可支配收入 34230 元（名义 +5.3%）</td><td>B · 新华社 / 央视</td></tr>
+<tr><td>2026-10-21</td><td>9 月分年龄组失业率发布</td><td>16–24 回落至 18.0%，统计局称因大学毕业生逐步落实工作</td><td>B · 财联社 / MoneyDJ / HK01</td></tr>
+<tr><td>2026-11-29</td><td>2026 年度国考笔试（待发生）</td><td>约 345 万人报名，招录 3.57 万个名额</td><td>C · 单源转载，待新华社原文核对</td></tr>
+</tbody></table>
+<p class="note">事件线每条必须有来源 + 日期，无来源不列。</p></div>
+<div class="card lane l4"><h3 class="section-title">待核实栏</h3><span class="badge lane4">人工核验</span>
+<p class="note">未核实的不进指标表、不进时间线正文；清理规则：每周清一次，超 4 周未证实标「未证实」归档，不删除。</p>
+<table><thead><tr><th>#</th><th>内容</th><th>状态</th><th>需补的动作</th></tr></thead><tbody>
+<tr><td>1</td><td>2026 年 10 月失业率（总量 + 分年龄组）</td><td>未发布，预计 11 月中下旬</td><td>发布后人工录入</td></tr>
+<tr><td>2</td><td>2025 年全年城镇新增就业 1267 万人</td><td>单源（虎嗅 2026-11-09）</td><td>待人社部年度数据核对</td></tr>
+<tr><td>3</td><td>2026 届高校毕业生 1270 万人（同比 +48 万）</td><td>多家媒体引教育部通报，无原文链接</td><td>待取教育部原文</td></tr>
+<tr><td>4</td><td>国考 345 万人报名 / 3.57 万个名额</td><td>单源转载</td><td>待新华社原文核对</td></tr>
+<tr><td>5</td><td>新就业形态职业伤害保障试点参保 3727 万人、参保单数 1087 亿单</td><td>二次转载</td><td>待人社部原文核对</td></tr>
+<tr><td>6</td><td>人社部发〔2026〕40号「人工智能+人社」意见</td><td>二次转载</td><td>待取 mohrss.gov.cn 原文链接</td></tr>
+<tr><td>7</td><td>国办发〔2026〕29号 gov.cn 直达链接</td><td>多源转载，无直达 URL</td><td>取 gov.cn 原文链接后升 A</td></tr>
+<tr><td>8</td><td>《实施就业优先战略「十五五」规划》原文</td><td>仅见报道</td><td>待取规划原文（gov.cn）</td></tr>
+<tr><td>9</td><td>回填表 2026 年 1–6 月月度总量值</td><td>仅见 MacroDataHub 整理</td><td>与 NBS 数据发布库逐月核对后升 B</td></tr>
+<tr><td>10</td><td>2023-07 旧口径 16–24 值（暂停前最后一期）</td><td>本次检索未单独确认</td><td>补查</td></tr>
+<tr><td>11</td><td>失业保险参保 2.51 亿人等（截至 9 月底）</td><td>中国就业网转载</td><td>待取 mohrss.gov.cn 原文</td></tr>
+<tr><td>12</td><td>2023 年 1–6 月旧口径月度值（17.3 / 18.1 / 19.6 / 20.4 / 20.8 / 21.3）</td><td>多源引统计局，B 级</td><td>可进历史区；取到统计局通稿原文可升 A</td></tr>
+</tbody></table></div>
+<div class="card"><h3 class="section-title">口径与断点</h3>
+<p class="note"><b>调查失业率</b> = 调查失业人口 ÷（就业人口 + 调查失业人口）；调查失业人口指 16 岁及以上，在调查参考周内没有工作，并且在最近 3 个月内积极寻找工作、如果有合适工作能够在 2 周内开始工作的人口。覆盖城镇常住人口，不限户籍。<b>与登记失业率不同：</b>登记失业率只覆盖在公共就业服务机构主动登记的非农业户籍人口。</p>
+<p class="note"><b>断点：</b>2023 年 8 月起暂停发布分年龄组失业率（2023 年 7 月数据为旧口径最后一期）；2024 年 1 月 17 日恢复并调整：一是发布不包括在校学生的 16–24 岁劳动力失业率，二是增加发布不包括在校学生的 25–29 岁劳动力失业率。新系列从 2023 年 12 月数据起（首值 16–24 为 14.9%、25–29 为 6.1%、30–59 为 3.9%）。2023 年各月平均，该年龄段城镇人口中在校学生占 6 成多（近 6200 万人），非在校约 3400 万人；在校生主业是学习，计入会低估真正求职青年的失业压力。</p>
+<details><summary>旧口径历史区（2018–2023-07，含在校学生，单独存放）</summary>
+<p class="note">旧口径峰值：2023 年 6 月 21.3%（含在校学生），2023 年 4 月 20.4%。2023 年 1–6 月：17.3%、18.1%、19.6%、20.4%、20.8%、21.3%（多源引统计局，B 级）。新口径只画新口径；断点处断开不连线；跨断点不算同比；不要把「2024 年发布」误写成「2024 年才开始统计」。</p></details></div>
+<div class="card"><h3 class="section-title">相关观察区（首版占位）</h3><p class="note">就业 → 收入 → 消费三张小图并排（比同比不比水平值、频率统一到季度、时间轴灰竖线标政策事件、图下固定「同期变化，不代表因果关系」）。首版先占位，第二批再填——需要民生板（收入 / 消费）数据，民生板未建，硬画会拿旧数凑。</p></div>
+<div class="card"><h3 class="section-title">数据源与备份（三层，逐项标注）</h3><div class="srcs">
+<div>① 总量 / 分年龄组 — <span class="badge primary">主源</span> 统计局发布会通稿 / 数据发布库 → <span class="badge backup">替补</span> 财联社 / MoneyDJ / HK01 / 联合新闻网多源转载印证 → <span class="badge cache">缓存</span> 本页回填表（C 级，待逐月核对）。</div>
+<div>② 城镇新增就业 — <span class="badge primary">主源</span> 国新办发布会 / 人社部前三季度进展 → <span class="badge backup">替补</span> 凤凰网 / 21 经济网 → <span class="badge cache">缓存</span> 本页指标表。</div>
+<div>③ 政策原文 — <span class="badge primary">主源</span> gov.cn / mohrss.gov.cn → <span class="badge backup">替补</span> 省政府网转载 → <span class="badge cache">缓存</span> 本页政策线。</div>
+<div>④ 统计局官网 stats.gov.cn / data.stats.gov.cn — <span class="badge missing">自动抓取不可用</span>：沙箱打不通（000）、data.stats.gov.cn 403（2026-11-10 实测）。人工为主：发布日查通稿原文，数字录入 + 原文存档 + 隔天复核，不假装能自动抓。</div>
+<div>⑤ 招聘平台指数 / 薪资（智联、BOSS、猎聘）— <span class="badge missing">不进首版</span>：反爬，自动抓不到；按季度人工引用、标注「平台口径」，不与官方直接比。</div>
+</div><p class="note">更新方式：人工为主。按发布日历跑提醒型工作流，只发现不解析；发布日当天人工录入，隔天复核。主源失败演练（试运营第 3 周）：模拟 stats.gov.cn 打不通 + data.stats.gov.cn 403，改走转载印证流程。</p></div>
+<div class="card"><h3 class="section-title">内容钩子（可直接用的选题）</h3><p class="note">「9 月青年失业率 18.0%，比 8 月回落 0.9 个百分点，但仍高于去年同期的 17.7%」／「前三季度新增就业 1052 万人，完成全年目标 87.7%」／「2023 年 6 月青年失业率旧口径峰值 21.3%，新口径从 2023 年 12 月起算——跨口径不能直接比」</p></div>
+<p class="note">数据口径：本页全部为 2026-11-14 核实值；10 月数据预计 11 月中下旬发布，发布后人工录入；回填表 C 级，待与 NBS 数据发布库逐月核对；未核实的写「未核实」，不编数。页面设计：深蓝标题区、琥珀点缀；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底；中文 only，首版不做英文。</p>
+</main>
+<script>
+/* 就业监测 19号 · 数据：月度回填表 2023-09 → 2026-09（总量/16–24/25–29/30–59/31大城市/周均工时） */
+var DATA=[
+["2023-09",5.0,null,null,null,5.0,48.7],["2023-10",5.0,null,null,null,5.0,48.8],["2023-11",5.0,null,null,null,5.0,48.7],
+["2023-12",5.1,14.9,6.1,3.9,5.2,48.9],["2024-01",5.2,14.6,6.4,4.1,5.1,49.0],["2024-02",5.3,15.3,6.4,4.2,5.1,48.8],
+["2024-03",5.2,15.3,6.2,4.1,5.1,48.7],["2024-04",5.0,14.7,7.1,4.0,5.0,48.7],["2024-05",5.0,14.2,7.2,4.0,5.0,48.6],
+["2024-06",5.0,13.2,6.4,3.9,5.0,48.6],["2024-07",5.2,17.1,6.5,3.9,4.9,48.5],["2024-08",5.3,18.8,6.7,3.9,5.1,48.5],
+["2024-09",5.1,17.6,6.7,3.9,5.1,48.7],["2024-10",5.0,17.1,6.8,3.9,4.9,48.6],["2024-11",5.0,16.1,6.6,3.8,4.9,48.6],
+["2024-12",5.1,15.7,6.9,3.8,5.0,48.6],["2025-01",5.2,16.1,7.3,4.0,5.1,48.6],["2025-02",5.4,16.9,7.2,4.3,5.2,48.1],
+["2025-03",5.2,16.5,7.1,4.1,5.1,48.1],["2025-04",5.1,15.8,7.0,4.0,5.0,48.0],["2025-05",5.0,14.9,6.7,3.9,5.0,48.2],
+["2025-06",5.0,14.5,6.9,4.0,5.0,48.2],["2025-07",5.2,17.8,7.2,3.9,5.2,48.2],["2025-08",5.3,18.9,7.2,3.9,5.3,48.2],
+["2025-09",5.2,17.7,7.2,3.9,5.2,48.3],["2025-10",5.1,17.3,7.2,3.8,5.1,48.4],["2025-11",5.1,16.9,7.2,3.8,5.1,48.6],
+["2025-12",5.1,16.5,6.9,3.9,5.1,48.6],["2026-01",5.2,16.3,6.8,4.0,5.0,48.3],["2026-02",5.3,16.1,7.2,4.2,5.1,48.1],
+["2026-03",5.4,16.9,7.7,4.3,5.3,48.1],["2026-04",5.2,16.3,7.4,4.2,5.2,48.0],["2026-05",5.1,15.6,7.2,4.1,5.1,48.2],
+["2026-06",5.0,14.9,7.1,4.0,5.0,48.2],["2026-07",5.2,17.9,7.2,3.9,5.2,48.2],["2026-08",5.3,18.9,7.5,3.9,5.3,48.2],
+["2026-09",5.2,18.0,7.4,3.9,5.2,48.3]];
+function fmt(v){return v==null?"—":v.toFixed(1);}
+(function(){
+var tb=document.getElementById("monthlyBody");
+DATA.forEach(function(r){
+  var tr=document.createElement("tr");
+  [r[0],fmt(r[1]),fmt(r[2]),fmt(r[3]),fmt(r[4]),fmt(r[5]),fmt(r[6])].forEach(function(c){
+    var td=document.createElement("td");td.textContent=c;tr.appendChild(td);
+  });
+  tb.appendChild(tr);
+});
+})();
+function lineChart(id,series){
+  var el=document.getElementById(id);if(!el||!window.Chart)return;
+  var labels=DATA.map(function(r){return r[0];});
+  new Chart(el,{type:"line",data:{labels:labels,datasets:series.map(function(s){
+    return {label:s.label,data:DATA.map(function(r){return r[s.col];}),borderColor:s.color,backgroundColor:s.color,fill:false,tension:0.25,pointRadius:2,spanGaps:false};
+  })},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}},scales:{y:{ticks:{callback:function(v){return v+"%";}}}}}});
+}
+if(window.Chart){lineChart("chartMain",[{label:"总量",col:1,color:"#1e40af"},{label:"16–24岁",col:2,color:"#b45309"}]);lineChart("chartAux",[{label:"25–29岁",col:3,color:"#047857"},{label:"30–59岁",col:4,color:"#3730a3"}]);}
+else{window.addEventListener("load",function(){setTimeout(function(){lineChart("chartMain",[{label:"总量",col:1,color:"#1e40af"},{label:"16–24岁",col:2,color:"#b45309"}]);lineChart("chartAux",[{label:"25–29岁",col:3,color:"#047857"},{label:"30–59岁",col:4,color:"#3730a3"}]);},800);});}
+</script>
+</body></html>
