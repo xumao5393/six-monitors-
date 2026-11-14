@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-14T10:18:52Z",
-  "fetched_at_cst": "2026-11-14 18:18:52 CST",
-  "checked_at": "2026-11-14T10:18:52Z",
-  "checked_at_cst": "2026-11-14 18:18:52 CST",
+  "fetched_at": "2026-11-14T10:47:07Z",
+  "fetched_at_cst": "2026-11-14 18:47:07 CST",
+  "checked_at": "2026-11-14T10:47:07Z",
+  "checked_at_cst": "2026-11-14 18:47:07 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,23 +12,38 @@
       "http": 200,
       "items": [
         {
+          "title": "japon – brésil",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jared gordon",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ben roethlisberger",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "what time does gta 6 come out",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "tormenta",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "japón - brasil",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "dune 3",
-          "traffic": "500+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "rodtang",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -45,21 +60,6 @@
           "title": "the tomb of the unknown soldier",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "hltv",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "norway vs wales",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ana de armas",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
     },
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "japan vs brazil",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "暴雨警告",
           "traffic": "200+",
@@ -78,13 +83,18 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "big bang 演唱會",
-          "traffic": "200+",
+          "title": "mma",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "香港商報",
-          "traffic": "100+",
+          "title": "日本對巴西",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "big bang 演唱會",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -106,16 +116,6 @@
           "title": "clippers vs thunder",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "衛星",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "快艇對雷霆",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,7 +124,22 @@
       "http": 200,
       "items": [
         {
-          "title": "wsj",
+          "title": "消費券",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "ioi",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "009826",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "郭天信",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
@@ -134,8 +149,18 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "wsj",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "李路雲",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "日本 對 巴西",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -146,31 +171,6 @@
         {
           "title": "國家文藝獎",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "李明依",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "npc",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "亞冠賽賽程",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "炎亞綸",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "明日天氣",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
