@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-14T19:47:08Z",
-  "fetched_at_cst": "2026-11-15 03:47:08 CST",
-  "checked_at": "2026-11-14T19:47:08Z",
-  "checked_at_cst": "2026-11-15 03:47:08 CST",
+  "fetched_at": "2026-11-14T20:47:13Z",
+  "fetched_at_cst": "2026-11-15 04:47:13 CST",
+  "checked_at": "2026-11-14T20:47:13Z",
+  "checked_at_cst": "2026-11-15 04:47:13 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "missouri vs georgia",
+          "title": "jessica pegula",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "boston college vs notre dame",
+          "title": "heisman odds",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "kansas vs west virginia",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "taiwan",
+          "title": "atlético nacional - once caldas",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "barclays center",
+          "title": "iu vs usc",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "real oviedo - girona",
-          "traffic": "200+",
+          "title": "auburn vs ms state",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ireland vs fiji",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "muerte",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "suecia - bosnia y herzegovina",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jackson state vs alabama state",
+          "title": "jeremiah smith",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "dan hicks illness",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "clemson game",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "saving private ryan",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "swac tv",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,18 +68,23 @@
       "http": 200,
       "items": [
         {
+          "title": "tvb",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "lol 世界賽 2026",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "lol",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "blg",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -111,11 +116,6 @@
           "title": "迪士尼",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "ioi",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,12 +124,22 @@
       "http": 200,
       "items": [
         {
+          "title": "on",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "dc",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "cfo",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "lol 世界賽",
+          "title": "lol",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
@@ -149,27 +159,17 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "riot",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "小柑",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "蔡康永",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "中國信託",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "doctor x 白色黑手黨時代",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
