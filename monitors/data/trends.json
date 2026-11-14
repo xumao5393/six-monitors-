@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-14T14:47:07Z",
-  "fetched_at_cst": "2026-11-14 22:47:07 CST",
-  "checked_at": "2026-11-14T14:47:07Z",
-  "checked_at_cst": "2026-11-14 22:47:07 CST",
+  "fetched_at": "2026-11-14T15:47:10Z",
+  "fetched_at_cst": "2026-11-14 23:47:10 CST",
+  "checked_at": "2026-11-14T15:47:10Z",
+  "checked_at_cst": "2026-11-14 23:47:10 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "spencer danielson",
+          "title": "husker football schedule",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "uga game today",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "gio lopez",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ian mcnabb",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jake dickert",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "wake forest football",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "daniel altmaier",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "bangladesh vs pakistan",
-          "traffic": "200+",
+          "title": "el niño weather",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "alex murdaugh",
-          "traffic": "2000+",
+          "title": "death",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "frank grillo",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "wake forest vs smu",
+          "title": "ian johnson",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "charles iii",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "pfl",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "hayley atwell",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "carson daly",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "where is game day this week",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -69,11 +69,6 @@
       "items": [
         {
           "title": "cuaca besok",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "bigbang 無人機",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -109,12 +104,17 @@
         },
         {
           "title": "暴雨警告",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "hltv",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "mma",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,12 +124,37 @@
       "http": 200,
       "items": [
         {
-          "title": "蒂亞戈·阿古斯丁·蒂蘭特",
+          "title": "股利",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "btc",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "孔劉",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "doctor x:白色黑手黨時代",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "許淑華",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "英雄聯盟世界賽",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "蒂亞戈·阿古斯丁·蒂蘭特",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
@@ -146,31 +171,6 @@
         {
           "title": "停車",
           "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "蘇貞昌",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "衛星",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "明天的天氣",
-          "traffic": "20000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "曾沛慈",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "供應鏈",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
