@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T09:47:09Z",
-  "fetched_at_cst": "2026-11-15 17:47:09 CST",
-  "checked_at": "2026-11-15T09:47:09Z",
-  "checked_at_cst": "2026-11-15 17:47:09 CST",
+  "fetched_at": "2026-11-15T10:47:08Z",
+  "fetched_at_cst": "2026-11-15 18:47:08 CST",
+  "checked_at": "2026-11-15T10:47:08Z",
+  "checked_at_cst": "2026-11-15 18:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,13 +12,33 @@
       "http": 200,
       "items": [
         {
+          "title": "unruly aircraft passenger",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ana de armas",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "robot",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "powerball winning numbers nov 14 2026",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "donald trump iran war",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "gta 6 pc release date",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -28,12 +48,7 @@
         },
         {
           "title": "winter storm",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "shameless",
-          "traffic": "100+",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -42,22 +57,7 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "australia vs new zealand",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "gta 6 release date and time",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "maika monroe",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bills vs jets",
+          "title": "shameless",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -67,6 +67,26 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "王敏超",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "india vs new zealand",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "貧窮",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "黄翠如",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "高盛",
           "traffic": "100+",
@@ -96,26 +116,6 @@
           "title": "李龍基",
           "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "房祖名",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "維港泳",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "金鐘獎",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "長者日",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,8 +124,38 @@
       "http": 200,
       "items": [
         {
-          "title": "洋流",
+          "title": "六合彩",
           "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "高橋宏斗",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "沈伯洋老婆",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "余天",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "明尼蘇達灰狼",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "沈伯洋直播",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "洋流",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -134,42 +164,12 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "海鯤級潛艦",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "巴林",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "心臟缺氧",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "吳音寧",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "沈伯洋",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "bpjs ketenagakerjaan",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "員林火災",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "車票",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "大巨蛋活動",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
