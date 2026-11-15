@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T06:47:07Z",
-  "fetched_at_cst": "2026-11-15 14:47:07 CST",
-  "checked_at": "2026-11-15T06:47:07Z",
-  "checked_at_cst": "2026-11-15 14:47:07 CST",
+  "fetched_at": "2026-11-15T07:47:14Z",
+  "fetched_at_cst": "2026-11-15 15:47:14 CST",
+  "checked_at": "2026-11-15T07:47:14Z",
+  "checked_at_cst": "2026-11-15 15:47:14 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -132,8 +132,8 @@
     {
       "id": "moonshotai/kimi-k3.1-pro:batch",
       "name": "MoonshotAI: Kimi K3.1 Pro (batch)",
-      "prompt_per_m": 0.346,
-      "completion_per_m": 4.41,
+      "prompt_per_m": 0.275,
+      "completion_per_m": 4.125,
       "context_length": 1048576
     },
     {
@@ -146,8 +146,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash-1017:batch",
       "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
-      "prompt_per_m": 0.035,
-      "completion_per_m": 0.27,
+      "prompt_per_m": 0.023,
+      "completion_per_m": 0.2,
       "context_length": 1048576
     },
     {
@@ -1021,8 +1021,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.17,
-      "completion_per_m": 0.25,
+      "prompt_per_m": 0.118,
+      "completion_per_m": 0.174,
       "context_length": 262144
     },
     {
@@ -8544,16 +8544,16 @@
         "completion_per_m": 8.4114
       },
       "moonshotai/kimi-k3.1-pro:batch": {
-        "prompt_per_m": 0.346,
-        "completion_per_m": 4.41
+        "prompt_per_m": 0.275,
+        "completion_per_m": 4.125
       },
       "deepseek/deepseek-v4.1-flash-1017": {
         "prompt_per_m": 0.15,
         "completion_per_m": 0.6
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
-        "prompt_per_m": 0.035,
-        "completion_per_m": 0.27
+        "prompt_per_m": 0.023,
+        "completion_per_m": 0.2
       },
       "google/gemini-4-argon": {
         "prompt_per_m": 2.0,
@@ -9052,8 +9052,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.17,
-        "completion_per_m": 0.25
+        "prompt_per_m": 0.118,
+        "completion_per_m": 0.174
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
