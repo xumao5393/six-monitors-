@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T01:47:09Z",
-  "fetched_at_cst": "2026-11-15 09:47:09 CST",
-  "checked_at": "2026-11-15T01:47:09Z",
-  "checked_at_cst": "2026-11-15 09:47:09 CST",
+  "fetched_at": "2026-11-15T01:51:57Z",
+  "fetched_at_cst": "2026-11-15 09:51:57 CST",
+  "checked_at": "2026-11-15T01:51:57Z",
+  "checked_at_cst": "2026-11-15 09:51:57 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -145,7 +145,7 @@
         },
         {
           "title": "u23 賽程",
-          "traffic": "10000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
