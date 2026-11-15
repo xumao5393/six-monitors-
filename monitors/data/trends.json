@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T17:47:07Z",
-  "fetched_at_cst": "2026-11-16 01:47:07 CST",
-  "checked_at": "2026-11-15T17:47:07Z",
-  "checked_at_cst": "2026-11-16 01:47:07 CST",
+  "fetched_at": "2026-11-15T18:47:08Z",
+  "fetched_at_cst": "2026-11-16 02:47:08 CST",
+  "checked_at": "2026-11-15T18:47:08Z",
+  "checked_at_cst": "2026-11-16 02:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "robert kraft",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "mike vrabel affair",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "dan campbell",
+          "title": "justin fields",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "micah parsons",
+          "title": "marshawn lloyd",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "bills jets",
+          "title": "cj stroud",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "raiders qb",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jabari walker",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "panthers - saints",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "maura west",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "pacers vs 76ers",
+          "title": "travis kelce",
           "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "hunter henry",
+          "title": "trey smack",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "jameis winston giants commanders stunt",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "penei sewell",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "chiefs - falcons",
-          "traffic": "500+",
+          "title": "jags game",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -125,12 +125,7 @@
       "items": [
         {
           "title": "76人 對 溜馬",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "gta 6",
-          "traffic": "100+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -171,6 +166,11 @@
         {
           "title": "香港六合彩",
           "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "蔡文誠",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
