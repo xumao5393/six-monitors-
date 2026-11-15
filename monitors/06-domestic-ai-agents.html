@@ -75,14 +75,14 @@ th{color:#15803d}
 <div class="card"><h3>人工整理（非 API）</h3><div>Agent 数：<b>5</b>（扣子、WorkBuddy、腾讯元器、Trae、通义灵码，见上表）· 视频模型：<b>6</b>（可灵、万相、即梦、清影、海螺、Vidu）</div><p class="note">以上两数与 OpenRouter 实时接口无关，刷新不改变，故已移出 KPI，放在此处人工整理区块。</p></div>
 <div class="card"><h3>视频模型 <span class="badge cache">人工整理·非API</span></h3><div>可灵 Kling · 万相 Wan · 即梦 Seedance · 清影 · 海螺 Hailuo · Vidu — 价格与额度以官网为准，不编数。</div></div>
 <div class="card"><h3>数据源状态</h3><div id="sources"></div>
-<p class="note">唯一实时来源：OpenRouter（openrouter.ai/api/v1/models）。models.dev 已下线（302 跳转首页）不再使用；OpenRouter 无镜像，断了就用缓存（截至 2026-11-09）。讯飞星火与百度文心不在 OpenRouter 公开目录中，本页不收录、不编数；旧代码用 'spark' 子串匹配会误命中 Meta 的 muse-spark 模型，已改为仅认 id 前缀 iflytek/。豆包 Seed 2.1 在目录中仅有 Turbo 变体，暂作家族代表。</p></div>
+<p class="note">唯一实时来源：OpenRouter（openrouter.ai/api/v1/models）。models.dev 已下线（302 跳转首页）不再使用；OpenRouter 无镜像，断了就用缓存（截至 2026-11-09）。讯飞星火与百度文心不在 OpenRouter 公开目录中，本页不收录、不编数；旧代码用 'spark' 子串匹配会误命中 Meta 的 muse-spark 模型，已改为仅认 id 前缀 iflytek/。豆包 Seed 2.1 在目录中仅有 Turbo 变体，暂作家族代表。Kimi K3.1 Pro 标题价为 Moonshot 官方价 $2.00/$10.00（2026-11-15 核实）；OpenRouter 目录价 $0.2232/$8.4114 为 Relace 端点价，仅作最低端点价参考。</p></div>
 </main>
 <script>
 let models=[],sortKey='score',sortDir=-1,chart;
-// 缓存样本：分数 = AA 智能指数 v5（2026-11-08/09 公开榜单），价格 = OpenRouter 输入价（2026-11-09 核实）；无公开分数/未上目录的记 null，显示「未获取」。
+// 缓存样本：分数 = AA 智能指数 v5（2026-11-08/09 公开榜单），价格 = OpenRouter 输入价（2026-11-09 核实；DeepSeek 于 2026-11-15 复核为 $0.90/M）；无公开分数/未上目录的记 null，显示「未获取」。
 const FALLBACK=[
  {name:'Qwen3.8 Max Prime',vendor:'Qwen',score:33.6,price:4.0,ctx:'1000K'},
- {name:'DeepSeek V4 Pro',vendor:'DeepSeek',score:23.1,price:0.9553,ctx:'1049K'},
+ {name:'DeepSeek V4 Pro',vendor:'DeepSeek',score:23.1,price:0.9,ctx:'1049K'},
  {name:'GLM-5.3 Prime',vendor:'Zhipu',score:null,price:2.8,ctx:'1000K'},
  {name:'Kimi K3.1 Pro',vendor:'Kimi',score:null,price:2.0,ctx:'1049K'},
  {name:'Seed 2.1 Turbo',vendor:'Doubao',score:null,price:0.5,ctx:'262K'},
@@ -99,6 +99,11 @@ const PREFIX_VENDOR={'qwen':'Qwen','deepseek':'DeepSeek','z-ai':'Zhipu','moonsho
 // Doubao：目录中 Seed 2.1 仅有 Turbo 变体，未见非 Turbo 旗舰 id，暂以 seed-2-1-turbo 作 Seed 2.1 家族代表。
 // ERNIE 与讯飞星火不在 OpenRouter 公开目录中，本页不收录、不编数。
 const FLAGSHIPS=new Set(['qwen/qwen3.8-max-prime','deepseek/deepseek-v4-pro','z-ai/glm-5.3-prime','moonshotai/kimi-k3.1-pro','bytedance-seed/seed-2-1-turbo','tencent/hy4','minimax/minimax-m3','stepfun/step-5-preview']);
+// 官方价口径（2026-11-15 Mao 定）：标题价一律用厂商官方价，不用 OpenRouter 目录顶层价。
+// Kimi K3.1 Pro 官方价 $2.00/$10.00（Moonshot 定价页；OpenRouter 24 端点众数 $2/$10，含 Moonshot 自己端点；models.dev 官方条目 $2/$10）。
+// 目录顶层价 $0.2232/$8.4114 是 Relace 一家第三方端点价，仅作「最低端点价」另注，不作标题价。
+const OFFICIAL_PRICE={'moonshotai/kimi-k3.1-pro':{pin:2.0,pout:10.0}};
+function applyOfficial(m){const o=m&&m.id&&OFFICIAL_PRICE[m.id];if(o&&m.price!=null)m.price=o.pin;return m;}
 // 讯飞判定：仅 id 以 "iflytek/" 开头才算 iFlytek（当前目录中不存在，恒为 false，Spark 只留缓存行）。
 function isIFlytek(id){return (id||'').startsWith('iflytek/');}
 function vendorOf(id){if(isIFlytek(id))return 'iFlytek';const p=(id||'').split('/')[0];return PREFIX_VENDOR[p]||p||'未知';}
@@ -133,7 +138,7 @@ async function refreshAll(){document.querySelector('main')?.setAttribute('aria-b
  const src=[];let role='cache';
  // 唯一实时来源：OpenRouter。models.dev 已下线（/api/v1/models 返回 302 跳转首页），不再请求；OpenRouter 无镜像。
  try{const d=await fetchTO('https://openrouter.ai/api/v1/models');
-   const picked=(d.data||[]).filter(m=>FLAGSHIPS.has(m.id)).map(m=>({name:m.name||m.id,vendor:vendorOf(m.id),score:null,price:m.pricing?.prompt!=null?+((parseFloat(m.pricing.prompt)*1e6).toFixed(4)):null,ctx:m.context_length?Math.round(m.context_length/1000)+'K':''}));
+   const picked=(d.data||[]).filter(m=>FLAGSHIPS.has(m.id)).map(m=>applyOfficial({id:m.id,name:m.name||m.id,vendor:vendorOf(m.id),score:null,price:m.pricing?.prompt!=null?+((parseFloat(m.pricing.prompt)*1e6).toFixed(4)):null,ctx:m.context_length?Math.round(m.context_length/1000)+'K':''}));
    if(picked.length){models=picked;role='live';src.push(['OpenRouter','主源','正常',new Date().toLocaleString('zh-CN')]);}
    else src.push(['OpenRouter','主源','目录中无白名单模型','—']);
  }catch(e){src.push(['OpenRouter','主源','失败','—']);}
