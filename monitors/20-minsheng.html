@@ -1,5 +1,6 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>民生监测 · 收入 / 消费 / 物价</title>
+<title>民生监测 · 收入 / 消费 / 物价</title><script src="./chart.umd.min.js"></script>
+<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
@@ -64,7 +65,7 @@ header{background:linear-gradient(90deg,#0d3318,#14532d,#166534);color:#fff;box-
 <div class="card"><h3>居民人均可支配收入</h3><div class="big">34,230 元</div><p class="note">2026 年前三季度 · 名义 +5.3% · 实际 +4.4% · 统计局 2026-10-19 发布 · A 级</p></div>
 <div class="card"><h3>居民人均消费支出</h3><div class="big">22,354 元</div><p class="note">2026 年前三季度 · 名义 +3.6% · 实际 +2.7% · 统计局 2026-10-19 发布 · A 级</p></div>
 <div class="card"><h3>社会消费品零售总额</h3><div class="big">370,001 亿</div><p class="note">2026 年前三季度 · 同比 +1.1% · 9 月单月 42,433 亿（+1.1%）· 统计局 2026-10-19 发布 · A− 级</p></div>
-<div class="card"><h3>CPI 同比</h3><div class="big">+0.7%</div><p class="note">2026 年 10 月 · 环保持平 · 核心 CPI +0.8% · 食品 −2.9% · 统计局 2026-11-09 发布 · A− 级</p></div>
+<div class="card"><h3>CPI 同比</h3><div class="big">+0.7%</div><p class="note">2026 年 10 月 · 环比持平 · 核心 CPI +0.8% · 食品 −2.9% · 统计局 2026-11-09 发布 · A− 级</p></div>
 <div class="card"><h3>居民平均消费倾向（派生）</h3><div class="big">65.3%</div><p class="note">2026 年前三季度 · 低于去年同期 66.4%，下降约 1.1 个百分点 · 派生计算（22,354 ÷ 34,230）· B 级</p></div>
 </div>
 <div class="card"><h3 class="section-title">城乡分组：收入与消费</h3>
@@ -88,12 +89,12 @@ header{background:linear-gradient(90deg,#0d3318,#14532d,#166534);color:#fff;box-
 <tr><td>居住</td><td><b>4,753</b></td><td>21.3%</td><td>+1.9%</td></tr>
 <tr><td>交通通信</td><td><b>3,190</b></td><td>14.3%</td><td>+2.8%</td></tr>
 <tr><td>教育文化娱乐</td><td><b>2,647</b></td><td>11.8%</td><td>+4.6%</td></tr>
-<tr><td>医疗保健</td><td><b>1,974</b></td><td>—</td><td>+2.3%</td></tr>
+<tr><td>医疗保健</td><td><b>1,974</b></td><td>8.8%</td><td>+2.3%</td></tr>
 <tr><td>衣着</td><td><b>1,172</b></td><td>5.2%</td><td>+4.1%</td></tr>
 <tr><td>生活用品及服务</td><td><b>1,281</b></td><td>5.7%</td><td>+4.7%</td></tr>
 <tr><td>其他用品及服务</td><td>约 694（差额派生）</td><td>—</td><td>—</td></tr>
 </tbody></table>
-<p class="note">服务性消费 10,565 元（+4.6%），占 47.3%。社会消费商品和服务零售总额前三季度 +2.6%，其中服务零售额 +5.0%、商品零售额 +1.0%。</p></div>
+<p class="note">服务性消费 10,565 元（+4.6%），占 47.3%。社会消费商品和服务零售总额前三季度 +2.6%，其中服务零售额 +5.0%、商品零售额 +1.0%。</p><div style="position:relative;height:300px"><canvas id="chartConsume"></canvas></div><p class="note">图：2026 年前三季度人均消费支出构成（元），与上表同源；其他用品及服务约 694 元为差额派生（22,354 − 七类合计），占比约 3.1%。</p></div>
 <div class="card"><h3 class="section-title">社会消费品零售总额</h3>
 <table><thead><tr><th>口径</th><th>前三季度</th><th>同比</th></tr></thead><tbody>
 <tr><td>社会消费品零售总额</td><td><b>370,001 亿元</b></td><td>+1.1%</td></tr>
@@ -168,6 +169,17 @@ header{background:linear-gradient(90deg,#0d3318,#14532d,#166534);color:#fff;box-
 <tr><td>待核实栏</td><td>每周清一次</td><td>—</td></tr>
 </tbody></table></div>
 <div class="card"><h3 class="section-title">内容钩子（可直接用的选题）</h3><p class="note">「前三季度人均可支配收入 34230 元，实际增长 4.4%，消费只涨了 2.7%——钱挣得比花得快，消费倾向 65.3%」／「10 月 CPI 涨 0.7%，汽油涨了 22.4%，一个人拉了 0.63 个百分点」／「农村收入增速 6.3% 快于城镇 4.5%，收入比 2.39 还在缩小」</p></div>
-<p class="note">数据口径：本页全部为 2026-11-14 核实值；图表待季度序列回填后补，本版以表为准；未核实的写「未核实」，不编数。页面设计：深绿标题区、暖金点缀；中文 only，首版不做英文。相关监测：<a href="19-jiuye.html">19 就业监测</a> · <a href="21-yiliao.html">21 医疗保障监测</a>。第二批候选（四周试运营后扩，不进首版）：城乡居民收入比 2.39、服务零售额 +5.0%、网上商品和服务零售额 151,471 亿（+4.4%）、工资性收入 19,653 元、食品烟酒支出占比 29.7%。</p>
+<p class="note">数据口径：本页全部为 2026-11-14 核实值；消费构成图为表内八大类真实数据（其他用品及服务约 694 元为差额派生）；季度序列图待回填后补；未核实的写「未核实」，不编数。页面设计：深绿标题区、暖金点缀；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底；中文 only，首版不做英文。相关监测：<a href="19-jiuye.html">19 就业监测</a> · <a href="21-yiliao.html">21 医疗保障监测</a>。第二批候选（四周试运营后扩，不进首版）：城乡居民收入比 2.39、服务零售额 +5.0%、网上商品和服务零售额 151,471 亿（+4.4%）、工资性收入 19,653 元、食品烟酒支出占比 29.7%。</p>
 </main>
+<script>
+/* 民生监测 20号 · 消费构成图（与消费构成表同源，统计局 2026-10-19 发布稿） */
+var CONSUME_LABELS=["食品烟酒（29.7%）","居住（21.3%）","交通通信（14.3%）","教育文化娱乐（11.8%）","医疗保健（8.8%）","生活用品及服务（5.7%）","衣着（5.2%）","其他用品及服务（约 3.1%）"];
+var CONSUME_DATA=[6643,4753,3190,2647,1974,1281,1172,694];
+function drawConsume(){
+  var el=document.getElementById("chartConsume");if(!el||!window.Chart)return;
+  new Chart(el,{type:"bar",data:{labels:CONSUME_LABELS,datasets:[{label:"人均消费支出（元）",data:CONSUME_DATA,backgroundColor:"#14532d"}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{callback:function(v){return v.toLocaleString()+" 元";}}}}}});
+}
+if(window.Chart){drawConsume();}
+else{window.addEventListener("load",function(){setTimeout(drawConsume,800);});}
+</script>
 </body></html>
