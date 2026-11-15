@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T16:47:09Z",
-  "fetched_at_cst": "2026-11-16 00:47:09 CST",
-  "checked_at": "2026-11-15T16:47:09Z",
-  "checked_at_cst": "2026-11-16 00:47:09 CST",
+  "fetched_at": "2026-11-15T17:05:15Z",
+  "fetched_at_cst": "2026-11-16 01:05:15 CST",
+  "checked_at": "2026-11-15T17:05:15Z",
+  "checked_at_cst": "2026-11-16 01:05:15 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,13 +12,28 @@
       "http": 200,
       "items": [
         {
+          "title": "deportivo - barcelona",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "deportivo vs barcelona",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "vikings injury report",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "barry sanders",
-          "traffic": "2000+",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "bernie sanders social security expansion act",
-          "traffic": "200+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -38,27 +53,12 @@
         },
         {
           "title": "belarus vs albania",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "raiders vs seahawks",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "lan larison",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ou vs ole miss",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tim hill",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -129,23 +129,28 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "黃敏珊",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "金價",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "股東",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "2026",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "亞歷山大·茲維列夫",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2026",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -159,18 +164,13 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "高雄市長",
+          "title": "高雄市長候選人",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "蔡文誠",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "統神",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
