@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T00:47:07Z",
-  "fetched_at_cst": "2026-11-15 08:47:07 CST",
-  "checked_at": "2026-11-15T00:47:07Z",
-  "checked_at_cst": "2026-11-15 08:47:07 CST",
+  "fetched_at": "2026-11-15T01:47:09Z",
+  "fetched_at_cst": "2026-11-15 09:47:09 CST",
+  "checked_at": "2026-11-15T01:47:09Z",
+  "checked_at_cst": "2026-11-15 09:47:09 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -741,8 +741,8 @@
     {
       "id": "z-ai/glm-5.2:batch",
       "name": "Z.ai: GLM 5.2 (batch)",
-      "prompt_per_m": 0.298,
-      "completion_per_m": 0.916,
+      "prompt_per_m": 0.322,
+      "completion_per_m": 0.989,
       "context_length": 1048576
     },
     {
@@ -1028,8 +1028,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.063,
-      "completion_per_m": 0.093,
+      "prompt_per_m": 0.029,
+      "completion_per_m": 0.043,
       "context_length": 262144
     },
     {
@@ -1224,8 +1224,8 @@
     {
       "id": "z-ai/glm-4.7",
       "name": "Z.ai: GLM 4.7",
-      "prompt_per_m": 0.6,
-      "completion_per_m": 2.2,
+      "prompt_per_m": 0.4,
+      "completion_per_m": 1.75,
       "context_length": 204800
     },
     {
@@ -1930,24 +1930,24 @@
     }
   ],
   "models_dev_models": {
-    "moonshotai/kimi-k3.1-pro-highspeed": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro-highspeed",
-      "name": "Kimi K3.1 Pro Highspeed",
-      "input_per_m": 4,
-      "output_per_m": 20
+    "google/gemini-4-hydrogen": {
+      "provider": "google",
+      "id": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "input_per_m": 1.5,
+      "output_per_m": 7.5
     },
-    "moonshotai/kimi-k3": {
-      "provider": "moonshotai",
-      "id": "kimi-k3",
-      "name": "Kimi K3",
-      "input_per_m": 3,
-      "output_per_m": 15
+    "google/gemini-4-carbon": {
+      "provider": "google",
+      "id": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
+      "input_per_m": 2,
+      "output_per_m": 10
     },
-    "moonshotai/kimi-k3.1-pro": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro",
-      "name": "Kimi K3.1 Pro",
+    "google/gemini-4-argon": {
+      "provider": "google",
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
       "input_per_m": 2,
       "output_per_m": 10
     },
@@ -1965,31 +1965,10 @@
       "input_per_m": 2,
       "output_per_m": 10
     },
-    "google/gemini-4-argon": {
-      "provider": "google",
-      "id": "gemini-4-argon",
-      "name": "Gemini 4 Argon",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "google/gemini-4-hydrogen": {
-      "provider": "google",
-      "id": "gemini-4-hydrogen",
-      "name": "Gemini 4 Hydrogen",
-      "input_per_m": 1.5,
-      "output_per_m": 7.5
-    },
-    "google/gemini-4-carbon": {
-      "provider": "google",
-      "id": "gemini-4-carbon",
-      "name": "Gemini 4 Carbon",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "anthropic/claude-opus-4-5-20251101": {
+    "anthropic/claude-opus-5": {
       "provider": "anthropic",
-      "id": "claude-opus-4-5-20251101",
-      "name": "Claude Opus 4.5",
+      "id": "claude-opus-5",
+      "name": "Claude Opus 5",
       "input_per_m": 5,
       "output_per_m": 25
     },
@@ -2000,10 +1979,10 @@
       "input_per_m": 5,
       "output_per_m": 25
     },
-    "anthropic/claude-opus-5": {
+    "anthropic/claude-opus-4-5-20251101": {
       "provider": "anthropic",
-      "id": "claude-opus-5",
-      "name": "Claude Opus 5",
+      "id": "claude-opus-4-5-20251101",
+      "name": "Claude Opus 4.5",
       "input_per_m": 5,
       "output_per_m": 25
     },
@@ -2014,17 +1993,17 @@
       "input_per_m": 4,
       "output_per_m": 20
     },
-    "deepseek/deepseek-v4-flash-vision-exp": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-flash-vision-exp",
-      "name": "DeepSeek V4 Flash Vision Exp",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
-    },
     "deepseek/deepseek-v4-flash": {
       "provider": "deepseek",
       "id": "deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
+    },
+    "deepseek/deepseek-v4-flash-vision-exp": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek V4 Flash Vision Exp",
       "input_per_m": 0.15,
       "output_per_m": 0.6
     },
@@ -2034,6 +2013,27 @@
       "name": "DeepSeek V4 Pro",
       "input_per_m": 0.66,
       "output_per_m": 1.98
+    },
+    "moonshotai/kimi-k3.1-pro": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "moonshotai/kimi-k3": {
+      "provider": "moonshotai",
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "input_per_m": 3,
+      "output_per_m": 15
+    },
+    "moonshotai/kimi-k3.1-pro-highspeed": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro-highspeed",
+      "name": "Kimi K3.1 Pro Highspeed",
+      "input_per_m": 4,
+      "output_per_m": 20
     }
   },
   "history": {
@@ -8899,8 +8899,8 @@
         "completion_per_m": 6.8
       },
       "z-ai/glm-5.2:batch": {
-        "prompt_per_m": 0.298,
-        "completion_per_m": 0.916
+        "prompt_per_m": 0.322,
+        "completion_per_m": 0.989
       },
       "moonshotai/kimi-k2.7-code": {
         "prompt_per_m": 0.6,
@@ -9063,8 +9063,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.063,
-        "completion_per_m": 0.093
+        "prompt_per_m": 0.029,
+        "completion_per_m": 0.043
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
@@ -9175,8 +9175,8 @@
         "completion_per_m": 14.0
       },
       "z-ai/glm-4.7": {
-        "prompt_per_m": 0.6,
-        "completion_per_m": 2.2
+        "prompt_per_m": 0.4,
+        "completion_per_m": 1.75
       },
       "google/gemini-3-flash-preview": {
         "prompt_per_m": 0.5,
