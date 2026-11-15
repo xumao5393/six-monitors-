@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T07:47:14Z",
-  "fetched_at_cst": "2026-11-15 15:47:14 CST",
-  "checked_at": "2026-11-15T07:47:14Z",
-  "checked_at_cst": "2026-11-15 15:47:14 CST",
+  "fetched_at": "2026-11-15T08:47:27Z",
+  "fetched_at_cst": "2026-11-15 16:47:27 CST",
+  "checked_at": "2026-11-15T08:47:27Z",
+  "checked_at_cst": "2026-11-15 16:47:27 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
+          "title": "chiefs vs falcons",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "australia vs new zealand",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "maika monroe",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "bills vs jets",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "samsung galaxy s27 pro production",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "is amon ra st brown playing",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "vikings vs packers",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "seahawks vs raiders",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "earthquake",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "fitness",
           "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "sa vs ban",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "dampier utah",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "aiden mizell",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "karely ruiz",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "aidan mizell",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "football games tomorrow",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "mike perry",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "travis barker",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -74,22 +74,17 @@
         },
         {
           "title": "駱應鈞",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "葡萄牙國家足球隊",
-          "traffic": "1000+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "魏綺清",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "李龍基",
-          "traffic": "2000+",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -116,6 +111,11 @@
           "title": "孫儷",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "hong kong disneyland",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,23 +124,28 @@
       "http": 200,
       "items": [
         {
-          "title": "沈伯洋",
-          "traffic": "2000+",
+          "title": "巴林",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "心臟缺氧",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "吳音寧",
-          "traffic": "500+",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "bpjs ketenagakerjaan",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "員林火災",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "bpjs ketenagakerjaan",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -160,17 +165,12 @@
         },
         {
           "title": "關渡宮",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "資料中心",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "人工智慧",
-          "traffic": "200+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
