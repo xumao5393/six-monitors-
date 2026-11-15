@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T21:45:25Z",
-  "fetched_at_cst": "2026-11-16 05:45:25 CST",
-  "checked_at": "2026-11-15T21:45:25Z",
-  "checked_at_cst": "2026-11-16 05:45:25 CST",
+  "fetched_at": "2026-11-15T21:47:07Z",
+  "fetched_at_cst": "2026-11-16 05:47:07 CST",
+  "checked_at": "2026-11-15T21:47:07Z",
+  "checked_at_cst": "2026-11-16 05:47:07 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -73,6 +73,11 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "nations league",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "spain vs england",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -110,11 +115,6 @@
         {
           "title": "潘頓",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "新闻主播",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
