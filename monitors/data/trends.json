@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T20:47:08Z",
-  "fetched_at_cst": "2026-11-16 04:47:08 CST",
-  "checked_at": "2026-11-15T20:47:08Z",
-  "checked_at_cst": "2026-11-16 04:47:08 CST",
+  "fetched_at": "2026-11-15T21:45:25Z",
+  "fetched_at_cst": "2026-11-16 05:45:25 CST",
+  "checked_at": "2026-11-15T21:45:25Z",
+  "checked_at_cst": "2026-11-16 05:45:25 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "kc concepcion",
+          "title": "christian mccaffrey",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "mirra andreeva",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "christian watson",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "katy perry",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "dalton schultz",
+          "title": "george kittle",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "declan rice",
+          "title": "nick bosa",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "joey bosa",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ben shelton",
-          "traffic": "5000+",
+          "title": "miguel angel felix gallardo",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "france",
+          "title": "49ers",
+          "traffic": "50000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "vikings schedule",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "erin andrews",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "rams vs cardinals where to watch",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "chad lowe",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "texas vs baylor",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "harry potter movies leaving peacock",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "折扣",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "spain vs england",
           "traffic": "200+",
@@ -111,11 +116,6 @@
           "title": "新闻主播",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "牛頭角下邨",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,8 +124,38 @@
       "http": 200,
       "items": [
         {
-          "title": "西班牙 對 英格蘭",
+          "title": "退休金",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "費玉清",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "張仁瑋",
           "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "發票",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "wta年終總決賽",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "米拉·安祖莉娃",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "西班牙 對 英格蘭",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -141,36 +171,6 @@
         {
           "title": "新北市長候選人",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "時尚戰爭",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "金價",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "股東",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2026",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "亞歷山大·茲維列夫",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "館長",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
