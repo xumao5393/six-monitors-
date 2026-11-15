@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T15:47:08Z",
-  "fetched_at_cst": "2026-11-15 23:47:08 CST",
-  "checked_at": "2026-11-15T15:47:08Z",
-  "checked_at_cst": "2026-11-15 23:47:08 CST",
+  "fetched_at": "2026-11-15T16:47:09Z",
+  "fetched_at_cst": "2026-11-16 00:47:09 CST",
+  "checked_at": "2026-11-15T16:47:09Z",
+  "checked_at_cst": "2026-11-16 00:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "denver broncos schedule",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "scott bessent",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "sione vaki",
+          "title": "barry sanders",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "gibbs",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "the secret lives of mormon wives",
+          "title": "bernie sanders social security expansion act",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "u2 tour 2027",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "david montgomery",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "derrick moore",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "españa vs",
+          "title": "españa vs inglaterra",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "christian gonzalez",
+          "title": "finland vs san marino",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "usc vs south carolina",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "belarus vs albania",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "raiders vs seahawks",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "lan larison",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ou vs ole miss",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "tim hill",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "黃淑蔓",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "姜大衛",
           "traffic": "100+",
@@ -111,11 +116,6 @@
           "title": "新世界",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "india vs new zealand",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,13 +124,18 @@
       "http": 200,
       "items": [
         {
+          "title": "新北市長候選人",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "金價",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "股東",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -154,7 +159,7 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "高雄市長候選人",
+          "title": "高雄市長",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
@@ -166,11 +171,6 @@
         {
           "title": "統神",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "超哥",
-          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
