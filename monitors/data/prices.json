@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-15T12:47:09Z",
-  "fetched_at_cst": "2026-11-15 20:47:09 CST",
-  "checked_at": "2026-11-15T12:47:09Z",
-  "checked_at_cst": "2026-11-15 20:47:09 CST",
+  "fetched_at": "2026-11-15T13:47:08Z",
+  "fetched_at_cst": "2026-11-15 21:47:08 CST",
+  "checked_at": "2026-11-15T13:47:08Z",
+  "checked_at_cst": "2026-11-15 21:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 470,
+      "total_models": 467,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
@@ -132,8 +132,8 @@
     {
       "id": "moonshotai/kimi-k3.1-pro:batch",
       "name": "MoonshotAI: Kimi K3.1 Pro (batch)",
-      "prompt_per_m": 0.33,
-      "completion_per_m": 4.95,
+      "prompt_per_m": 0.275,
+      "completion_per_m": 4.125,
       "context_length": 1048576
     },
     {
@@ -146,8 +146,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash-1017:batch",
       "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
-      "prompt_per_m": 0.038,
-      "completion_per_m": 0.333,
+      "prompt_per_m": 0.036,
+      "completion_per_m": 0.318,
       "context_length": 1048576
     },
     {
@@ -461,8 +461,8 @@
     {
       "id": "z-ai/glm-5.3:batch",
       "name": "Z.ai: GLM 5.3 (batch)",
-      "prompt_per_m": 0.386,
-      "completion_per_m": 1.187,
+      "prompt_per_m": 0.45,
+      "completion_per_m": 2.0,
       "context_length": 1048576
     },
     {
@@ -1395,13 +1395,6 @@
       "prompt_per_m": 0.3,
       "completion_per_m": 2.5,
       "context_length": 32768
-    },
-    {
-      "id": "qwen/qwen3-vl-30b-a3b-thinking",
-      "name": "Qwen: Qwen3 VL 30B A3B Thinking",
-      "prompt_per_m": 0.29,
-      "completion_per_m": 1.0,
-      "context_length": 262144
     },
     {
       "id": "qwen/qwen3-vl-30b-a3b-instruct",
@@ -8544,16 +8537,16 @@
         "completion_per_m": 8.4023
       },
       "moonshotai/kimi-k3.1-pro:batch": {
-        "prompt_per_m": 0.33,
-        "completion_per_m": 4.95
+        "prompt_per_m": 0.275,
+        "completion_per_m": 4.125
       },
       "deepseek/deepseek-v4.1-flash-1017": {
         "prompt_per_m": 0.15,
         "completion_per_m": 0.6
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
-        "prompt_per_m": 0.038,
-        "completion_per_m": 0.333
+        "prompt_per_m": 0.036,
+        "completion_per_m": 0.318
       },
       "google/gemini-4-argon": {
         "prompt_per_m": 2.0,
@@ -8732,8 +8725,8 @@
         "completion_per_m": 3.6
       },
       "z-ai/glm-5.3:batch": {
-        "prompt_per_m": 0.386,
-        "completion_per_m": 1.187
+        "prompt_per_m": 0.45,
+        "completion_per_m": 2.0
       },
       "qwen/qwen3.8-27b": {
         "prompt_per_m": 0.15,
@@ -9266,10 +9259,6 @@
       "google/gemini-2.5-flash-image": {
         "prompt_per_m": 0.3,
         "completion_per_m": 2.5
-      },
-      "qwen/qwen3-vl-30b-a3b-thinking": {
-        "prompt_per_m": 0.29,
-        "completion_per_m": 1.0
       },
       "qwen/qwen3-vl-30b-a3b-instruct": {
         "prompt_per_m": 0.15,
