@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T09:18:53Z",
-  "fetched_at_cst": "2026-11-15 17:18:53 CST",
-  "checked_at": "2026-11-15T09:18:53Z",
-  "checked_at_cst": "2026-11-15 17:18:53 CST",
+  "fetched_at": "2026-11-15T09:47:09Z",
+  "fetched_at_cst": "2026-11-15 17:47:09 CST",
+  "checked_at": "2026-11-15T09:47:09Z",
+  "checked_at_cst": "2026-11-15 17:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,8 +12,23 @@
       "http": 200,
       "items": [
         {
-          "title": "winter storm",
+          "title": "donald trump iran war",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "gta 6 pc release date",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "dp world tour championship",
           "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "winter storm",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -27,13 +42,13 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "chiefs vs falcons",
-          "traffic": "10000+",
+          "title": "australia vs new zealand",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "australia vs new zealand",
-          "traffic": "200+",
+          "title": "gta 6 release date and time",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -45,21 +60,6 @@
           "title": "bills vs jets",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "samsung galaxy s27 pro production",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "vikings vs packers",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "is amon ra st brown playing",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
     },
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "高盛",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "陈自瑶",
           "traffic": "100+",
@@ -98,11 +103,6 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "ufc 334",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
           "title": "維港泳",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -124,13 +124,13 @@
       "http": 200,
       "items": [
         {
-          "title": "洋流車掃",
+          "title": "洋流",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "海鯤級潛艦",
-          "traffic": "200+",
+          "title": "賈永婕",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -149,6 +149,11 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "沈伯洋",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "bpjs ketenagakerjaan",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -160,17 +165,12 @@
         },
         {
           "title": "車票",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "大巨蛋活動",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "張凌赫",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
