@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-16T01:47:08Z",
-  "fetched_at_cst": "2026-11-16 09:47:08 CST",
-  "checked_at": "2026-11-16T01:47:08Z",
-  "checked_at_cst": "2026-11-16 09:47:08 CST",
+  "fetched_at": "2026-11-16T02:00:26Z",
+  "fetched_at_cst": "2026-11-16 10:00:26 CST",
+  "checked_at": "2026-11-16T02:00:26Z",
+  "checked_at_cst": "2026-11-16 10:00:26 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,13 +12,38 @@
       "http": 200,
       "items": [
         {
-          "title": "prison",
+          "title": "ja'marr chase",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "kurt russell",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "cris collinsworth",
+          "title": "chris pratt",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "goldie hawn",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "south fulton police fugitive search",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "robert pattinson twilight",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "prison",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -33,32 +58,7 @@
         },
         {
           "title": "pitt volleyball",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "princeton vs ucla",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "mike mccarthy",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "cam heyward",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "mikal bridges",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "landman filming tcu football game",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "new world development",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "新聞主播",
           "traffic": "200+",
@@ -111,11 +116,6 @@
           "title": "自助餐",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "天气",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,13 +124,28 @@
       "http": 200,
       "items": [
         {
+          "title": "景碩",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "京元電",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "智邦",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "陳永福",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "迪倫·哈珀",
-          "traffic": "100+",
+          "title": "00892",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -139,37 +154,22 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "00892",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "輝達財報",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "國王 對 雷霆",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "鋒燦傳媒",
+          "title": "迪倫·哈珀",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "00406a配息",
+          "title": "國王 對 雷霆",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "敬鵬",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "富采減資",
+          "title": "00406a配息",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
