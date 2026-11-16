@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-16T17:47:10Z",
-  "fetched_at_cst": "2026-11-17 01:47:10 CST",
-  "checked_at": "2026-11-16T17:47:10Z",
-  "checked_at_cst": "2026-11-17 01:47:10 CST",
+  "fetched_at": "2026-11-16T18:47:11Z",
+  "fetched_at_cst": "2026-11-17 02:47:11 CST",
+  "checked_at": "2026-11-16T18:47:11Z",
+  "checked_at_cst": "2026-11-17 02:47:11 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "chase down",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "microsoft outlook global outage causes",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "brad gerstner",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "supreme court",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "gypsy rose",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "sam elliott",
+          "title": "uscis prior approval deference removal",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "lord morrow",
-          "traffic": "2000+",
+          "title": "ncaa soccer tournament",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "2028 ford mustang cobra r",
-          "traffic": "2000+",
+          "title": "john summit tour bus",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "survivor",
+          "title": "ap top 25 basketball",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "bradley whitford",
+          "title": "fema nationwide emergency test date",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "college basketball rankings",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "chase",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "w9",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "john summit",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "us employment based green card proposal",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "callum turner",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "robert pattinson",
           "traffic": "2000+",
@@ -111,11 +116,6 @@
           "title": "honor",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "沈振盈",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -144,7 +144,7 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "007",
+          "title": "robert pattinson",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
@@ -165,12 +165,12 @@
         },
         {
           "title": "葛萊美",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "丁守中",
-          "traffic": "200+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
