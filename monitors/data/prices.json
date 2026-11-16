@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-15T23:47:08Z",
-  "fetched_at_cst": "2026-11-16 07:47:08 CST",
-  "checked_at": "2026-11-15T23:47:08Z",
-  "checked_at_cst": "2026-11-16 07:47:08 CST",
+  "fetched_at": "2026-11-16T00:47:08Z",
+  "fetched_at_cst": "2026-11-16 08:47:08 CST",
+  "checked_at": "2026-11-16T00:47:08Z",
+  "checked_at_cst": "2026-11-16 08:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -125,8 +125,8 @@
     {
       "id": "moonshotai/kimi-k3.1-pro",
       "name": "MoonshotAI: Kimi K3.1 Pro",
-      "prompt_per_m": 2.0,
-      "completion_per_m": 10.0,
+      "prompt_per_m": 2.3,
+      "completion_per_m": 11.5,
       "context_length": 1048576
     },
     {
@@ -342,8 +342,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash",
       "name": "DeepSeek: DeepSeek V4.1 Flash",
-      "prompt_per_m": 0.051,
-      "completion_per_m": 0.567,
+      "prompt_per_m": 0.14,
+      "completion_per_m": 0.42,
       "context_length": 1048576
     },
     {
@@ -454,8 +454,8 @@
     {
       "id": "z-ai/glm-5.3",
       "name": "Z.ai: GLM 5.3",
-      "prompt_per_m": 0.084,
-      "completion_per_m": 3.6,
+      "prompt_per_m": 0.0699,
+      "completion_per_m": 1.4,
       "context_length": 1048576
     },
     {
@@ -531,8 +531,8 @@
     {
       "id": "deepseek/deepseek-v4-flash-0731",
       "name": "DeepSeek: DeepSeek V4 Flash 0731",
-      "prompt_per_m": 0.0434,
-      "completion_per_m": 0.3,
+      "prompt_per_m": 0.06,
+      "completion_per_m": 0.18,
       "context_length": 1048576
     },
     {
@@ -678,8 +678,8 @@
     {
       "id": "openai/gpt-5.6-sol",
       "name": "OpenAI: GPT-5.6 Sol",
-      "prompt_per_m": 4.4,
-      "completion_per_m": 22.0,
+      "prompt_per_m": 4.0,
+      "completion_per_m": 20.0,
       "context_length": 1050000
     },
     {
@@ -1021,8 +1021,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.148,
-      "completion_per_m": 0.218,
+      "prompt_per_m": 0.168,
+      "completion_per_m": 0.247,
       "context_length": 262144
     },
     {
@@ -1602,8 +1602,8 @@
     {
       "id": "z-ai/glm-4.5-air",
       "name": "Z.ai: GLM 4.5 Air",
-      "prompt_per_m": 0.2,
-      "completion_per_m": 1.1,
+      "prompt_per_m": 0.13,
+      "completion_per_m": 0.85,
       "context_length": 131072
     },
     {
@@ -9611,8 +9611,8 @@
         "completion_per_m": 2.5
       },
       "moonshotai/kimi-k3.1-pro": {
-        "prompt_per_m": 2.0,
-        "completion_per_m": 10.0
+        "prompt_per_m": 2.3,
+        "completion_per_m": 11.5
       },
       "moonshotai/kimi-k3.1-pro:batch": {
         "prompt_per_m": 0.7,
@@ -9735,8 +9735,8 @@
         "completion_per_m": 1.25
       },
       "deepseek/deepseek-v4.1-flash": {
-        "prompt_per_m": 0.051,
-        "completion_per_m": 0.567
+        "prompt_per_m": 0.14,
+        "completion_per_m": 0.42
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "prompt_per_m": 0.112,
@@ -9799,8 +9799,8 @@
         "completion_per_m": 1.32
       },
       "z-ai/glm-5.3": {
-        "prompt_per_m": 0.084,
-        "completion_per_m": 3.6
+        "prompt_per_m": 0.0699,
+        "completion_per_m": 1.4
       },
       "z-ai/glm-5.3:batch": {
         "prompt_per_m": 0.45,
@@ -9843,8 +9843,8 @@
         "completion_per_m": 4.8
       },
       "deepseek/deepseek-v4-flash-0731": {
-        "prompt_per_m": 0.0434,
-        "completion_per_m": 0.3
+        "prompt_per_m": 0.06,
+        "completion_per_m": 0.18
       },
       "deepseek/deepseek-v4-flash-0731:batch": {
         "prompt_per_m": 0.048,
@@ -9927,8 +9927,8 @@
         "completion_per_m": 10.0
       },
       "openai/gpt-5.6-sol": {
-        "prompt_per_m": 4.4,
-        "completion_per_m": 22.0
+        "prompt_per_m": 4.0,
+        "completion_per_m": 20.0
       },
       "openai/gpt-5.6-sol:batch": {
         "prompt_per_m": 2.0,
@@ -10123,8 +10123,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.148,
-        "completion_per_m": 0.218
+        "prompt_per_m": 0.168,
+        "completion_per_m": 0.247
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
@@ -10455,8 +10455,8 @@
         "completion_per_m": 2.2
       },
       "z-ai/glm-4.5-air": {
-        "prompt_per_m": 0.2,
-        "completion_per_m": 1.1
+        "prompt_per_m": 0.13,
+        "completion_per_m": 0.85
       },
       "qwen/qwen3-235b-a22b-thinking-2507": {
         "prompt_per_m": 0.45,
