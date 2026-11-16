@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-16T21:47:10Z",
-  "fetched_at_cst": "2026-11-17 05:47:10 CST",
-  "checked_at": "2026-11-16T21:47:10Z",
-  "checked_at_cst": "2026-11-17 05:47:10 CST",
+  "fetched_at": "2026-11-16T22:47:08Z",
+  "fetched_at_cst": "2026-11-17 06:47:08 CST",
+  "checked_at": "2026-11-16T22:47:08Z",
+  "checked_at_cst": "2026-11-17 06:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -139,22 +139,22 @@
     {
       "id": "moonshotai/kimi-k3.1-pro:batch",
       "name": "MoonshotAI: Kimi K3.1 Pro (batch)",
-      "prompt_per_m": 0.378,
-      "completion_per_m": 5.672,
+      "prompt_per_m": 0.354,
+      "completion_per_m": 5.31,
       "context_length": 1048576
     },
     {
       "id": "deepseek/deepseek-v4.1-flash-1017",
       "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
-      "prompt_per_m": 0.036,
-      "completion_per_m": 0.5,
+      "prompt_per_m": 0.15,
+      "completion_per_m": 0.6,
       "context_length": 1048576
     },
     {
       "id": "deepseek/deepseek-v4.1-flash-1017:batch",
       "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
-      "prompt_per_m": 0.037,
-      "completion_per_m": 0.331,
+      "prompt_per_m": 0.036,
+      "completion_per_m": 0.317,
       "context_length": 1048576
     },
     {
@@ -440,8 +440,8 @@
     {
       "id": "z-ai/glm-5.3-flash",
       "name": "Z.ai: GLM 5.3 Flash",
-      "prompt_per_m": 0.15,
-      "completion_per_m": 0.5,
+      "prompt_per_m": 0.0399,
+      "completion_per_m": 0.0784,
       "context_length": 1048576
     },
     {
@@ -10708,16 +10708,16 @@
         "completion_per_m": 8.4023
       },
       "moonshotai/kimi-k3.1-pro:batch": {
-        "prompt_per_m": 0.378,
-        "completion_per_m": 5.672
+        "prompt_per_m": 0.354,
+        "completion_per_m": 5.31
       },
       "deepseek/deepseek-v4.1-flash-1017": {
-        "prompt_per_m": 0.036,
-        "completion_per_m": 0.5
+        "prompt_per_m": 0.15,
+        "completion_per_m": 0.6
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
-        "prompt_per_m": 0.037,
-        "completion_per_m": 0.331
+        "prompt_per_m": 0.036,
+        "completion_per_m": 0.317
       },
       "google/gemini-4-argon": {
         "prompt_per_m": 2.0,
@@ -10880,8 +10880,8 @@
         "completion_per_m": 0.47
       },
       "z-ai/glm-5.3-flash": {
-        "prompt_per_m": 0.15,
-        "completion_per_m": 0.5
+        "prompt_per_m": 0.0399,
+        "completion_per_m": 0.0784
       },
       "z-ai/glm-5.3-flash:batch": {
         "prompt_per_m": 0.05,
