@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-16T22:47:08Z",
-  "fetched_at_cst": "2026-11-17 06:47:08 CST",
-  "checked_at": "2026-11-16T22:47:08Z",
-  "checked_at_cst": "2026-11-17 06:47:08 CST",
+  "fetched_at": "2026-11-16T23:47:08Z",
+  "fetched_at_cst": "2026-11-17 07:47:08 CST",
+  "checked_at": "2026-11-16T23:47:08Z",
+  "checked_at_cst": "2026-11-17 07:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "pickleball",
+          "title": "76ers vs nets",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "prairie view vs ohio state",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "brian poindexter",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "iona basketball",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "franchising",
-          "traffic": "500+",
+          "title": "quentin johnston",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "taylor sheridan landman season 3",
-          "traffic": "5000+",
+          "title": "bulls vs cavaliers",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "cboe volatility index",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "united airlines",
-          "traffic": "50000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "waterspout",
+          "title": "grizzlies vs wizards",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "virginia teen house party bodycam",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "trump dhs foreign student rules overturned",
+          "title": "alcorn state vs maryland",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "david njoku",
-          "traffic": "200+",
+          "title": "magic vs celtics",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "car chase",
-          "traffic": "1000+",
+          "title": "dirty bomb",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,8 +68,18 @@
       "http": 200,
       "items": [
         {
+          "title": "吳彥祖",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "呈分試",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "天氣預報",
-          "traffic": "200+",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -78,8 +88,18 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "hong kong",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "股票",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "劉德華",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -96,26 +116,6 @@
           "title": "robert pattinson",
           "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "叱咤",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "903",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "杜如風",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "姚子羚",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,52 +124,52 @@
       "http": 200,
       "items": [
         {
-          "title": "nvda",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "道瓊工業平均指數",
+          "title": "塞爾提克 對 魔術",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "美股盤後",
+          "title": "騎士 對 公牛",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "杜金龍",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "tsm",
+          "title": "乱彈阿翔",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "膽固醇",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "氣象",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "軍公教",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "駭客",
+          "title": "張凌赫",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "威力彩開獎號碼",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "年金",
+          "title": "台指夜盤",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "國際金融",
+          "title": "nvda",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "水果",
+          "title": "intc",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
