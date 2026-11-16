@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-16T20:25:05Z",
-  "fetched_at_cst": "2026-11-17 04:25:05 CST",
-  "checked_at": "2026-11-16T20:25:05Z",
-  "checked_at_cst": "2026-11-17 04:25:05 CST",
+  "fetched_at": "2026-11-16T20:47:08Z",
+  "fetched_at_cst": "2026-11-17 04:47:08 CST",
+  "checked_at": "2026-11-16T20:47:08Z",
+  "checked_at_cst": "2026-11-17 04:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,8 +12,38 @@
       "http": 200,
       "items": [
         {
+          "title": "nations league standings",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "tornado warning santa cruz",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "j t realmuto",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "joanna gaines",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "flood watch",
+          "traffic": "50000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "crime boss",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "daniil medvedev",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -22,43 +52,13 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
+          "title": "hacker",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "brajan gruda",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "aj brown patriots trade analysis",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "cuba vs grenada",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bank cyber attack",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "north macedonia vs slovenia",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "guyana vs puerto rico",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "noaa geomagnetic storm aurora forecast",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ap top 25 football",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -159,6 +159,11 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "柳采葳",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "王星越",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -166,11 +171,6 @@
         {
           "title": "葛萊美",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "丁守中",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
