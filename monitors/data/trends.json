@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-16T09:35:08Z",
-  "fetched_at_cst": "2026-11-16 17:35:08 CST",
-  "checked_at": "2026-11-16T09:35:08Z",
-  "checked_at_cst": "2026-11-16 17:35:08 CST",
+  "fetched_at": "2026-11-16T09:47:08Z",
+  "fetched_at_cst": "2026-11-16 17:47:08 CST",
+  "checked_at": "2026-11-16T09:47:08Z",
+  "checked_at_cst": "2026-11-16 17:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -17,13 +17,13 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "emma watson",
-          "traffic": "100+",
+          "title": "ban vs sa",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "bangladesh vs south africa",
-          "traffic": "200+",
+          "title": "emma watson",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -58,7 +58,7 @@
         },
         {
           "title": "gta vi game",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "辭職",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "澳門派錢",
           "traffic": "100+",
@@ -109,12 +114,7 @@
         },
         {
           "title": "中田乃愛",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "女神配对计划2",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -130,7 +130,7 @@
         },
         {
           "title": "葛如鈞",
-          "traffic": "500+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
