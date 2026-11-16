@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-16T14:47:07Z",
-  "fetched_at_cst": "2026-11-16 22:47:07 CST",
-  "checked_at": "2026-11-16T14:47:07Z",
-  "checked_at_cst": "2026-11-16 22:47:07 CST",
+  "fetched_at": "2026-11-16T15:47:22Z",
+  "fetched_at_cst": "2026-11-16 23:47:22 CST",
+  "checked_at": "2026-11-16T15:47:22Z",
+  "checked_at_cst": "2026-11-16 23:47:22 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "jaime ray newman",
+          "title": "nicholas hoult",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "josh o'connor",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "sean connery",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "renaissance",
-          "traffic": "200+",
+          "title": "idris elba",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "nvidia earnings date",
-          "traffic": "200+",
+          "title": "henry cavill",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "usa today ncaa football re-rank",
-          "traffic": "500+",
+          "title": "theo james",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "somalia vs ghana",
-          "traffic": "500+",
+          "title": "grand theft auto vi",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "jatavis sanders",
-          "traffic": "200+",
+          "title": "pierce brosnan",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "nicola coughlan",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "prince harry news",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bond 26",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "pga tour",
+          "title": "maura west",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "walmart stock",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,18 @@
       "http": 200,
       "items": [
         {
+          "title": "robert pattinson",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "叱咤",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "903",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -104,17 +109,12 @@
         },
         {
           "title": "honor",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "沈振盈",
           "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "將軍澳",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,13 +124,43 @@
       "http": 200,
       "items": [
         {
-          "title": "葛萊美",
+          "title": "羅伯派汀森",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "黃珊珊",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "007",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "黃士修",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "博通股價",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "王星越",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "葛萊美",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "丁守中",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -139,38 +169,8 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "丁守中",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "巨虹",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "胆固醇",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "張魁",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "blackpink 解散",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "董事長",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "中選會",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
