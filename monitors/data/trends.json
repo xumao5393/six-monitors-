@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-16T07:47:08Z",
-  "fetched_at_cst": "2026-11-16 15:47:08 CST",
-  "checked_at": "2026-11-16T07:47:08Z",
-  "checked_at_cst": "2026-11-16 15:47:08 CST",
+  "fetched_at": "2026-11-16T08:47:09Z",
+  "fetched_at_cst": "2026-11-16 16:47:09 CST",
+  "checked_at": "2026-11-16T08:47:09Z",
+  "checked_at_cst": "2026-11-16 16:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,8 +12,43 @@
       "http": 200,
       "items": [
         {
-          "title": "gta vi game",
+          "title": "bangladesh vs south africa",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "qwen4",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "penelope cruz javier bardem movie bunker",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "indigo",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "alexandra daddario",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "sharad kapoor",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "colin farrell",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "gta vi game",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -25,41 +60,6 @@
           "title": "fitness",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "alex bolt",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bill fennelly",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jimmy fallon",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "black friday sales",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "future",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "apec",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jlo",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
     },
@@ -69,11 +69,16 @@
       "items": [
         {
           "title": "银行",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "加權指數",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "麥文堅",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -89,7 +94,7 @@
         },
         {
           "title": "香港快運",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -111,11 +116,6 @@
           "title": "财富",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "方博",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,53 +124,53 @@
       "http": 200,
       "items": [
         {
-          "title": "柯文哲 二審",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "加密貨幣",
+          "title": "孫易磊",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "余祥銓",
+          "title": "2884",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "bts 演唱會",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "雙十一",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2486",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2317",
+          "title": "京 元 電",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "00631l",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2408",
+          "title": "天道盟",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "加權指數",
-          "traffic": "5000+",
+          "title": "翡翠水庫",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "欣 興",
+          "title": "股價",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "廣達電腦",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "小勞勃·道尼",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "廖志堅",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
