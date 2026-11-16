@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-16T13:47:08Z",
-  "fetched_at_cst": "2026-11-16 21:47:08 CST",
-  "checked_at": "2026-11-16T13:47:08Z",
-  "checked_at_cst": "2026-11-16 21:47:08 CST",
+  "fetched_at": "2026-11-16T14:47:07Z",
+  "fetched_at_cst": "2026-11-16 22:47:07 CST",
+  "checked_at": "2026-11-16T14:47:07Z",
+  "checked_at_cst": "2026-11-16 22:47:07 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 468,
+      "total_models": 469,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
@@ -146,15 +146,15 @@
     {
       "id": "deepseek/deepseek-v4.1-flash-1017",
       "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
-      "prompt_per_m": 0.036,
-      "completion_per_m": 0.5,
+      "prompt_per_m": 0.15,
+      "completion_per_m": 0.6,
       "context_length": 1048576
     },
     {
       "id": "deepseek/deepseek-v4.1-flash-1017:batch",
       "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
-      "prompt_per_m": 0.037,
-      "completion_per_m": 0.328,
+      "prompt_per_m": 0.035,
+      "completion_per_m": 0.311,
       "context_length": 1048576
     },
     {
@@ -349,8 +349,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash",
       "name": "DeepSeek: DeepSeek V4.1 Flash",
-      "prompt_per_m": 0.14,
-      "completion_per_m": 0.42,
+      "prompt_per_m": 0.0507,
+      "completion_per_m": 0.2028,
       "context_length": 1048576
     },
     {
@@ -1028,8 +1028,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.069,
-      "completion_per_m": 0.102,
+      "prompt_per_m": 0.084,
+      "completion_per_m": 0.124,
       "context_length": 262144
     },
     {
@@ -9630,12 +9630,12 @@
         "completion_per_m": 6.0
       },
       "deepseek/deepseek-v4.1-flash-1017": {
-        "prompt_per_m": 0.036,
-        "completion_per_m": 0.5
+        "prompt_per_m": 0.15,
+        "completion_per_m": 0.6
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
-        "prompt_per_m": 0.037,
-        "completion_per_m": 0.328
+        "prompt_per_m": 0.035,
+        "completion_per_m": 0.311
       },
       "google/gemini-4-argon": {
         "prompt_per_m": 2.0,
@@ -9746,8 +9746,8 @@
         "completion_per_m": 1.25
       },
       "deepseek/deepseek-v4.1-flash": {
-        "prompt_per_m": 0.14,
-        "completion_per_m": 0.42
+        "prompt_per_m": 0.0507,
+        "completion_per_m": 0.2028
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "prompt_per_m": 0.112,
@@ -10134,8 +10134,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.069,
-        "completion_per_m": 0.102
+        "prompt_per_m": 0.084,
+        "completion_per_m": 0.124
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
