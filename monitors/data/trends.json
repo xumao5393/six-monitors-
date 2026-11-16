@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-16T15:47:22Z",
-  "fetched_at_cst": "2026-11-16 23:47:22 CST",
-  "checked_at": "2026-11-16T15:47:22Z",
-  "checked_at_cst": "2026-11-16 23:47:22 CST",
+  "fetched_at": "2026-11-16T16:47:08Z",
+  "fetched_at_cst": "2026-11-17 00:47:08 CST",
+  "checked_at": "2026-11-16T16:47:08Z",
+  "checked_at_cst": "2026-11-17 00:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "nicholas hoult",
+          "title": "bradley whitford",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "josh o'connor",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "sean connery",
+          "title": "survivor",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "idris elba",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "henry cavill",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "theo james",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "grand theft auto vi",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "pierce brosnan",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "maura west",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "walmart stock",
+          "title": "the view",
           "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "2028 ford mustang cobra r",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "black rifle coffee",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "iceland vs luxembourg",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "aaron taylor johnson",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jacob elordi",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "batman 2",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "interland",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -69,7 +69,7 @@
       "items": [
         {
           "title": "robert pattinson",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,18 +124,18 @@
       "http": 200,
       "items": [
         {
-          "title": "羅伯派汀森",
+          "title": "駭 客",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "黃珊珊",
-          "traffic": "10000+",
+          "title": "羅伯派汀森",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "007",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -146,6 +146,11 @@
         {
           "title": "博通股價",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "柳采葳",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -166,11 +171,6 @@
         {
           "title": "吳申梅",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "巨虹",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
