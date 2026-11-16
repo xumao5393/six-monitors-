@@ -315,10 +315,19 @@ def build_hot():
         "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/", _parse_douyin)
     # Zhihu — expected 401; record it, never invent items. No breaker here:
     # the 401 is a known permanent state, not a transient failure to rest from.
-    st, _ = fetch("https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10")
-    plats["zhihu"] = {"ok": False, "http": st or 0,
-        "source": "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10",
-        "error": "401 身份未验证" if st == 401 else (f"HTTP {st}" if st else "network failure"), "items": []}
+    # 2026-11-16: UA + Referer headers re-tested (curl), still 401 — throttle
+    # the attempt to once every 6h (00/06/12/18 UTC) instead of every hour.
+    zhihu_url = "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10"
+    if NOW_UTC.hour % 6 == 0:
+        st, _ = fetch(zhihu_url, headers={**BROWSER_UA, "Referer": "https://www.zhihu.com/hot"})
+        plats["zhihu"] = {"ok": False, "http": st or 0,
+            "source": zhihu_url,
+            "error": "401 身份未验证" if st == 401 else (f"HTTP {st}" if st else "network failure"), "items": []}
+    else:
+        prev = old_plats.get("zhihu") or {}
+        plats["zhihu"] = dict(prev, ok=False, items=[],
+            source=zhihu_url,
+            error="本次未尝试（401 已知，每 6 小时试一次）", skipped=True)
     plats["bili"] = hot_platform("bili", old_plats.get("bili"),
         "https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all", _parse_bili,
         headers={"Referer": "https://www.bilibili.com/", **BROWSER_UA})  # 机器人 UA 会被 B 站返回 code -352
