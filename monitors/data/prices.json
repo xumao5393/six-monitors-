@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-17T20:47:16Z",
-  "fetched_at_cst": "2026-11-18 04:47:16 CST",
-  "checked_at": "2026-11-17T20:47:16Z",
-  "checked_at_cst": "2026-11-18 04:47:16 CST",
+  "fetched_at": "2026-11-17T21:47:08Z",
+  "fetched_at_cst": "2026-11-18 05:47:08 CST",
+  "checked_at": "2026-11-17T21:47:08Z",
+  "checked_at_cst": "2026-11-18 05:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -468,8 +468,8 @@
     {
       "id": "z-ai/glm-5.3-flash",
       "name": "Z.ai: GLM 5.3 Flash",
-      "prompt_per_m": 0.15,
-      "completion_per_m": 0.5,
+      "prompt_per_m": 0.0399,
+      "completion_per_m": 0.0784,
       "context_length": 1048576
     },
     {
@@ -1063,8 +1063,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.116,
-      "completion_per_m": 0.171,
+      "prompt_per_m": 0.161,
+      "completion_per_m": 0.237,
       "context_length": 262144
     },
     {
@@ -12017,8 +12017,8 @@
         "completion_per_m": 0.47
       },
       "z-ai/glm-5.3-flash": {
-        "prompt_per_m": 0.15,
-        "completion_per_m": 0.5
+        "prompt_per_m": 0.0399,
+        "completion_per_m": 0.0784
       },
       "z-ai/glm-5.3-flash:batch": {
         "prompt_per_m": 0.024,
@@ -12357,8 +12357,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.116,
-        "completion_per_m": 0.171
+        "prompt_per_m": 0.161,
+        "completion_per_m": 0.237
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
