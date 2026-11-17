@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-17T21:47:08Z",
-  "fetched_at_cst": "2026-11-18 05:47:08 CST",
-  "checked_at": "2026-11-17T21:47:08Z",
-  "checked_at_cst": "2026-11-18 05:47:08 CST",
+  "fetched_at": "2026-11-17T22:18:12Z",
+  "fetched_at_cst": "2026-11-18 06:18:12 CST",
+  "checked_at": "2026-11-17T22:18:12Z",
+  "checked_at_cst": "2026-11-18 06:18:12 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,23 +12,43 @@
       "http": 200,
       "items": [
         {
-          "title": "jubilación",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ecuador vs bolivia",
+          "title": "harvey jones nvidia",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "politics",
+          "title": "java4shell",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "aaoi stock",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jubilación",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ryan jeffers",
+          "title": "ecuador vs bolivia",
           "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "camille herron",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "politics",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ryan jeffers",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -37,27 +57,7 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "carlos forbs",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "david bednar",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
           "title": "abel nunez",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "starz",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "portugal fc",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,8 +68,13 @@
       "http": 200,
       "items": [
         {
-          "title": "冷鋒",
+          "title": "生肖",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "冷鋒",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -111,11 +116,6 @@
           "title": "mama 2026",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "杜如風",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,8 +124,28 @@
       "http": 200,
       "items": [
         {
-          "title": "nvda stock",
+          "title": "血糖",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "dplus kia",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "wales vs portugal",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "道瓊指數",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "nvda stock",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -136,11 +156,6 @@
         {
           "title": "夜盤指數",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "atp finals",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -156,21 +171,6 @@
         {
           "title": "x",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "立法院",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "johor",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "謝金河",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
