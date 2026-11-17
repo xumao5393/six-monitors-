@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-17T19:47:22Z",
-  "fetched_at_cst": "2026-11-18 03:47:22 CST",
-  "checked_at": "2026-11-17T19:47:22Z",
-  "checked_at_cst": "2026-11-18 03:47:22 CST",
+  "fetched_at": "2026-11-17T20:47:16Z",
+  "fetched_at_cst": "2026-11-18 04:47:16 CST",
+  "checked_at": "2026-11-17T20:47:16Z",
+  "checked_at_cst": "2026-11-18 04:47:16 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "alexis bledel",
+          "title": "bill fritz",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "jj gabriel",
+          "title": "taylor sheridan",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "bosnia y herzegovina - rumania",
+          "title": "austria vs israel",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "charles bronson",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "niger vs morocco",
+          "title": "christopher laneve",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "live radio",
+          "title": "ciara",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "live tv",
+          "title": "chip gaines",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ukraine vs georgia",
-          "traffic": "500+",
+          "title": "alexander zverev",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "hungary vs northern ireland",
-          "traffic": "500+",
+          "title": "portugal",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "hayden panettiere",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "rutgers vs houston",
+          "title": "uefa nations league schedule",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "威爾斯對葡萄牙",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "gta6",
           "traffic": "100+",
@@ -111,11 +116,6 @@
           "title": "android",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "腎",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -125,12 +125,12 @@
       "items": [
         {
           "title": "johor",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "謝金河",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
