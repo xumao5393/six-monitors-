@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-17T08:47:08Z",
-  "fetched_at_cst": "2026-11-17 16:47:08 CST",
-  "checked_at": "2026-11-17T08:47:08Z",
-  "checked_at_cst": "2026-11-17 16:47:08 CST",
+  "fetched_at": "2026-11-17T09:47:10Z",
+  "fetched_at_cst": "2026-11-17 17:47:10 CST",
+  "checked_at": "2026-11-17T09:47:10Z",
+  "checked_at_cst": "2026-11-17 17:47:10 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "owala coca-cola",
+          "title": "gas prices",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "arresto",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "government jobs",
+          "title": "singapore vs brazil",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "พีท พีระ",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "on",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "pluto",
+          "title": "pluto tv",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "susan smith",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "power",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "sam claflin",
+          "title": "foster v state farm lawsuit",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "danielle lopez dental records confirmation",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "kristina bogic age",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "amc theaters",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "black friday sales",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tahiti",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "los angeles weather",
-          "traffic": "100+",
+          "title": "bangladesh vs south africa",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,28 @@
       "http": 200,
       "items": [
         {
-          "title": "embassy",
+          "title": "司機",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "9988",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "徐雨石",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "embassy",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "鄺球",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -89,7 +104,7 @@
         },
         {
           "title": "休班警",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -101,21 +116,6 @@
           "title": "yoasobi 演唱會",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "英皇娛樂",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "港 漂",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "柏納多·席瓦",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -123,6 +123,21 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "獅子座流星雨",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "新加坡 對 巴西",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "徐乃麟",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "三重 區",
           "traffic": "2000+",
@@ -134,42 +149,27 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "八炯",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "蕭薔",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "陳超明",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "狄鶯",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "八炯",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "蕭薔",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "陳超明",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "張忠謀",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "郵局 寶 可 夢",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "古振豐",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "6919",
+          "title": "海底火山",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
