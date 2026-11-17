@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-17T22:47:16Z",
-  "fetched_at_cst": "2026-11-18 06:47:16 CST",
-  "checked_at": "2026-11-17T22:47:16Z",
-  "checked_at_cst": "2026-11-18 06:47:16 CST",
+  "fetched_at": "2026-11-17T23:47:07Z",
+  "fetched_at_cst": "2026-11-18 07:47:07 CST",
+  "checked_at": "2026-11-17T23:47:07Z",
+  "checked_at_cst": "2026-11-18 07:47:07 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -405,8 +405,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash",
       "name": "DeepSeek: DeepSeek V4.1 Flash",
-      "prompt_per_m": 0.3,
-      "completion_per_m": 1.2,
+      "prompt_per_m": 0.051,
+      "completion_per_m": 0.567,
       "context_length": 1048576
     },
     {
@@ -1091,8 +1091,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.075,
-      "completion_per_m": 0.111,
+      "prompt_per_m": 0.136,
+      "completion_per_m": 0.199,
       "context_length": 262144
     },
     {
@@ -12009,8 +12009,8 @@
         "completion_per_m": 1.25
       },
       "deepseek/deepseek-v4.1-flash": {
-        "prompt_per_m": 0.3,
-        "completion_per_m": 1.2
+        "prompt_per_m": 0.051,
+        "completion_per_m": 0.567
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "prompt_per_m": 0.112,
@@ -12401,8 +12401,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.075,
-        "completion_per_m": 0.111
+        "prompt_per_m": 0.136,
+        "completion_per_m": 0.199
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
