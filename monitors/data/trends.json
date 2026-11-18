@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-18T14:47:09Z",
-  "fetched_at_cst": "2026-11-18 22:47:09 CST",
-  "checked_at": "2026-11-18T14:47:09Z",
-  "checked_at_cst": "2026-11-18 22:47:09 CST",
+  "fetched_at": "2026-11-18T15:47:10Z",
+  "fetched_at_cst": "2026-11-18 23:47:10 CST",
+  "checked_at": "2026-11-18T15:47:10Z",
+  "checked_at_cst": "2026-11-18 23:47:10 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "lance bass",
+          "title": "new jason movie",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "wendi mclendon-covey",
+          "title": "spartanburg water",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "turkey",
+          "title": "seatgeek",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "northern lights forecast",
+          "title": "cameron mathison",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "daniil medvedev",
+          "title": "urban meyer",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "carlos alcaraz",
-          "traffic": "5000+",
+          "title": "unh stock",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "emma grede",
+          "title": "ticket master",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "greg brockman",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "nitto atp finals",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "anthropic ipo",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "glenn close",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "toxic hall of shame",
-          "traffic": "1000+",
+          "title": "jason derulo",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -69,7 +69,7 @@
       "items": [
         {
           "title": "騰訊",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -114,7 +114,7 @@
         },
         {
           "title": "apec",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,8 +124,18 @@
       "http": 200,
       "items": [
         {
+          "title": "俠盜獵車手",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "anthropic",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "徐至琦",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -135,12 +145,12 @@
         },
         {
           "title": "anthropic 上市",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "市值",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -150,7 +160,7 @@
         },
         {
           "title": "babymonster 演唱會",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -160,17 +170,7 @@
         },
         {
           "title": "銀行 盜 轉",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "選秀",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "weather tomorrow",
-          "traffic": "1000+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
