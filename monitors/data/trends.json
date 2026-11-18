@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-18T02:47:07Z",
-  "fetched_at_cst": "2026-11-18 10:47:07 CST",
-  "checked_at": "2026-11-18T02:47:07Z",
-  "checked_at_cst": "2026-11-18 10:47:07 CST",
+  "fetched_at": "2026-11-18T03:47:08Z",
+  "fetched_at_cst": "2026-11-18 11:47:08 CST",
+  "checked_at": "2026-11-18T03:47:08Z",
+  "checked_at_cst": "2026-11-18 11:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "ku basketball",
+          "title": "minnesota timberwolves",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ausar thompson",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "vix",
-          "traffic": "1000+",
+          "title": "peltola results",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "connor bedard",
+          "title": "jaden mcdaniels",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "matthew schaefer",
+          "title": "trey lyles",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "miikka muurinen",
+          "title": "timberwolves score",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "pakistan",
+          "title": "utah basketball",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "paul reed",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "julián quiñones",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "raúl rangel",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "pedro pascal",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "old dominion vs virginia",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "only murders in the building",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "seth rogen",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,28 @@
       "http": 200,
       "items": [
         {
+          "title": "黃浩然",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "馬刺對活塞",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "harvey jones",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "港鐵",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "容祖兒演唱會加場",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -101,21 +116,6 @@
           "title": "袁思行",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "nvda stock",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "卵巢",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "胡定欣",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,53 +124,53 @@
       "http": 200,
       "items": [
         {
-          "title": "少將",
+          "title": "馬刺",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "轉運飲料",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "蔡易餘",
+          "title": "艾尤·多桑姆",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "gpt 6.2",
+          "title": "金融股",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "9933",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "強風",
+          "title": "湖人 對 黃蜂",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "景碩股價",
-          "traffic": "1000+",
+          "title": "周刊王",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "玉山金",
+          "title": "raptors vs knicks",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "運輸機",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "spurs vs pistons",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "快艇 對 爵士",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "3189",
+          "title": "保溫瓶",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "台指期結算日",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
