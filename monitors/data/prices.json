@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-18T21:24:21Z",
-  "fetched_at_cst": "2026-11-19 05:24:21 CST",
-  "checked_at": "2026-11-18T21:24:21Z",
-  "checked_at_cst": "2026-11-19 05:24:21 CST",
+  "fetched_at": "2026-11-18T21:47:09Z",
+  "fetched_at_cst": "2026-11-19 05:47:09 CST",
+  "checked_at": "2026-11-18T21:47:09Z",
+  "checked_at_cst": "2026-11-19 05:47:09 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 479,
+      "total_models": 480,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
@@ -36,6 +36,13 @@
       "name": "Google: Gemini 4 Neon",
       "prompt_per_m": 3.0,
       "completion_per_m": 15.0,
+      "context_length": 1048576
+    },
+    {
+      "id": "google/gemini-4-neon:batch",
+      "name": "Google: Gemini 4 Neon (batch)",
+      "prompt_per_m": 1.5,
+      "completion_per_m": 7.5,
       "context_length": 1048576
     },
     {
@@ -1098,8 +1105,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.142,
-      "completion_per_m": 0.21,
+      "prompt_per_m": 0.17,
+      "completion_per_m": 0.25,
       "context_length": 262144
     },
     {
@@ -12925,6 +12932,10 @@
         "prompt_per_m": 3.0,
         "completion_per_m": 15.0
       },
+      "google/gemini-4-neon:batch": {
+        "prompt_per_m": 1.5,
+        "completion_per_m": 7.5
+      },
       "openai/gpt-6.2-astra-pro": {
         "prompt_per_m": 8.0,
         "completion_per_m": 40.0
@@ -13530,8 +13541,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.142,
-        "completion_per_m": 0.21
+        "prompt_per_m": 0.17,
+        "completion_per_m": 0.25
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
