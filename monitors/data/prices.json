@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-18T08:47:08Z",
-  "fetched_at_cst": "2026-11-18 16:47:08 CST",
-  "checked_at": "2026-11-18T08:47:08Z",
-  "checked_at_cst": "2026-11-18 16:47:08 CST",
+  "fetched_at": "2026-11-18T09:47:09Z",
+  "fetched_at_cst": "2026-11-18 17:47:09 CST",
+  "checked_at": "2026-11-18T09:47:09Z",
+  "checked_at_cst": "2026-11-18 17:47:09 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -405,8 +405,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash",
       "name": "DeepSeek: DeepSeek V4.1 Flash",
-      "prompt_per_m": 0.051,
-      "completion_per_m": 0.567,
+      "prompt_per_m": 0.3,
+      "completion_per_m": 1.2,
       "context_length": 1048576
     },
     {
@@ -496,8 +496,8 @@
     {
       "id": "z-ai/glm-5.3-flash",
       "name": "Z.ai: GLM 5.3 Flash",
-      "prompt_per_m": 0.0399,
-      "completion_per_m": 0.0784,
+      "prompt_per_m": 0.15,
+      "completion_per_m": 0.5,
       "context_length": 1048576
     },
     {
@@ -811,7 +811,7 @@
     {
       "id": "moonshotai/kimi-k2.7-code",
       "name": "MoonshotAI: Kimi K2.7 Code",
-      "prompt_per_m": 0.7,
+      "prompt_per_m": 0.8125,
       "completion_per_m": 3.75,
       "context_length": 262144
     },
@@ -1091,8 +1091,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.17,
-      "completion_per_m": 0.25,
+      "prompt_per_m": 0.154,
+      "completion_per_m": 0.226,
       "context_length": 262144
     },
     {
@@ -12009,8 +12009,8 @@
         "completion_per_m": 1.25
       },
       "deepseek/deepseek-v4.1-flash": {
-        "prompt_per_m": 0.051,
-        "completion_per_m": 0.567
+        "prompt_per_m": 0.3,
+        "completion_per_m": 1.2
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "prompt_per_m": 0.112,
@@ -12061,8 +12061,8 @@
         "completion_per_m": 0.47
       },
       "z-ai/glm-5.3-flash": {
-        "prompt_per_m": 0.0399,
-        "completion_per_m": 0.0784
+        "prompt_per_m": 0.15,
+        "completion_per_m": 0.5
       },
       "z-ai/glm-5.3-flash:batch": {
         "prompt_per_m": 0.024,
@@ -12241,7 +12241,7 @@
         "completion_per_m": 0.989
       },
       "moonshotai/kimi-k2.7-code": {
-        "prompt_per_m": 0.7,
+        "prompt_per_m": 0.8125,
         "completion_per_m": 3.75
       },
       "anthropic/claude-fable-5": {
@@ -12401,8 +12401,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.17,
-        "completion_per_m": 0.25
+        "prompt_per_m": 0.154,
+        "completion_per_m": 0.226
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
