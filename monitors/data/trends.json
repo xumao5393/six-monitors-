@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-18T20:47:09Z",
-  "fetched_at_cst": "2026-11-19 04:47:09 CST",
-  "checked_at": "2026-11-18T20:47:09Z",
-  "checked_at_cst": "2026-11-19 04:47:09 CST",
+  "fetched_at": "2026-11-18T21:24:21Z",
+  "fetched_at_cst": "2026-11-19 05:24:21 CST",
+  "checked_at": "2026-11-18T21:24:21Z",
+  "checked_at_cst": "2026-11-19 05:24:21 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,8 +12,43 @@
       "http": 200,
       "items": [
         {
-          "title": "sonny gray",
+          "title": "marlon humphrey",
           "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "panw stock",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "gemini neon",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "houston basketball",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "milo ventimiglia",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "notre dame vs rutgers",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "hacker",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "sonny gray",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -22,43 +57,8 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "anheuser busch",
+          "title": "mercado cambiario",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "star wars",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "chicago cubs",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "baaja",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "frances tiafoe",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tiafoe",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "sarah paulson",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ngc 1433 supernova",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "梁朝偉",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "ai",
           "traffic": "200+",
@@ -111,11 +116,6 @@
           "title": "明天的天氣",
           "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "cuaca besok",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,6 +124,21 @@
       "http": 200,
       "items": [
         {
+          "title": "美國股市",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "yahoo股市",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "中國",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "tsm stock",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -131,6 +146,11 @@
         {
           "title": "美股即時",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "高市早苗",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -150,26 +170,6 @@
         },
         {
           "title": "免費 貼圖",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "習近平",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "gta6 售價",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "ps remote play",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "邁阿密",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
