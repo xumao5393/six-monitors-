@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-18T10:47:09Z",
-  "fetched_at_cst": "2026-11-18 18:47:09 CST",
-  "checked_at": "2026-11-18T10:47:09Z",
-  "checked_at_cst": "2026-11-18 18:47:09 CST",
+  "fetched_at": "2026-11-18T11:47:09Z",
+  "fetched_at_cst": "2026-11-18 19:47:09 CST",
+  "checked_at": "2026-11-18T11:47:09Z",
+  "checked_at_cst": "2026-11-18 19:47:09 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -1735,8 +1735,8 @@
     {
       "id": "deepseek/deepseek-r1-0528",
       "name": "DeepSeek: R1 0528",
-      "prompt_per_m": 0.5,
-      "completion_per_m": 2.15,
+      "prompt_per_m": 0.571,
+      "completion_per_m": 2.286,
       "context_length": 163840
     },
     {
@@ -12769,8 +12769,8 @@
         "completion_per_m": 10.0
       },
       "deepseek/deepseek-r1-0528": {
-        "prompt_per_m": 0.5,
-        "completion_per_m": 2.15
+        "prompt_per_m": 0.571,
+        "completion_per_m": 2.286
       },
       "meta-llama/llama-guard-4-12b": {
         "prompt_per_m": 0.18,
