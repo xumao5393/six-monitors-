@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-18T09:47:09Z",
-  "fetched_at_cst": "2026-11-18 17:47:09 CST",
-  "checked_at": "2026-11-18T09:47:09Z",
-  "checked_at_cst": "2026-11-18 17:47:09 CST",
+  "fetched_at": "2026-11-18T10:47:09Z",
+  "fetched_at_cst": "2026-11-18 18:47:09 CST",
+  "checked_at": "2026-11-18T10:47:09Z",
+  "checked_at_cst": "2026-11-18 18:47:09 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -811,7 +811,7 @@
     {
       "id": "moonshotai/kimi-k2.7-code",
       "name": "MoonshotAI: Kimi K2.7 Code",
-      "prompt_per_m": 0.8125,
+      "prompt_per_m": 0.7,
       "completion_per_m": 3.75,
       "context_length": 262144
     },
@@ -1091,8 +1091,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.154,
-      "completion_per_m": 0.226,
+      "prompt_per_m": 0.17,
+      "completion_per_m": 0.25,
       "context_length": 262144
     },
     {
@@ -12241,7 +12241,7 @@
         "completion_per_m": 0.989
       },
       "moonshotai/kimi-k2.7-code": {
-        "prompt_per_m": 0.8125,
+        "prompt_per_m": 0.7,
         "completion_per_m": 3.75
       },
       "anthropic/claude-fable-5": {
@@ -12401,8 +12401,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.154,
-        "completion_per_m": 0.226
+        "prompt_per_m": 0.17,
+        "completion_per_m": 0.25
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
