@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-18T22:47:15Z",
-  "fetched_at_cst": "2026-11-19 06:47:15 CST",
-  "checked_at": "2026-11-18T22:47:15Z",
-  "checked_at_cst": "2026-11-19 06:47:15 CST",
+  "fetched_at": "2026-11-18T23:47:07Z",
+  "fetched_at_cst": "2026-11-19 07:47:07 CST",
+  "checked_at": "2026-11-18T23:47:07Z",
+  "checked_at_cst": "2026-11-19 07:47:07 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "chendall weaver",
+          "title": "wizards vs raptors",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "bruins vs red wings",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jovenel moïse",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "dow jones industrial average",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "heshimu evans",
+          "title": "akron football",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "dadeschools",
-          "traffic": "5000+",
+          "title": "is tyrese maxey playing today",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "coritiba vs santos",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "anheuser-busch",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jason michael",
+          "title": "tesla yl",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "pokebeach",
+          "title": "dedan thomas jr.",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "mike wise",
-          "traffic": "500+",
+          "title": "bucks vs heat",
+          "traffic": "20000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "nz vs ind",
+          "title": "76ers vs magic",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "rockets vs pacers",
           "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,28 +68,33 @@
       "http": 200,
       "items": [
         {
-          "title": "weather hong kong",
+          "title": "weather hk",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "天氣預報",
-          "traffic": "200+",
+          "title": "天文台",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "天气",
-          "traffic": "100+",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "飲食",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "八達通",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "彩票",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -111,11 +116,6 @@
           "title": "gta5",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "保溫 瓶",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,53 +124,53 @@
       "http": 200,
       "items": [
         {
+          "title": "魔術 對 76人",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "騎士 對 灰熊",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "蔡天鳳",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "漫威影業",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "火災",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "光電板",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "伺服器",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "氣象局",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "天氣",
           "traffic": "100000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "thời tiết",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "weather",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "tsm",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "天气",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "aaoi",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "辜仲諒",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "สภาพอากาศ",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "軍 公教",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "今彩539",
-          "traffic": "100+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
