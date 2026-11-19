@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-19T20:47:08Z",
-  "fetched_at_cst": "2026-11-20 04:47:08 CST",
-  "checked_at": "2026-11-19T20:47:08Z",
-  "checked_at_cst": "2026-11-20 04:47:08 CST",
+  "fetched_at": "2026-11-19T21:28:39Z",
+  "fetched_at_cst": "2026-11-20 05:28:39 CST",
+  "checked_at": "2026-11-19T21:28:39Z",
+  "checked_at_cst": "2026-11-20 05:28:39 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "puka nacua",
-          "traffic": "50000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "drew mestemaker",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "scott speedman",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "alexander zverev",
+          "title": "troy aikman",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "arthur fils",
+          "title": "nascar whelen modified tour",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "zverev",
-          "traffic": "10000+",
+          "title": "intu stock",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "federal emergency management agency",
+          "title": "julia stiles",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "denver weather",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "justin reid",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "nasa voyager 1",
+          "title": "temporary protected status",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "sentence",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "corey ruiz",
-          "traffic": "500+",
+          "title": "rams schedule",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "hyundai elantra",
+          "title": "lance broadway",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "中風",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "amd stock",
           "traffic": "200+",
@@ -111,11 +116,6 @@
           "title": "姚子羚",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "傅嘉莉",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,8 +124,28 @@
       "http": 200,
       "items": [
         {
-          "title": "道瓊工業指數",
+          "title": "老農津貼",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "散戶",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "寒流",
+          "traffic": "50000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "台積adr",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "亞歷山大·茲維列夫",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -151,26 +171,6 @@
         {
           "title": "costco 黑五",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "amd",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "群聯",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "李來希",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "退伍",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
