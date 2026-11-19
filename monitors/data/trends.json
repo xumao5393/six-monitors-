@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-19T21:28:39Z",
-  "fetched_at_cst": "2026-11-20 05:28:39 CST",
-  "checked_at": "2026-11-19T21:28:39Z",
-  "checked_at_cst": "2026-11-20 05:28:39 CST",
+  "fetched_at": "2026-11-19T21:47:18Z",
+  "fetched_at_cst": "2026-11-20 05:47:18 CST",
+  "checked_at": "2026-11-19T21:47:18Z",
+  "checked_at_cst": "2026-11-20 05:47:18 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,18 +12,23 @@
       "http": 200,
       "items": [
         {
+          "title": "jim cramer",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "florida basketball",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "troy aikman",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "nascar whelen modified tour",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "intu stock",
-          "traffic": "500+",
+          "title": "intuit stock",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -43,21 +48,16 @@
         },
         {
           "title": "temporary protected status",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "lance broadway",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "sentence",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "rams schedule",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "lance broadway",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -80,11 +80,6 @@
         {
           "title": "夏竹欣",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "gta6 林子祥",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -113,6 +108,11 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "陳自瑤",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "姚子羚",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -124,8 +124,33 @@
       "http": 200,
       "items": [
         {
+          "title": "美股收盤",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "美股即時",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "lumentum股價",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "gta6 攻略",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "老農津貼",
           "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "銀行",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -139,37 +164,12 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "台積adr",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "亞歷山大·茲維列夫",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "馬英九",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "何志偉",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "gta6 存檔",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "amd 股價",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "costco 黑五",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
