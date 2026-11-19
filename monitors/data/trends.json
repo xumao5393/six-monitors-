@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-19T12:47:09Z",
-  "fetched_at_cst": "2026-11-19 20:47:09 CST",
-  "checked_at": "2026-11-19T12:47:09Z",
-  "checked_at_cst": "2026-11-19 20:47:09 CST",
+  "fetched_at": "2026-11-19T12:58:25Z",
+  "fetched_at_cst": "2026-11-19 20:58:25 CST",
+  "checked_at": "2026-11-19T12:58:25Z",
+  "checked_at_cst": "2026-11-19 20:58:25 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,12 +12,22 @@
       "http": 200,
       "items": [
         {
-          "title": "jax taylor",
+          "title": "us winter 2026 2027 snow outlook",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
+          "title": "movie directors",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "ben shapiro",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jax taylor",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
@@ -48,16 +58,6 @@
         },
         {
           "title": "wmt stock",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "what does anthropic do",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "brevard county",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,8 +68,18 @@
       "http": 200,
       "items": [
         {
+          "title": "陳煒",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "陳敏之",
-          "traffic": "200+",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "姚子羚",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -78,12 +88,12 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "姚子羚",
+          "title": "李旻芳",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "李旻芳",
+          "title": "梁敏巧",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -106,16 +116,6 @@
           "title": "陳庭欣",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "mytv super",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "梁月玲",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -123,6 +123,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "宋楚瑜",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "cuaca besok",
           "traffic": "1000+",
@@ -166,11 +171,6 @@
         {
           "title": "丁柔安",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "艾司摩爾",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
