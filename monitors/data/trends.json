@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-19T09:47:10Z",
-  "fetched_at_cst": "2026-11-19 17:47:10 CST",
-  "checked_at": "2026-11-19T09:47:10Z",
-  "checked_at_cst": "2026-11-19 17:47:10 CST",
+  "fetched_at": "2026-11-19T10:47:08Z",
+  "fetched_at_cst": "2026-11-19 18:47:08 CST",
+  "checked_at": "2026-11-19T10:47:08Z",
+  "checked_at_cst": "2026-11-19 18:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -11,6 +11,36 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "weather near me",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "sri lanka vs pakistan",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "palm beach county schools",
+          "traffic": "20000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "spider",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "train",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "bangladesh vs south africa",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
         {
           "title": "football",
           "traffic": "100+",
@@ -22,42 +52,12 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "tiger",
-          "traffic": "100+",
+          "title": "gta 6 ps5 controller",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "ring",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "sun",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "price of gold today",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "john cornyn",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "the altruists",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "trinidad",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "gta 6 bigfoot",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,8 +68,18 @@
       "http": 200,
       "items": [
         {
-          "title": "0017",
+          "title": "習近平",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "台慶",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "0017",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -84,7 +94,7 @@
         },
         {
           "title": "東張西望",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -93,8 +103,8 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "鄺港智",
-          "traffic": "1000+",
+          "title": "章啟月",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -106,16 +116,6 @@
           "title": "java",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "張曦雯",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "飛機",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -123,6 +123,31 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "王妃天崩開局",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "羅文嘉",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "副署",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "邱 相 榤",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "夏莉絲幼兒園",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "蔡詩萍",
           "traffic": "1000+",
@@ -134,43 +159,18 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "蔡依林",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "楊鉯婷",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "台灣高鐵",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "韓國綜合股價指數",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "台 股 大 跌",
+          "title": "禁 空 令",
           "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "馬 斯克",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "龜殼花",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "三大法人買賣超",
+          "title": "蔡依林",
           "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "楊鉯婷",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
