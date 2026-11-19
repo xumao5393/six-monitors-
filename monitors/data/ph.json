@@ -1,29 +1,13 @@
 {
-  "fetched_at": "2026-11-19T05:47:08Z",
-  "fetched_at_cst": "2026-11-19 13:47:08 CST",
-  "checked_at": "2026-11-19T05:47:08Z",
-  "checked_at_cst": "2026-11-19 13:47:08 CST",
+  "fetched_at": "2026-11-19T06:47:12Z",
+  "fetched_at_cst": "2026-11-19 14:47:12 CST",
+  "checked_at": "2026-11-19T06:47:12Z",
+  "checked_at_cst": "2026-11-19 14:47:12 CST",
   "ok": true,
   "source": "https://www.producthunt.com/feed",
   "note": "RSS 无 CORS，浏览器必失败；本文件为服务端 curl 快照。票数 RSS 不提供，一律未获取，不编造。",
   "error": null,
   "items": [
-    {
-      "title": "AI Canvas",
-      "link": "https://www.producthunt.com/products/ai-canvas-2",
-      "published": "2026-11-17T07:46:37-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "A design system for AI agents to design badass interfaces Discussion | Link"
-    },
-    {
-      "title": "SoreQen Code",
-      "link": "https://www.producthunt.com/products/soreqen-code",
-      "published": "2026-11-17T19:14:00-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "The coding agent that checks its own work Discussion | Link"
-    },
     {
       "title": "Mermaid Flow",
       "link": "https://www.producthunt.com/products/mermaid-chart",
@@ -41,44 +25,28 @@
       "summary": "Two new OpenAI models: frontier Astra and efficient Sol Discussion | Link"
     },
     {
-      "title": "Tencent Hy4 flash",
-      "link": "https://www.producthunt.com/products/hunyuan-a13b",
-      "published": "2026-11-15T22:53:29-08:00",
+      "title": "dusk bot",
+      "link": "https://www.producthunt.com/products/dusk-bot",
+      "published": "2026-11-17T06:13:59-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Fast, low-cost model from $0.07/M input Discussion | Link"
+      "summary": "free open source Grok bot alternative Discussion | Link"
     },
     {
-      "title": "Toone",
-      "link": "https://www.producthunt.com/products/toone",
-      "published": "2026-09-23T04:02:40-07:00",
+      "title": "S.Space",
+      "link": "https://www.producthunt.com/products/s-space",
+      "published": "2026-11-15T05:26:16-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Grokbot meets n8n/zapier Discussion | Link"
+      "summary": "Your team and everyone's AI agents, in one workspace Discussion | Link"
     },
     {
-      "title": "Waldo by Wherobots",
-      "link": "https://www.producthunt.com/products/waldo-by-wherobots",
-      "published": "2026-11-05T07:23:12-08:00",
+      "title": "Beacon",
+      "link": "https://www.producthunt.com/products/beacon-26",
+      "published": "2026-11-17T02:45:51-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "The AI agent that accelerates engineering with spatial data Discussion | Link"
-    },
-    {
-      "title": "KaDeep AI",
-      "link": "https://www.producthunt.com/products/kadeep-ai",
-      "published": "2026-11-17T00:00:01-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Agentic QA, localization & accessibility: know when to ship Discussion | Link"
-    },
-    {
-      "title": "AssemblyAI-STT-3.7",
-      "link": "https://www.producthunt.com/products/assemblyai",
-      "published": "2026-11-17T22:50:37-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Speech-to-Text for live calls, voice agents, and recordings Discussion | Link"
+      "summary": "Give your AI agent the browser you're already signed into Discussion | Link"
     },
     {
       "title": "Kino",
@@ -89,14 +57,6 @@
       "summary": "Store, edit and review video with Claude Code and Codex Discussion | Link"
     },
     {
-      "title": "Pitch Avatar HR Suite",
-      "link": "https://www.producthunt.com/products/pitchavatar",
-      "published": "2026-10-22T03:27:29-07:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Onboarding, training & comms with conversational AI avatars Discussion | Link"
-    },
-    {
       "title": "Incredible Agents",
       "link": "https://www.producthunt.com/products/incredible",
       "published": "2026-11-17T14:02:24-08:00",
@@ -105,28 +65,68 @@
       "summary": "Fast Voice AI that sees your screen and runs your agents Discussion | Link"
     },
     {
-      "title": "Polylane for CI",
-      "link": "https://www.producthunt.com/products/polylane",
-      "published": "2026-11-16T11:36:42-08:00",
+      "title": "AI Canvas",
+      "link": "https://www.producthunt.com/products/ai-canvas-2",
+      "published": "2026-11-17T07:46:37-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Fix broken builds before they block your team Discussion | Link"
+      "summary": "A design system for AI agents to design badass interfaces Discussion | Link"
     },
     {
-      "title": "Dippr",
-      "link": "https://www.producthunt.com/products/dippr",
-      "published": "2026-11-14T23:59:41-08:00",
+      "title": "Orken",
+      "link": "https://www.producthunt.com/products/orken",
+      "published": "2026-11-17T06:48:27-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "A data platform served to your agents, with one prompt Discussion | Link"
+      "summary": "Tell it your time and gear. Get a workout built for you. Discussion | Link"
     },
     {
-      "title": "S.Space",
-      "link": "https://www.producthunt.com/products/s-space",
-      "published": "2026-11-15T05:26:16-08:00",
+      "title": "LinkBit",
+      "link": "https://www.producthunt.com/products/linkbit",
+      "published": "2026-11-16T23:57:08-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Your team and everyone's AI agents, in one workspace Discussion | Link"
+      "summary": "Free URL shortener your AI agent can use (MCP + API) Discussion | Link"
+    },
+    {
+      "title": "Tencent Hy4 flash",
+      "link": "https://www.producthunt.com/products/hunyuan-a13b",
+      "published": "2026-11-15T22:53:29-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Fast, low-cost model from $0.07/M input Discussion | Link"
+    },
+    {
+      "title": "KaDeep AI",
+      "link": "https://www.producthunt.com/products/kadeep-ai",
+      "published": "2026-11-17T00:00:01-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Agentic QA, localization & accessibility: know when to ship Discussion | Link"
+    },
+    {
+      "title": "Replay QA Self-healing Mode",
+      "link": "https://www.producthunt.com/products/replayio",
+      "published": "2026-11-16T13:45:46-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Turn user frustration into verified fixes Discussion | Link"
+    },
+    {
+      "title": "Toone",
+      "link": "https://www.producthunt.com/products/toone",
+      "published": "2026-09-23T04:02:40-07:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Grokbot meets n8n/zapier Discussion | Link"
+    },
+    {
+      "title": "Happo animation testing",
+      "link": "https://www.producthunt.com/products/happo-2",
+      "published": "2026-11-05T18:15:40-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Visual regression testing, now for animations Discussion | Link"
     }
   ]
 }

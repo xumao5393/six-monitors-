@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-19T05:47:08Z",
-  "fetched_at_cst": "2026-11-19 13:47:08 CST",
-  "checked_at": "2026-11-19T05:47:08Z",
-  "checked_at_cst": "2026-11-19 13:47:08 CST",
+  "fetched_at": "2026-11-19T06:47:12Z",
+  "fetched_at_cst": "2026-11-19 14:47:12 CST",
+  "checked_at": "2026-11-19T06:47:12Z",
+  "checked_at_cst": "2026-11-19 14:47:12 CST",
   "ok": true,
   "source": "GitHub Actions snapshot (curl, server-side) — see .github/workflows/snapshot.yml; browser direct fetch is CORS-blocked",
   "platforms": {
@@ -13,47 +13,47 @@
       "items": [
         {
           "title": "中美元首深圳会晤",
-          "heat": 1075385
+          "heat": 1179340
         },
         {
-          "title": "后会友期观察室 努力是天赋",
-          "heat": 1061989
+          "title": "马斯克小儿子玩具都是中国制造",
+          "heat": 887150
         },
         {
-          "title": "一图看中国与APEC经济体双向奔赴",
-          "heat": 771387
+          "title": "共创亚太光明未来",
+          "heat": 685534
         },
         {
-          "title": "特朗普在车内未拉窗帘欣赏深圳夜景",
-          "heat": 722823
+          "title": "APEC领导人休息室温馨画面",
+          "heat": 662814
         },
         {
-          "title": "马斯克称是中国的超级粉丝",
-          "heat": 672785
+          "title": "中俄美元首座驾首次同框",
+          "heat": 582728
         },
         {
-          "title": "爱奇艺退市警告倒计时",
-          "heat": 664948
+          "title": "王子璇白眼",
+          "heat": 567241
         },
         {
-          "title": "普京特朗普APEC会议现场画面",
-          "heat": 632066
+          "title": "青稚 先救根儿",
+          "heat": 537348
         },
         {
-          "title": "华为超薄表",
-          "heat": 609670
+          "title": "APEC重要讲话",
+          "heat": 503910
         },
         {
           "title": "APEC中国年亚太共同体建设启新程",
-          "heat": 601629
+          "heat": 449476
         },
         {
-          "title": "许飞问厉娜我配拥有吗",
-          "heat": 599715
+          "title": "特朗普在车内未拉窗帘欣赏深圳夜景",
+          "heat": 444582
         }
       ],
-      "updated_at": "2026-11-19T05:47:08Z",
-      "updated_at_cst": "2026-11-19 13:47:08 CST"
+      "updated_at": "2026-11-19T06:47:12Z",
+      "updated_at_cst": "2026-11-19 14:47:12 CST"
     },
     "douyin": {
       "ok": true,
@@ -62,55 +62,54 @@
       "items": [
         {
           "title": "中美元首在深圳会晤",
-          "heat": 11774870
-        },
-        {
-          "title": "2026年APEC领导人非正式会议",
-          "heat": 11585922
-        },
-        {
-          "title": "APEC吸引全球目光",
-          "heat": 11101336
-        },
-        {
-          "title": "累了就出去玩",
-          "heat": 11080244
+          "heat": 11592900
         },
         {
           "title": "普京特朗普欢迎晚宴互动握手",
-          "heat": 10418425
+          "heat": 11333549
         },
         {
-          "title": "APEC美食硬控各国来宾",
-          "heat": 10369736
-        },
-        {
-          "title": "普京到访深圳高校发表演讲",
-          "heat": 9253805
+          "title": "APEC吸引全球目光",
+          "heat": 11097587
         },
         {
           "title": "白宫发布特朗普访华视频",
-          "heat": 9182059
+          "heat": 10953157
         },
         {
-          "title": "为啥APEC在深圳办",
-          "heat": 9134769
+          "title": "APEC美食硬控各国来宾",
+          "heat": 10339516
+        },
+        {
+          "title": "泰国总理阿努廷飙粤语称很开心",
+          "heat": 10272247
         },
         {
           "title": "特朗普出席深圳APEC欢迎宴会",
-          "heat": 8677777
+          "heat": 9178216
+        },
+        {
+          "title": "特朗普深圳之行有哪些看点",
+          "heat": 8887579
+        },
+        {
+          "title": "为啥APEC在深圳办",
+          "heat": 8835521
+        },
+        {
+          "title": "直击APEC工商领导人峰会",
+          "heat": 8802377
         }
       ],
-      "updated_at": "2026-11-19T05:47:08Z",
-      "updated_at_cst": "2026-11-19 13:47:08 CST"
+      "updated_at": "2026-11-19T06:47:12Z",
+      "updated_at_cst": "2026-11-19 14:47:12 CST"
     },
     "zhihu": {
       "ok": false,
       "http": 401,
       "source": "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10",
-      "error": "本次未尝试（401 已知，每 6 小时试一次）",
-      "items": [],
-      "skipped": true
+      "error": "401 身份未验证",
+      "items": []
     },
     "bili": {
       "ok": true,
@@ -122,12 +121,12 @@
           "category": "日常"
         },
         {
-          "title": "“成华大道没有「烂奇迹」”",
-          "category": "鬼畜剧场"
-        },
-        {
           "title": "灭霸金融小课堂：应届生小浣熊的疑惑，什么是五险一金？",
           "category": "财经商业"
+        },
+        {
+          "title": "“成华大道没有「烂奇迹」”",
+          "category": "鬼畜剧场"
         },
         {
           "title": "THANK YOU ZmjjKK",
@@ -138,10 +137,6 @@
           "category": "网络游戏"
         },
         {
-          "title": "“46块3，问清一条规则。”",
-          "category": "音乐综合"
-        },
-        {
           "title": "《哈利波特与死亡火器》",
           "category": "日常"
         },
@@ -150,16 +145,20 @@
           "category": "音MAD"
         },
         {
+          "title": "“46块3，问清一条规则。”",
+          "category": "音乐综合"
+        },
+        {
           "title": "EUV光刻机 | \"上帝的手术刀\"",
           "category": "科工机械"
         },
         {
-          "title": "【BLG冠军麦克风】这一刻，我们是世界冠军！",
-          "category": "电子竞技"
+          "title": "在普罗米厄的怀抱下",
+          "category": "手机游戏"
         }
       ],
-      "updated_at": "2026-11-19T05:47:08Z",
-      "updated_at_cst": "2026-11-19 13:47:08 CST"
+      "updated_at": "2026-11-19T06:47:12Z",
+      "updated_at_cst": "2026-11-19 14:47:12 CST"
     },
     "baidu": {
       "ok": true,
@@ -168,47 +167,47 @@
       "items": [
         {
           "title": "习近平会见美国总统特朗普",
-          "heat": "7809660"
+          "heat": "7809684"
         },
         {
           "title": "APEC领导人互相整理围巾",
-          "heat": "7712455"
+          "heat": "7714510"
         },
         {
           "title": "APEC时间 外媒记者点赞深圳",
-          "heat": "7619059"
-        },
-        {
-          "title": "APEC全家福",
-          "heat": "7523682"
-        },
-        {
-          "title": "参加中美元首会晤的美方代表都有谁",
-          "heat": "7428531"
-        },
-        {
-          "title": "中国男足世界排名上升一位",
-          "heat": "7329723"
-        },
-        {
-          "title": "普京笔不离手记重点 特朗普专注聆听",
-          "heat": "7235540"
-        },
-        {
-          "title": "华为将发布首款超薄智能手表",
-          "heat": "7138323"
-        },
-        {
-          "title": "从一枚车厘子读懂亚太合作的甜头",
-          "heat": "7039416"
+          "heat": "7617936"
         },
         {
           "title": "特朗普：期待同习主席、普京总统会晤",
-          "heat": "6943209"
+          "heat": "7521106"
+        },
+        {
+          "title": "APEC全家福",
+          "heat": "7427823"
+        },
+        {
+          "title": "马斯克小儿子玩具都是中国制造",
+          "heat": "7332551"
+        },
+        {
+          "title": "APEC围巾图案取自“中国年”会标",
+          "heat": "7237324"
+        },
+        {
+          "title": "华为将发布首款超薄智能手表",
+          "heat": "7138566"
+        },
+        {
+          "title": "从一枚车厘子读懂亚太合作的甜头",
+          "heat": "7046928"
+        },
+        {
+          "title": "深圳市民在街头偶遇各国政要",
+          "heat": "6944955"
         }
       ],
-      "updated_at": "2026-11-19T05:47:08Z",
-      "updated_at_cst": "2026-11-19 13:47:08 CST"
+      "updated_at": "2026-11-19T06:47:12Z",
+      "updated_at_cst": "2026-11-19 14:47:12 CST"
     },
     "toutiao": {
       "ok": true,
@@ -217,53 +216,61 @@
       "items": [
         {
           "title": "习近平会见特朗普",
-          "link": "https://www.toutiao.com/trending/7709748419140718106/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709748419140718106%22%2C%22hot_board_impr_id%22%3A%2220261119134714AA35884D5D1C77109754%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B9%A0%E8%BF%91%E5%B9%B3%E4%BC%9A%E8%A7%81%E7%89%B9%E6%9C%97%E6%99%AE%22%7D&rank=&style_id=40132&topic_id=7709748419140718106"
+          "link": "https://www.toutiao.com/trending/7709748419140718106/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709748419140718106%22%2C%22hot_board_impr_id%22%3A%2220261119144720D17875EBC9B8B25A81BA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B9%A0%E8%BF%91%E5%B9%B3%E4%BC%9A%E8%A7%81%E7%89%B9%E6%9C%97%E6%99%AE%22%7D&rank=&style_id=40132&topic_id=7709748419140718106"
         },
         {
-          "title": "特朗普感激中国",
-          "link": "https://www.toutiao.com/trending/7709399404008230463/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709399404008230463%22%2C%22hot_board_impr_id%22%3A%2220261119134714AA35884D5D1C77109754%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%9C%97%E6%99%AE%E6%84%9F%E6%BF%80%E4%B8%AD%E5%9B%BD%22%7D&rank=&style_id=40132&topic_id=7709399404008230463"
+          "title": "特朗普和普京会晤时开了个玩笑",
+          "link": "https://www.toutiao.com/trending/7709749235624873482/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709749235624873482%22%2C%22hot_board_impr_id%22%3A%2220261119144720D17875EBC9B8B25A81BA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%9C%97%E6%99%AE%E5%92%8C%E6%99%AE%E4%BA%AC%E4%BC%9A%E6%99%A4%E6%97%B6%E5%BC%80%E4%BA%86%E4%B8%AA%E7%8E%A9%E7%AC%91%22%7D&rank=&style_id=40132&topic_id=7709749235624873482"
         },
         {
           "title": "构建亚太共同体的中国贡献",
           "link": "https://www.toutiao.com/article/7709501967411708451"
         },
         {
-          "title": "宁德向理想一天发3封要钱邮件",
-          "link": "https://www.toutiao.com/trending/7709690418040209971/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709690418040209971%22%2C%22hot_board_impr_id%22%3A%2220261119134714AA35884D5D1C77109754%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%AE%81%E5%BE%B7%E5%90%91%E7%90%86%E6%83%B3%E4%B8%80%E5%A4%A9%E5%8F%913%E5%B0%81%E8%A6%81%E9%92%B1%E9%82%AE%E4%BB%B6%22%7D&rank=&style_id=40132&topic_id=7709690418040209971"
+          "title": "中国外交跑腿天团全是中国造",
+          "link": "https://www.toutiao.com/trending/7709694659287695899/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709694659287695899%22%2C%22hot_board_impr_id%22%3A%2220261119144720D17875EBC9B8B25A81BA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E5%9B%BD%E5%A4%96%E4%BA%A4%E8%B7%91%E8%85%BF%E5%A4%A9%E5%9B%A2%E5%85%A8%E6%98%AF%E4%B8%AD%E5%9B%BD%E9%80%A0%22%7D&rank=&style_id=40132&topic_id=7709694659287695899"
         },
         {
-          "title": "马斯克：中国很酷",
-          "link": "https://www.toutiao.com/trending/7709399404016356927/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709399404016356927%22%2C%22hot_board_impr_id%22%3A%2220261119134714AA35884D5D1C77109754%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%A9%AC%E6%96%AF%E5%85%8B%EF%BC%9A%E4%B8%AD%E5%9B%BD%E5%BE%88%E9%85%B7%22%7D&rank=&style_id=40132&topic_id=7709399404016356927"
+          "title": "特朗普感激中国",
+          "link": "https://www.toutiao.com/trending/7709399404008230463/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709399404008230463%22%2C%22hot_board_impr_id%22%3A%2220261119144720D17875EBC9B8B25A81BA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%9C%97%E6%99%AE%E6%84%9F%E6%BF%80%E4%B8%AD%E5%9B%BD%22%7D&rank=&style_id=40132&topic_id=7709399404008230463"
         },
         {
           "title": "董明珠获邀：你一定要来澳大利亚",
-          "link": "https://www.toutiao.com/trending/7708619035033780260/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227708619035033780260%22%2C%22hot_board_impr_id%22%3A%2220261119134714AA35884D5D1C77109754%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%91%A3%E6%98%8E%E7%8F%A0%E8%8E%B7%E9%82%80%EF%BC%9A%E4%BD%A0%E4%B8%80%E5%AE%9A%E8%A6%81%E6%9D%A5%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A%22%7D&rank=&style_id=40132&topic_id=7708619035033780260"
+          "link": "https://www.toutiao.com/trending/7708619035033780260/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227708619035033780260%22%2C%22hot_board_impr_id%22%3A%2220261119144720D17875EBC9B8B25A81BA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%91%A3%E6%98%8E%E7%8F%A0%E8%8E%B7%E9%82%80%EF%BC%9A%E4%BD%A0%E4%B8%80%E5%AE%9A%E8%A6%81%E6%9D%A5%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A%22%7D&rank=&style_id=40132&topic_id=7708619035033780260"
         },
         {
-          "title": "中国外交跑腿天团全是中国造",
-          "link": "https://www.toutiao.com/trending/7709694659287695899/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709694659287695899%22%2C%22hot_board_impr_id%22%3A%2220261119134714AA35884D5D1C77109754%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E5%9B%BD%E5%A4%96%E4%BA%A4%E8%B7%91%E8%85%BF%E5%A4%A9%E5%9B%A2%E5%85%A8%E6%98%AF%E4%B8%AD%E5%9B%BD%E9%80%A0%22%7D&rank=&style_id=40132&topic_id=7709694659287695899"
+          "title": "AI作弊正让韩国如临大敌",
+          "link": "https://www.toutiao.com/trending/7709757808819834411/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709757808819834411%22%2C%22hot_board_impr_id%22%3A%2220261119144720D17875EBC9B8B25A81BA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22AI%E4%BD%9C%E5%BC%8A%E6%AD%A3%E8%AE%A9%E9%9F%A9%E5%9B%BD%E5%A6%82%E4%B8%B4%E5%A4%A7%E6%95%8C%22%7D&rank=&style_id=40132&topic_id=7709757808819834411"
         },
         {
-          "title": "普京随行副官携带核公文包",
-          "link": "https://www.toutiao.com/trending/7709633676023369252/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709633676023369252%22%2C%22hot_board_impr_id%22%3A%2220261119134714AA35884D5D1C77109754%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%99%AE%E4%BA%AC%E9%9A%8F%E8%A1%8C%E5%89%AF%E5%AE%98%E6%90%BA%E5%B8%A6%E6%A0%B8%E5%85%AC%E6%96%87%E5%8C%85%22%7D&rank=&style_id=40132&topic_id=7709633676023369252"
+          "title": "马斯克：中国很酷",
+          "link": "https://www.toutiao.com/trending/7709399404016356927/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709399404016356927%22%2C%22hot_board_impr_id%22%3A%2220261119144720D17875EBC9B8B25A81BA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%A9%AC%E6%96%AF%E5%85%8B%EF%BC%9A%E4%B8%AD%E5%9B%BD%E5%BE%88%E9%85%B7%22%7D&rank=&style_id=40132&topic_id=7709399404016356927"
         },
         {
           "title": "在深圳看见中国机遇",
           "link": "https://www.toutiao.com/article/7709495812677435904"
         },
         {
-          "title": "特斯拉计划推出无方向盘Model Y",
-          "link": "https://www.toutiao.com/trending/7709720373058817586/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709720373058817586%22%2C%22hot_board_impr_id%22%3A%2220261119134714AA35884D5D1C77109754%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%96%AF%E6%8B%89%E8%AE%A1%E5%88%92%E6%8E%A8%E5%87%BA%E6%97%A0%E6%96%B9%E5%90%91%E7%9B%98Model+Y%22%7D&rank=&style_id=40132&topic_id=7709720373058817586"
+          "title": "菲总统来华会见中企高管有何目的",
+          "link": "https://www.toutiao.com/trending/7709713936739729930/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709713936739729930%22%2C%22hot_board_impr_id%22%3A%2220261119144720D17875EBC9B8B25A81BA%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%8F%B2%E6%80%BB%E7%BB%9F%E6%9D%A5%E5%8D%8E%E4%BC%9A%E8%A7%81%E4%B8%AD%E4%BC%81%E9%AB%98%E7%AE%A1%E6%9C%89%E4%BD%95%E7%9B%AE%E7%9A%84%22%7D&rank=&style_id=40132&topic_id=7709713936739729930"
         }
       ],
-      "updated_at": "2026-11-19T05:47:08Z",
-      "updated_at_cst": "2026-11-19 13:47:08 CST"
+      "updated_at": "2026-11-19T06:47:12Z",
+      "updated_at_cst": "2026-11-19 14:47:12 CST"
     },
     "x_us": {
       "ok": true,
       "http": 200,
       "source": "https://trends24.in/united-states/",
       "items": [
+        {
+          "title": "GTA 6",
+          "link": "https://twitter.com/search?q=GTA%206"
+        },
+        {
+          "title": "#GTAVI",
+          "link": "https://twitter.com/search?q=%23GTAVI"
+        },
         {
           "title": "#CMAawards",
           "link": "https://twitter.com/search?q=%23CMAawards"
@@ -273,60 +280,52 @@
           "link": "https://twitter.com/search?q=%23AEWDynamite"
         },
         {
+          "title": "Lakers",
+          "link": "https://twitter.com/search?q=Lakers"
+        },
+        {
+          "title": "Lucia",
+          "link": "https://twitter.com/search?q=Lucia"
+        },
+        {
+          "title": "Jokic",
+          "link": "https://twitter.com/search?q=Jokic"
+        },
+        {
+          "title": "Nuggets",
+          "link": "https://twitter.com/search?q=Nuggets"
+        },
+        {
+          "title": "DeRozan",
+          "link": "https://twitter.com/search?q=DeRozan"
+        },
+        {
+          "title": "Jamal Murray",
+          "link": "https://twitter.com/search?q=Jamal%20Murray"
+        },
+        {
           "title": "#Survivor51",
           "link": "https://twitter.com/search?q=%23Survivor51"
+        },
+        {
+          "title": "Cenac",
+          "link": "https://twitter.com/search?q=Cenac"
         },
         {
           "title": "Dunn",
           "link": "https://twitter.com/search?q=Dunn"
         },
         {
-          "title": "Sam Merrill",
-          "link": "https://twitter.com/search?q=Sam%20Merrill"
-        },
-        {
-          "title": "Ella Langley",
-          "link": "https://twitter.com/search?q=Ella%20Langley"
-        },
-        {
-          "title": "#GTAVI",
-          "link": "https://twitter.com/search?q=%23GTAVI"
-        },
-        {
-          "title": "#GTA6",
-          "link": "https://twitter.com/search?q=%23GTA6"
-        },
-        {
-          "title": "CMAs",
-          "link": "https://twitter.com/search?q=CMAs"
-        },
-        {
-          "title": "Our Song",
-          "link": "https://twitter.com/search?q=Our%20Song"
-        },
-        {
           "title": "McBain",
           "link": "https://twitter.com/search?q=McBain"
         },
         {
-          "title": "Giannis",
-          "link": "https://twitter.com/search?q=Giannis"
-        },
-        {
-          "title": "UConn",
-          "link": "https://twitter.com/search?q=UConn"
-        },
-        {
-          "title": "Landeskog",
-          "link": "https://twitter.com/search?q=Landeskog"
-        },
-        {
-          "title": "Cenac",
-          "link": "https://twitter.com/search?q=Cenac"
+          "title": "Ella Langley",
+          "link": "https://twitter.com/search?q=Ella%20Langley"
         }
       ],
-      "updated_at": "2026-11-19T05:47:08Z",
-      "updated_at_cst": "2026-11-19 13:47:08 CST"
+      "updated_at": "2026-11-19T06:47:12Z",
+      "updated_at_cst": "2026-11-19 14:47:12 CST"
     }
   },
   "browser": {
