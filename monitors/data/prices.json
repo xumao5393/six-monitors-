@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-19T02:47:14Z",
-  "fetched_at_cst": "2026-11-19 10:47:14 CST",
-  "checked_at": "2026-11-19T02:47:14Z",
-  "checked_at_cst": "2026-11-19 10:47:14 CST",
+  "fetched_at": "2026-11-19T03:21:50Z",
+  "fetched_at_cst": "2026-11-19 11:21:50 CST",
+  "checked_at": "2026-11-19T03:21:50Z",
+  "checked_at_cst": "2026-11-19 11:21:50 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -1035,8 +1035,8 @@
     {
       "id": "z-ai/glm-5.1",
       "name": "Z.ai: GLM 5.1",
-      "prompt_per_m": 1.4,
-      "completion_per_m": 4.4,
+      "prompt_per_m": 1.19,
+      "completion_per_m": 3.74,
       "context_length": 204800
     },
     {
@@ -13508,8 +13508,8 @@
         "completion_per_m": 12.5
       },
       "z-ai/glm-5.1": {
-        "prompt_per_m": 1.4,
-        "completion_per_m": 4.4
+        "prompt_per_m": 1.19,
+        "completion_per_m": 3.74
       },
       "qwen/qwen3.6-plus": {
         "prompt_per_m": 0.325,
