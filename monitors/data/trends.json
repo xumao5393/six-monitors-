@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-19T08:47:08Z",
-  "fetched_at_cst": "2026-11-19 16:47:08 CST",
-  "checked_at": "2026-11-19T08:47:08Z",
-  "checked_at_cst": "2026-11-19 16:47:08 CST",
+  "fetched_at": "2026-11-19T09:47:10Z",
+  "fetched_at_cst": "2026-11-19 17:47:10 CST",
+  "checked_at": "2026-11-19T09:47:10Z",
+  "checked_at_cst": "2026-11-19 17:47:10 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,8 +12,43 @@
       "http": 200,
       "items": [
         {
+          "title": "football",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "soccer",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "tiger",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ring",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "sun",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "price of gold today",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "john cornyn",
-          "traffic": "2000+",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "the altruists",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -23,41 +58,6 @@
         },
         {
           "title": "gta 6 bigfoot",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "housing",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "portos",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "navajo stirling",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "joe jonas",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "stanislaus wildlife care center",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "las vegas weather",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "app",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -67,6 +67,16 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "0017",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "0700",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "麒麟山莊",
           "traffic": "200+",
@@ -83,13 +93,13 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "敢愛敢做",
-          "traffic": "100+",
+          "title": "鄺港智",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "中國",
-          "traffic": "200+",
+          "title": "敢愛敢做",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -106,16 +116,6 @@
           "title": "飛機",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "羽球",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "lakers vs jazz",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,8 +124,23 @@
       "http": 200,
       "items": [
         {
-          "title": "公務員",
-          "traffic": "2000+",
+          "title": "蔡詩萍",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "8299",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "蔡依林",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "楊鉯婷",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -139,38 +154,23 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "台 股 大 跌",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "馬 斯克",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "龜殼花",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "三大法人買賣超",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "三大法人",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "股灾",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "應繼分",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "限空令",
-          "traffic": "5000+",
+          "title": "三大法人買賣超",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
