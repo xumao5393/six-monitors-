@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-19T18:47:09Z",
-  "fetched_at_cst": "2026-11-20 02:47:09 CST",
-  "checked_at": "2026-11-19T18:47:09Z",
-  "checked_at_cst": "2026-11-20 02:47:09 CST",
+  "fetched_at": "2026-11-19T19:47:15Z",
+  "fetched_at_cst": "2026-11-20 03:47:15 CST",
+  "checked_at": "2026-11-19T19:47:15Z",
+  "checked_at_cst": "2026-11-20 03:47:15 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "conroe high school",
+          "title": "wes huff",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "marlon jackson",
+          "title": "andrew marsh",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "invincible season 5",
+          "title": "brittany snow",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ashton kutcher anthropic",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "dwts finale songs",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "rsm classic",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jazz fest 2027 lineup",
+          "title": "ncaa division i men's basketball",
           "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "space x stock",
+          "title": "arsenal vs ol lyonnes",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "roaring kitty",
+          "title": "cte",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jpmorgan chase & co",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "south carolina",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "gta6 gameplay",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "riley moss",
-          "traffic": "2000+",
+          "title": "marlon jackson",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -108,12 +108,12 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "姚子羚",
-          "traffic": "500+",
+          "title": "陳敏之",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "傅嘉莉",
+          "title": "姚子羚",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
@@ -123,6 +123,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "道瓊工業指數",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "馬英九",
           "traffic": "100+",
@@ -160,17 +165,12 @@
         },
         {
           "title": "群聯",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "退伍",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "麗 寶 樂園",
-          "traffic": "5000+",
+          "title": "退伍",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
