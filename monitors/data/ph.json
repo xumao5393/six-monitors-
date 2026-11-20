@@ -1,13 +1,21 @@
 {
-  "fetched_at": "2026-11-20T06:47:10Z",
-  "fetched_at_cst": "2026-11-20 14:47:10 CST",
-  "checked_at": "2026-11-20T06:47:10Z",
-  "checked_at_cst": "2026-11-20 14:47:10 CST",
+  "fetched_at": "2026-11-20T07:47:09Z",
+  "fetched_at_cst": "2026-11-20 15:47:09 CST",
+  "checked_at": "2026-11-20T07:47:09Z",
+  "checked_at_cst": "2026-11-20 15:47:09 CST",
   "ok": true,
   "source": "https://www.producthunt.com/feed",
   "note": "RSS 无 CORS，浏览器必失败；本文件为服务端 curl 快照。票数 RSS 不提供，一律未获取，不编造。",
   "error": null,
   "items": [
+    {
+      "title": "Netlify Server",
+      "link": "https://www.producthunt.com/products/netlify",
+      "published": "2026-11-10T12:15:49-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Run WebSockets, multiplayer apps, and long-running agents Discussion | Link"
+    },
     {
       "title": "Verse Engine by Ctruh",
       "link": "https://www.producthunt.com/products/verse-engine-by-ctruh",
@@ -25,30 +33,6 @@
       "summary": "Fix one thing, break another? This agent checks it all Discussion | Link"
     },
     {
-      "title": "Impractical",
-      "link": "https://www.producthunt.com/products/impractical",
-      "published": "2026-08-12T12:19:38-07:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Make launch videos in the style of Framer, Notion, and more Discussion | Link"
-    },
-    {
-      "title": "Cleared",
-      "link": "https://www.producthunt.com/products/cleared-quit-nicotine",
-      "published": "2026-11-18T07:27:40-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Your personal plan to give up vapes, pouches and cigarettes Discussion | Link"
-    },
-    {
-      "title": "Spellar for Chrome",
-      "link": "https://www.producthunt.com/products/spellar",
-      "published": "2026-11-16T04:57:22-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Free, no-bot meeting notes with memory, now in your browser Discussion | Link"
-    },
-    {
       "title": "Stripo Email Widgets",
       "link": "https://www.producthunt.com/products/stripo-email",
       "published": "2026-11-11T00:31:59-08:00",
@@ -57,60 +41,20 @@
       "summary": "Put a game, quiz or survey in your next email. No coding Discussion | Link"
     },
     {
-      "title": "Netlify Server",
-      "link": "https://www.producthunt.com/products/netlify",
-      "published": "2026-11-10T12:15:49-08:00",
+      "title": "Noteshell",
+      "link": "https://www.producthunt.com/products/noteshell",
+      "published": "2026-11-18T07:28:16-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Run WebSockets, multiplayer apps, and long-running agents Discussion | Link"
+      "summary": "AI teammates that build and run your workspace Discussion | Link"
     },
     {
-      "title": "Tabstack by Mozilla",
-      "link": "https://www.producthunt.com/products/tabstack",
-      "published": "2026-11-16T13:57:39-08:00",
+      "title": "Fieldwork Code",
+      "link": "https://www.producthunt.com/products/fieldwork-code",
+      "published": "2026-11-18T05:32:13-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Give your model the web without giving up your privacy Discussion | Link"
-    },
-    {
-      "title": "Tecla",
-      "link": "https://www.producthunt.com/products/tecla-3",
-      "published": "2026-11-18T19:05:34-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "A proactive AI agent whose interface is a TODO list Discussion | Link"
-    },
-    {
-      "title": "Every Signal",
-      "link": "https://www.producthunt.com/products/every-signal",
-      "published": "2026-11-14T09:43:52-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Diligence on any company in an hour, every number sourced Discussion | Link"
-    },
-    {
-      "title": "CodeDesign v3",
-      "link": "https://www.producthunt.com/products/codedesign",
-      "published": "2026-11-16T21:24:17-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Run your website and business apps from ChatGPT or Claude Discussion | Link"
-    },
-    {
-      "title": "OfinTech Desk",
-      "link": "https://www.producthunt.com/products/ofintech-desk",
-      "published": "2026-11-16T19:25:07-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Finance AI where every figure traces to its source Discussion | Link"
-    },
-    {
-      "title": "Play That Back",
-      "link": "https://www.producthunt.com/products/play-that-back",
-      "published": "2026-11-18T15:42:14-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "A pro camera built for iPhone Duo Discussion | Link"
+      "summary": "AI coding on your laptop or in the cloud, from your phone Discussion | Link"
     },
     {
       "title": "Source",
@@ -121,12 +65,68 @@
       "summary": "The attribution data layer for your agents to drive pipeline Discussion | Link"
     },
     {
-      "title": "Fieldwork Code",
-      "link": "https://www.producthunt.com/products/fieldwork-code",
-      "published": "2026-11-18T05:32:13-08:00",
+      "title": "OfinTech Desk",
+      "link": "https://www.producthunt.com/products/ofintech-desk",
+      "published": "2026-11-16T19:25:07-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "AI coding on your laptop or in the cloud, from your phone Discussion | Link"
+      "summary": "Finance AI where every figure traces to its source Discussion | Link"
+    },
+    {
+      "title": "Impractical",
+      "link": "https://www.producthunt.com/products/impractical",
+      "published": "2026-08-12T12:19:38-07:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Make launch videos in the style of Framer, Notion, and more Discussion | Link"
+    },
+    {
+      "title": "Meilisearch Searchandising",
+      "link": "https://www.producthunt.com/products/meilisearch-cloud",
+      "published": "2026-11-05T05:25:09-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Pin, boost, hide and personalize search results Discussion | Link"
+    },
+    {
+      "title": "The Calm Creator Mastermind",
+      "link": "https://www.producthunt.com/products/the-calm-creator-mastermind",
+      "published": "2026-11-16T11:19:03-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "For solopreneurs who are tired of being solo. Discussion | Link"
+    },
+    {
+      "title": "Spellar for Chrome",
+      "link": "https://www.producthunt.com/products/spellar",
+      "published": "2026-11-16T04:57:22-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Free, no-bot meeting notes with memory, now in your browser Discussion | Link"
+    },
+    {
+      "title": "Manufact",
+      "link": "https://www.producthunt.com/products/manufact",
+      "published": "2026-11-09T17:42:17-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Ship and test your MCP to every plugin marketplace Discussion | Link"
+    },
+    {
+      "title": "Room AI",
+      "link": "https://www.producthunt.com/products/room-ai-2",
+      "published": "2026-11-18T07:37:31-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Talk to it like a designer. Your room, one change at a time Discussion | Link"
+    },
+    {
+      "title": "Tecla",
+      "link": "https://www.producthunt.com/products/tecla-3",
+      "published": "2026-11-18T19:05:34-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "A proactive AI agent whose interface is a TODO list Discussion | Link"
     }
   ]
 }
