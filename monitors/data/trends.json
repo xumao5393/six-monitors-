@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-20T08:47:08Z",
-  "fetched_at_cst": "2026-11-20 16:47:08 CST",
-  "checked_at": "2026-11-20T08:47:08Z",
-  "checked_at_cst": "2026-11-20 16:47:08 CST",
+  "fetched_at": "2026-11-20T09:47:13Z",
+  "fetched_at_cst": "2026-11-20 17:47:13 CST",
+  "checked_at": "2026-11-20T09:47:13Z",
+  "checked_at_cst": "2026-11-20 17:47:13 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "latest news",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "criminal defense lawyer",
+          "title": "sandisk stock",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "mobland season 2 episode 10",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "karely ruiz",
+          "title": "cruise ship",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "app",
+          "title": "playstation plus",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "one piece 1199",
+          "title": "does jason die in gta 6",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "will gta 6 have online",
+          "title": "gta online",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "box",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "bridge",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "daycare",
+          "title": "tiger",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "mobland season 3",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "train",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "sndk",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "truck accident lawyer",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,8 +68,18 @@
       "http": 200,
       "items": [
         {
+          "title": "sndk",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "陳庭欣",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "mama 2026",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -89,7 +99,7 @@
         },
         {
           "title": "伍詠薇",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -103,18 +113,8 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "周慧賢",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "廁所",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "灰熊對勇士",
-          "traffic": "200+",
+          "title": "盧偉力",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,13 +124,43 @@
       "http": 200,
       "items": [
         {
+          "title": "遠大售票",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "江啟臣",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "東北 季風",
+          "traffic": "20000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "傅崐萁",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "台中市長",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "台 股 斷 頭",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "何欣純",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "洋流誌",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -139,38 +169,8 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "謝金 河",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "郭忠祐",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "三大法人",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "拓元售票",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2026mama",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "拓元售票系統",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "00631l",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
