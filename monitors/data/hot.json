@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-20T12:47:09Z",
-  "fetched_at_cst": "2026-11-20 20:47:09 CST",
-  "checked_at": "2026-11-20T12:47:09Z",
-  "checked_at_cst": "2026-11-20 20:47:09 CST",
+  "fetched_at": "2026-11-20T13:47:08Z",
+  "fetched_at_cst": "2026-11-20 21:47:08 CST",
+  "checked_at": "2026-11-20T13:47:08Z",
+  "checked_at_cst": "2026-11-20 21:47:08 CST",
   "ok": true,
   "source": "GitHub Actions snapshot (curl, server-side) — see .github/workflows/snapshot.yml; browser direct fetch is CORS-blocked",
   "platforms": {
@@ -13,47 +13,47 @@
       "items": [
         {
           "title": "特朗普刚返美就发重大预告",
-          "heat": 1133432
+          "heat": 1117912
         },
         {
-          "title": "DK官宣Doran和Kanavi加入",
-          "heat": 814476
+          "title": "深圳人又开始原装出街了",
+          "heat": 795001
         },
         {
           "title": "从细节读懂中国带给亚太的确定性",
-          "heat": 625324
-        },
-        {
-          "title": "天霸独狼吃鸡",
-          "heat": 553142
-        },
-        {
-          "title": "腾讯因仙逆动画索赔1亿",
-          "heat": 446669
+          "heat": 655305
         },
         {
           "title": "沈腾拿最佳男主角了",
-          "heat": 435048
-        },
-        {
-          "title": "韩网谈Viper加入KRX的原因",
-          "heat": 407626
+          "heat": 631488
         },
         {
           "title": "两京十五日首播反响",
-          "heat": 383476
+          "heat": 492083
+        },
+        {
+          "title": "DK官宣Doran和Kanavi加入",
+          "heat": 443229
+        },
+        {
+          "title": "腾讯因仙逆动画索赔1亿",
+          "heat": 386895
+        },
+        {
+          "title": "Viper做什么选择都理解",
+          "heat": 293595
         },
         {
           "title": "中国航天从神1走到了神24",
-          "heat": 383140
+          "heat": 290150
         },
         {
-          "title": "APEC国宴430人份蒸鱼45分钟出餐",
-          "heat": 382410
+          "title": "天霸独狼吃鸡",
+          "heat": 289971
         }
       ],
-      "updated_at": "2026-11-20T12:47:09Z",
-      "updated_at_cst": "2026-11-20 20:47:09 CST"
+      "updated_at": "2026-11-20T13:47:08Z",
+      "updated_at_cst": "2026-11-20 21:47:08 CST"
     },
     "douyin": {
       "ok": true,
@@ -61,55 +61,56 @@
       "source": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
       "items": [
         {
-          "title": "特朗普结束亚洲行返回白宫",
-          "heat": 11022287
-        },
-        {
           "title": "U17男足首战对阵西班牙",
-          "heat": 11018913
-        },
-        {
-          "title": "亚太前沿领域机遇看中国",
-          "heat": 10989102
+          "heat": 11156600
         },
         {
           "title": "APEC外宾游深圳邂逅地道美食",
-          "heat": 10948661
+          "heat": 11037603
         },
         {
-          "title": "泰国总理带夫人在深圳吃夜宵",
-          "heat": 10354193
-        },
-        {
-          "title": "粤菜亮相APEC欢迎晚宴",
-          "heat": 10348370
-        },
-        {
-          "title": "外交部回应高市早苗涉台问题表态",
-          "heat": 9254695
-        },
-        {
-          "title": "灯火里的深圳 照见开放与活力",
-          "heat": 9195050
+          "title": "亚太前沿领域机遇看中国",
+          "heat": 10988365
         },
         {
           "title": "这首告别的诗为什么偏偏写草",
-          "heat": 9190950
+          "heat": 10959693
+        },
+        {
+          "title": "泰国总理带夫人在深圳吃夜宵",
+          "heat": 10393167
+        },
+        {
+          "title": "外交部回应高市早苗涉台问题表态",
+          "heat": 10366579
+        },
+        {
+          "title": "粤菜亮相APEC欢迎晚宴",
+          "heat": 9232087
+        },
+        {
+          "title": "灯火里的深圳 照见开放与活力",
+          "heat": 9212472
         },
         {
           "title": "谢谢你深圳",
-          "heat": 9115035
+          "heat": 9188568
+        },
+        {
+          "title": "冬天吃碳水过热乎日子",
+          "heat": 9124504
         }
       ],
-      "updated_at": "2026-11-20T12:47:09Z",
-      "updated_at_cst": "2026-11-20 20:47:09 CST"
+      "updated_at": "2026-11-20T13:47:08Z",
+      "updated_at_cst": "2026-11-20 21:47:08 CST"
     },
     "zhihu": {
       "ok": false,
       "http": 401,
       "source": "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10",
-      "error": "401 身份未验证",
-      "items": []
+      "error": "本次未尝试（401 已知，每 6 小时试一次）",
+      "items": [],
+      "skipped": true
     },
     "bili": {
       "ok": true,
@@ -157,8 +158,8 @@
           "category": "鬼畜剧场"
         }
       ],
-      "updated_at": "2026-11-20T12:47:09Z",
-      "updated_at_cst": "2026-11-20 20:47:09 CST"
+      "updated_at": "2026-11-20T13:47:08Z",
+      "updated_at_cst": "2026-11-20 21:47:08 CST"
     },
     "baidu": {
       "ok": true,
@@ -167,47 +168,47 @@
       "items": [
         {
           "title": "中国最大饺子店要上市了",
-          "heat": "7809604"
+          "heat": "7808713"
         },
         {
           "title": "特朗普刚返美就发重大预告",
-          "heat": "7714632"
+          "heat": "7713004"
         },
         {
           "title": "科技新国货成“深圳特产”",
-          "heat": "7617640"
+          "heat": "7616440"
         },
         {
           "title": "胖东来搬离后原址所开新商场几乎倒闭",
-          "heat": "7523977"
-        },
-        {
-          "title": "孩子吃“山东饭”真能长得更高吗",
-          "heat": "7423547"
-        },
-        {
-          "title": "房子没人住该不该交供暖费",
-          "heat": "7330776"
-        },
-        {
-          "title": "沈腾拿最佳男主角了",
-          "heat": "7233995"
+          "heat": "7519705"
         },
         {
           "title": "高市早苗拍特朗普试图搭话被无视",
-          "heat": "7138688"
-        },
-        {
-          "title": "深圳 一个有大故事的地方",
-          "heat": "7040848"
+          "heat": "7425175"
         },
         {
           "title": "工商银行发布风险提示",
-          "heat": "6948516"
+          "heat": "7334003"
+        },
+        {
+          "title": "27岁庞众望完成博士论文答辩",
+          "heat": "7237492"
+        },
+        {
+          "title": "年轻人还逛商场 只是先去了B1层",
+          "heat": "7141205"
+        },
+        {
+          "title": "深圳 一个有大故事的地方",
+          "heat": "7046290"
+        },
+        {
+          "title": "A股有望迎估值修复窗口",
+          "heat": "6947874"
         }
       ],
-      "updated_at": "2026-11-20T12:47:09Z",
-      "updated_at_cst": "2026-11-20 20:47:09 CST"
+      "updated_at": "2026-11-20T13:47:08Z",
+      "updated_at_cst": "2026-11-20 21:47:08 CST"
     },
     "toutiao": {
       "ok": true,
@@ -216,47 +217,47 @@
       "items": [
         {
           "title": "飞天茅台溢价缩至70元",
-          "link": "https://www.toutiao.com/trending/7707594393074778651/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2216%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227707594393074778651%22%2C%22hot_board_impr_id%22%3A%222026112020471648375A1D528477775E33%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%A3%9E%E5%A4%A9%E8%8C%85%E5%8F%B0%E6%BA%A2%E4%BB%B7%E7%BC%A9%E8%87%B370%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7707594393074778651"
+          "link": "https://www.toutiao.com/trending/7707594393074778651/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2216%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227707594393074778651%22%2C%22hot_board_impr_id%22%3A%222026112021471819DBBCA51F82B72B0B40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%A3%9E%E5%A4%A9%E8%8C%85%E5%8F%B0%E6%BA%A2%E4%BB%B7%E7%BC%A9%E8%87%B370%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7707594393074778651"
         },
         {
           "title": "特朗普刚返美就发重大预告",
-          "link": "https://www.toutiao.com/trending/7709509765424267300/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709509765424267300%22%2C%22hot_board_impr_id%22%3A%222026112020471648375A1D528477775E33%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%9C%97%E6%99%AE%E5%88%9A%E8%BF%94%E7%BE%8E%E5%B0%B1%E5%8F%91%E9%87%8D%E5%A4%A7%E9%A2%84%E5%91%8A%22%7D&rank=&style_id=40132&topic_id=7709509765424267300"
+          "link": "https://www.toutiao.com/trending/7709509765424267300/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709509765424267300%22%2C%22hot_board_impr_id%22%3A%222026112021471819DBBCA51F82B72B0B40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%9C%97%E6%99%AE%E5%88%9A%E8%BF%94%E7%BE%8E%E5%B0%B1%E5%8F%91%E9%87%8D%E5%A4%A7%E9%A2%84%E5%91%8A%22%7D&rank=&style_id=40132&topic_id=7709509765424267300"
         },
         {
           "title": "亚太经合组织贸易数字化合作框架",
           "link": "https://www.toutiao.com/article/7710119157295022626"
         },
         {
-          "title": "中美两军在上海举行会议",
-          "link": "https://www.toutiao.com/trending/7710185690517062153/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710185690517062153%22%2C%22hot_board_impr_id%22%3A%222026112020471648375A1D528477775E33%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E7%BE%8E%E4%B8%A4%E5%86%9B%E5%9C%A8%E4%B8%8A%E6%B5%B7%E4%B8%BE%E8%A1%8C%E4%BC%9A%E8%AE%AE%22%7D&rank=&style_id=40132&topic_id=7710185690517062153"
+          "title": "胖东来搬离后原址所开新商场几乎倒闭",
+          "link": "https://www.toutiao.com/trending/7709314788123525147/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709314788123525147%22%2C%22hot_board_impr_id%22%3A%222026112021471819DBBCA51F82B72B0B40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%83%96%E4%B8%9C%E6%9D%A5%E6%90%AC%E7%A6%BB%E5%90%8E%E5%8E%9F%E5%9D%80%E6%89%80%E5%BC%80%E6%96%B0%E5%95%86%E5%9C%BA%E5%87%A0%E4%B9%8E%E5%80%92%E9%97%AD%22%7D&rank=&style_id=40132&topic_id=7709314788123525147"
         },
         {
           "title": "高市早苗拍特朗普试图搭话被无视",
-          "link": "https://www.toutiao.com/trending/7709960248785682474/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709960248785682474%22%2C%22hot_board_impr_id%22%3A%222026112020471648375A1D528477775E33%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%AB%98%E5%B8%82%E6%97%A9%E8%8B%97%E6%8B%8D%E7%89%B9%E6%9C%97%E6%99%AE%E8%AF%95%E5%9B%BE%E6%90%AD%E8%AF%9D%E8%A2%AB%E6%97%A0%E8%A7%86%22%7D&rank=&style_id=40132&topic_id=7709960248785682474"
-        },
-        {
-          "title": "余承东纠正“开车可以睡觉”言论",
-          "link": "https://www.toutiao.com/trending/7709417593496436786/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709417593496436786%22%2C%22hot_board_impr_id%22%3A%222026112020471648375A1D528477775E33%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BD%99%E6%89%BF%E4%B8%9C%E7%BA%A0%E6%AD%A3%E2%80%9C%E5%BC%80%E8%BD%A6%E5%8F%AF%E4%BB%A5%E7%9D%A1%E8%A7%89%E2%80%9D%E8%A8%80%E8%AE%BA%22%7D&rank=&style_id=40132&topic_id=7709417593496436786"
+          "link": "https://www.toutiao.com/trending/7709960248785682474/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709960248785682474%22%2C%22hot_board_impr_id%22%3A%222026112021471819DBBCA51F82B72B0B40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%AB%98%E5%B8%82%E6%97%A9%E8%8B%97%E6%8B%8D%E7%89%B9%E6%9C%97%E6%99%AE%E8%AF%95%E5%9B%BE%E6%90%AD%E8%AF%9D%E8%A2%AB%E6%97%A0%E8%A7%86%22%7D&rank=&style_id=40132&topic_id=7709960248785682474"
         },
         {
           "title": "27岁庞众望完成博士论文答辩",
-          "link": "https://www.toutiao.com/trending/7710188716061540915/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710188716061540915%22%2C%22hot_board_impr_id%22%3A%222026112020471648375A1D528477775E33%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%2227%E5%B2%81%E5%BA%9E%E4%BC%97%E6%9C%9B%E5%AE%8C%E6%88%90%E5%8D%9A%E5%A3%AB%E8%AE%BA%E6%96%87%E7%AD%94%E8%BE%A9%22%7D&rank=&style_id=40132&topic_id=7710188716061540915"
+          "link": "https://www.toutiao.com/trending/7710188716061540915/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710188716061540915%22%2C%22hot_board_impr_id%22%3A%222026112021471819DBBCA51F82B72B0B40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%2227%E5%B2%81%E5%BA%9E%E4%BC%97%E6%9C%9B%E5%AE%8C%E6%88%90%E5%8D%9A%E5%A3%AB%E8%AE%BA%E6%96%87%E7%AD%94%E8%BE%A9%22%7D&rank=&style_id=40132&topic_id=7710188716061540915"
         },
         {
-          "title": "特朗普深圳下榻酒店房间内部曝光",
-          "link": "https://www.toutiao.com/trending/7709524298062577715/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709524298062577715%22%2C%22hot_board_impr_id%22%3A%222026112020471648375A1D528477775E33%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%89%B9%E6%9C%97%E6%99%AE%E6%B7%B1%E5%9C%B3%E4%B8%8B%E6%A6%BB%E9%85%92%E5%BA%97%E6%88%BF%E9%97%B4%E5%86%85%E9%83%A8%E6%9B%9D%E5%85%89%22%7D&rank=&style_id=40132&topic_id=7709524298062577715"
+          "title": "俄罗斯为何愿低价卖气给中国",
+          "link": "https://www.toutiao.com/trending/7710209643342990889/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227710209643342990889%22%2C%22hot_board_impr_id%22%3A%222026112021471819DBBCA51F82B72B0B40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BF%84%E7%BD%97%E6%96%AF%E4%B8%BA%E4%BD%95%E6%84%BF%E4%BD%8E%E4%BB%B7%E5%8D%96%E6%B0%94%E7%BB%99%E4%B8%AD%E5%9B%BD%22%7D&rank=&style_id=40132&topic_id=7710209643342990889"
+        },
+        {
+          "title": "日方称中方接待高市早苗符合惯例",
+          "link": "https://www.toutiao.com/trending/7709777242096877587/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709777242096877587%22%2C%22hot_board_impr_id%22%3A%222026112021471819DBBCA51F82B72B0B40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%97%A5%E6%96%B9%E7%A7%B0%E4%B8%AD%E6%96%B9%E6%8E%A5%E5%BE%85%E9%AB%98%E5%B8%82%E6%97%A9%E8%8B%97%E7%AC%A6%E5%90%88%E6%83%AF%E4%BE%8B%22%7D&rank=&style_id=40132&topic_id=7709777242096877587"
         },
         {
           "title": "深圳华丽转型生动诠释APEC理念",
           "link": "https://www.toutiao.com/article/7710137630821827123"
         },
         {
-          "title": "媒体：多国领导人感谢中国不是客套话",
-          "link": "https://www.toutiao.com/trending/7709881514440032778/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709881514440032778%22%2C%22hot_board_impr_id%22%3A%222026112020471648375A1D528477775E33%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%AA%92%E4%BD%93%EF%BC%9A%E5%A4%9A%E5%9B%BD%E9%A2%86%E5%AF%BC%E4%BA%BA%E6%84%9F%E8%B0%A2%E4%B8%AD%E5%9B%BD%E4%B8%8D%E6%98%AF%E5%AE%A2%E5%A5%97%E8%AF%9D%22%7D&rank=&style_id=40132&topic_id=7709881514440032778"
+          "title": "余承东纠正“开车可以睡觉”言论",
+          "link": "https://www.toutiao.com/trending/7709417593496436786/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227709417593496436786%22%2C%22hot_board_impr_id%22%3A%222026112021471819DBBCA51F82B72B0B40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BD%99%E6%89%BF%E4%B8%9C%E7%BA%A0%E6%AD%A3%E2%80%9C%E5%BC%80%E8%BD%A6%E5%8F%AF%E4%BB%A5%E7%9D%A1%E8%A7%89%E2%80%9D%E8%A8%80%E8%AE%BA%22%7D&rank=&style_id=40132&topic_id=7709417593496436786"
         }
       ],
-      "updated_at": "2026-11-20T12:47:09Z",
-      "updated_at_cst": "2026-11-20 20:47:09 CST"
+      "updated_at": "2026-11-20T13:47:08Z",
+      "updated_at_cst": "2026-11-20 21:47:08 CST"
     },
     "x_us": {
       "ok": true,
@@ -268,28 +269,44 @@
           "link": "https://twitter.com/search?q=%23earthquake"
         },
         {
-          "title": "RED Friday",
-          "link": "https://twitter.com/search?q=RED%20Friday"
-        },
-        {
-          "title": "#DAESANGFORBTS",
-          "link": "https://twitter.com/search?q=%23DAESANGFORBTS"
+          "title": "Good Friday",
+          "link": "https://twitter.com/search?q=Good%20Friday"
         },
         {
           "title": "Al Nassr",
           "link": "https://twitter.com/search?q=Al%20Nassr"
         },
         {
-          "title": "#ARMYONMNET",
-          "link": "https://twitter.com/search?q=%23ARMYONMNET"
+          "title": "RED Friday",
+          "link": "https://twitter.com/search?q=RED%20Friday"
+        },
+        {
+          "title": "Happy Friyay",
+          "link": "https://twitter.com/search?q=Happy%20Friyay"
+        },
+        {
+          "title": "#DAESANGFORBTS",
+          "link": "https://twitter.com/search?q=%23DAESANGFORBTS"
         },
         {
           "title": "#VOTEFORBTS",
           "link": "https://twitter.com/search?q=%23VOTEFORBTS"
         },
         {
+          "title": "#ARMYONMNET",
+          "link": "https://twitter.com/search?q=%23ARMYONMNET"
+        },
+        {
+          "title": "Salt Lake",
+          "link": "https://twitter.com/search?q=Salt%20Lake"
+        },
+        {
           "title": "#PercyJackson",
           "link": "https://twitter.com/search?q=%23PercyJackson"
+        },
+        {
+          "title": "Remember Everyone Deployed",
+          "link": "https://twitter.com/search?q=Remember%20Everyone%20Deployed"
         },
         {
           "title": "OUR CHOICE IS BTS AT MAMA",
@@ -300,32 +317,16 @@
           "link": "https://twitter.com/search?q=annabeth"
         },
         {
-          "title": "Thalia",
-          "link": "https://twitter.com/search?q=Thalia"
+          "title": "thalia",
+          "link": "https://twitter.com/search?q=thalia"
         },
         {
-          "title": "Remember Everyone Deployed",
-          "link": "https://twitter.com/search?q=Remember%20Everyone%20Deployed"
-        },
-        {
-          "title": "Salt Lake",
-          "link": "https://twitter.com/search?q=Salt%20Lake"
-        },
-        {
-          "title": "east la",
-          "link": "https://twitter.com/search?q=east%20la"
-        },
-        {
-          "title": "Happy Friyay",
-          "link": "https://twitter.com/search?q=Happy%20Friyay"
-        },
-        {
-          "title": "laura lee",
-          "link": "https://twitter.com/search?q=laura%20lee"
+          "title": "east LA",
+          "link": "https://twitter.com/search?q=east%20LA"
         }
       ],
-      "updated_at": "2026-11-20T12:47:09Z",
-      "updated_at_cst": "2026-11-20 20:47:09 CST"
+      "updated_at": "2026-11-20T13:47:08Z",
+      "updated_at_cst": "2026-11-20 21:47:08 CST"
     }
   },
   "browser": {
