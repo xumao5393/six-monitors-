@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-20T17:47:08Z",
-  "fetched_at_cst": "2026-11-21 01:47:08 CST",
-  "checked_at": "2026-11-20T17:47:08Z",
-  "checked_at_cst": "2026-11-21 01:47:08 CST",
+  "fetched_at": "2026-11-20T18:47:09Z",
+  "fetched_at_cst": "2026-11-21 02:47:09 CST",
+  "checked_at": "2026-11-20T18:47:09Z",
+  "checked_at_cst": "2026-11-21 02:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "spy stock",
-          "traffic": "2000+",
+          "title": "colts depth chart",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "billie eilish",
+          "title": "bowen yang",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "davante adams",
+          "title": "medicare part b premium hike 2027",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "meta stock price",
+          "title": "joey bart",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "trump press conference",
-          "traffic": "1000+",
+          "title": "taylorswift",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "green bay vs florida state",
-          "traffic": "1000+",
+          "title": "skipp townsend",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "qqq",
+          "title": "brandon smith",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "taylor swift",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "marco rubio",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "voo",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "qqq stock",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "costco stock",
-          "traffic": "20000+",
+          "title": "temple basketball",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,23 @@
       "http": 200,
       "items": [
         {
+          "title": "美股",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "陳家碧",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "qqq",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "riemann hypothesis",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -106,16 +116,6 @@
           "title": "周嘉洛",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "和合圖",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "黃曼凝",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,23 +124,33 @@
       "http": 200,
       "items": [
         {
-          "title": "美股大跌",
-          "traffic": "5000+",
+          "title": "俄羅斯",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "riemann hypothesis",
+          "title": "美股大跌",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "vix",
+          "title": "riemann hypothesis",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "苗栗縣長候選人",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "恐慌指數",
-          "traffic": "200+",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "vix",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -154,11 +164,6 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "中壢寶雅",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "新竹市長候選人",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -166,11 +171,6 @@
         {
           "title": "btc",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "黎曼猜想",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
