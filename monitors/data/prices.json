@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-20T09:47:13Z",
-  "fetched_at_cst": "2026-11-20 17:47:13 CST",
-  "checked_at": "2026-11-20T09:47:13Z",
-  "checked_at_cst": "2026-11-20 17:47:13 CST",
+  "fetched_at": "2026-11-20T10:47:09Z",
+  "fetched_at_cst": "2026-11-20 18:47:09 CST",
+  "checked_at": "2026-11-20T10:47:09Z",
+  "checked_at_cst": "2026-11-20 18:47:09 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -216,8 +216,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash-1017",
       "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
-      "prompt_per_m": 0.3,
-      "completion_per_m": 1.2,
+      "prompt_per_m": 0.15,
+      "completion_per_m": 0.6,
       "context_length": 1048576
     },
     {
@@ -14152,8 +14152,8 @@
         "completion_per_m": 5.583
       },
       "deepseek/deepseek-v4.1-flash-1017": {
-        "prompt_per_m": 0.3,
-        "completion_per_m": 1.2
+        "prompt_per_m": 0.15,
+        "completion_per_m": 0.6
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
         "prompt_per_m": 0.035,

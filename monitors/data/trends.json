@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-20T09:47:13Z",
-  "fetched_at_cst": "2026-11-20 17:47:13 CST",
-  "checked_at": "2026-11-20T09:47:13Z",
-  "checked_at_cst": "2026-11-20 17:47:13 CST",
+  "fetched_at": "2026-11-20T10:47:09Z",
+  "fetched_at_cst": "2026-11-20 18:47:09 CST",
+  "checked_at": "2026-11-20T10:47:09Z",
+  "checked_at_cst": "2026-11-20 18:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,18 +12,38 @@
       "http": 200,
       "items": [
         {
-          "title": "sandisk stock",
+          "title": "new york yankees",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "stock market futures",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "google play",
           "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "national hurricane center",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "cruise ship",
-          "traffic": "200+",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "sandisk stock",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "playstation plus",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -37,28 +57,8 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "box",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bridge",
+          "title": "heavy metal",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tiger",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "mobland season 3",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "train",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -73,8 +73,13 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "陳庭欣",
+          "title": "張宇",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "陳庭欣",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -111,11 +116,6 @@
           "title": "軍事演習",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "盧偉力",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,8 +124,23 @@
       "http": 200,
       "items": [
         {
-          "title": "遠大售票",
-          "traffic": "5000+",
+          "title": "投票日",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "合歡山",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "追加 預算",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "遠大",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -150,26 +165,11 @@
         },
         {
           "title": "台 股 斷 頭",
-          "traffic": "5000+",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "何欣純",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "洋流誌",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "日經平均指數",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "郭忠祐",
+          "title": "mama直播",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
