@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-20T20:09:22Z",
-  "fetched_at_cst": "2026-11-21 04:09:22 CST",
-  "checked_at": "2026-11-20T20:09:22Z",
-  "checked_at_cst": "2026-11-21 04:09:22 CST",
+  "fetched_at": "2026-11-20T20:47:11Z",
+  "fetched_at_cst": "2026-11-21 04:47:11 CST",
+  "checked_at": "2026-11-20T20:47:11Z",
+  "checked_at_cst": "2026-11-21 04:47:11 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "harry kane",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "why is nvidia stock going down",
+          "title": "dell stock",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "posiciones de al-ahli saudi contra al-nassr",
+          "title": "meta stock",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "daniil medvedev",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "nasdaq",
-          "traffic": "20000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "smh stock",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "troyes vs le havre",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "purdue professor dead",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "athletic - rcd espanyol",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "fractured fibula",
+          "title": "virginia tech vs northwestern",
           "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "nolan gorman",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "is taylor swift pregnant",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "apple stock price",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "farrah aldjufrie",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "kathy hochul food additive veto",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "wall street hard landing risk forecast",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "tomasz kosowski",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -109,7 +109,7 @@
         },
         {
           "title": "vix",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,12 +124,7 @@
       "http": 200,
       "items": [
         {
-          "title": "美股新聞",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "ai",
+          "title": "川普",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
@@ -139,13 +134,8 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "魏嘉賢",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "qqq",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -171,6 +161,16 @@
         {
           "title": "vix恐慌指數",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "花蓮縣長候選人",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "riemann hypothesis",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
