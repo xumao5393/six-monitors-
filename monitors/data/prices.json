@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-20T03:08:40Z",
-  "fetched_at_cst": "2026-11-20 11:08:40 CST",
-  "checked_at": "2026-11-20T03:08:40Z",
-  "checked_at_cst": "2026-11-20 11:08:40 CST",
+  "fetched_at": "2026-11-20T03:47:07Z",
+  "fetched_at_cst": "2026-11-20 11:47:07 CST",
+  "checked_at": "2026-11-20T03:47:07Z",
+  "checked_at_cst": "2026-11-20 11:47:07 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -223,8 +223,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash-1017:batch",
       "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
-      "prompt_per_m": 0.036,
-      "completion_per_m": 0.15,
+      "prompt_per_m": 0.035,
+      "completion_per_m": 0.149,
       "context_length": 1048576
     },
     {
@@ -419,8 +419,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash",
       "name": "DeepSeek: DeepSeek V4.1 Flash",
-      "prompt_per_m": 0.051,
-      "completion_per_m": 0.567,
+      "prompt_per_m": 0.3,
+      "completion_per_m": 1.2,
       "context_length": 1048576
     },
     {
@@ -510,15 +510,15 @@
     {
       "id": "z-ai/glm-5.3-flash",
       "name": "Z.ai: GLM 5.3 Flash",
-      "prompt_per_m": 0.15,
-      "completion_per_m": 0.5,
+      "prompt_per_m": 0.0399,
+      "completion_per_m": 0.0784,
       "context_length": 1048576
     },
     {
       "id": "z-ai/glm-5.3-flash:batch",
       "name": "Z.ai: GLM 5.3 Flash (batch)",
-      "prompt_per_m": 0.024,
-      "completion_per_m": 0.069,
+      "prompt_per_m": 0.023,
+      "completion_per_m": 0.068,
       "context_length": 1048576
     },
     {
@@ -538,8 +538,8 @@
     {
       "id": "z-ai/glm-5.3:batch",
       "name": "Z.ai: GLM 5.3 (batch)",
-      "prompt_per_m": 0.281,
-      "completion_per_m": 1.25,
+      "prompt_per_m": 0.28,
+      "completion_per_m": 1.249,
       "context_length": 1048576
     },
     {
@@ -608,8 +608,8 @@
     {
       "id": "deepseek/deepseek-v4-flash-0731",
       "name": "DeepSeek: DeepSeek V4 Flash 0731",
-      "prompt_per_m": 0.1,
-      "completion_per_m": 0.3,
+      "prompt_per_m": 0.14,
+      "completion_per_m": 0.23,
       "context_length": 1048576
     },
     {
@@ -1993,33 +1993,19 @@
     }
   ],
   "models_dev_models": {
-    "google/gemini-4-hydrogen": {
-      "provider": "google",
-      "id": "gemini-4-hydrogen",
-      "name": "Gemini 4 Hydrogen",
-      "input_per_m": 1.5,
-      "output_per_m": 7.5
+    "anthropic/claude-opus-4-5-20251101": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5-20251101",
+      "name": "Claude Opus 4.5",
+      "input_per_m": 5,
+      "output_per_m": 25
     },
-    "google/gemini-4-neon": {
-      "provider": "google",
-      "id": "gemini-4-neon",
-      "name": "Gemini 4 Neon",
-      "input_per_m": 3,
-      "output_per_m": 15
-    },
-    "google/gemini-4-carbon": {
-      "provider": "google",
-      "id": "gemini-4-carbon",
-      "name": "Gemini 4 Carbon",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "google/gemini-4-argon": {
-      "provider": "google",
-      "id": "gemini-4-argon",
-      "name": "Gemini 4 Argon",
-      "input_per_m": 2,
-      "output_per_m": 10
+    "anthropic/claude-opus-4-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5",
+      "name": "Claude Opus 4.5 (latest)",
+      "input_per_m": 5,
+      "output_per_m": 25
     },
     "anthropic/claude-opus-5": {
       "provider": "anthropic",
@@ -2034,20 +2020,6 @@
       "name": "Claude Opus 5.5",
       "input_per_m": 4,
       "output_per_m": 20
-    },
-    "anthropic/claude-opus-4-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5",
-      "name": "Claude Opus 4.5 (latest)",
-      "input_per_m": 5,
-      "output_per_m": 25
-    },
-    "anthropic/claude-opus-4-5-20251101": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5-20251101",
-      "name": "Claude Opus 4.5",
-      "input_per_m": 5,
-      "output_per_m": 25
     },
     "deepseek/deepseek-v4-pro": {
       "provider": "deepseek",
@@ -2070,12 +2042,33 @@
       "input_per_m": 0.15,
       "output_per_m": 0.6
     },
-    "moonshotai/kimi-k3.1-pro-highspeed": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro-highspeed",
-      "name": "Kimi K3.1 Pro Highspeed",
-      "input_per_m": 4,
-      "output_per_m": 20
+    "google/gemini-4-argon": {
+      "provider": "google",
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "google/gemini-4-hydrogen": {
+      "provider": "google",
+      "id": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "input_per_m": 1.5,
+      "output_per_m": 7.5
+    },
+    "google/gemini-4-neon": {
+      "provider": "google",
+      "id": "gemini-4-neon",
+      "name": "Gemini 4 Neon",
+      "input_per_m": 3,
+      "output_per_m": 15
+    },
+    "google/gemini-4-carbon": {
+      "provider": "google",
+      "id": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
+      "input_per_m": 2,
+      "output_per_m": 10
     },
     "moonshotai/kimi-k3": {
       "provider": "moonshotai",
@@ -2091,12 +2084,12 @@
       "input_per_m": 2,
       "output_per_m": 10
     },
-    "openai/gpt-6.1-sol": {
-      "provider": "openai",
-      "id": "gpt-6.1-sol",
-      "name": "GPT-6.1 Sol",
-      "input_per_m": 2,
-      "output_per_m": 10
+    "moonshotai/kimi-k3.1-pro-highspeed": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro-highspeed",
+      "name": "Kimi K3.1 Pro Highspeed",
+      "input_per_m": 4,
+      "output_per_m": 20
     },
     "openai/gpt-6.1-terra": {
       "provider": "openai",
@@ -2104,6 +2097,13 @@
       "name": "GPT-6.1 Terra",
       "input_per_m": 1,
       "output_per_m": 5
+    },
+    "openai/gpt-6.1-sol": {
+      "provider": "openai",
+      "id": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "input_per_m": 2,
+      "output_per_m": 10
     }
   },
   "history": {
@@ -14163,8 +14163,8 @@
         "completion_per_m": 1.2
       },
       "deepseek/deepseek-v4.1-flash-1017:batch": {
-        "prompt_per_m": 0.036,
-        "completion_per_m": 0.15
+        "prompt_per_m": 0.035,
+        "completion_per_m": 0.149
       },
       "google/gemini-4-argon": {
         "prompt_per_m": 2.0,
@@ -14275,8 +14275,8 @@
         "completion_per_m": 1.25
       },
       "deepseek/deepseek-v4.1-flash": {
-        "prompt_per_m": 0.051,
-        "completion_per_m": 0.567
+        "prompt_per_m": 0.3,
+        "completion_per_m": 1.2
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "prompt_per_m": 0.05,
@@ -14327,12 +14327,12 @@
         "completion_per_m": 0.47
       },
       "z-ai/glm-5.3-flash": {
-        "prompt_per_m": 0.15,
-        "completion_per_m": 0.5
+        "prompt_per_m": 0.0399,
+        "completion_per_m": 0.0784
       },
       "z-ai/glm-5.3-flash:batch": {
-        "prompt_per_m": 0.024,
-        "completion_per_m": 0.069
+        "prompt_per_m": 0.023,
+        "completion_per_m": 0.068
       },
       "deepseek/deepseek-v4-flash-vision-exp": {
         "prompt_per_m": 0.44,
@@ -14343,8 +14343,8 @@
         "completion_per_m": 1.4
       },
       "z-ai/glm-5.3:batch": {
-        "prompt_per_m": 0.281,
-        "completion_per_m": 1.25
+        "prompt_per_m": 0.28,
+        "completion_per_m": 1.249
       },
       "qwen/qwen3.8-27b": {
         "prompt_per_m": 0.06,
@@ -14383,8 +14383,8 @@
         "completion_per_m": 4.8
       },
       "deepseek/deepseek-v4-flash-0731": {
-        "prompt_per_m": 0.1,
-        "completion_per_m": 0.3
+        "prompt_per_m": 0.14,
+        "completion_per_m": 0.23
       },
       "deepseek/deepseek-v4-flash-0731:batch": {
         "prompt_per_m": 0.048,
