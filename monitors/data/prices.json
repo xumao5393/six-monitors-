@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-20T19:47:08Z",
-  "fetched_at_cst": "2026-11-21 03:47:08 CST",
-  "checked_at": "2026-11-20T19:47:08Z",
-  "checked_at_cst": "2026-11-21 03:47:08 CST",
+  "fetched_at": "2026-11-20T20:09:22Z",
+  "fetched_at_cst": "2026-11-21 04:09:22 CST",
+  "checked_at": "2026-11-20T20:09:22Z",
+  "checked_at_cst": "2026-11-21 04:09:22 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 477,
+      "total_models": 476,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
@@ -524,8 +524,8 @@
     {
       "id": "deepseek/deepseek-v4-flash-vision-exp",
       "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
-      "prompt_per_m": 0.44,
-      "completion_per_m": 1.32,
+      "prompt_per_m": 0.2156,
+      "completion_per_m": 0.6468,
       "context_length": 1048576
     },
     {
@@ -1630,8 +1630,8 @@
     {
       "id": "openai/gpt-oss-20b",
       "name": "OpenAI: gpt-oss-20b",
-      "prompt_per_m": 0.018,
-      "completion_per_m": 0.09,
+      "prompt_per_m": 0.017,
+      "completion_per_m": 0.085,
       "context_length": 131072
     },
     {
@@ -1833,8 +1833,8 @@
     {
       "id": "deepseek/deepseek-chat-v3-0324",
       "name": "DeepSeek: DeepSeek V3 0324",
-      "prompt_per_m": 0.29,
-      "completion_per_m": 1.14,
+      "prompt_per_m": 0.25,
+      "completion_per_m": 1.0,
       "context_length": 163840
     },
     {
@@ -15446,8 +15446,8 @@
         "completion_per_m": 0.068
       },
       "deepseek/deepseek-v4-flash-vision-exp": {
-        "prompt_per_m": 0.44,
-        "completion_per_m": 1.32
+        "prompt_per_m": 0.2156,
+        "completion_per_m": 0.6468
       },
       "z-ai/glm-5.3": {
         "prompt_per_m": 0.0699,
@@ -16078,8 +16078,8 @@
         "completion_per_m": 0.136
       },
       "openai/gpt-oss-20b": {
-        "prompt_per_m": 0.018,
-        "completion_per_m": 0.09
+        "prompt_per_m": 0.017,
+        "completion_per_m": 0.085
       },
       "openai/gpt-oss-20b:batch": {
         "prompt_per_m": 0.024,
@@ -16194,8 +16194,8 @@
         "completion_per_m": 0.3
       },
       "deepseek/deepseek-chat-v3-0324": {
-        "prompt_per_m": 0.29,
-        "completion_per_m": 1.14
+        "prompt_per_m": 0.25,
+        "completion_per_m": 1.0
       },
       "qwen/qwen2.5-vl-72b-instruct": {
         "prompt_per_m": 0.8,

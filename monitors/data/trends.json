@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-20T19:47:08Z",
-  "fetched_at_cst": "2026-11-21 03:47:08 CST",
-  "checked_at": "2026-11-20T19:47:08Z",
-  "checked_at_cst": "2026-11-21 03:47:08 CST",
+  "fetched_at": "2026-11-20T20:09:22Z",
+  "fetched_at_cst": "2026-11-21 04:09:22 CST",
+  "checked_at": "2026-11-20T20:09:22Z",
+  "checked_at_cst": "2026-11-21 04:09:22 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,8 +12,28 @@
       "http": 200,
       "items": [
         {
+          "title": "harry kane",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "why is nvidia stock going down",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "posiciones de al-ahli saudi contra al-nassr",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "daniil medvedev",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "nasdaq",
-          "traffic": "10000+",
+          "traffic": "20000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -22,43 +42,23 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "purdue professor dead",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
           "title": "troyes vs le havre",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "athletic - rcd espanyol",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "elise stefanik",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "eva xie",
-          "traffic": "2000+",
+          "title": "purdue professor dead",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "russia",
+          "title": "athletic - rcd espanyol",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "fractured fibula",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bayern vs köln",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bayern - colonia",
-          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,16 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "拜仁對科隆",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "阿爾阿里對艾納斯",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "阮浩棕",
           "traffic": "100+",
@@ -106,16 +116,6 @@
           "title": "飢餓遊戲",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "香港繽紛冬日巡禮",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "gta6 攻略",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -123,6 +123,21 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "美股新聞",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "ai",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "道瓊",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "魏嘉賢",
           "traffic": "100+",
@@ -139,6 +154,11 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "俄羅斯",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "sp500",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -150,26 +170,6 @@
         },
         {
           "title": "vix恐慌指數",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "riemann hypothesis",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "vix",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "恐慌指數",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "比特幣價格",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
