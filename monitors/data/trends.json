@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-20T07:47:09Z",
-  "fetched_at_cst": "2026-11-20 15:47:09 CST",
-  "checked_at": "2026-11-20T07:47:09Z",
-  "checked_at_cst": "2026-11-20 15:47:09 CST",
+  "fetched_at": "2026-11-20T08:47:08Z",
+  "fetched_at_cst": "2026-11-20 16:47:08 CST",
+  "checked_at": "2026-11-20T08:47:08Z",
+  "checked_at_cst": "2026-11-20 16:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -11,6 +11,41 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "latest news",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "criminal defense lawyer",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "mobland season 2 episode 10",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "karely ruiz",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "app",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "one piece 1199",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "will gta 6 have online",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
         {
           "title": "daycare",
           "traffic": "500+",
@@ -23,42 +58,7 @@
         },
         {
           "title": "truck accident lawyer",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "5.4 magnitude earthquake",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "car accident attorney",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "aleksandre topuria",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "pg&e",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ksbw",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "san diego",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "apple store black friday deals",
-          "traffic": "2000+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -69,7 +69,7 @@
       "items": [
         {
           "title": "mama 2026",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,6 +124,16 @@
       "http": 200,
       "items": [
         {
+          "title": "何欣純",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "洋流誌",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "日經平均指數",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -135,41 +145,31 @@
         },
         {
           "title": "郭忠祐",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "2368",
-          "traffic": "2000+",
+          "title": "三大法人",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "三大法人買賣超",
+          "title": "拓元售票",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "2026mama",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2059",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "追加預算",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "6213",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "2449",
+          "title": "拓元售票系統",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "00631l",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
