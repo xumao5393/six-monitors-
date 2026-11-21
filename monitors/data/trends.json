@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-21T20:47:08Z",
-  "fetched_at_cst": "2026-11-22 04:47:08 CST",
-  "checked_at": "2026-11-21T20:47:08Z",
-  "checked_at_cst": "2026-11-22 04:47:08 CST",
+  "fetched_at": "2026-11-21T21:47:16Z",
+  "fetched_at_cst": "2026-11-22 05:47:16 CST",
+  "checked_at": "2026-11-21T21:47:16Z",
+  "checked_at_cst": "2026-11-22 05:47:16 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "bear bachmeier",
+          "title": "i play rocky cast",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "bret bielema",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "indiana fever",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "byrum brown",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "colin simmons",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "mbappe",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "nathan mackinnon",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "syracuse basketball",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "early black friday sales",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "box office",
-          "traffic": "50000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "chicago fire season 15",
+          "title": "wake forest college football standings",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "carlos ulberg",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "nebraska football coach",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "76ers vs milwaukee bucks match player stats",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bucks",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "army football",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "miami tornado warning",
-          "traffic": "20000+",
+          "title": "bob chesney",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "real madrid",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "psg",
           "traffic": "100+",
@@ -99,7 +104,7 @@
         },
         {
           "title": "carlos alcaraz",
-          "traffic": "200+",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -111,11 +116,6 @@
           "title": "般尼茅夫對森林",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "熱刺對葉士域治",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -123,6 +123,16 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "皇家馬德里 對 維戈塞爾塔",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "76ers vs bucks",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "法甲",
           "traffic": "100+",
@@ -144,13 +154,13 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "意甲",
-          "traffic": "100+",
+          "title": "mama 2026 得獎名單",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "mama 2026 得獎名單",
-          "traffic": "500+",
+          "title": "意甲",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -160,16 +170,6 @@
         },
         {
           "title": "尼斯 對 巴黎聖日耳曼",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "cos",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "atp finals",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
