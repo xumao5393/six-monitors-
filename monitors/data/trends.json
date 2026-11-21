@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-21T01:28:38Z",
-  "fetched_at_cst": "2026-11-21 09:28:38 CST",
-  "checked_at": "2026-11-21T01:28:38Z",
-  "checked_at_cst": "2026-11-21 09:28:38 CST",
+  "fetched_at": "2026-11-21T01:47:07Z",
+  "fetched_at_cst": "2026-11-21 09:47:07 CST",
+  "checked_at": "2026-11-21T01:47:07Z",
+  "checked_at_cst": "2026-11-21 09:47:07 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "nick cannon",
+          "title": "suns vs jazz",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "deportivo cali - millonarios",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "kawhi leonard",
+          "title": "haití",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "allen graves",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "georgia high school football scores",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "new mexico vs wyoming",
-          "traffic": "2000+",
+          "title": "catching fire",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "jackie tohn",
-          "traffic": "2000+",
+          "title": "google nest app",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "seton hall vs uconn",
-          "traffic": "2000+",
+          "title": "uconn women's basketball",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "madden cast",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "badger basketball",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "deportación",
+          "title": "final jeopardy today",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "dyson daniels",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "dabo swinney",
+          "title": "campbell vs kansas state",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -73,6 +73,11 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "飲食",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "澳門賽車2026",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -83,13 +88,8 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "軍事 演習",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
           "title": "投資",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,13 +124,18 @@
       "http": 200,
       "items": [
         {
+          "title": "中國人民解放軍",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "甘澍宮",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "籃網 對 魔術",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -150,12 +155,12 @@
         },
         {
           "title": "騎士 對 溜馬",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "活塞 對 暴龍",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -166,11 +171,6 @@
         {
           "title": "世界郵展",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "許淑華",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
