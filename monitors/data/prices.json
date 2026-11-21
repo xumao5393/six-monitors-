@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-21T03:47:10Z",
-  "fetched_at_cst": "2026-11-21 11:47:10 CST",
-  "checked_at": "2026-11-21T03:47:10Z",
-  "checked_at_cst": "2026-11-21 11:47:10 CST",
+  "fetched_at": "2026-11-21T04:47:08Z",
+  "fetched_at_cst": "2026-11-21 12:47:08 CST",
+  "checked_at": "2026-11-21T04:47:08Z",
+  "checked_at_cst": "2026-11-21 12:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 478,
+      "total_models": 476,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
