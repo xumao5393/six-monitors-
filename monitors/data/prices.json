@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-20T23:47:12Z",
-  "fetched_at_cst": "2026-11-21 07:47:12 CST",
-  "checked_at": "2026-11-20T23:47:12Z",
-  "checked_at_cst": "2026-11-21 07:47:12 CST",
+  "fetched_at": "2026-11-21T00:47:07Z",
+  "fetched_at_cst": "2026-11-21 08:47:07 CST",
+  "checked_at": "2026-11-21T00:47:07Z",
+  "checked_at_cst": "2026-11-21 08:47:07 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 476,
+      "total_models": 477,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
@@ -419,8 +419,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash",
       "name": "DeepSeek: DeepSeek V4.1 Flash",
-      "prompt_per_m": 0.3,
-      "completion_per_m": 1.2,
+      "prompt_per_m": 0.0507,
+      "completion_per_m": 0.2028,
       "context_length": 1048576
     },
     {
@@ -1658,8 +1658,8 @@
     {
       "id": "qwen/qwen3-coder-30b-a3b-instruct",
       "name": "Qwen: Qwen3 Coder 30B A3B Instruct",
-      "prompt_per_m": 0.15,
-      "completion_per_m": 0.6,
+      "prompt_per_m": 0.07,
+      "completion_per_m": 0.28,
       "context_length": 262144
     },
     {
@@ -1986,19 +1986,12 @@
     }
   ],
   "models_dev_models": {
-    "openai/gpt-6.1-sol": {
-      "provider": "openai",
-      "id": "gpt-6.1-sol",
-      "name": "GPT-6.1 Sol",
+    "moonshotai/kimi-k3.1-pro": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
       "input_per_m": 2,
       "output_per_m": 10
-    },
-    "openai/gpt-6.1-terra": {
-      "provider": "openai",
-      "id": "gpt-6.1-terra",
-      "name": "GPT-6.1 Terra",
-      "input_per_m": 1,
-      "output_per_m": 5
     },
     "moonshotai/kimi-k3": {
       "provider": "moonshotai",
@@ -2007,19 +2000,19 @@
       "input_per_m": 3,
       "output_per_m": 15
     },
-    "moonshotai/kimi-k3.1-pro": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro",
-      "name": "Kimi K3.1 Pro",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
     "moonshotai/kimi-k3.1-pro-highspeed": {
       "provider": "moonshotai",
       "id": "kimi-k3.1-pro-highspeed",
       "name": "Kimi K3.1 Pro Highspeed",
       "input_per_m": 4,
       "output_per_m": 20
+    },
+    "anthropic/claude-opus-4-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5",
+      "name": "Claude Opus 4.5 (latest)",
+      "input_per_m": 5,
+      "output_per_m": 25
     },
     "anthropic/claude-opus-4-5-20251101": {
       "provider": "anthropic",
@@ -2042,24 +2035,31 @@
       "input_per_m": 5,
       "output_per_m": 25
     },
-    "anthropic/claude-opus-4-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5",
-      "name": "Claude Opus 4.5 (latest)",
-      "input_per_m": 5,
-      "output_per_m": 25
+    "openai/gpt-6.1-sol": {
+      "provider": "openai",
+      "id": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "input_per_m": 2,
+      "output_per_m": 10
     },
-    "deepseek/deepseek-v4-flash": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
+    "openai/gpt-6.1-terra": {
+      "provider": "openai",
+      "id": "gpt-6.1-terra",
+      "name": "GPT-6.1 Terra",
+      "input_per_m": 1,
+      "output_per_m": 5
     },
     "deepseek/deepseek-v4-flash-vision-exp": {
       "provider": "deepseek",
       "id": "deepseek-v4-flash-vision-exp",
       "name": "DeepSeek V4 Flash Vision Exp",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
+    },
+    "deepseek/deepseek-v4-flash": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
       "input_per_m": 0.15,
       "output_per_m": 0.6
     },
@@ -2084,19 +2084,19 @@
       "input_per_m": 3,
       "output_per_m": 15
     },
-    "google/gemini-4-hydrogen": {
-      "provider": "google",
-      "id": "gemini-4-hydrogen",
-      "name": "Gemini 4 Hydrogen",
-      "input_per_m": 1.5,
-      "output_per_m": 7.5
-    },
     "google/gemini-4-argon": {
       "provider": "google",
       "id": "gemini-4-argon",
       "name": "Gemini 4 Argon",
       "input_per_m": 2,
       "output_per_m": 10
+    },
+    "google/gemini-4-hydrogen": {
+      "provider": "google",
+      "id": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "input_per_m": 1.5,
+      "output_per_m": 7.5
     }
   },
   "history": {
@@ -15386,8 +15386,8 @@
         "completion_per_m": 1.25
       },
       "deepseek/deepseek-v4.1-flash": {
-        "prompt_per_m": 0.3,
-        "completion_per_m": 1.2
+        "prompt_per_m": 0.0507,
+        "completion_per_m": 0.2028
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "prompt_per_m": 0.05,
@@ -16094,8 +16094,8 @@
         "completion_per_m": 37.5
       },
       "qwen/qwen3-coder-30b-a3b-instruct": {
-        "prompt_per_m": 0.15,
-        "completion_per_m": 0.6
+        "prompt_per_m": 0.07,
+        "completion_per_m": 0.28
       },
       "qwen/qwen3-30b-a3b-instruct-2507": {
         "prompt_per_m": 0.1,

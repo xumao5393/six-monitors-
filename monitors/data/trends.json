@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-20T23:47:12Z",
-  "fetched_at_cst": "2026-11-21 07:47:12 CST",
-  "checked_at": "2026-11-20T23:47:12Z",
-  "checked_at_cst": "2026-11-21 07:47:12 CST",
+  "fetched_at": "2026-11-21T00:47:07Z",
+  "fetched_at_cst": "2026-11-21 08:47:07 CST",
+  "checked_at": "2026-11-21T00:47:07Z",
+  "checked_at_cst": "2026-11-21 08:47:07 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "raptors vs pistons",
+          "title": "iowa vs xavier",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "pitt basketball",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "magic vs nets",
+          "title": "martha stewart",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "anthony bourdain",
+          "title": "trump portfolio palantir nvidia spacex trades",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "pancreatic cancer drug daraxonrasib",
+          "title": "puebla - san luis",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "marshall vs kentucky",
-          "traffic": "200+",
+          "title": "actor",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "jonathan rinderknecht",
-          "traffic": "5000+",
+          "title": "temblor en peru",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "sonia sotomayor",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "hornets vs hawks",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "johan oviedo",
+          "title": "peru earthquake",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "tifa lockhart unauthorized merchandise bust",
+          "title": "chernobyl",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "michigan hockey",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,13 +68,18 @@
       "http": 200,
       "items": [
         {
-          "title": "投資",
-          "traffic": "100+",
+          "title": "澳門賽車2026",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "澳門天氣",
-          "traffic": "100+",
+          "title": "軍事 演習",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "投資",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -93,27 +98,22 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "惠康",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "輝達",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "s&p 500",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "丁子朗",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "dow jones index",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "麥當勞",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "hk express",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "巴士",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
@@ -124,53 +124,53 @@
       "http": 200,
       "items": [
         {
-          "title": "spcx stock",
-          "traffic": "100+",
+          "title": "恐慌性拋售",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "護 盤",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "thời tiết",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "amd stock",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "vix指數",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "nvda",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "夜盤",
+          "title": "騎士 對 溜馬",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "台積電",
-          "traffic": "2000+",
+          "title": "活塞 對 暴龍",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "老農津貼",
+          "title": "南亞 科",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "費城半導體指數",
+          "title": "世界郵展",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "許淑華",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "飆車皮",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "kidzania taipei 奇薩尼亞台北",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "輝達",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "老鷹 對 黃蜂",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
