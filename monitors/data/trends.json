@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-21T23:47:09Z",
-  "fetched_at_cst": "2026-11-22 07:47:09 CST",
-  "checked_at": "2026-11-21T23:47:09Z",
-  "checked_at_cst": "2026-11-22 07:47:09 CST",
+  "fetched_at": "2026-11-22T00:47:16Z",
+  "fetched_at_cst": "2026-11-22 08:47:16 CST",
+  "checked_at": "2026-11-22T00:47:16Z",
+  "checked_at_cst": "2026-11-22 08:47:16 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "ty dieffenbach",
+          "title": "kyle whittingham",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "va tech football",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "chapecoense x cruzeiro",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tornado tracker",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "savion hiter",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "nick marsh",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "virginia tech vs miami fl",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "arizona vs kansas state",
+          "title": "pumas - monterrey",
           "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "capitals vs bruins",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "flyers vs canadiens",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "devils vs blues",
+          "title": "big 10",
           "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "best movies to stream right now",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "parma shooting",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "cal poly football",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "la tech football",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "grizzlies vs timberwolves",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "clippers vs mavericks",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,8 +68,13 @@
       "http": 200,
       "items": [
         {
+          "title": "浪漫 勇士",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "天气",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -83,7 +88,22 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "万千星辉贺台庆",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "巴菲特",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "陈彦廷",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "焦浩軒",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -96,26 +116,6 @@
           "title": "real madrid vs celta",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "la liga",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "weather today",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "皇馬",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "psg",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,13 +124,38 @@
       "http": 200,
       "items": [
         {
+          "title": "基隆捷運",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "尼克 對 拓荒者",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "klasemen real madrid vs celta",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "力積電",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "救護車",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "葉君璋",
-          "traffic": "500+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "先進封裝",
-          "traffic": "100+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -139,38 +164,13 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "sxmb",
+          "title": "多米尼克·巴洛",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "美光科技",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "辭職",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "月球",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "高盛",
+          "title": "年終賽",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "老農津貼",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "亞歷山大·茲維列夫",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
