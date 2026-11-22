@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-22T03:07:25Z",
-  "fetched_at_cst": "2026-11-22 11:07:25 CST",
-  "checked_at": "2026-11-22T03:07:25Z",
-  "checked_at_cst": "2026-11-22 11:07:25 CST",
+  "fetched_at": "2026-11-22T03:47:08Z",
+  "fetched_at_cst": "2026-11-22 11:47:08 CST",
+  "checked_at": "2026-11-22T03:47:08Z",
+  "checked_at_cst": "2026-11-22 11:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -2007,13 +2007,6 @@
       "input_per_m": 0.15,
       "output_per_m": 0.6
     },
-    "moonshotai/kimi-k3.1-pro": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro",
-      "name": "Kimi K3.1 Pro",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
     "moonshotai/kimi-k3": {
       "provider": "moonshotai",
       "id": "kimi-k3",
@@ -2028,26 +2021,12 @@
       "input_per_m": 4,
       "output_per_m": 20
     },
-    "openai/gpt-6.1-sol": {
-      "provider": "openai",
-      "id": "gpt-6.1-sol",
-      "name": "GPT-6.1 Sol",
+    "moonshotai/kimi-k3.1-pro": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
       "input_per_m": 2,
       "output_per_m": 10
-    },
-    "openai/gpt-6.1-terra": {
-      "provider": "openai",
-      "id": "gpt-6.1-terra",
-      "name": "GPT-6.1 Terra",
-      "input_per_m": 1,
-      "output_per_m": 5
-    },
-    "anthropic/claude-opus-5-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-5-5",
-      "name": "Claude Opus 5.5",
-      "input_per_m": 4,
-      "output_per_m": 20
     },
     "anthropic/claude-opus-4-5": {
       "provider": "anthropic",
@@ -2055,6 +2034,13 @@
       "name": "Claude Opus 4.5 (latest)",
       "input_per_m": 5,
       "output_per_m": 25
+    },
+    "anthropic/claude-opus-5-5": {
+      "provider": "anthropic",
+      "id": "claude-opus-5-5",
+      "name": "Claude Opus 5.5",
+      "input_per_m": 4,
+      "output_per_m": 20
     },
     "anthropic/claude-opus-4-5-20251101": {
       "provider": "anthropic",
@@ -2097,6 +2083,20 @@
       "name": "Gemini 4 Argon",
       "input_per_m": 2,
       "output_per_m": 10
+    },
+    "openai/gpt-6.1-sol": {
+      "provider": "openai",
+      "id": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "openai/gpt-6.1-terra": {
+      "provider": "openai",
+      "id": "gpt-6.1-terra",
+      "name": "GPT-6.1 Terra",
+      "input_per_m": 1,
+      "output_per_m": 5
     }
   },
   "history": {
