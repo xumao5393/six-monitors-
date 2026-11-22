@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-22T02:47:08Z",
-  "fetched_at_cst": "2026-11-22 10:47:08 CST",
-  "checked_at": "2026-11-22T02:47:08Z",
-  "checked_at_cst": "2026-11-22 10:47:08 CST",
+  "fetched_at": "2026-11-22T03:07:25Z",
+  "fetched_at_cst": "2026-11-22 11:07:25 CST",
+  "checked_at": "2026-11-22T03:07:25Z",
+  "checked_at_cst": "2026-11-22 11:07:25 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "product recall",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "josh hart",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "emergency operations center",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "oklahoma st vs arizona state",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "florida tornado warnings",
-          "traffic": "50000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "morelia - atlético la paz",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tom latham",
+          "title": "nhl standings",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "nate bargatze",
+          "title": "mikal bridges",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "pumas",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "knicks score",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "vanessa dibernardo",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "tigres - américa",
-          "traffic": "5000+",
+          "title": "zach edey",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "wild vs canucks",
+          "title": "hawaii vs nevada",
           "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "donovan clingan",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "wemby",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "toronto maple leafs",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -124,6 +124,11 @@
       "http": 200,
       "items": [
         {
+          "title": "李灝宇",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "國王 對 塞爾提克",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -136,6 +141,11 @@
         {
           "title": "英伟达",
           "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "集邦科技",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -160,17 +170,7 @@
         },
         {
           "title": "光 通訊",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "吳德榮",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "黄仁勋",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
