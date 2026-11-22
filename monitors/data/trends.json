@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-22T18:30:43Z",
-  "fetched_at_cst": "2026-11-23 02:30:43 CST",
-  "checked_at": "2026-11-22T18:30:43Z",
-  "checked_at_cst": "2026-11-23 02:30:43 CST",
+  "fetched_at": "2026-11-22T18:47:10Z",
+  "fetched_at_cst": "2026-11-23 02:47:10 CST",
+  "checked_at": "2026-11-22T18:47:10Z",
+  "checked_at_cst": "2026-11-23 02:47:10 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "is taylor swift at the chiefs game today",
-          "traffic": "500+",
+          "title": "emmett johnson",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "tyler shough",
+          "title": "bradley cooper",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "dallas cowboys game today",
+          "title": "saquon barkley",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "rashod bateman",
+          "title": "kavontae turpin",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "detective",
+          "title": "justin reid",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "tampa bay buccaneers vs detroit lions match player stats",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ollie gordon",
-          "traffic": "200+",
+          "title": "mr irrelevant",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "dolphins qb",
-          "traffic": "200+",
+          "title": "john tuggle",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "max hurleman",
-          "traffic": "500+",
+          "title": "cliff booth",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "hector herrera",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "is kenneth walker playing this week",
-          "traffic": "500+",
+          "title": "tommy doman",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,13 @@
       "http": 200,
       "items": [
         {
-          "title": "atp finals",
-          "traffic": "100+",
+          "title": "epl",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "epl",
-          "traffic": "500+",
+          "title": "atp finals",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -84,12 +84,17 @@
         },
         {
           "title": "利物浦",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "liverpool vs man utd",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "第四幕電影",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -110,11 +115,6 @@
         {
           "title": "barca",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "三隻小豬",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
