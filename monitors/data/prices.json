@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-22T12:47:08Z",
-  "fetched_at_cst": "2026-11-22 20:47:08 CST",
-  "checked_at": "2026-11-22T12:47:08Z",
-  "checked_at_cst": "2026-11-22 20:47:08 CST",
+  "fetched_at": "2026-11-22T13:47:08Z",
+  "fetched_at_cst": "2026-11-22 21:47:08 CST",
+  "checked_at": "2026-11-22T13:47:08Z",
+  "checked_at_cst": "2026-11-22 21:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -510,8 +510,8 @@
     {
       "id": "z-ai/glm-5.3-flash",
       "name": "Z.ai: GLM 5.3 Flash",
-      "prompt_per_m": 0.15,
-      "completion_per_m": 0.5,
+      "prompt_per_m": 0.042,
+      "completion_per_m": 0.184,
       "context_length": 1048576
     },
     {
@@ -16556,8 +16556,8 @@
         "completion_per_m": 0.47
       },
       "z-ai/glm-5.3-flash": {
-        "prompt_per_m": 0.15,
-        "completion_per_m": 0.5
+        "prompt_per_m": 0.042,
+        "completion_per_m": 0.184
       },
       "z-ai/glm-5.3-flash:batch": {
         "prompt_per_m": 0.023,
