@@ -1,6 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>就业监测</title><script src="./chart.umd.min.js"></script>
-<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
@@ -151,7 +150,7 @@ header{background:linear-gradient(90deg,#0f2440,#1d3a5f,#33507d);color:#fff;box-
 <div>⑤ 招聘平台指数 / 薪资（智联、BOSS、猎聘）— <span class="badge missing">不进首版</span>：反爬，自动抓不到；按季度人工引用、标注「平台口径」，不与官方直接比。</div>
 </div><p class="note">更新方式：人工为主。按发布日历跑提醒型工作流，只发现不解析；发布日当天人工录入，隔天复核。主源失败演练（试运营第 3 周）：模拟 stats.gov.cn 打不通 + data.stats.gov.cn 403，改走转载印证流程。</p></div>
 <div class="card"><h3 class="section-title">内容钩子（可直接用的选题）</h3><p class="note">「9 月青年失业率 18.0%，比 8 月回落 0.9 个百分点，但仍高于去年同期的 17.7%」／「前三季度新增就业 1052 万人，完成全年目标 87.7%」／「2023 年 6 月青年失业率旧口径峰值 21.3%，新口径从 2023 年 12 月起算——跨口径不能直接比」</p></div>
-<p class="note">数据口径：本页全部为 2026-11-22 核实值；10 月总量（2026-11-16）与分年龄组（2026-11-18）均已发布并录入；回填表 C 级，待与 NBS 数据发布库逐月核对；未核实的写「未核实」，不编数。页面设计：深蓝标题区、琥珀点缀；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底；中文 only，首版不做英文。</p>
+<p class="note">数据口径：本页全部为 2026-11-22 核实值；10 月总量（2026-11-16）与分年龄组（2026-11-18）均已发布并录入；回填表 C 级，待与 NBS 数据发布库逐月核对；未核实的写「未核实」，不编数。页面设计：深蓝标题区、琥珀点缀；图表为 Chart.js 本地文件 chart.umd.min.js，无外部依赖；加载失败时显示提示，不自动切外部源；中文 only，首版不做英文。</p>
 </main>
 <script>
 /* 就业监测 19号 · 数据：月度回填表 2023-09 → 2026-10（总量/16–24/25–29/30–59/31大城市/周均工时） */
@@ -187,7 +186,20 @@ function lineChart(id,series){
     return {label:s.label,data:DATA.map(function(r){return r[s.col];}),borderColor:s.color,backgroundColor:s.color,fill:false,tension:0.25,pointRadius:2,spanGaps:false};
   })},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}},scales:{y:{ticks:{callback:function(v){return v+"%";}}}}}});
 }
-if(window.Chart){lineChart("chartMain",[{label:"总量",col:1,color:"#1e40af"},{label:"16–24岁",col:2,color:"#b45309"}]);lineChart("chartAux",[{label:"25–29岁",col:3,color:"#047857"},{label:"30–59岁",col:4,color:"#3730a3"}]);}
-else{window.addEventListener("load",function(){setTimeout(function(){lineChart("chartMain",[{label:"总量",col:1,color:"#1e40af"},{label:"16–24岁",col:2,color:"#b45309"}]);lineChart("chartAux",[{label:"25–29岁",col:3,color:"#047857"},{label:"30–59岁",col:4,color:"#3730a3"}]);},800);});}
+function draw(){
+  lineChart("chartMain",[{label:"总量",col:1,color:"#1e40af"},{label:"16–24岁",col:2,color:"#b45309"}]);
+  lineChart("chartAux",[{label:"25–29岁",col:3,color:"#047857"},{label:"30–59岁",col:4,color:"#3730a3"}]);
+}
+function chartFail(){
+  ["chartMain","chartAux"].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el&&!el.parentNode.querySelector(".chart-fail")){
+      var p=document.createElement("p");p.className="note chart-fail";p.style.color="#b91c1c";p.textContent="图表加载失败，请刷新";
+      el.parentNode.appendChild(p);
+    }
+  });
+}
+if(window.Chart){draw();}
+else{window.addEventListener("load",function(){setTimeout(function(){if(window.Chart){draw();}else{chartFail();}},800);});}
 </script>
 </body></html>
