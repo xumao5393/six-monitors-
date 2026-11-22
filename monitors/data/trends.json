@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-22T11:15:05Z",
-  "fetched_at_cst": "2026-11-22 19:15:05 CST",
-  "checked_at": "2026-11-22T11:15:05Z",
-  "checked_at_cst": "2026-11-22 19:15:05 CST",
+  "fetched_at": "2026-11-22T11:47:08Z",
+  "fetched_at_cst": "2026-11-22 19:47:08 CST",
+  "checked_at": "2026-11-22T11:47:08Z",
+  "checked_at_cst": "2026-11-22 19:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,12 +12,27 @@
       "http": 200,
       "items": [
         {
-          "title": "granada cf - real madrid",
+          "title": "météo",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
+          "title": "погода",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "granada vs real madrid",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "pakistan a vs india a",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "granada cf - real madrid",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
@@ -28,7 +43,7 @@
         },
         {
           "title": "linda evans",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -37,28 +52,13 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "juventus vs venezia",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "philly marathon 2026",
+          "title": "ny mets",
           "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "tkach family",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "anne heche",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "espncricinfo",
-          "traffic": "500+",
+          "title": "juventus vs venezia",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,18 @@
       "http": 200,
       "items": [
         {
+          "title": "宏福苑",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "朱咪咪",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "金馬獎2026",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -84,7 +89,7 @@
         },
         {
           "title": "寶勒巷",
-          "traffic": "2000+",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -98,6 +103,11 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "las vegas gp",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "浪漫勇士",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -105,16 +115,6 @@
         {
           "title": "f1",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "omart megabox",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "澳門格蘭披治大賽車",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,52 +124,52 @@
       "http": 200,
       "items": [
         {
-          "title": "喜喪",
+          "title": "金融危機",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "蕭美琴",
+          "title": "王鴻薇",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "劉嘉玲",
-          "traffic": "500+",
+          "title": "wacom",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "雞蛋",
+          "title": "苗博雅",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "沙央",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "line today",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "太子集團",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "詐騙",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "無人航空載具",
+          "title": "蔣萬安車掃",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "舒華",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "陳為民",
+          "title": "戴立忍",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "陽岱鋼",
+          "title": "電視",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "周春米",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
