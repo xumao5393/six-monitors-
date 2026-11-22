@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-22T10:47:08Z",
-  "fetched_at_cst": "2026-11-22 18:47:08 CST",
-  "checked_at": "2026-11-22T10:47:08Z",
-  "checked_at_cst": "2026-11-22 18:47:08 CST",
+  "fetched_at": "2026-11-22T11:15:05Z",
+  "fetched_at_cst": "2026-11-22 19:15:05 CST",
+  "checked_at": "2026-11-22T11:15:05Z",
+  "checked_at_cst": "2026-11-22 19:15:05 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -1294,8 +1294,8 @@
     {
       "id": "z-ai/glm-4.7",
       "name": "Z.ai: GLM 4.7",
-      "prompt_per_m": 0.4,
-      "completion_per_m": 1.75,
+      "prompt_per_m": 0.6,
+      "completion_per_m": 2.2,
       "context_length": 204800
     },
     {
@@ -17004,8 +17004,8 @@
         "completion_per_m": 14.0
       },
       "z-ai/glm-4.7": {
-        "prompt_per_m": 0.4,
-        "completion_per_m": 1.75
+        "prompt_per_m": 0.6,
+        "completion_per_m": 2.2
       },
       "google/gemini-3-flash-preview": {
         "prompt_per_m": 0.5,
