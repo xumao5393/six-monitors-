@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-23T15:47:07Z",
-  "fetched_at_cst": "2026-11-23 23:47:07 CST",
-  "checked_at": "2026-11-23T15:47:07Z",
-  "checked_at_cst": "2026-11-23 23:47:07 CST",
+  "fetched_at": "2026-11-23T16:47:09Z",
+  "fetched_at_cst": "2026-11-24 00:47:09 CST",
+  "checked_at": "2026-11-23T16:47:09Z",
+  "checked_at_cst": "2026-11-24 00:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,13 +12,43 @@
       "http": 200,
       "items": [
         {
+          "title": "st bonaventure basketball",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "brad pitt",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "honda takata airbag rupture notice",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "christopher briney",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "silver",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "davidson basketball",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "north korea",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "sophie cunningham indiana fever offseason",
-          "traffic": "1000+",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -28,37 +58,7 @@
         },
         {
           "title": "al-shamal vs al-ahli",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "pfe stock",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tesla stock",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "apple stock",
           "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ko stock",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "vrt stock",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "paul goldschmidt",
-          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,18 @@
       "http": 200,
       "items": [
         {
+          "title": "nvidia 美股",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "英伟达股票",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "doomsday",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -84,6 +89,11 @@
         },
         {
           "title": "道指",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "dow jones",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -98,11 +108,6 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "nasdaq",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
           "title": "qqq",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -110,11 +115,6 @@
         {
           "title": "amd stock",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "honor",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,17 +124,37 @@
       "http": 200,
       "items": [
         {
+          "title": "山田涼介",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "台鐵",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "沙茶醬",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "台幣",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "00919 配 息",
           "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "納斯達克",
-          "traffic": "200+",
+          "title": "etf",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "etf",
+          "title": "qqq stock",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
@@ -151,26 +171,6 @@
         {
           "title": "goog stock",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "沙 茶 醬",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "做空",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "tsmc stock",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "spacex 股價",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
