@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-23T18:47:09Z",
-  "fetched_at_cst": "2026-11-24 02:47:09 CST",
-  "checked_at": "2026-11-23T18:47:09Z",
-  "checked_at_cst": "2026-11-24 02:47:09 CST",
+  "fetched_at": "2026-11-23T19:47:07Z",
+  "fetched_at_cst": "2026-11-24 03:47:07 CST",
+  "checked_at": "2026-11-23T19:47:07Z",
+  "checked_at_cst": "2026-11-24 03:47:07 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 477,
+      "total_models": 476,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
@@ -510,8 +510,8 @@
     {
       "id": "z-ai/glm-5.3-flash",
       "name": "Z.ai: GLM 5.3 Flash",
-      "prompt_per_m": 0.0399,
-      "completion_per_m": 0.074,
+      "prompt_per_m": 0.15,
+      "completion_per_m": 0.5,
       "context_length": 1048576
     },
     {
@@ -18792,8 +18792,8 @@
         "completion_per_m": 0.47
       },
       "z-ai/glm-5.3-flash": {
-        "prompt_per_m": 0.0399,
-        "completion_per_m": 0.074
+        "prompt_per_m": 0.15,
+        "completion_per_m": 0.5
       },
       "z-ai/glm-5.3-flash:batch": {
         "prompt_per_m": 0.023,

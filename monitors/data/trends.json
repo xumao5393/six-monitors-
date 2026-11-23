@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-23T18:47:09Z",
-  "fetched_at_cst": "2026-11-24 02:47:09 CST",
-  "checked_at": "2026-11-23T18:47:09Z",
-  "checked_at_cst": "2026-11-24 02:47:09 CST",
+  "fetched_at": "2026-11-23T19:47:07Z",
+  "fetched_at_cst": "2026-11-24 03:47:07 CST",
+  "checked_at": "2026-11-23T19:47:07Z",
+  "checked_at_cst": "2026-11-24 03:47:07 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "utah vs iowa",
+          "title": "fire country",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "parastoo ahmadi",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "al ahly vs pyramids",
+          "title": "marco penge",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "professional golfer",
+          "title": "terrance ferguson",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "coastal flood watch",
+          "traffic": "20000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "rsm classic",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ole miss basketball",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "brandon aiyuk",
+          "traffic": "200000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "brentford vs everton",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ohare ground stop",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ap top 25 basketball",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "the heart in winter",
+          "title": "cruise ship",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "kasey kahne",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "radnor high school",
+          "title": "levante - elche c. f.",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "brad gerstner",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -83,11 +83,6 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "nvidia 美股",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
           "title": "nvda股價",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -108,12 +103,17 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "voo stock",
-          "traffic": "100+",
+          "title": "nasdaq",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "nasdaq",
+          "title": "qqq",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "amd stock",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
@@ -123,6 +123,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "人民幣",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "u17 việt nam",
           "traffic": "100+",
@@ -164,12 +169,7 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "etf",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "0050正二",
+          "title": "truth social",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
