@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-23T19:47:07Z",
-  "fetched_at_cst": "2026-11-24 03:47:07 CST",
-  "checked_at": "2026-11-23T19:47:07Z",
-  "checked_at_cst": "2026-11-24 03:47:07 CST",
+  "fetched_at": "2026-11-23T20:09:32Z",
+  "fetched_at_cst": "2026-11-24 04:09:32 CST",
+  "checked_at": "2026-11-23T20:09:32Z",
+  "checked_at_cst": "2026-11-24 04:09:32 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -419,8 +419,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash",
       "name": "DeepSeek: DeepSeek V4.1 Flash",
-      "prompt_per_m": 0.0498,
-      "completion_per_m": 0.1992,
+      "prompt_per_m": 0.3,
+      "completion_per_m": 1.2,
       "context_length": 1048576
     },
     {
@@ -1986,6 +1986,27 @@
     }
   ],
   "models_dev_models": {
+    "moonshotai/kimi-k3.1-pro": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "moonshotai/kimi-k3": {
+      "provider": "moonshotai",
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "input_per_m": 3,
+      "output_per_m": 15
+    },
+    "moonshotai/kimi-k3.1-pro-highspeed": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro-highspeed",
+      "name": "Kimi K3.1 Pro Highspeed",
+      "input_per_m": 4,
+      "output_per_m": 20
+    },
     "anthropic/claude-opus-5-5": {
       "provider": "anthropic",
       "id": "claude-opus-5-5",
@@ -2014,27 +2035,6 @@
       "input_per_m": 5,
       "output_per_m": 25
     },
-    "openai/gpt-6.1-sol": {
-      "provider": "openai",
-      "id": "gpt-6.1-sol",
-      "name": "GPT-6.1 Sol",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "openai/gpt-6.1-terra": {
-      "provider": "openai",
-      "id": "gpt-6.1-terra",
-      "name": "GPT-6.1 Terra",
-      "input_per_m": 1,
-      "output_per_m": 5
-    },
-    "google/gemini-4-neon": {
-      "provider": "google",
-      "id": "gemini-4-neon",
-      "name": "Gemini 4 Neon",
-      "input_per_m": 3,
-      "output_per_m": 15
-    },
     "google/gemini-4-carbon": {
       "provider": "google",
       "id": "gemini-4-carbon",
@@ -2056,33 +2056,19 @@
       "input_per_m": 1.5,
       "output_per_m": 7.5
     },
-    "moonshotai/kimi-k3.1-pro": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro",
-      "name": "Kimi K3.1 Pro",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "moonshotai/kimi-k3": {
-      "provider": "moonshotai",
-      "id": "kimi-k3",
-      "name": "Kimi K3",
+    "google/gemini-4-neon": {
+      "provider": "google",
+      "id": "gemini-4-neon",
+      "name": "Gemini 4 Neon",
       "input_per_m": 3,
       "output_per_m": 15
     },
-    "moonshotai/kimi-k3.1-pro-highspeed": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro-highspeed",
-      "name": "Kimi K3.1 Pro Highspeed",
-      "input_per_m": 4,
-      "output_per_m": 20
-    },
-    "deepseek/deepseek-v4-pro": {
+    "deepseek/deepseek-v4-flash-vision-exp": {
       "provider": "deepseek",
-      "id": "deepseek-v4-pro",
-      "name": "DeepSeek V4 Pro",
-      "input_per_m": 0.66,
-      "output_per_m": 1.98
+      "id": "deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek V4 Flash Vision Exp",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
     },
     "deepseek/deepseek-v4-flash": {
       "provider": "deepseek",
@@ -2091,12 +2077,26 @@
       "input_per_m": 0.15,
       "output_per_m": 0.6
     },
-    "deepseek/deepseek-v4-flash-vision-exp": {
+    "deepseek/deepseek-v4-pro": {
       "provider": "deepseek",
-      "id": "deepseek-v4-flash-vision-exp",
-      "name": "DeepSeek V4 Flash Vision Exp",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "input_per_m": 0.66,
+      "output_per_m": 1.98
+    },
+    "openai/gpt-6.1-sol": {
+      "provider": "openai",
+      "id": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "openai/gpt-6.1-terra": {
+      "provider": "openai",
+      "id": "gpt-6.1-terra",
+      "name": "GPT-6.1 Terra",
+      "input_per_m": 1,
+      "output_per_m": 5
     }
   },
   "history": {
@@ -18740,8 +18740,8 @@
         "completion_per_m": 1.25
       },
       "deepseek/deepseek-v4.1-flash": {
-        "prompt_per_m": 0.0498,
-        "completion_per_m": 0.1992
+        "prompt_per_m": 0.3,
+        "completion_per_m": 1.2
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "prompt_per_m": 0.05,

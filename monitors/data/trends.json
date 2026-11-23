@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-23T19:47:07Z",
-  "fetched_at_cst": "2026-11-24 03:47:07 CST",
-  "checked_at": "2026-11-23T19:47:07Z",
-  "checked_at_cst": "2026-11-24 03:47:07 CST",
+  "fetched_at": "2026-11-23T20:09:32Z",
+  "fetched_at_cst": "2026-11-24 04:09:32 CST",
+  "checked_at": "2026-11-23T20:09:32Z",
+  "checked_at_cst": "2026-11-24 04:09:32 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,13 +12,28 @@
       "http": 200,
       "items": [
         {
+          "title": "thanksgiving storms travel forecast",
+          "traffic": "20000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "oregon state basketball",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "voyeurism charges",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "fire country",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "marco penge",
-          "traffic": "500+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -27,38 +42,23 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "coastal flood watch",
-          "traffic": "20000+",
+          "title": "tulsa vs oregon state",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "rsm classic",
-          "traffic": "1000+",
+          "title": "coastal flood watch",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "ole miss basketball",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "brandon aiyuk",
           "traffic": "200000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "brentford vs everton",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "cruise ship",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "levante - elche c. f.",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,11 +67,6 @@
       "ok": true,
       "http": 200,
       "items": [
-        {
-          "title": "to me my x-men",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
         {
           "title": "復仇者聯盟5",
           "traffic": "100+",
@@ -88,13 +83,13 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "全球城市",
-          "traffic": "100+",
+          "title": "doomsday",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "dow jones",
-          "traffic": "200+",
+          "title": "全球城市",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -103,17 +98,22 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "dow jones",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "dow jones index",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "voo stock",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "nasdaq",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "qqq",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "amd stock",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
@@ -124,13 +124,8 @@
       "http": 200,
       "items": [
         {
-          "title": "人民幣",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "u17 việt nam",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -169,7 +164,12 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "truth social",
+          "title": "etf",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "usd",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
