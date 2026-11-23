@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-23T13:47:08Z",
-  "fetched_at_cst": "2026-11-23 21:47:08 CST",
-  "checked_at": "2026-11-23T13:47:08Z",
-  "checked_at_cst": "2026-11-23 21:47:08 CST",
+  "fetched_at": "2026-11-23T14:47:09Z",
+  "fetched_at_cst": "2026-11-23 22:47:09 CST",
+  "checked_at": "2026-11-23T14:47:09Z",
+  "checked_at_cst": "2026-11-23 22:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "savannah guthrie",
-          "traffic": "200+",
+          "title": "nasdaq",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "gwyneth paltrow",
+          "title": "amd stock",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "spcx stock",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "neftchi fergana vs al-hilal",
+          "title": "sndk stock",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "mrvl stock",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "strait of hormuz shipping blockade",
+          "title": "aapl",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "musk foundation",
+          "title": "intc",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "the rookie",
+          "title": "rklb stock",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "kim jong un meets ambassadors",
-          "traffic": "200+",
+          "title": "be stock",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "غلامرضا نیکخواه",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "crwd",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bangladesh",
+          "title": "intel stock price",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,53 +68,53 @@
       "http": 200,
       "items": [
         {
-          "title": "王灏儿",
+          "title": "qqq",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "amd stock",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "明天的天氣",
+          "title": "cnn",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "美股",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "黃仁勳",
           "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "weather tomorrow",
+          "title": "voo",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "黎紀君",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "nvidia",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "jensen huang",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "輝達",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "陳慧琳",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "核武器",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "殲-15",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "陳以誠",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "郭碧婷",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "glm 5.4",
-          "traffic": "100+",
+          "title": "英伟达",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,53 +124,53 @@
       "http": 200,
       "items": [
         {
-          "title": "楊烈",
-          "traffic": "200+",
+          "title": "美股",
+          "traffic": "20000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "股利",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "張忠謀",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "少將",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "cuaca besok",
+          "title": "美股開盤",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "投票要帶什麼",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "明天的天氣",
-          "traffic": "50000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "阿信",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "539號碼",
+          "title": "輝達股票",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "weather tomorrow",
-          "traffic": "1000+",
+          "title": "老黃",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "nvidia 股票",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "復仇者聯盟5",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "台積電夜盤",
+          "traffic": "50000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "nvda盤前",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "期貨夜盤",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "台積電adr盤前",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
