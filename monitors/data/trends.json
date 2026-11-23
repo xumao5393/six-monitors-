@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-23T17:47:08Z",
-  "fetched_at_cst": "2026-11-24 01:47:08 CST",
-  "checked_at": "2026-11-23T17:47:08Z",
-  "checked_at_cst": "2026-11-24 01:47:08 CST",
+  "fetched_at": "2026-11-23T18:47:09Z",
+  "fetched_at_cst": "2026-11-24 02:47:09 CST",
+  "checked_at": "2026-11-23T18:47:09Z",
+  "checked_at_cst": "2026-11-24 02:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "nigeria",
-          "traffic": "2000+",
+          "title": "utah vs iowa",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "joe kasper",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "honda",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ben stiller",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "fluffy",
+          "title": "parastoo ahmadi",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "charlie cox",
+          "title": "al ahly vs pyramids",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "st bonaventure basketball",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "brad pitt",
+          "title": "professional golfer",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "christopher briney",
+          "title": "ohare ground stop",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "silver",
-          "traffic": "10000+",
+          "title": "ap top 25 basketball",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "the heart in winter",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "kasey kahne",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "radnor high school",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "brad gerstner",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -83,8 +83,13 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "英伟达股票",
-          "traffic": "200+",
+          "title": "nvidia 美股",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "nvda股價",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -93,12 +98,12 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "道指",
-          "traffic": "100+",
+          "title": "dow jones",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "dow jones",
+          "title": "道指",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -108,12 +113,7 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "qqq",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "amd stock",
+          "title": "nasdaq",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
@@ -125,6 +125,11 @@
       "items": [
         {
           "title": "u17 việt nam",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "民主黨",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
@@ -164,12 +169,7 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "qqq stock",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "usd",
+          "title": "0050正二",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
