@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-23T07:44:40Z",
-  "fetched_at_cst": "2026-11-23 15:44:40 CST",
-  "checked_at": "2026-11-23T07:44:40Z",
-  "checked_at_cst": "2026-11-23 15:44:40 CST",
+  "fetched_at": "2026-11-23T07:47:07Z",
+  "fetched_at_cst": "2026-11-23 15:47:07 CST",
+  "checked_at": "2026-11-23T07:47:07Z",
+  "checked_at_cst": "2026-11-23 15:47:07 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -73,6 +73,11 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "郭碧婷",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "glm 5.4",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -109,11 +114,6 @@
         },
         {
           "title": "快餐店",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "mcdonald",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
