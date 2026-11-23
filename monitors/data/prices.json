@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-22T23:47:10Z",
-  "fetched_at_cst": "2026-11-23 07:47:10 CST",
-  "checked_at": "2026-11-22T23:47:10Z",
-  "checked_at_cst": "2026-11-23 07:47:10 CST",
+  "fetched_at": "2026-11-23T00:17:04Z",
+  "fetched_at_cst": "2026-11-23 08:17:04 CST",
+  "checked_at": "2026-11-23T00:17:04Z",
+  "checked_at_cst": "2026-11-23 08:17:04 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -944,8 +944,8 @@
     {
       "id": "qwen/qwen3.6-35b-a3b",
       "name": "Qwen: Qwen3.6 35B A3B",
-      "prompt_per_m": 0.1,
-      "completion_per_m": 0.9,
+      "prompt_per_m": 0.05,
+      "completion_per_m": 0.7,
       "context_length": 262144
     },
     {
@@ -1028,8 +1028,8 @@
     {
       "id": "z-ai/glm-5.1",
       "name": "Z.ai: GLM 5.1",
-      "prompt_per_m": 1.4,
-      "completion_per_m": 4.4,
+      "prompt_per_m": 1.19,
+      "completion_per_m": 3.74,
       "context_length": 204800
     },
     {
@@ -1616,8 +1616,8 @@
     {
       "id": "openai/gpt-oss-120b",
       "name": "OpenAI: gpt-oss-120b",
-      "prompt_per_m": 0.09,
-      "completion_per_m": 0.36,
+      "prompt_per_m": 0.05,
+      "completion_per_m": 0.25,
       "context_length": 131072
     },
     {
@@ -17922,8 +17922,8 @@
         "completion_per_m": 1.125
       },
       "qwen/qwen3.6-35b-a3b": {
-        "prompt_per_m": 0.1,
-        "completion_per_m": 0.9
+        "prompt_per_m": 0.05,
+        "completion_per_m": 0.7
       },
       "qwen/qwen3.6-27b": {
         "prompt_per_m": 0.32,
@@ -17970,8 +17970,8 @@
         "completion_per_m": 12.5
       },
       "z-ai/glm-5.1": {
-        "prompt_per_m": 1.4,
-        "completion_per_m": 4.4
+        "prompt_per_m": 1.19,
+        "completion_per_m": 3.74
       },
       "qwen/qwen3.6-plus": {
         "prompt_per_m": 0.325,
@@ -18306,8 +18306,8 @@
         "completion_per_m": 0.2
       },
       "openai/gpt-oss-120b": {
-        "prompt_per_m": 0.09,
-        "completion_per_m": 0.36
+        "prompt_per_m": 0.05,
+        "completion_per_m": 0.25
       },
       "openai/gpt-oss-120b:batch": {
         "prompt_per_m": 0.0296,
