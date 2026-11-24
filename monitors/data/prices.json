@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-23T23:47:09Z",
-  "fetched_at_cst": "2026-11-24 07:47:09 CST",
-  "checked_at": "2026-11-23T23:47:09Z",
-  "checked_at_cst": "2026-11-24 07:47:09 CST",
+  "fetched_at": "2026-11-24T00:47:12Z",
+  "fetched_at_cst": "2026-11-24 08:47:12 CST",
+  "checked_at": "2026-11-24T00:47:12Z",
+  "checked_at_cst": "2026-11-24 08:47:12 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -419,8 +419,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash",
       "name": "DeepSeek: DeepSeek V4.1 Flash",
-      "prompt_per_m": 0.3,
-      "completion_per_m": 1.2,
+      "prompt_per_m": 0.0498,
+      "completion_per_m": 0.1992,
       "context_length": 1048576
     },
     {
@@ -510,8 +510,8 @@
     {
       "id": "z-ai/glm-5.3-flash",
       "name": "Z.ai: GLM 5.3 Flash",
-      "prompt_per_m": 0.15,
-      "completion_per_m": 0.5,
+      "prompt_per_m": 0.0356,
+      "completion_per_m": 0.0815,
       "context_length": 1048576
     },
     {
@@ -1910,8 +1910,8 @@
     {
       "id": "meta-llama/llama-3.1-8b-instruct",
       "name": "Meta: Llama 3.1 8B Instruct",
-      "prompt_per_m": 0.02,
-      "completion_per_m": 0.04,
+      "prompt_per_m": 0.05,
+      "completion_per_m": 0.08,
       "context_length": 131072
     },
     {
@@ -18740,8 +18740,8 @@
         "completion_per_m": 1.25
       },
       "deepseek/deepseek-v4.1-flash": {
-        "prompt_per_m": 0.3,
-        "completion_per_m": 1.2
+        "prompt_per_m": 0.0498,
+        "completion_per_m": 0.1992
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "prompt_per_m": 0.05,
@@ -18792,8 +18792,8 @@
         "completion_per_m": 0.47
       },
       "z-ai/glm-5.3-flash": {
-        "prompt_per_m": 0.15,
-        "completion_per_m": 0.5
+        "prompt_per_m": 0.0356,
+        "completion_per_m": 0.0815
       },
       "z-ai/glm-5.3-flash:batch": {
         "prompt_per_m": 0.023,
@@ -19592,8 +19592,8 @@
         "completion_per_m": 0.72
       },
       "meta-llama/llama-3.1-8b-instruct": {
-        "prompt_per_m": 0.02,
-        "completion_per_m": 0.04
+        "prompt_per_m": 0.05,
+        "completion_per_m": 0.08
       },
       "openai/gpt-4o-mini": {
         "prompt_per_m": 0.15,
