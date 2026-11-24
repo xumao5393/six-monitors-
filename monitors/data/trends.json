@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-24T16:47:09Z",
-  "fetched_at_cst": "2026-11-25 00:47:09 CST",
-  "checked_at": "2026-11-24T16:47:09Z",
-  "checked_at_cst": "2026-11-25 00:47:09 CST",
+  "fetched_at": "2026-11-24T17:47:13Z",
+  "fetched_at_cst": "2026-11-25 01:47:13 CST",
+  "checked_at": "2026-11-24T17:47:13Z",
+  "checked_at_cst": "2026-11-25 01:47:13 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "angela bassett",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "playstation plus",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "liv morgan",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "michael king",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ohio basketball",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ai safety",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "mexico u-17 vs cameroon national under-17 football team standings",
+          "title": "akron basketball",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "shabab alahli vs al qadsiah",
+          "title": "al-nassr vs al sadd",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "trump tariffs china",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "freddy peralta",
-          "traffic": "5000+",
+          "title": "bodø/glimt - lask",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "kris bubic",
-          "traffic": "5000+",
+          "title": "belmont vs akron prediction",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "micron",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "college football playoff",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "champions",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "joel hofer",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "galatasaray vs aston villa",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -69,6 +69,11 @@
       "items": [
         {
           "title": "歐冠",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "破產",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -83,13 +88,13 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "饮食",
-          "traffic": "200+",
+          "title": "mark six",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "mark six",
-          "traffic": "2000+",
+          "title": "饮食",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -111,11 +116,6 @@
           "title": "weather tomorrow",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "阮嘉敏",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,13 +124,33 @@
       "http": 200,
       "items": [
         {
+          "title": "壽司郎",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "林國春",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "teruaki sato",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "林俊憲",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "投票要帶什麼",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "佐藤輝明",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -144,33 +164,13 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "川普",
+          "traffic": "50000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "charlie kirk",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "王義川",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "歐冠",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "晶 豪 科 最新 消息",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "林于凱",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "父親",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
