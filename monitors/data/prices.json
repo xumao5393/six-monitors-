@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-24T10:47:08Z",
-  "fetched_at_cst": "2026-11-24 18:47:08 CST",
-  "checked_at": "2026-11-24T10:47:08Z",
-  "checked_at_cst": "2026-11-24 18:47:08 CST",
+  "fetched_at": "2026-11-24T11:47:10Z",
+  "fetched_at_cst": "2026-11-24 19:47:10 CST",
+  "checked_at": "2026-11-24T11:47:10Z",
+  "checked_at_cst": "2026-11-24 19:47:10 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -671,7 +671,7 @@
     {
       "id": "moonshotai/kimi-k3",
       "name": "MoonshotAI: Kimi K3",
-      "prompt_per_m": 0.192,
+      "prompt_per_m": 0.2,
       "completion_per_m": 16.0,
       "context_length": 1048576
     },
@@ -18863,7 +18863,7 @@
         "completion_per_m": 1.25
       },
       "moonshotai/kimi-k3": {
-        "prompt_per_m": 0.192,
+        "prompt_per_m": 0.2,
         "completion_per_m": 16.0
       },
       "moonshotai/kimi-k3:batch": {
