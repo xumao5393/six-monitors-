@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-24T04:45:05Z",
-  "fetched_at_cst": "2026-11-24 12:45:05 CST",
-  "checked_at": "2026-11-24T04:45:05Z",
-  "checked_at_cst": "2026-11-24 12:45:05 CST",
+  "fetched_at": "2026-11-24T04:47:11Z",
+  "fetched_at_cst": "2026-11-24 12:47:11 CST",
+  "checked_at": "2026-11-24T04:47:11Z",
+  "checked_at_cst": "2026-11-24 12:47:11 CST",
   "ok": true,
   "ok_count": 24,
   "count": 24,
@@ -14,11 +14,11 @@
     {
       "name": "ollama/ollama",
       "cat": "LLM",
-      "stars": 187935,
+      "stars": 187936,
       "forks": 19160,
       "language": "Go",
       "pushed_at": "2026-11-24T01:41:26Z",
-      "delta_7d": 1479
+      "delta_7d": 1480
     },
     {
       "name": "huggingface/transformers",
@@ -620,7 +620,7 @@
       "RVC-Boss/GPT-SoVITS": 2
     },
     "2026-11-24": {
-      "ollama/ollama": 187935,
+      "ollama/ollama": 187936,
       "huggingface/transformers": 169273,
       "ggml-org/llama.cpp": 136105,
       "vllm-project/vllm": 97434,
