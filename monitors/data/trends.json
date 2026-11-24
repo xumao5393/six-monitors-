@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-24T18:47:08Z",
-  "fetched_at_cst": "2026-11-25 02:47:08 CST",
-  "checked_at": "2026-11-24T18:47:08Z",
-  "checked_at_cst": "2026-11-25 02:47:08 CST",
+  "fetched_at": "2026-11-24T19:47:14Z",
+  "fetched_at_cst": "2026-11-25 03:47:14 CST",
+  "checked_at": "2026-11-24T19:47:14Z",
+  "checked_at_cst": "2026-11-25 03:47:14 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "state of leonida",
-          "traffic": "200+",
+          "title": "class action",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "stock",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "notre dame vs davidson",
+          "title": "wolves vs derby county",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "jack ruby",
-          "traffic": "200+",
+          "title": "high wind warning",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ha seong kim",
+          "title": "man city vs napoli",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "manchester city - napoli",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "trinity rodman",
+          "title": "como vs aek",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "man overboard",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "slovan bratislava vs betis",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "retriever",
+          "title": "feyenoord vs porto",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "mitch mcconnell",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jalen hurts",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "natalie portman",
+          "title": "ole miss basketball",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,13 +68,18 @@
       "http": 200,
       "items": [
         {
+          "title": "阿仙奴對多蒙特",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "champions league",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "歐冠",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -100,11 +105,6 @@
         {
           "title": "饮食",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "港怡醫院資料外洩",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -154,8 +154,8 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "夜盤台股",
-          "traffic": "5000+",
+          "title": "林俊憲",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -164,13 +164,13 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "林俊憲",
-          "traffic": "100+",
+          "title": "佐藤輝明",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "佐藤輝明",
-          "traffic": "500+",
+          "title": "期貨 夜 盤",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
