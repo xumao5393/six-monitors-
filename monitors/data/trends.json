@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-24T02:47:16Z",
-  "fetched_at_cst": "2026-11-24 10:47:16 CST",
-  "checked_at": "2026-11-24T02:47:16Z",
-  "checked_at_cst": "2026-11-24 10:47:16 CST",
+  "fetched_at": "2026-11-24T03:47:08Z",
+  "fetched_at_cst": "2026-11-24 11:47:08 CST",
+  "checked_at": "2026-11-24T03:47:08Z",
+  "checked_at_cst": "2026-11-24 11:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "austin ekeler",
+          "title": "thanksgiving day weather forecast",
+          "traffic": "20000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "wemby",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "matthew stafford",
-          "traffic": "500+",
+          "title": "haaland",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "brandon ingram",
-          "traffic": "500+",
+          "title": "jonathan allen",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "derek hough",
-          "traffic": "500+",
+          "title": "mockingjay part 1",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "jazz - lakers",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jazz vs lakers",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "brielle biermann",
+          "title": "billie jean king",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "treylon burks",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "joseph schwarzenegger",
+          "title": "gesicki",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "matas buzelis",
-          "traffic": "500+",
+          "title": "who won dancing with the stars 2026",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "joan beringer",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "amber alert",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -89,7 +89,7 @@
         },
         {
           "title": "黃劍文",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -98,17 +98,17 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "女神配對計劃2",
+          "title": "蔡楓華",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "東張西望",
-          "traffic": "100+",
+          "title": "女神配對計劃2",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "s&p 500",
+          "title": "東張西望",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -124,8 +124,38 @@
       "http": 200,
       "items": [
         {
-          "title": "鄧愷威",
+          "title": "杜文卿",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "謝伊·吉爾傑斯-亞歷山大",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "傑登·麥克丹尼爾斯",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "台塑企業",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "呂雪鳳",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "夏宇童",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "鄧愷威",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -135,42 +165,12 @@
         },
         {
           "title": "湖人 對 爵士",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "gis ky",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "00412a",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "00929",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "00878",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "3006",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "仁新",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "76ers vs trail blazers",
-          "traffic": "100+",
+          "title": "國王 對 馬刺",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
