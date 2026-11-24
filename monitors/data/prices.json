@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-24T12:47:09Z",
-  "fetched_at_cst": "2026-11-24 20:47:09 CST",
-  "checked_at": "2026-11-24T12:47:09Z",
-  "checked_at_cst": "2026-11-24 20:47:09 CST",
+  "fetched_at": "2026-11-24T13:47:08Z",
+  "fetched_at_cst": "2026-11-24 21:47:08 CST",
+  "checked_at": "2026-11-24T13:47:08Z",
+  "checked_at_cst": "2026-11-24 21:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -419,8 +419,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash",
       "name": "DeepSeek: DeepSeek V4.1 Flash",
-      "prompt_per_m": 0.14,
-      "completion_per_m": 0.42,
+      "prompt_per_m": 0.0507,
+      "completion_per_m": 0.2028,
       "context_length": 1048576
     },
     {
@@ -510,8 +510,8 @@
     {
       "id": "z-ai/glm-5.3-flash",
       "name": "Z.ai: GLM 5.3 Flash",
-      "prompt_per_m": 0.12,
-      "completion_per_m": 0.38,
+      "prompt_per_m": 0.15,
+      "completion_per_m": 0.5,
       "context_length": 1048576
     },
     {
@@ -608,7 +608,7 @@
     {
       "id": "deepseek/deepseek-v4-flash-0731",
       "name": "DeepSeek: DeepSeek V4 Flash 0731",
-      "prompt_per_m": 0.047,
+      "prompt_per_m": 0.0456,
       "completion_per_m": 0.3,
       "context_length": 1048576
     },
@@ -18719,8 +18719,8 @@
         "completion_per_m": 1.25
       },
       "deepseek/deepseek-v4.1-flash": {
-        "prompt_per_m": 0.14,
-        "completion_per_m": 0.42
+        "prompt_per_m": 0.0507,
+        "completion_per_m": 0.2028
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "prompt_per_m": 0.05,
@@ -18771,8 +18771,8 @@
         "completion_per_m": 0.47
       },
       "z-ai/glm-5.3-flash": {
-        "prompt_per_m": 0.12,
-        "completion_per_m": 0.38
+        "prompt_per_m": 0.15,
+        "completion_per_m": 0.5
       },
       "z-ai/glm-5.3-flash:batch": {
         "prompt_per_m": 0.023,
@@ -18827,7 +18827,7 @@
         "completion_per_m": 4.8
       },
       "deepseek/deepseek-v4-flash-0731": {
-        "prompt_per_m": 0.047,
+        "prompt_per_m": 0.0456,
         "completion_per_m": 0.3
       },
       "deepseek/deepseek-v4-flash-0731:batch": {
