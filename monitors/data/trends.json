@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-24T15:47:17Z",
-  "fetched_at_cst": "2026-11-24 23:47:17 CST",
-  "checked_at": "2026-11-24T15:47:17Z",
-  "checked_at_cst": "2026-11-24 23:47:17 CST",
+  "fetched_at": "2026-11-24T15:50:12Z",
+  "fetched_at_cst": "2026-11-24 23:50:12 CST",
+  "checked_at": "2026-11-24T15:50:12Z",
+  "checked_at_cst": "2026-11-24 23:50:12 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -139,11 +139,6 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "川普",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
           "title": "歐冠",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -171,6 +166,11 @@
         {
           "title": "thời tiết ngày mai",
           "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "臺灣桃園國際機場第三航廈",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
