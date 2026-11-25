@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-25T09:47:08Z",
-  "fetched_at_cst": "2026-11-25 17:47:08 CST",
-  "checked_at": "2026-11-25T09:47:08Z",
-  "checked_at_cst": "2026-11-25 17:47:08 CST",
+  "fetched_at": "2026-11-25T09:49:29Z",
+  "fetched_at_cst": "2026-11-25 17:49:29 CST",
+  "checked_at": "2026-11-25T09:49:29Z",
+  "checked_at_cst": "2026-11-25 17:49:29 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -124,6 +124,11 @@
       "http": 200,
       "items": [
         {
+          "title": "8299",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "謝宜容",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -166,11 +171,6 @@
         {
           "title": "天道盟",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "沈伯洋阿嬤",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]

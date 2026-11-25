@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-25T09:47:08Z",
-  "fetched_at_cst": "2026-11-25 17:47:08 CST",
-  "checked_at": "2026-11-25T09:47:08Z",
-  "checked_at_cst": "2026-11-25 17:47:08 CST",
+  "fetched_at": "2026-11-25T09:49:29Z",
+  "fetched_at_cst": "2026-11-25 17:49:29 CST",
+  "checked_at": "2026-11-25T09:49:29Z",
+  "checked_at_cst": "2026-11-25 17:49:29 CST",
   "ok": true,
   "ok_count": 24,
   "count": 24,
@@ -14,11 +14,11 @@
     {
       "name": "ollama/ollama",
       "cat": "LLM",
-      "stars": 188061,
+      "stars": 188062,
       "forks": 19185,
       "language": "Go",
       "pushed_at": "2026-11-24T19:30:53Z",
-      "delta_7d": 1605
+      "delta_7d": 1606
     },
     {
       "name": "huggingface/transformers",
@@ -35,7 +35,7 @@
       "stars": 136202,
       "forks": 26059,
       "language": "C++",
-      "pushed_at": "2026-11-25T09:42:36Z",
+      "pushed_at": "2026-11-25T09:48:33Z",
       "delta_7d": 2382
     },
     {
@@ -68,11 +68,11 @@
     {
       "name": "langchain-ai/langchain",
       "cat": "Agent",
-      "stars": 149966,
+      "stars": 149967,
       "forks": 25166,
       "language": "Python",
       "pushed_at": "2026-11-25T08:18:23Z",
-      "delta_7d": 704
+      "delta_7d": 705
     },
     {
       "name": "langchain-ai/langgraph",
@@ -98,7 +98,7 @@
       "stars": 61245,
       "forks": 9283,
       "language": "Python",
-      "pushed_at": "2026-11-25T08:02:44Z",
+      "pushed_at": "2026-11-25T09:49:02Z",
       "delta_7d": 557
     },
     {
@@ -646,13 +646,13 @@
       "RVC-Boss/GPT-SoVITS": 14
     },
     "2026-11-25": {
-      "ollama/ollama": 188061,
+      "ollama/ollama": 188062,
       "huggingface/transformers": 169300,
       "ggml-org/llama.cpp": 136202,
       "vllm-project/vllm": 97544,
       "mlc-ai/mlc-llm": 23466,
       "oobabooga/textgen": 47746,
-      "langchain-ai/langchain": 149966,
+      "langchain-ai/langchain": 149967,
       "langchain-ai/langgraph": 45395,
       "microsoft/autogen": 61968,
       "crewAIInc/crewAI": 61245,
