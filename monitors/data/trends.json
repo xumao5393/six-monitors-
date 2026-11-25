@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-25T18:47:15Z",
-  "fetched_at_cst": "2026-11-26 02:47:15 CST",
-  "checked_at": "2026-11-25T18:47:15Z",
-  "checked_at_cst": "2026-11-26 02:47:15 CST",
+  "fetched_at": "2026-11-25T19:47:08Z",
+  "fetched_at_cst": "2026-11-26 03:47:08 CST",
+  "checked_at": "2026-11-25T19:47:08Z",
+  "checked_at_cst": "2026-11-26 03:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "kevin porter jr",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "dow stocks",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "brandon aiyuk",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "rickea jackson",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "chris creighton",
+          "title": "psg",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "anthony gordon",
+          "title": "pat freiermuth",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "lsu basketball",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "inter - stuttgart",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "barcelona",
-          "traffic": "20000+",
+          "title": "todd boehly",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "lebron james",
+          "title": "nj state of emergency",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "burnley vs birmingham",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "fotmob",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "sporting vs man utd",
           "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "pedri",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "wright state basketball",
-          "traffic": "500+",
+          "title": "club brugge vs liverpool",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,18 @@
       "http": 200,
       "items": [
         {
-          "title": "sabah vs barcelona",
+          "title": "manchester united",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "薩巴赫足球俱樂部對巴塞",
+          "title": "sabah vs barcelona",
           "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "薩巴赫足球俱樂部對巴塞",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -111,11 +116,6 @@
           "title": "女神配對計劃2",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "飢餓遊戲",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -125,7 +125,7 @@
       "items": [
         {
           "title": "鄭朝方",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -135,7 +135,7 @@
         },
         {
           "title": "曾聖凱",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -164,12 +164,12 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "北平東路",
-          "traffic": "1000+",
+          "title": "夢魘絕鎮",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "夢魘絕鎮",
+          "title": "蘇巧慧選前之夜",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
