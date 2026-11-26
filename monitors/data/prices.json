@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-26T13:47:08Z",
-  "fetched_at_cst": "2026-11-26 21:47:08 CST",
-  "checked_at": "2026-11-26T13:47:08Z",
-  "checked_at_cst": "2026-11-26 21:47:08 CST",
+  "fetched_at": "2026-11-26T14:47:13Z",
+  "fetched_at_cst": "2026-11-26 22:47:13 CST",
+  "checked_at": "2026-11-26T14:47:13Z",
+  "checked_at_cst": "2026-11-26 22:47:13 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 474,
+      "total_models": 475,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
@@ -986,7 +986,7 @@
     {
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek: DeepSeek V4 Pro 0423",
-      "prompt_per_m": 0.857,
+      "prompt_per_m": 0.8553,
       "completion_per_m": 1.5228,
       "context_length": 1048576
     },
@@ -1696,6 +1696,13 @@
       "prompt_per_m": 0.14,
       "completion_per_m": 0.8,
       "context_length": 262144
+    },
+    {
+      "id": "moonshotai/kimi-k2",
+      "name": "MoonshotAI: Kimi K2 0711",
+      "prompt_per_m": 0.57,
+      "completion_per_m": 2.3,
+      "context_length": 131072
     },
     {
       "id": "google/gemini-2.5-flash",
@@ -21262,7 +21269,7 @@
         "completion_per_m": 15.0
       },
       "deepseek/deepseek-v4-pro": {
-        "prompt_per_m": 0.857,
+        "prompt_per_m": 0.8553,
         "completion_per_m": 1.5228
       },
       "deepseek/deepseek-v4-flash": {
@@ -21668,6 +21675,10 @@
       "qwen/qwen3-235b-a22b-2507": {
         "prompt_per_m": 0.14,
         "completion_per_m": 0.8
+      },
+      "moonshotai/kimi-k2": {
+        "prompt_per_m": 0.57,
+        "completion_per_m": 2.3
       },
       "google/gemini-2.5-flash": {
         "prompt_per_m": 0.3,
