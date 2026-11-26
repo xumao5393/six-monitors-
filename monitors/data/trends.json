@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-26T21:47:07Z",
-  "fetched_at_cst": "2026-11-27 05:47:07 CST",
-  "checked_at": "2026-11-26T21:47:07Z",
-  "checked_at_cst": "2026-11-27 05:47:07 CST",
+  "fetched_at": "2026-11-26T22:18:54Z",
+  "fetched_at_cst": "2026-11-27 06:18:54 CST",
+  "checked_at": "2026-11-26T22:18:54Z",
+  "checked_at_cst": "2026-11-27 06:18:54 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "terry bradshaw",
+          "title": "the comeback king",
           "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "nz vs ind",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "rob gronkowski",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tom brady",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "erin andrews",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jalen hurts",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "fox one",
+          "title": "joey porter jr",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "gronk",
+          "title": "glen powell",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jennifer garner",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "tom brady age",
+          "title": "makai lemon",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "court",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "javonte williams",
+          "title": "ceedee lamb",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "caleb williams injury",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "quinyon mitchell",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "meghan, duchess of sussex",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -124,18 +124,33 @@
       "http": 200,
       "items": [
         {
-          "title": "垃圾",
+          "title": "ettoday新闻云",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "歐聯",
+          "title": "台指期夜盤指數",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "新闻",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "歐協聯",
+          "title": "星宇航空",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "歐聯",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "歐協聯",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -150,27 +165,12 @@
         },
         {
           "title": "英特爾",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "謝立功",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "新竹縣長候選人",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "宏福苑大火",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "吳伯雄",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
