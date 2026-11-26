@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-26T12:47:09Z",
-  "fetched_at_cst": "2026-11-26 20:47:09 CST",
-  "checked_at": "2026-11-26T12:47:09Z",
-  "checked_at_cst": "2026-11-26 20:47:09 CST",
+  "fetched_at": "2026-11-26T13:47:08Z",
+  "fetched_at_cst": "2026-11-26 21:47:08 CST",
+  "checked_at": "2026-11-26T13:47:08Z",
+  "checked_at_cst": "2026-11-26 21:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -419,8 +419,8 @@
     {
       "id": "deepseek/deepseek-v4.1-flash",
       "name": "DeepSeek: DeepSeek V4.1 Flash",
-      "prompt_per_m": 0.14,
-      "completion_per_m": 0.42,
+      "prompt_per_m": 0.0507,
+      "completion_per_m": 0.2028,
       "context_length": 1048576
     },
     {
@@ -986,8 +986,8 @@
     {
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek: DeepSeek V4 Pro 0423",
-      "prompt_per_m": 0.8773,
-      "completion_per_m": 1.5082,
+      "prompt_per_m": 0.857,
+      "completion_per_m": 1.5228,
       "context_length": 1048576
     },
     {
@@ -20938,8 +20938,8 @@
         "completion_per_m": 1.25
       },
       "deepseek/deepseek-v4.1-flash": {
-        "prompt_per_m": 0.14,
-        "completion_per_m": 0.42
+        "prompt_per_m": 0.0507,
+        "completion_per_m": 0.2028
       },
       "deepseek/deepseek-v4.1-flash:batch": {
         "prompt_per_m": 0.05,
@@ -21262,8 +21262,8 @@
         "completion_per_m": 15.0
       },
       "deepseek/deepseek-v4-pro": {
-        "prompt_per_m": 0.8773,
-        "completion_per_m": 1.5082
+        "prompt_per_m": 0.857,
+        "completion_per_m": 1.5228
       },
       "deepseek/deepseek-v4-flash": {
         "prompt_per_m": 0.09,
