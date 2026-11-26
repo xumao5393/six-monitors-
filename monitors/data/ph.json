@@ -1,21 +1,13 @@
 {
-  "fetched_at": "2026-11-26T19:47:08Z",
-  "fetched_at_cst": "2026-11-27 03:47:08 CST",
-  "checked_at": "2026-11-26T19:47:08Z",
-  "checked_at_cst": "2026-11-27 03:47:08 CST",
+  "fetched_at": "2026-11-26T20:47:07Z",
+  "fetched_at_cst": "2026-11-27 04:47:07 CST",
+  "checked_at": "2026-11-26T20:47:07Z",
+  "checked_at_cst": "2026-11-27 04:47:07 CST",
   "ok": true,
   "source": "https://www.producthunt.com/feed",
   "note": "RSS 无 CORS，浏览器必失败；本文件为服务端 curl 快照。票数 RSS 不提供，一律未获取，不编造。",
   "error": null,
   "items": [
-    {
-      "title": "Remora",
-      "link": "https://www.producthunt.com/products/remora-6",
-      "published": "2026-11-25T10:28:50-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "The long-term memory layer for AI agents Discussion | Link"
-    },
     {
       "title": "Mime",
       "link": "https://www.producthunt.com/products/mime",
@@ -23,30 +15,6 @@
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
       "summary": "Silent dictation: mouth the words and it types them Discussion | Link"
-    },
-    {
-      "title": "Pax by Pydantic",
-      "link": "https://www.producthunt.com/products/pydantic",
-      "published": "2026-11-25T20:04:50-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "A coding agent where even coding is a plugin Discussion | Link"
-    },
-    {
-      "title": "Claude-Mem Cloud Sync",
-      "link": "https://www.producthunt.com/products/claude-mem",
-      "published": "2026-11-25T23:58:18-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Switch devices. Keep your AI agents' memory. Discussion | Link"
-    },
-    {
-      "title": "iwantmy.app",
-      "link": "https://www.producthunt.com/products/iwantmy-app",
-      "published": "2026-11-25T09:00:47-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Describe a mobile app in chat and open it on your phone Discussion | Link"
     },
     {
       "title": "Upsolve Harness 2.0",
@@ -65,28 +33,12 @@
       "summary": "Map codebase locally and AI changes only what you approved Discussion | Link"
     },
     {
-      "title": "Watch Reader",
-      "link": "https://www.producthunt.com/products/watch-reader",
-      "published": "2026-11-22T00:47:07-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Books and articles, read aloud on your Apple Watch Discussion | Link"
-    },
-    {
       "title": "Chunkify",
       "link": "https://www.producthunt.com/products/chunkify",
       "published": "2026-11-23T02:45:10-08:00",
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
       "summary": "Video Streaming API for Developers & AI Agents Discussion | Link"
-    },
-    {
-      "title": "DeskFleet",
-      "link": "https://www.producthunt.com/products/deskfleet",
-      "published": "2026-11-25T09:17:28-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Run coding agents together across your team’s machines Discussion | Link"
     },
     {
       "title": "OpenChat",
@@ -105,14 +57,6 @@
       "summary": "Private transcription with speaker labels, all on device Discussion | Link"
     },
     {
-      "title": "Nookdeck",
-      "link": "https://www.producthunt.com/products/nookdeck",
-      "published": "2026-11-25T00:17:17-08:00",
-      "votes": null,
-      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
-      "summary": "Turn your old phone into a Stream Deck for your computer Discussion | Link"
-    },
-    {
       "title": "Ottante",
       "link": "https://www.producthunt.com/products/ottante",
       "published": "2026-11-25T07:15:16-08:00",
@@ -127,6 +71,62 @@
       "votes": null,
       "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
       "summary": "search inside anything on your Mac Discussion | Link"
+    },
+    {
+      "title": "Postmaster of Puppets",
+      "link": "https://www.producthunt.com/products/postmaster-of-puppets",
+      "published": "2026-11-25T02:54:52-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "See if anyone can send email as your domain Discussion | Link"
+    },
+    {
+      "title": "ServNook",
+      "link": "https://www.producthunt.com/products/webhut",
+      "published": "2026-10-23T03:52:49-07:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "XAMPP stopped at PHP 8.2. ServNook runs PHP 8.5 on Windows Discussion | Link"
+    },
+    {
+      "title": "Hub",
+      "link": "https://www.producthunt.com/products/hub-20",
+      "published": "2026-11-24T10:34:28-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Run 100 Claude Code or Codex sessions like 5 Discussion | Link"
+    },
+    {
+      "title": "DeskFleet",
+      "link": "https://www.producthunt.com/products/deskfleet",
+      "published": "2026-11-25T09:17:28-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Run coding agents together across your team’s machines Discussion | Link"
+    },
+    {
+      "title": "Watch Reader",
+      "link": "https://www.producthunt.com/products/watch-reader",
+      "published": "2026-11-22T00:47:07-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Books and articles, read aloud on your Apple Watch Discussion | Link"
+    },
+    {
+      "title": "Superframes",
+      "link": "https://www.producthunt.com/products/superframes-ai-video-editor",
+      "published": "2026-11-25T21:09:09-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Brief an AI Director to edit the whole video Discussion | Link"
+    },
+    {
+      "title": "Nookdeck",
+      "link": "https://www.producthunt.com/products/nookdeck",
+      "published": "2026-11-25T00:17:17-08:00",
+      "votes": null,
+      "votes_note": "票数未获取（Product Hunt RSS 不含票数）",
+      "summary": "Turn your old phone into a Stream Deck for your computer Discussion | Link"
     }
   ]
 }
