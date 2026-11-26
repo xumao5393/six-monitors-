@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-26T02:47:09Z",
-  "fetched_at_cst": "2026-11-26 10:47:09 CST",
-  "checked_at": "2026-11-26T02:47:09Z",
-  "checked_at_cst": "2026-11-26 10:47:09 CST",
+  "fetched_at": "2026-11-26T02:49:42Z",
+  "fetched_at_cst": "2026-11-26 10:49:42 CST",
+  "checked_at": "2026-11-26T02:49:42Z",
+  "checked_at_cst": "2026-11-26 10:49:42 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -149,6 +149,16 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "公投 2026",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "火箭 對 太陽",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "公鹿 對 籃網",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -161,16 +171,6 @@
         {
           "title": "達維恩·米契爾",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2027年世界棒球12強賽",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "京元電子",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
