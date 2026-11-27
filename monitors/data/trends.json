@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-27T14:47:07Z",
-  "fetched_at_cst": "2026-11-27 22:47:07 CST",
-  "checked_at": "2026-11-27T14:47:07Z",
-  "checked_at_cst": "2026-11-27 22:47:07 CST",
+  "fetched_at": "2026-11-27T15:00:09Z",
+  "fetched_at_cst": "2026-11-27 23:00:09 CST",
+  "checked_at": "2026-11-27T15:00:09Z",
+  "checked_at_cst": "2026-11-27 23:00:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -11,6 +11,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "al qadsiah vs al-fayha",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
         {
           "title": "hackers breach air force",
           "traffic": "2000+",
@@ -55,11 +60,6 @@
           "title": "cardi b",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "gma deals and steals",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
     },
@@ -93,12 +93,12 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "黎耀祥",
+          "title": "生日",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "生日",
+          "title": "黎耀祥",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
@@ -124,8 +124,23 @@
       "http": 200,
       "items": [
         {
-          "title": "六都",
-          "traffic": "500+",
+          "title": "雷克萨斯nx",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "戒慎恐懼",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "花蓮市長候選人",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "選罷法",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -144,33 +159,18 @@
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "星 宇 航空",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "賴清德",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "2022 台北市長選舉結果",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "沈伯洋女兒",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "彰化縣議員候選人",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "李 長庚",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "polymarket",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "群創",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
