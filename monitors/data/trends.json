@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-27T05:47:12Z",
-  "fetched_at_cst": "2026-11-27 13:47:12 CST",
-  "checked_at": "2026-11-27T05:47:12Z",
-  "checked_at_cst": "2026-11-27 13:47:12 CST",
+  "fetched_at": "2026-11-27T06:47:08Z",
+  "fetched_at_cst": "2026-11-27 14:47:08 CST",
+  "checked_at": "2026-11-27T06:47:08Z",
+  "checked_at_cst": "2026-11-27 14:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,8 +12,33 @@
       "http": 200,
       "items": [
         {
-          "title": "jessica biel",
+          "title": "seth meyers",
           "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ocelot jugular gta 6",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "justin bieber",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "michael douglas",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "gta 6 pc port",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "jessica biel",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -23,42 +48,17 @@
         },
         {
           "title": "kuwait attack today",
-          "traffic": "10000+",
+          "traffic": "20000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "alphonso smith",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "cox",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "alphonso smith",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jd",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bill murray",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "deion sanders",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "from tv show netflix ranking",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "playoff picture nfl",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "殲-15",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "青衣",
           "traffic": "100+",
@@ -111,11 +116,6 @@
           "title": "蔬菜",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "杜苑欣",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,53 +124,53 @@
       "http": 200,
       "items": [
         {
-          "title": "韓 股",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "airspace",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "徐欣瑩絕食",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "高雄市長",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "碰撞",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "ah-64阿帕契直升機",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "李灝宇",
+          "title": "2409",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "新竹市長候選人",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "彰化縣長候選人",
+          "title": "4916",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "群 創",
+          "title": "2485",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "2880",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "烏克蘭空軍",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "2368",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "2466",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "1802",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "6669",
           "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "許維恩",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
