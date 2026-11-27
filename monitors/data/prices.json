@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-27T02:47:07Z",
-  "fetched_at_cst": "2026-11-27 10:47:07 CST",
-  "checked_at": "2026-11-27T02:47:07Z",
-  "checked_at_cst": "2026-11-27 10:47:07 CST",
+  "fetched_at": "2026-11-27T03:47:08Z",
+  "fetched_at_cst": "2026-11-27 11:47:08 CST",
+  "checked_at": "2026-11-27T03:47:08Z",
+  "checked_at_cst": "2026-11-27 11:47:08 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -524,8 +524,8 @@
     {
       "id": "deepseek/deepseek-v4-flash-vision-exp",
       "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
-      "prompt_per_m": 0.44,
-      "completion_per_m": 1.32,
+      "prompt_per_m": 0.2156,
+      "completion_per_m": 0.6468,
       "context_length": 1048576
     },
     {
@@ -22118,8 +22118,8 @@
         "completion_per_m": 0.068
       },
       "deepseek/deepseek-v4-flash-vision-exp": {
-        "prompt_per_m": 0.44,
-        "completion_per_m": 1.32
+        "prompt_per_m": 0.2156,
+        "completion_per_m": 0.6468
       },
       "z-ai/glm-5.3": {
         "prompt_per_m": 0.0699,
