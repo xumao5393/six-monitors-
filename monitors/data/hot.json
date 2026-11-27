@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-27T19:47:07Z",
-  "fetched_at_cst": "2026-11-28 03:47:07 CST",
-  "checked_at": "2026-11-27T19:47:07Z",
-  "checked_at_cst": "2026-11-28 03:47:07 CST",
+  "fetched_at": "2026-11-27T20:47:08Z",
+  "fetched_at_cst": "2026-11-28 04:47:08 CST",
+  "checked_at": "2026-11-27T20:47:08Z",
+  "checked_at_cst": "2026-11-28 04:47:08 CST",
   "ok": true,
   "source": "GitHub Actions snapshot (curl, server-side) — see .github/workflows/snapshot.yml; browser direct fetch is CORS-blocked",
   "platforms": {
@@ -13,47 +13,47 @@
       "items": [
         {
           "title": "董明珠现场发火魏建军解围",
-          "heat": 171410
+          "heat": 130976
         },
         {
           "title": "后会友期第三次飞行嘉宾阵容",
-          "heat": 158027
+          "heat": 114712
         },
         {
           "title": "180秒回顾神24发射任务",
-          "heat": 89387
+          "heat": 70116
         },
         {
           "title": "三只松鼠一夜整改反而让人唏嘘",
-          "heat": 79639
+          "heat": 58899
         },
         {
           "title": "多平台已下架纸质短剧",
-          "heat": 72799
+          "heat": 54864
         },
         {
           "title": "厉娜前经纪人张阿瞳发文",
-          "heat": 72621
+          "heat": 53963
         },
         {
           "title": "马天宇 我都40了肯定有过亲密关系啊",
-          "heat": 71199
+          "heat": 53335
         },
         {
-          "title": "赵昭仪说剧组不吃槟榔的人很少见",
-          "heat": 70769
+          "title": "秦牛正威回应订婚再退婚",
+          "heat": 52025
         },
         {
           "title": "千万不要用纸巾包贵重物品",
-          "heat": 66191
+          "heat": 50176
         },
         {
-          "title": "中国母女阿根廷旅游被5名劫匪围攻",
-          "heat": 63165
+          "title": "曾经大胃王如今吃一口都奢侈",
+          "heat": 39418
         }
       ],
-      "updated_at": "2026-11-27T19:47:07Z",
-      "updated_at_cst": "2026-11-28 03:47:07 CST"
+      "updated_at": "2026-11-27T20:47:08Z",
+      "updated_at_cst": "2026-11-28 04:47:08 CST"
     },
     "douyin": {
       "ok": true,
@@ -62,47 +62,47 @@
       "items": [
         {
           "title": "驻日使馆提醒中国公民防范地震",
-          "heat": 11085531
+          "heat": 11175584
         },
         {
           "title": "2026广州车展开幕",
-          "heat": 11062222
+          "heat": 11062683
         },
         {
           "title": "养老托育两头难有了国家级解法",
-          "heat": 10976443
-        },
-        {
-          "title": "草莓桶蛋糕已经进化成XXXL号了",
-          "heat": 10965735
+          "heat": 11018826
         },
         {
           "title": "WBG官宣Elk离队",
-          "heat": 10235704
+          "heat": 11008258
         },
         {
-          "title": "巴基斯坦航天员视频音轨被篡改",
-          "heat": 10226344
+          "title": "草莓桶蛋糕已经进化成XXXL号了",
+          "heat": 10431098
         },
         {
           "title": "在济南过一个冒热气的周末",
-          "heat": 9126506
+          "heat": 10250689
+        },
+        {
+          "title": "巴基斯坦航天员视频音轨被篡改",
+          "heat": 9147879
         },
         {
           "title": "MotoGP八冠王马奎斯宣布退役",
-          "heat": 9108505
+          "heat": 9088864
         },
         {
           "title": "火旺动画定档",
-          "heat": 9091244
+          "heat": 9008018
         },
         {
           "title": "U17国少在抖音庆祝世少赛出线",
-          "heat": 8973491
+          "heat": 8736967
         }
       ],
-      "updated_at": "2026-11-27T19:47:07Z",
-      "updated_at_cst": "2026-11-28 03:47:07 CST"
+      "updated_at": "2026-11-27T20:47:08Z",
+      "updated_at_cst": "2026-11-28 04:47:08 CST"
     },
     "zhihu": {
       "ok": false,
@@ -113,7 +113,7 @@
       "skipped": true
     },
     "bili": {
-      "ok": true,
+      "ok": false,
       "http": 200,
       "source": "https://api.bilibili.com/x/web-interface/ranking/v2?rid=0&type=all",
       "items": [
@@ -159,11 +159,12 @@
         }
       ],
       "updated_at": "2026-11-27T19:47:07Z",
-      "updated_at_cst": "2026-11-28 03:47:07 CST"
+      "updated_at_cst": "2026-11-28 03:47:07 CST",
+      "error": "空响应（列表为空）"
     },
     "baidu": {
       "ok": false,
-      "http": 0,
+      "http": 200,
       "source": "https://top.baidu.com/api/board?platform=pc&tab=realtime",
       "items": [
         {
@@ -209,7 +210,7 @@
       ],
       "updated_at": "2026-11-26T07:47:08Z",
       "updated_at_cst": "2026-11-26 15:47:08 CST",
-      "error": "熔断冷却中，连续失败 8 次，下次试探 2026-11-27T19:47:08Z"
+      "error": "空响应（列表为空）"
     },
     "toutiao": {
       "ok": true,
@@ -218,47 +219,47 @@
       "items": [
         {
           "title": "国家队抄底力度已超“924”",
-          "link": "https://www.toutiao.com/trending/7712761193228321307/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712761193228321307%22%2C%22hot_board_impr_id%22%3A%2220261128034712BAB078A02CC1330BB373%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%9B%BD%E5%AE%B6%E9%98%9F%E6%8A%84%E5%BA%95%E5%8A%9B%E5%BA%A6%E5%B7%B2%E8%B6%85%E2%80%9C924%E2%80%9D%22%7D&rank=&style_id=40132&topic_id=7712761193228321307"
+          "link": "https://www.toutiao.com/trending/7712761193228321307/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712761193228321307%22%2C%22hot_board_impr_id%22%3A%2220261128044713C2325C1A27899FCD086C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%9B%BD%E5%AE%B6%E9%98%9F%E6%8A%84%E5%BA%95%E5%8A%9B%E5%BA%A6%E5%B7%B2%E8%B6%85%E2%80%9C924%E2%80%9D%22%7D&rank=&style_id=40132&topic_id=7712761193228321307"
         },
         {
           "title": "武契奇称一旦绝食将不接受救治",
-          "link": "https://www.toutiao.com/trending/7712429326217920555/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712429326217920555%22%2C%22hot_board_impr_id%22%3A%2220261128034712BAB078A02CC1330BB373%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%AD%A6%E5%A5%91%E5%A5%87%E7%A7%B0%E4%B8%80%E6%97%A6%E7%BB%9D%E9%A3%9F%E5%B0%86%E4%B8%8D%E6%8E%A5%E5%8F%97%E6%95%91%E6%B2%BB%22%7D&rank=&style_id=40132&topic_id=7712429326217920555"
+          "link": "https://www.toutiao.com/trending/7712429326217920555/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712429326217920555%22%2C%22hot_board_impr_id%22%3A%2220261128044713C2325C1A27899FCD086C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%AD%A6%E5%A5%91%E5%A5%87%E7%A7%B0%E4%B8%80%E6%97%A6%E7%BB%9D%E9%A3%9F%E5%B0%86%E4%B8%8D%E6%8E%A5%E5%8F%97%E6%95%91%E6%B2%BB%22%7D&rank=&style_id=40132&topic_id=7712429326217920555"
         },
         {
           "title": "我国知识产权创造量质齐升",
-          "link": "https://www.toutiao.com/trending/7711994617415270443/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227711994617415270443%22%2C%22hot_board_impr_id%22%3A%2220261128034712BAB078A02CC1330BB373%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%88%91%E5%9B%BD%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E5%88%9B%E9%80%A0%E9%87%8F%E8%B4%A8%E9%BD%90%E5%8D%87%22%7D&rank=&style_id=40132&topic_id=7711994617415270443"
+          "link": "https://www.toutiao.com/trending/7711994617415270443/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227711994617415270443%22%2C%22hot_board_impr_id%22%3A%2220261128044713C2325C1A27899FCD086C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%88%91%E5%9B%BD%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E5%88%9B%E9%80%A0%E9%87%8F%E8%B4%A8%E9%BD%90%E5%8D%87%22%7D&rank=&style_id=40132&topic_id=7711994617415270443"
         },
         {
           "title": "博主：现金为王时代到来",
-          "link": "https://www.toutiao.com/trending/7712849101653544499/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712849101653544499%22%2C%22hot_board_impr_id%22%3A%2220261128034712BAB078A02CC1330BB373%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%9A%E4%B8%BB%EF%BC%9A%E7%8E%B0%E9%87%91%E4%B8%BA%E7%8E%8B%E6%97%B6%E4%BB%A3%E5%88%B0%E6%9D%A5%22%7D&rank=&style_id=40132&topic_id=7712849101653544499"
-        },
-        {
-          "title": "董明珠当魏建军面数次训斥员工",
-          "link": "https://www.toutiao.com/trending/7712803926554398218/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712803926554398218%22%2C%22hot_board_impr_id%22%3A%2220261128034712BAB078A02CC1330BB373%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%91%A3%E6%98%8E%E7%8F%A0%E5%BD%93%E9%AD%8F%E5%BB%BA%E5%86%9B%E9%9D%A2%E6%95%B0%E6%AC%A1%E8%AE%AD%E6%96%A5%E5%91%98%E5%B7%A5%22%7D&rank=&style_id=40132&topic_id=7712803926554398218"
+          "link": "https://www.toutiao.com/trending/7712849101653544499/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712849101653544499%22%2C%22hot_board_impr_id%22%3A%2220261128044713C2325C1A27899FCD086C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%9A%E4%B8%BB%EF%BC%9A%E7%8E%B0%E9%87%91%E4%B8%BA%E7%8E%8B%E6%97%B6%E4%BB%A3%E5%88%B0%E6%9D%A5%22%7D&rank=&style_id=40132&topic_id=7712849101653544499"
         },
         {
           "title": "又一家车企宣布停产燃油车",
-          "link": "https://www.toutiao.com/trending/7712746492653486601/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712746492653486601%22%2C%22hot_board_impr_id%22%3A%2220261128034712BAB078A02CC1330BB373%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8F%88%E4%B8%80%E5%AE%B6%E8%BD%A6%E4%BC%81%E5%AE%A3%E5%B8%83%E5%81%9C%E4%BA%A7%E7%87%83%E6%B2%B9%E8%BD%A6%22%7D&rank=&style_id=40132&topic_id=7712746492653486601"
+          "link": "https://www.toutiao.com/trending/7712746492653486601/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712746492653486601%22%2C%22hot_board_impr_id%22%3A%2220261128044713C2325C1A27899FCD086C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8F%88%E4%B8%80%E5%AE%B6%E8%BD%A6%E4%BC%81%E5%AE%A3%E5%B8%83%E5%81%9C%E4%BA%A7%E7%87%83%E6%B2%B9%E8%BD%A6%22%7D&rank=&style_id=40132&topic_id=7712746492653486601"
         },
         {
-          "title": "正部级蓝天立被判死缓",
-          "link": "https://www.toutiao.com/trending/7712773151733645331/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712773151733645331%22%2C%22hot_board_impr_id%22%3A%2220261128034712BAB078A02CC1330BB373%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%AD%A3%E9%83%A8%E7%BA%A7%E8%93%9D%E5%A4%A9%E7%AB%8B%E8%A2%AB%E5%88%A4%E6%AD%BB%E7%BC%93%22%7D&rank=&style_id=40132&topic_id=7712773151733645331"
+          "title": "董明珠当魏建军面数次训斥员工",
+          "link": "https://www.toutiao.com/trending/7712803926554398218/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712803926554398218%22%2C%22hot_board_impr_id%22%3A%2220261128044713C2325C1A27899FCD086C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%91%A3%E6%98%8E%E7%8F%A0%E5%BD%93%E9%AD%8F%E5%BB%BA%E5%86%9B%E9%9D%A2%E6%95%B0%E6%AC%A1%E8%AE%AD%E6%96%A5%E5%91%98%E5%B7%A5%22%7D&rank=&style_id=40132&topic_id=7712803926554398218"
         },
         {
           "title": "原来鹅毛大雪是真的",
-          "link": "https://www.toutiao.com/trending/7711496363305878054/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%220%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227711496363305878054%22%2C%22hot_board_impr_id%22%3A%2220261128034712BAB078A02CC1330BB373%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8E%9F%E6%9D%A5%E9%B9%85%E6%AF%9B%E5%A4%A7%E9%9B%AA%E6%98%AF%E7%9C%9F%E7%9A%84%22%7D&rank=&style_id=40132&topic_id=7711496363305878054"
+          "link": "https://www.toutiao.com/trending/7711496363305878054/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%220%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227711496363305878054%22%2C%22hot_board_impr_id%22%3A%2220261128044713C2325C1A27899FCD086C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8E%9F%E6%9D%A5%E9%B9%85%E6%AF%9B%E5%A4%A7%E9%9B%AA%E6%98%AF%E7%9C%9F%E7%9A%84%22%7D&rank=&style_id=40132&topic_id=7711496363305878054"
         },
         {
-          "title": "三只松鼠让员工住毛坯房是鼠目寸光",
-          "link": "https://www.toutiao.com/trending/7712813782292123145/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712813782292123145%22%2C%22hot_board_impr_id%22%3A%2220261128034712BAB078A02CC1330BB373%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%89%E5%8F%AA%E6%9D%BE%E9%BC%A0%E8%AE%A9%E5%91%98%E5%B7%A5%E4%BD%8F%E6%AF%9B%E5%9D%AF%E6%88%BF%E6%98%AF%E9%BC%A0%E7%9B%AE%E5%AF%B8%E5%85%89%22%7D&rank=&style_id=40132&topic_id=7712813782292123145"
+          "title": "正部级蓝天立被判死缓",
+          "link": "https://www.toutiao.com/trending/7712773151733645331/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712773151733645331%22%2C%22hot_board_impr_id%22%3A%2220261128044713C2325C1A27899FCD086C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%AD%A3%E9%83%A8%E7%BA%A7%E8%93%9D%E5%A4%A9%E7%AB%8B%E8%A2%AB%E5%88%A4%E6%AD%BB%E7%BC%93%22%7D&rank=&style_id=40132&topic_id=7712773151733645331"
+        },
+        {
+          "title": "科创板一天收复全年跌幅",
+          "link": "https://www.toutiao.com/trending/7711893978844758058/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227711893978844758058%22%2C%22hot_board_impr_id%22%3A%2220261128044713C2325C1A27899FCD086C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%A7%91%E5%88%9B%E6%9D%BF%E4%B8%80%E5%A4%A9%E6%94%B6%E5%A4%8D%E5%85%A8%E5%B9%B4%E8%B7%8C%E5%B9%85%22%7D&rank=&style_id=40132&topic_id=7711893978844758058"
         },
         {
           "title": "个人大额存单起点降至10万元",
-          "link": "https://www.toutiao.com/trending/7712505350003654692/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712505350003654692%22%2C%22hot_board_impr_id%22%3A%2220261128034712BAB078A02CC1330BB373%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AA%E4%BA%BA%E5%A4%A7%E9%A2%9D%E5%AD%98%E5%8D%95%E8%B5%B7%E7%82%B9%E9%99%8D%E8%87%B310%E4%B8%87%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7712505350003654692"
+          "link": "https://www.toutiao.com/trending/7712505350003654692/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712505350003654692%22%2C%22hot_board_impr_id%22%3A%2220261128044713C2325C1A27899FCD086C%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AA%E4%BA%BA%E5%A4%A7%E9%A2%9D%E5%AD%98%E5%8D%95%E8%B5%B7%E7%82%B9%E9%99%8D%E8%87%B310%E4%B8%87%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7712505350003654692"
         }
       ],
-      "updated_at": "2026-11-27T19:47:07Z",
-      "updated_at_cst": "2026-11-28 03:47:07 CST"
+      "updated_at": "2026-11-27T20:47:08Z",
+      "updated_at_cst": "2026-11-28 04:47:08 CST"
     },
     "x_us": {
       "ok": true,
@@ -270,64 +271,64 @@
           "link": "https://twitter.com/search?q=Black%20Friday"
         },
         {
-          "title": "Tupac",
-          "link": "https://twitter.com/search?q=Tupac"
+          "title": "Bo Nix",
+          "link": "https://twitter.com/search?q=Bo%20Nix"
         },
         {
-          "title": "Michkov",
-          "link": "https://twitter.com/search?q=Michkov"
+          "title": "Nebraska",
+          "link": "https://twitter.com/search?q=Nebraska"
         },
         {
-          "title": "Angie Martinez",
-          "link": "https://twitter.com/search?q=Angie%20Martinez"
-        },
-        {
-          "title": "Egg Bowl",
-          "link": "https://twitter.com/search?q=Egg%20Bowl"
-        },
-        {
-          "title": "Cloud One",
-          "link": "https://twitter.com/search?q=Cloud%20One"
+          "title": "Broncos",
+          "link": "https://twitter.com/search?q=Broncos"
         },
         {
           "title": "Hank Brown",
           "link": "https://twitter.com/search?q=Hank%20Brown"
         },
         {
-          "title": "Mangini",
-          "link": "https://twitter.com/search?q=Mangini"
+          "title": "Michkov",
+          "link": "https://twitter.com/search?q=Michkov"
         },
         {
-          "title": "Pete Golding",
-          "link": "https://twitter.com/search?q=Pete%20Golding"
+          "title": "Rhule",
+          "link": "https://twitter.com/search?q=Rhule"
         },
         {
-          "title": "2pac",
-          "link": "https://twitter.com/search?q=2pac"
+          "title": "Andrea Stewart",
+          "link": "https://twitter.com/search?q=Andrea%20Stewart"
         },
         {
-          "title": "Mobb Deep",
-          "link": "https://twitter.com/search?q=Mobb%20Deep"
+          "title": "Tupac",
+          "link": "https://twitter.com/search?q=Tupac"
         },
         {
-          "title": "#ImThankfulForYou",
-          "link": "https://twitter.com/search?q=%23ImThankfulForYou"
+          "title": "Mason Rudolph",
+          "link": "https://twitter.com/search?q=Mason%20Rudolph"
         },
         {
-          "title": "Josh Cameron",
-          "link": "https://twitter.com/search?q=Josh%20Cameron"
+          "title": "#HereWeGo",
+          "link": "https://twitter.com/search?q=%23HereWeGo"
+        },
+        {
+          "title": "#DENvsPIT",
+          "link": "https://twitter.com/search?q=%23DENvsPIT"
+        },
+        {
+          "title": "Colandrea",
+          "link": "https://twitter.com/search?q=Colandrea"
         },
         {
           "title": "Tocchet",
           "link": "https://twitter.com/search?q=Tocchet"
         },
         {
-          "title": "#BudHolidayDelivery",
-          "link": "https://twitter.com/search?q=%23BudHolidayDelivery"
+          "title": "Henry Davis",
+          "link": "https://twitter.com/search?q=Henry%20Davis"
         }
       ],
-      "updated_at": "2026-11-27T19:47:07Z",
-      "updated_at_cst": "2026-11-28 03:47:07 CST"
+      "updated_at": "2026-11-27T20:47:08Z",
+      "updated_at_cst": "2026-11-28 04:47:08 CST"
     }
   },
   "browser": {
