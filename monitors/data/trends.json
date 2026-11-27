@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-27T15:47:08Z",
-  "fetched_at_cst": "2026-11-27 23:47:08 CST",
-  "checked_at": "2026-11-27T15:47:08Z",
-  "checked_at_cst": "2026-11-27 23:47:08 CST",
+  "fetched_at": "2026-11-27T16:47:15Z",
+  "fetched_at_cst": "2026-11-28 00:47:15 CST",
+  "checked_at": "2026-11-27T16:47:15Z",
+  "checked_at_cst": "2026-11-28 00:47:15 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "parker washington",
-          "traffic": "5000+",
+          "title": "thriller television series",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "canelo álvarez",
+          "title": "college football schedule",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "the great british bake off",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "u17 world cup",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "sea of sorrow",
+          "title": "toledo vs ohio",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "nasdaq today",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "nasdaq composite",
+          "title": "kyle palmieri",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "matt damon family home life",
+          "title": "ms state vs ole miss",
+          "traffic": "20000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "tulsa vs utsa",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "lawson lovering",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "mstr stock",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "law",
+          "title": "virginia vs xavier",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "college games today",
-          "traffic": "500+",
+          "title": "tear gas",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,13 @@
       "http": 200,
       "items": [
         {
-          "title": "賈永婕",
-          "traffic": "200+",
+          "title": "coach",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "coach",
-          "traffic": "100+",
+          "title": "賈永婕",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -99,7 +99,7 @@
         },
         {
           "title": "股利",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,13 +124,23 @@
       "http": 200,
       "items": [
         {
-          "title": "永 豐 金 證券",
-          "traffic": "1000+",
+          "title": "張鈞甯",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "王美惠",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "林俊憲",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "唐新民",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -140,6 +150,11 @@
         },
         {
           "title": "雷克萨斯nx",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "台中市議員候選人",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
@@ -155,21 +170,6 @@
         },
         {
           "title": "六都",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "選罷法",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "選舉公報",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "富喬",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
