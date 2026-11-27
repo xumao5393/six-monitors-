@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-27T07:47:13Z",
-  "fetched_at_cst": "2026-11-27 15:47:13 CST",
-  "checked_at": "2026-11-27T07:47:13Z",
-  "checked_at_cst": "2026-11-27 15:47:13 CST",
+  "fetched_at": "2026-11-27T08:47:09Z",
+  "fetched_at_cst": "2026-11-27 16:47:09 CST",
+  "checked_at": "2026-11-27T08:47:09Z",
+  "checked_at_cst": "2026-11-27 16:47:09 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -582,7 +582,7 @@
       "name": "Qwen: Qwen3.8 2.4T A95B",
       "prompt_per_m": 2.0,
       "completion_per_m": 6.0,
-      "context_length": 1048576
+      "context_length": 1000000
     },
     {
       "id": "deepseek/deepseek-v4-pro-0813",

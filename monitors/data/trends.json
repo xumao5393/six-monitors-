@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-27T07:47:13Z",
-  "fetched_at_cst": "2026-11-27 15:47:13 CST",
-  "checked_at": "2026-11-27T07:47:13Z",
-  "checked_at_cst": "2026-11-27 15:47:13 CST",
+  "fetched_at": "2026-11-27T08:47:09Z",
+  "fetched_at_cst": "2026-11-27 16:47:09 CST",
+  "checked_at": "2026-11-27T08:47:09Z",
+  "checked_at_cst": "2026-11-27 16:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,13 +12,23 @@
       "http": 200,
       "items": [
         {
-          "title": "gta6 pc port",
+          "title": "shead",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "mirror",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "aus vs eng",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "white",
-          "traffic": "5000+",
+          "title": "gta6 pc port",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -33,7 +43,7 @@
         },
         {
           "title": "seth meyers",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -50,16 +60,6 @@
           "title": "michael douglas",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jessica biel",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ikea black friday",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
     },
@@ -67,6 +67,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "蔡约翰",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
         {
           "title": "aeon",
           "traffic": "200+",
@@ -84,7 +89,7 @@
         },
         {
           "title": "阮嘉敏",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -111,11 +116,6 @@
           "title": "馬拉松",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "莊思敏",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,23 +124,43 @@
       "http": 200,
       "items": [
         {
-          "title": "欸你這週要幹嘛",
+          "title": "國安基金",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "交通罰單",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "救援",
+          "title": "supercell",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "謝國樑",
+          "title": "新竹縣",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "欸你這週要幹嘛",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "救援",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "謝國樑",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "南 電",
-          "traffic": "100+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -151,26 +171,6 @@
         {
           "title": "2409",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2880",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "4916",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "2485",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "烏克蘭空軍",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
