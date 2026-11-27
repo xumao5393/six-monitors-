@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-27T18:47:11Z",
-  "fetched_at_cst": "2026-11-28 02:47:11 CST",
-  "checked_at": "2026-11-27T18:47:11Z",
-  "checked_at_cst": "2026-11-28 02:47:11 CST",
+  "fetched_at": "2026-11-27T19:47:07Z",
+  "fetched_at_cst": "2026-11-28 03:47:07 CST",
+  "checked_at": "2026-11-27T19:47:07Z",
+  "checked_at_cst": "2026-11-28 03:47:07 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "bill nye",
+          "title": "ireland vs australia",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ilia malinin",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "venezuela men's national under-17 football team vs mexico u-17 standings",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "sec championship scenarios",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "cheap flights",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "greg abel",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "stars vs blues",
+          "title": "app state vs south alabama",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "kirk ferentz",
+          "title": "levante - racing de santander",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "panthers vs capitals",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "canucks vs flyers",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "red wings vs blue jackets",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "benjamin netanyahu",
+          "title": "venezia vs bologna",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "kamario taylor",
+          "title": "werder vs mönchengladbach",
           "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "nottm forest vs chelsea",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "tim tawa",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -70,11 +70,6 @@
         {
           "title": "coach",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "賈永婕",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -95,6 +90,11 @@
         {
           "title": "杜如風",
           "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "沈伯洋",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,13 +124,23 @@
       "http": 200,
       "items": [
         {
+          "title": "github",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "小弗拉迪米爾·葛雷諾",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "徐千晴",
+          "title": "顏翎熹",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "徐千晴",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -161,16 +171,6 @@
         {
           "title": "王美惠",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "林俊憲",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "唐新民",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
