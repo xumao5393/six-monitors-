@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-27T04:47:09Z",
-  "fetched_at_cst": "2026-11-27 12:47:09 CST",
-  "checked_at": "2026-11-27T04:47:09Z",
-  "checked_at_cst": "2026-11-27 12:47:09 CST",
+  "fetched_at": "2026-11-27T04:59:55Z",
+  "fetched_at_cst": "2026-11-27 12:59:55 CST",
+  "checked_at": "2026-11-27T04:59:55Z",
+  "checked_at_cst": "2026-11-27 12:59:55 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,17 +12,37 @@
       "http": 200,
       "items": [
         {
+          "title": "texas tech red raiders football standings",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "deion sanders",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "iran war",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "omaha basketball",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "bills nfl standings",
+          "traffic": "50000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "gonzaga basketball",
           "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "texas tech basketball",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "alabama basketball",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
@@ -37,28 +57,8 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "pacific basketball",
+          "title": "alabama basketball",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "afc west",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "seth trimble",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "49ers standings",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "kelly stafford",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -124,6 +124,31 @@
       "http": 200,
       "items": [
         {
+          "title": "李灝宇",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "碰撞",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "ah-64阿帕契直升機",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "新竹市長候選人",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "彰化縣長候選人",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "群 創",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
@@ -140,37 +165,12 @@
         },
         {
           "title": "國道一號車禍",
-          "traffic": "2000+",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "太空資料中心",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "补贴",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "聯亞",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "群創光電",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "愛沙尼亞",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "黑豹旗",
-          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
