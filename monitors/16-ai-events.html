@@ -96,6 +96,7 @@
   .tl-item .d{font-size:12.5px;color:#fbbf24;font-weight:700;letter-spacing:.04em}
   .tl-item .t{font-size:15.5px;font-weight:700;margin:2px 0;line-height:1.5;overflow-wrap:anywhere;word-break:break-word;white-space:normal;min-width:0}
   .tl-item .i{font-size:13.5px;color:#d6d3d1;line-height:1.6}
+  .fn{font-size:12.5px;color:#a8a29e;margin-top:4px;line-height:1.6}
   /* 筛选 + 表格 */
   .c-table{background:#181210;background:linear-gradient(165deg,#201612,#171310 60%);margin-top:14px}
   .filters{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 6px}
@@ -307,6 +308,8 @@ var EVENTS = [
   impact:"加州总检察长牵头 42 州总检察长 11 月 24 日向特拉华破产法院提出异议，阻止 Character.AI 出售平台及 2100 多万美国用户（含 210 多万未成年人）的私聊记录与 IP 地址等数据，拍卖原定 12 月 1 日；各州指公司曾承诺不出售个人信息，买方不受任何隐私约束。",
   t2:"42 state AGs intervene in Character.AI bankruptcy to block auction of 21M users' private chats",
   i2:"A bipartisan coalition of 42 state attorneys general led by California objected in Delaware bankruptcy court on Nov 24 to Character.AI's plan to sell its platform and the private chat histories of over 21 million US accounts — more than 2.1 million of them minors — ahead of a Dec 1 auction, arguing the company had promised never to sell personal information and the buyer would face no privacy constraints.",
+  note:"注：加州总检察长 11 月 24 日通稿正文称 42 州联盟，Bonta 原话称\"45 位总检察长联盟\"；破产法庭异议书（11 月 20 日，案号 26-11603）列名 41 州及特区，德州同日另行提出异议。",
+  n2:"Note: the California AG's Nov 24 release says a 42-state coalition in its text, while AG Bonta's quote says a coalition of 45 attorneys general; the court objection (Nov 20, No. 26-11603) names 41 states plus D.C., with Texas filing separately the same day.",
   s1:"https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/", s1n:"TechCrunch 异议报道", s1e:"TechCrunch objection report",
   s2:"https://newjerseybusinessjournal.com/article/958874033-attorney-general-bonta-opposes-asset-sale-of-character-ai-amid-child-safety-concerns", s2n:"NJBJ 异议报道", s2e:"NJBJ objection report"},
  {date:"2026-11-24", title:"Meta 把 Muse 接进 Instagram 私信：边刷帖边问，还能整理收藏", vendor:"Meta", group:"Meta", type:"发布",
@@ -592,6 +595,7 @@ function isEN(){ return window.__MON_LANG==='en'; }
 function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
 function evT(e){ return isEN()? e.t2 : e.title; }
 function evI(e){ return isEN()? e.i2 : e.impact; }
+function evN(e){ return isEN()? (e.n2||"") : (e.note||""); }
 function evV(e){ return isEN()? (e.v2||e.vendor) : e.vendor; }
 function evG(e){ return isEN()? (e.g2||GROUP_EN[e.group]||e.group) : e.group; }
 
@@ -607,7 +611,7 @@ function draw(){
   drawChart();
   /* 时间线 */
   document.getElementById("timeline").innerHTML = EVENTS.map(function(e){
-    return '<div class="tl-item"><div class="d">'+e.date+' · '+esc(evV(e))+'</div><div class="t">'+esc(evT(e))+'</div><div class="i">'+esc(evI(e))+'</div></div>';
+    return '<div class="tl-item"><div class="d">'+e.date+' · '+esc(evV(e))+'</div><div class="t">'+esc(evT(e))+'</div><div class="i">'+esc(evI(e))+'</div>'+(evN(e)? '<div class="fn">'+esc(evN(e))+'</div>' : '')+'</div>';
   }).join("");
   renderTable();
   updateAge();
@@ -660,7 +664,7 @@ function renderTable(){
     var s1lbl = isEN()? ("Primary: "+e.s1e) : ("主："+e.s1n);
     var s2lbl = isEN()? ("Backup: "+e.s2e) : ("备用："+e.s2n);
     return '<tr><td class="date">'+e.date+'</td><td class="ttl">'+esc(evT(e))+'</td><td>'+esc(evV(e))+'</td>'+
-      '<td><span class="badge '+TCLASS[e.type]+'">'+typeLbl+'</span></td><td class="imp">'+esc(evI(e))+'</td>'+
+      '<td><span class="badge '+TCLASS[e.type]+'">'+typeLbl+'</span></td><td class="imp">'+esc(evI(e))+(evN(e)? '<div class="fn">'+esc(evN(e))+'</div>' : '')+'</td>'+
       '<td><a href="'+e.s1+'" target="_blank" rel="noopener">'+esc(s1lbl)+'</a><span class="bak"><a href="'+e.s2+'" target="_blank" rel="noopener">'+esc(s2lbl)+'</a></span></td></tr>';
   }).join("");
 }
