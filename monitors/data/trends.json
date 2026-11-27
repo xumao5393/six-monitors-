@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-27T08:47:09Z",
-  "fetched_at_cst": "2026-11-27 16:47:09 CST",
-  "checked_at": "2026-11-27T08:47:09Z",
-  "checked_at_cst": "2026-11-27 16:47:09 CST",
+  "fetched_at": "2026-11-27T09:47:09Z",
+  "fetched_at_cst": "2026-11-27 17:47:09 CST",
+  "checked_at": "2026-11-27T09:47:09Z",
+  "checked_at_cst": "2026-11-27 17:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,8 +12,23 @@
       "http": 200,
       "items": [
         {
-          "title": "shead",
+          "title": "is the stock market open today",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "what time does old navy open on black friday",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "russian ukraine war",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "shead",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
@@ -23,11 +38,16 @@
         },
         {
           "title": "aus vs eng",
-          "traffic": "1000+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
           "title": "gta6 pc port",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "white",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
@@ -37,27 +57,7 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "iran attacks kuwait",
-          "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "seth meyers",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "ocelot jugular gta 6",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "justin bieber",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "michael douglas",
+          "title": "boss",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -74,7 +74,7 @@
         },
         {
           "title": "aeon",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,53 +124,53 @@
       "http": 200,
       "items": [
         {
-          "title": "國安基金",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "交通罰單",
+          "title": "康康",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "supercell",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "新竹縣",
+          "title": "嘉義選前之夜",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "欸你這週要幹嘛",
+          "title": "凱達格蘭大道",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "救援",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "謝國樑",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "南 電",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "3231",
+          "title": "桃園市長",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "2409",
-          "traffic": "500+",
+          "title": "宜蘭縣長候選人",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "etf",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "防禦率",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "裁員",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "柯志恩選前之夜",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "新北市長",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
