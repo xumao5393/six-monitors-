@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-28T16:51:18Z",
-  "fetched_at_cst": "2026-11-29 00:51:18 CST",
-  "checked_at": "2026-11-28T16:51:18Z",
-  "checked_at_cst": "2026-11-29 00:51:18 CST",
+  "fetched_at": "2026-11-28T17:47:09Z",
+  "fetched_at_cst": "2026-11-29 01:47:09 CST",
+  "checked_at": "2026-11-28T17:47:09Z",
+  "checked_at_cst": "2026-11-29 01:47:09 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "jeremiah smith",
+          "title": "earthquake",
+          "traffic": "100000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "earthquake near me",
+          "traffic": "50000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "earthquake today",
+          "traffic": "20000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "california earthquake",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "troy smith",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "earthquake california",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "earthquake california today",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "tina fey",
+          "title": "5.2 earthquake",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "地震",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "earthquake 5 minutes ago in los angeles",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "illinois vs northwestern",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "retirement age",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "kalshi",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "strait of hormuz",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "the game football",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "what college football games are on today",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "torino vs lazio",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "nc state vs unc",
-          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,13 +68,18 @@
       "http": 200,
       "items": [
         {
+          "title": "德甲",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "霍啟山",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "曼聯",
-          "traffic": "2000+",
+          "title": "manchester united",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -84,7 +89,7 @@
         },
         {
           "title": "cic app",
-          "traffic": "1000+",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -94,17 +99,12 @@
         },
         {
           "title": "曼聯對賓福特",
-          "traffic": "5000+",
+          "traffic": "10000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "man utd vs brentford",
           "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "漢堡對拜仁",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -124,8 +124,18 @@
       "http": 200,
       "items": [
         {
-          "title": "曼聯",
-          "traffic": "200+",
+          "title": "manchester united",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "國泰",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "辜保源",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -135,7 +145,7 @@
         },
         {
           "title": "แมนยู พบ เบรนต์ฟอร์ด",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -160,16 +170,6 @@
         },
         {
           "title": "漢堡 對 拜仁慕尼黑",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "man utd vs brentford",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "英國",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
