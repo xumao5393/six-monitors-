@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-28T12:47:07Z",
-  "fetched_at_cst": "2026-11-28 20:47:07 CST",
-  "checked_at": "2026-11-28T12:47:07Z",
-  "checked_at_cst": "2026-11-28 20:47:07 CST",
+  "fetched_at": "2026-11-28T13:47:07Z",
+  "fetched_at_cst": "2026-11-28 21:47:07 CST",
+  "checked_at": "2026-11-28T13:47:07Z",
+  "checked_at_cst": "2026-11-28 21:47:07 CST",
   "ok": true,
   "source": "GitHub Actions snapshot (curl, server-side) — see .github/workflows/snapshot.yml; browser direct fetch is CORS-blocked",
   "platforms": {
@@ -12,48 +12,48 @@
       "source": "https://weibointl.api.weibo.cn/portal.php?ct=feed&a=search_topic",
       "items": [
         {
+          "title": "女子将40万黄金放车顶开一路忘拿",
+          "heat": 1180215
+        },
+        {
+          "title": "白小纯只记得沙特道歉的原因",
+          "heat": 856597
+        },
+        {
+          "title": "三重变化勾勒消费市场新图景",
+          "heat": 651968
+        },
+        {
           "title": "后会友期未播路透",
-          "heat": 1107987
-        },
-        {
-          "title": "原来孔子不姓孔",
-          "heat": 811810
-        },
-        {
-          "title": "神23神24在轨交接",
-          "heat": 648500
-        },
-        {
-          "title": "白小纯的19岁好苦",
-          "heat": 558591
-        },
-        {
-          "title": "中国首位太空常住户",
-          "heat": 342022
-        },
-        {
-          "title": "成毅听到两京十五日破万的反应",
-          "heat": 338971
-        },
-        {
-          "title": "大额存单10万元就能买了",
-          "heat": 335222
-        },
-        {
-          "title": "冰雪旅游全域升温燃动冬日文旅",
-          "heat": 332845
+          "heat": 530477
         },
         {
           "title": "全国电视开机率已降至30%",
-          "heat": 331459
+          "heat": 530380
+        },
+        {
+          "title": "霍启山娜然宣布恋情",
+          "heat": 525328
+        },
+        {
+          "title": "原来孔子不姓孔",
+          "heat": 518842
+        },
+        {
+          "title": "董明珠称骂人并无恶意",
+          "heat": 512498
         },
         {
           "title": "微博国际文化交流之夜",
-          "heat": 329324
+          "heat": 505761
+        },
+        {
+          "title": "中国首位太空常住户",
+          "heat": 499763
         }
       ],
-      "updated_at": "2026-11-28T12:47:07Z",
-      "updated_at_cst": "2026-11-28 20:47:07 CST"
+      "updated_at": "2026-11-28T13:47:07Z",
+      "updated_at_cst": "2026-11-28 21:47:07 CST"
     },
     "douyin": {
       "ok": true,
@@ -61,55 +61,56 @@
       "source": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
       "items": [
         {
-          "title": "巴方官员同巴基斯坦航天员通话",
-          "heat": 11097253
-        },
-        {
           "title": "U17国足将迎战塞尔维亚",
-          "heat": 11091589
-        },
-        {
-          "title": "养老托育两头难有了国家级解法",
-          "heat": 11076931
+          "heat": 11197239
         },
         {
           "title": "淡人穿出时髦感的冬季穿搭",
-          "heat": 10971971
+          "heat": 11123195
         },
         {
-          "title": "76人大胜步行者晋级淘汰赛",
-          "heat": 10413462
+          "title": "神23和神24航天员完成在轨交接",
+          "heat": 11096806
+        },
+        {
+          "title": "巴方官员同巴基斯坦航天员通话",
+          "heat": 11086608
         },
         {
           "title": "坐火车的正确打开方式",
-          "heat": 10382477
-        },
-        {
-          "title": "马刺逆转湖人",
-          "heat": 9283824
-        },
-        {
-          "title": "独牙200万代勇vs柯秉中",
-          "heat": 9223891
-        },
-        {
-          "title": "俄乌两军冬季战前补给成重中之重",
-          "heat": 9209120
+          "heat": 10482403
         },
         {
           "title": "美国人也爱上了喝茶N件套",
-          "heat": 9165972
+          "heat": 10307614
+        },
+        {
+          "title": "马刺逆转湖人",
+          "heat": 9141702
+        },
+        {
+          "title": "独牙200万代勇vs柯秉中",
+          "heat": 9122366
+        },
+        {
+          "title": "拿破仑夹克轻松拿捏秋冬混搭风",
+          "heat": 9041813
+        },
+        {
+          "title": "冬天来一口榴莲炒冰夯爆了",
+          "heat": 9037904
         }
       ],
-      "updated_at": "2026-11-28T12:47:07Z",
-      "updated_at_cst": "2026-11-28 20:47:07 CST"
+      "updated_at": "2026-11-28T13:47:07Z",
+      "updated_at_cst": "2026-11-28 21:47:07 CST"
     },
     "zhihu": {
       "ok": false,
       "http": 401,
       "source": "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=10",
-      "error": "401 身份未验证",
-      "items": []
+      "error": "本次未尝试（401 已知，每 6 小时试一次）",
+      "items": [],
+      "skipped": true
     },
     "bili": {
       "ok": true,
@@ -133,12 +134,12 @@
           "category": "日常"
         },
         {
-          "title": "“为人民服务”",
-          "category": "日常"
-        },
-        {
           "title": "《绝区零》挽昼动画短片 | 最后的旅途",
           "category": "手机游戏"
+        },
+        {
+          "title": "“为人民服务”",
+          "category": "日常"
         },
         {
           "title": "“MJ宇宙之最正能量的一集”",
@@ -157,12 +158,12 @@
           "category": "出行"
         }
       ],
-      "updated_at": "2026-11-28T12:47:07Z",
-      "updated_at_cst": "2026-11-28 20:47:07 CST"
+      "updated_at": "2026-11-28T13:47:07Z",
+      "updated_at_cst": "2026-11-28 21:47:07 CST"
     },
     "baidu": {
       "ok": false,
-      "http": 0,
+      "http": 200,
       "source": "https://top.baidu.com/api/board?platform=pc&tab=realtime",
       "items": [
         {
@@ -208,7 +209,7 @@
       ],
       "updated_at": "2026-11-26T07:47:08Z",
       "updated_at_cst": "2026-11-26 15:47:08 CST",
-      "error": "熔断冷却中，连续失败 10 次，下次试探 2026-11-28T12:47:08Z"
+      "error": "空响应（列表为空）"
     },
     "toutiao": {
       "ok": true,
@@ -217,47 +218,47 @@
       "items": [
         {
           "title": "巴航天员为何只在中国空间站待几天",
-          "link": "https://www.toutiao.com/trending/7713169712586165810/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713169712586165810%22%2C%22hot_board_impr_id%22%3A%2220261128204712C40F57E8BB8CC040F1E6%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B7%B4%E8%88%AA%E5%A4%A9%E5%91%98%E4%B8%BA%E4%BD%95%E5%8F%AA%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%A9%BA%E9%97%B4%E7%AB%99%E5%BE%85%E5%87%A0%E5%A4%A9%22%7D&rank=&style_id=40132&topic_id=7713169712586165810"
+          "link": "https://www.toutiao.com/trending/7713169712586165810/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713169712586165810%22%2C%22hot_board_impr_id%22%3A%2220261128214714083FAEDFF5938713345F%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B7%B4%E8%88%AA%E5%A4%A9%E5%91%98%E4%B8%BA%E4%BD%95%E5%8F%AA%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%A9%BA%E9%97%B4%E7%AB%99%E5%BE%85%E5%87%A0%E5%A4%A9%22%7D&rank=&style_id=40132&topic_id=7713169712586165810"
         },
         {
-          "title": "52人摘橘仅留10元警方提级办理",
-          "link": "https://www.toutiao.com/trending/7712644569263079478/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712644569263079478%22%2C%22hot_board_impr_id%22%3A%2220261128204712C40F57E8BB8CC040F1E6%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%2252%E4%BA%BA%E6%91%98%E6%A9%98%E4%BB%85%E7%95%9910%E5%85%83%E8%AD%A6%E6%96%B9%E6%8F%90%E7%BA%A7%E5%8A%9E%E7%90%86%22%7D&rank=&style_id=40132&topic_id=7712644569263079478"
+          "title": "航天员返航为何要等待返回窗口",
+          "link": "https://www.toutiao.com/trending/7713204198707301898/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713204198707301898%22%2C%22hot_board_impr_id%22%3A%2220261128214714083FAEDFF5938713345F%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%88%AA%E5%A4%A9%E5%91%98%E8%BF%94%E8%88%AA%E4%B8%BA%E4%BD%95%E8%A6%81%E7%AD%89%E5%BE%85%E8%BF%94%E5%9B%9E%E7%AA%97%E5%8F%A3%22%7D&rank=&style_id=40132&topic_id=7713204198707301898"
         },
         {
           "title": "“冰雪+”释放消费热动能",
-          "link": "https://www.toutiao.com/trending/7712846324189708298/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712846324189708298%22%2C%22hot_board_impr_id%22%3A%2220261128204712C40F57E8BB8CC040F1E6%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E2%80%9C%E5%86%B0%E9%9B%AA%2B%E2%80%9D%E9%87%8A%E6%94%BE%E6%B6%88%E8%B4%B9%E7%83%AD%E5%8A%A8%E8%83%BD%22%7D&rank=&style_id=40132&topic_id=7712846324189708298"
-        },
-        {
-          "title": "巴基斯坦将11月25日设为航天纪念日",
-          "link": "https://www.toutiao.com/trending/7712697531935261193/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712697531935261193%22%2C%22hot_board_impr_id%22%3A%2220261128204712C40F57E8BB8CC040F1E6%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B7%B4%E5%9F%BA%E6%96%AF%E5%9D%A6%E5%B0%8611%E6%9C%8825%E6%97%A5%E8%AE%BE%E4%B8%BA%E8%88%AA%E5%A4%A9%E7%BA%AA%E5%BF%B5%E6%97%A5%22%7D&rank=&style_id=40132&topic_id=7712697531935261193"
-        },
-        {
-          "title": "珠海籍歼-10C飞行员郭晓军排面拉满",
-          "link": "https://www.toutiao.com/trending/7713071548916072987/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713071548916072987%22%2C%22hot_board_impr_id%22%3A%2220261128204712C40F57E8BB8CC040F1E6%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%8F%A0%E6%B5%B7%E7%B1%8D%E6%AD%BC-10C%E9%A3%9E%E8%A1%8C%E5%91%98%E9%83%AD%E6%99%93%E5%86%9B%E6%8E%92%E9%9D%A2%E6%8B%89%E6%BB%A1%22%7D&rank=&style_id=40132&topic_id=7713071548916072987"
-        },
-        {
-          "title": "著名表演艺术家章兰逝世",
-          "link": "https://www.toutiao.com/trending/7713077365073035827/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%228%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713077365073035827%22%2C%22hot_board_impr_id%22%3A%2220261128204712C40F57E8BB8CC040F1E6%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%91%97%E5%90%8D%E8%A1%A8%E6%BC%94%E8%89%BA%E6%9C%AF%E5%AE%B6%E7%AB%A0%E5%85%B0%E9%80%9D%E4%B8%96%22%7D&rank=&style_id=40132&topic_id=7713077365073035827"
-        },
-        {
-          "title": "3名回地球航天员收到天宫神秘礼物",
-          "link": "https://www.toutiao.com/trending/7712865577442131987/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%220%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712865577442131987%22%2C%22hot_board_impr_id%22%3A%2220261128204712C40F57E8BB8CC040F1E6%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%223%E5%90%8D%E5%9B%9E%E5%9C%B0%E7%90%83%E8%88%AA%E5%A4%A9%E5%91%98%E6%94%B6%E5%88%B0%E5%A4%A9%E5%AE%AB%E7%A5%9E%E7%A7%98%E7%A4%BC%E7%89%A9%22%7D&rank=&style_id=40132&topic_id=7712865577442131987"
-        },
-        {
-          "title": "曝华为Mate 90激活销量破百万",
-          "link": "https://www.toutiao.com/trending/7713097211101479474/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%228%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713097211101479474%22%2C%22hot_board_impr_id%22%3A%2220261128204712C40F57E8BB8CC040F1E6%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%9B%9D%E5%8D%8E%E4%B8%BAMate+90%E6%BF%80%E6%B4%BB%E9%94%80%E9%87%8F%E7%A0%B4%E7%99%BE%E4%B8%87%22%7D&rank=&style_id=40132&topic_id=7713097211101479474"
+          "link": "https://www.toutiao.com/trending/7712846324189708298/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712846324189708298%22%2C%22hot_board_impr_id%22%3A%2220261128214714083FAEDFF5938713345F%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E2%80%9C%E5%86%B0%E9%9B%AA%2B%E2%80%9D%E9%87%8A%E6%94%BE%E6%B6%88%E8%B4%B9%E7%83%AD%E5%8A%A8%E8%83%BD%22%7D&rank=&style_id=40132&topic_id=7712846324189708298"
         },
         {
           "title": "张凯丽否认92岁母亲二次换肾",
-          "link": "https://www.toutiao.com/trending/7713189031060652595/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713189031060652595%22%2C%22hot_board_impr_id%22%3A%2220261128204712C40F57E8BB8CC040F1E6%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%BC%A0%E5%87%AF%E4%B8%BD%E5%90%A6%E8%AE%A492%E5%B2%81%E6%AF%8D%E4%BA%B2%E4%BA%8C%E6%AC%A1%E6%8D%A2%E8%82%BE%22%7D&rank=&style_id=40132&topic_id=7713189031060652595"
+          "link": "https://www.toutiao.com/trending/7713189031060652595/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713189031060652595%22%2C%22hot_board_impr_id%22%3A%2220261128214714083FAEDFF5938713345F%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%BC%A0%E5%87%AF%E4%B8%BD%E5%90%A6%E8%AE%A492%E5%B2%81%E6%AF%8D%E4%BA%B2%E4%BA%8C%E6%AC%A1%E6%8D%A2%E8%82%BE%22%7D&rank=&style_id=40132&topic_id=7713189031060652595"
         },
         {
-          "title": "央媒评梁靖崑加盟俄超方博去德甲",
-          "link": "https://www.toutiao.com/trending/7712892725305065514/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712892725305065514%22%2C%22hot_board_impr_id%22%3A%2220261128204712C40F57E8BB8CC040F1E6%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A4%AE%E5%AA%92%E8%AF%84%E6%A2%81%E9%9D%96%E5%B4%91%E5%8A%A0%E7%9B%9F%E4%BF%84%E8%B6%85%E6%96%B9%E5%8D%9A%E5%8E%BB%E5%BE%B7%E7%94%B2%22%7D&rank=&style_id=40132&topic_id=7712892725305065514"
+          "title": "珠海籍歼-10C飞行员郭晓军排面拉满",
+          "link": "https://www.toutiao.com/trending/7713071548916072987/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713071548916072987%22%2C%22hot_board_impr_id%22%3A%2220261128214714083FAEDFF5938713345F%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%8F%A0%E6%B5%B7%E7%B1%8D%E6%AD%BC-10C%E9%A3%9E%E8%A1%8C%E5%91%98%E9%83%AD%E6%99%93%E5%86%9B%E6%8E%92%E9%9D%A2%E6%8B%89%E6%BB%A1%22%7D&rank=&style_id=40132&topic_id=7713071548916072987"
+        },
+        {
+          "title": "男子被猫咬后打疫苗结果仍感染截指",
+          "link": "https://www.toutiao.com/trending/7713019403444863539/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713019403444863539%22%2C%22hot_board_impr_id%22%3A%2220261128214714083FAEDFF5938713345F%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%94%B7%E5%AD%90%E8%A2%AB%E7%8C%AB%E5%92%AC%E5%90%8E%E6%89%93%E7%96%AB%E8%8B%97%E7%BB%93%E6%9E%9C%E4%BB%8D%E6%84%9F%E6%9F%93%E6%88%AA%E6%8C%87%22%7D&rank=&style_id=40132&topic_id=7713019403444863539"
+        },
+        {
+          "title": "法国为何要欢迎中国车企建厂",
+          "link": "https://www.toutiao.com/trending/7713185099742711315/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713185099742711315%22%2C%22hot_board_impr_id%22%3A%2220261128214714083FAEDFF5938713345F%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%B3%95%E5%9B%BD%E4%B8%BA%E4%BD%95%E8%A6%81%E6%AC%A2%E8%BF%8E%E4%B8%AD%E5%9B%BD%E8%BD%A6%E4%BC%81%E5%BB%BA%E5%8E%82%22%7D&rank=&style_id=40132&topic_id=7713185099742711315"
+        },
+        {
+          "title": "著名表演艺术家章兰逝世",
+          "link": "https://www.toutiao.com/trending/7713077365073035827/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%228%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713077365073035827%22%2C%22hot_board_impr_id%22%3A%2220261128214714083FAEDFF5938713345F%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%91%97%E5%90%8D%E8%A1%A8%E6%BC%94%E8%89%BA%E6%9C%AF%E5%AE%B6%E7%AB%A0%E5%85%B0%E9%80%9D%E4%B8%96%22%7D&rank=&style_id=40132&topic_id=7713077365073035827"
+        },
+        {
+          "title": "印度加速载人航天进程难度有多大",
+          "link": "https://www.toutiao.com/trending/7713165241592319538/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227713165241592319538%22%2C%22hot_board_impr_id%22%3A%2220261128214714083FAEDFF5938713345F%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%B0%E5%BA%A6%E5%8A%A0%E9%80%9F%E8%BD%BD%E4%BA%BA%E8%88%AA%E5%A4%A9%E8%BF%9B%E7%A8%8B%E9%9A%BE%E5%BA%A6%E6%9C%89%E5%A4%9A%E5%A4%A7%22%7D&rank=&style_id=40132&topic_id=7713165241592319538"
+        },
+        {
+          "title": "52人摘橘仅留10元警方提级办理",
+          "link": "https://www.toutiao.com/trending/7712644569263079478/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227712644569263079478%22%2C%22hot_board_impr_id%22%3A%2220261128214714083FAEDFF5938713345F%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%2252%E4%BA%BA%E6%91%98%E6%A9%98%E4%BB%85%E7%95%9910%E5%85%83%E8%AD%A6%E6%96%B9%E6%8F%90%E7%BA%A7%E5%8A%9E%E7%90%86%22%7D&rank=&style_id=40132&topic_id=7712644569263079478"
         }
       ],
-      "updated_at": "2026-11-28T12:47:07Z",
-      "updated_at_cst": "2026-11-28 20:47:07 CST"
+      "updated_at": "2026-11-28T13:47:07Z",
+      "updated_at_cst": "2026-11-28 21:47:07 CST"
     },
     "x_us": {
       "ok": true,
@@ -269,36 +270,44 @@
           "link": "https://twitter.com/search?q=%23GMMTVStarlympics2026"
         },
         {
+          "title": "Good Saturday",
+          "link": "https://twitter.com/search?q=Good%20Saturday"
+        },
+        {
           "title": "Luka",
           "link": "https://twitter.com/search?q=Luka"
         },
         {
-          "title": "Good Saturday",
-          "link": "https://twitter.com/search?q=Good%20Saturday"
+          "title": "Caturday",
+          "link": "https://twitter.com/search?q=Caturday"
         },
         {
           "title": "PERTHSANTA DOMIIA FAMIGNITE",
           "link": "https://twitter.com/search?q=PERTHSANTA%20DOMIIA%20FAMIGNITE"
         },
         {
-          "title": "WILLIAMEST WESLEY RACE ON",
-          "link": "https://twitter.com/search?q=WILLIAMEST%20WESLEY%20RACE%20ON"
+          "title": "#SaturdayVibes",
+          "link": "https://twitter.com/search?q=%23SaturdayVibes"
         },
         {
-          "title": "Lakers",
-          "link": "https://twitter.com/search?q=Lakers"
+          "title": "WILLIAMEST WESLEY RACE ON",
+          "link": "https://twitter.com/search?q=WILLIAMEST%20WESLEY%20RACE%20ON"
         },
         {
           "title": "JOONG DUNK JAIDEE SPORTS DAY",
           "link": "https://twitter.com/search?q=JOONG%20DUNK%20JAIDEE%20SPORTS%20DAY"
         },
         {
-          "title": "#SaturdayVibes",
-          "link": "https://twitter.com/search?q=%23SaturdayVibes"
+          "title": "#SmallBusinessSaturday",
+          "link": "https://twitter.com/search?q=%23SmallBusinessSaturday"
         },
         {
-          "title": "Spurs",
-          "link": "https://twitter.com/search?q=Spurs"
+          "title": "Lakers",
+          "link": "https://twitter.com/search?q=Lakers"
+        },
+        {
+          "title": "TIPRACHALUNAR LUV POWER 14",
+          "link": "https://twitter.com/search?q=TIPRACHALUNAR%20LUV%20POWER%2014"
         },
         {
           "title": "#เพิร์ธแซนต้า",
@@ -309,24 +318,16 @@
           "link": "https://twitter.com/search?q=Tupac"
         },
         {
-          "title": "PPP FAMILY FIGHTING",
-          "link": "https://twitter.com/search?q=PPP%20FAMILY%20FIGHTING"
-        },
-        {
-          "title": "Afghanistan",
-          "link": "https://twitter.com/search?q=Afghanistan"
-        },
-        {
-          "title": "#Caturday",
-          "link": "https://twitter.com/search?q=%23Caturday"
-        },
-        {
           "title": "WLFI",
           "link": "https://twitter.com/search?q=WLFI"
+        },
+        {
+          "title": "Spurs",
+          "link": "https://twitter.com/search?q=Spurs"
         }
       ],
-      "updated_at": "2026-11-28T12:47:07Z",
-      "updated_at_cst": "2026-11-28 20:47:07 CST"
+      "updated_at": "2026-11-28T13:47:07Z",
+      "updated_at_cst": "2026-11-28 21:47:07 CST"
     }
   },
   "browser": {
