@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-28T00:47:08Z",
-  "fetched_at_cst": "2026-11-28 08:47:08 CST",
-  "checked_at": "2026-11-28T00:47:08Z",
-  "checked_at_cst": "2026-11-28 08:47:08 CST",
+  "fetched_at": "2026-11-28T01:47:08Z",
+  "fetched_at_cst": "2026-11-28 09:47:08 CST",
+  "checked_at": "2026-11-28T01:47:08Z",
+  "checked_at_cst": "2026-11-28 09:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "michael douglas",
+          "title": "warriors vs trail blazers",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "oba femi",
+          "title": "ghsa football playoffs",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "nathan fillion",
+          "title": "cruise ship outbreak",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "sec championship game",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "millonarios - américa",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "peyton manning",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "anne applebaum",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "atley calvert",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "survivor series 2026",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "david boreanaz",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "people",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "miss universo",
+          "title": "ciara",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "brownsburg football",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "black panther",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "bronson reed",
-          "traffic": "100000+",
+          "title": "mavericks vs suns",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,8 +68,43 @@
       "http": 200,
       "items": [
         {
-          "title": "諾丁漢森林對切爾西",
+          "title": "護理之家",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "cyberattack",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "資料洩露",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "货币",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "自助餐",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "台灣選舉",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "諾丁漢森林對切爾西",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "俞可程",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -78,43 +113,8 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "俞可程",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
           "title": "香港天文台",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "超級市場",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "英超",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "車路士",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "chelsea",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "苑瓊丹",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "coach",
-          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,53 +124,53 @@
       "http": 200,
       "items": [
         {
-          "title": "溜馬 對 76人",
+          "title": "灰狼 對 灰熊",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "巴西 對 美國",
+          "title": "knicks vs heat",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "老农津贴",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "尼克 對 熱火",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "黃樂",
+          "title": "塞爾提克 對 老鷹",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "晶圓代工",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "退休",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "鄭宗哲",
+          "title": "债券",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "大乐透",
-          "traffic": "500+",
+          "title": "資料洩露",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "孫藝真",
+          "title": "浩子",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "活塞 對 公鹿",
           "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "大巨蛋拾光祭",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "暴龍 對 籃網",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "游智彬",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
