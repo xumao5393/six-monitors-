@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-28T07:41:36Z",
-  "fetched_at_cst": "2026-11-28 15:41:36 CST",
-  "checked_at": "2026-11-28T07:41:36Z",
-  "checked_at_cst": "2026-11-28 15:41:36 CST",
+  "fetched_at": "2026-11-28T07:47:08Z",
+  "fetched_at_cst": "2026-11-28 15:47:08 CST",
+  "checked_at": "2026-11-28T07:47:08Z",
+  "checked_at_cst": "2026-11-28 15:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -88,6 +88,11 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
+          "title": "nba cup",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "鄧萃雯",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -110,11 +115,6 @@
         {
           "title": "tear gas",
           "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "金融",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]

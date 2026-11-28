@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-28T07:41:36Z",
-  "fetched_at_cst": "2026-11-28 15:41:36 CST",
-  "checked_at": "2026-11-28T07:41:36Z",
-  "checked_at_cst": "2026-11-28 15:41:36 CST",
+  "fetched_at": "2026-11-28T07:47:08Z",
+  "fetched_at_cst": "2026-11-28 15:47:08 CST",
+  "checked_at": "2026-11-28T07:47:08Z",
+  "checked_at_cst": "2026-11-28 15:47:08 CST",
   "ok": true,
   "ok_count": 24,
   "count": 24,
@@ -14,11 +14,11 @@
     {
       "name": "ollama/ollama",
       "cat": "LLM",
-      "stars": 188346,
+      "stars": 188347,
       "forks": 19250,
       "language": "Go",
       "pushed_at": "2026-11-28T04:13:22Z",
-      "delta_7d": 1890
+      "delta_7d": 1891
     },
     {
       "name": "huggingface/transformers",
@@ -113,11 +113,11 @@
     {
       "name": "modelcontextprotocol/servers",
       "cat": "MCP",
-      "stars": 92306,
+      "stars": 92307,
       "forks": 11999,
       "language": "TypeScript",
       "pushed_at": "2026-11-27T10:34:05Z",
-      "delta_7d": 417
+      "delta_7d": 418
     },
     {
       "name": "modelcontextprotocol/typescript-sdk",
@@ -724,7 +724,7 @@
       "RVC-Boss/GPT-SoVITS": 46
     },
     "2026-11-28": {
-      "ollama/ollama": 188346,
+      "ollama/ollama": 188347,
       "huggingface/transformers": 169318,
       "ggml-org/llama.cpp": 136476,
       "vllm-project/vllm": 97731,
@@ -735,7 +735,7 @@
       "microsoft/autogen": 61967,
       "crewAIInc/crewAI": 61335,
       "Significant-Gravitas/AutoGPT": 188217,
-      "modelcontextprotocol/servers": 92306,
+      "modelcontextprotocol/servers": 92307,
       "modelcontextprotocol/typescript-sdk": 13834,
       "openai/codex": 136662,
       "continuedev/continue": 36585,
