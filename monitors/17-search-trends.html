@@ -1,105 +1,362 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>搜索趋势监测</title><script src="./chart.umd.min.js"></script>
-<script>window.addEventListener("error",function(e){if(!window.Chart){var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js";document.head.appendChild(s);}},true);</script>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="icon" href="data:,"/>
+<title>搜索趋势监测</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
 <style>
+:root{
+  --ink:#0f2a33; --muted:#3d5a63; --card:#ffffff; --card2:#f7fcfd;
+  --line:rgba(15,42,51,.12); --up:#e0332e; --flat:#8a6d00; --down:#0f7a4d;
+  --cyan:#06b6d4; --teal:#14b8a6; --blue:#2563eb;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --ink:#ecfdfd; --muted:#a8c8ce; --card:#0e2a33; --card2:#0b222b; --line:rgba(255,255,255,.14); color-scheme:dark; }
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1d29;min-height:100vh}
-header{position:sticky;top:0;z-index:10;padding:16px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;backdrop-filter:blur(10px)}
-h1{font-size:22px;margin:0;letter-spacing:.5px}
-.sub{font-size:13px;opacity:.85}
-main{max-width:1120px;margin:0 auto;padding:22px;display:grid;gap:18px}
-.hero{border-radius:22px;padding:26px 28px;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.16)}
-.hero h2{margin:0 0 8px;font-size:30px;line-height:1.2}
-.hero p{margin:0;font-size:14px;opacity:.92;max-width:680px}
-.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
-.feed div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
-.feed b{display:block;font-size:12px;opacity:.8;margin-bottom:3px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
-.card{border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);border-top:5px solid transparent;background:#fff}
-.card h3{margin:0 0 8px;font-size:13px;color:#6b7280}
-.big{font-size:30px;font-weight:900;line-height:1.1;color:#111827}
-.badge{display:inline-block;font-size:12px;border-radius:999px;padding:3px 10px;font-weight:700}
-.badge.primary{background:#0891b2;color:#fff}.badge.backup{background:#ccfbf1;color:#0f766e}.badge.cache{background:#cffafe;color:#155e75}.badge.manual{background:#0d9488;color:#fff}.badge.missing{background:#f3f4f6;color:#6b7280}
-.badge.up{background:#dcfce7;color:#166534}.badge.flat{background:#e0f2fe;color:#075985}.badge.down{background:#fee2e2;color:#991b1b}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 8px;border-bottom:1px solid #f0f0f0;text-align:left;vertical-align:top}
-th{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#0e7490}
-.note{font-size:12px;color:#6b7280}.warn{border-radius:14px;padding:13px 16px;font-size:13px;line-height:1.6;background:#ecfeff;border:1px solid #67e8f9}
-button{background:#0891b2;color:#fff;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
-input,select{padding:9px 10px;border:1px solid #ddd;border-radius:10px;font-size:14px}
-canvas{max-width:100%}
-.card canvas{height:260px !important}
-.section-title{font-size:18px;font-weight:800;margin:6px 0 0}
-main>p.note{background:rgba(255,255,255,.94);padding:12px 16px;border-radius:14px;color:#374151;line-height:1.7}
-.srcs{font-size:12px;line-height:1.9}
-.srcs a{color:#0e7490}
-a{color:#0e7490}
-body{background:linear-gradient(160deg,#083344 0%,#0d9488 55%,#2563eb 100%) fixed;}
-header{background:linear-gradient(90deg,#083344,#0f766e,#1d4ed8);color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.4)}
-.hero{background:linear-gradient(120deg,#083344,#0d9488 60%,#2563eb)}
-.grid .card:nth-child(1){background:linear-gradient(135deg,#cffafe,#a5f3fc);border-top-color:#0891b2}
-.grid .card:nth-child(2){background:linear-gradient(135deg,#ccfbf1,#99f6e4);border-top-color:#0d9488}
-.grid .card:nth-child(3){background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-top-color:#2563eb}
-.grid .card:nth-child(4){background:linear-gradient(135deg,#f1f5f9,#e2e8f0);border-top-color:#475569}
-@media (max-width:720px){header{padding:12px 14px}h1{font-size:18px}.grid{grid-template-columns:1fr 1fr}.feed{grid-template-columns:1fr}.card{overflow-x:auto}table{display:block;overflow-x:auto;white-space:nowrap}.card canvas{height:200px !important}header button{margin-left:0;width:100%}.hero h2{font-size:22px}}
-.lang-toggle{background:rgba(255,255,255,.92)!important;color:#1a1d29!important;border:1px solid rgba(255,255,255,.65)!important;padding:9px 14px!important;font-size:13px!important;margin-left:0!important;width:auto!important;flex:none!important}@media (max-width:720px){header .lang-toggle{width:auto!important;margin-left:auto!important}}</style></head><body>
-<header><h1>🔍 搜索趋势监测</h1><span class="sub">样本 / 人工判断 · 更新日期 2026-11-16</span><span class="badge manual">样本 · 非实测</span><button class="lang-toggle" id="langToggle" onclick="toggleLang()" aria-pressed="false" title="Switch language / 切换语言">🌐 EN</button></header>
-<main>
-<section class="hero"><h2>今日看点：捏捏乐反转，DeepSeek 事件驱动</h2><p>本页趋势方向全部是人工判断的样本结论，不是 Google Trends 实测数值（Google Trends 探索接口 2026-11-16 仍返回 429）。11 月中旬最值得跟的信号：脆皮捏捏（第三代）爆火推翻回落判断，义乌小商品借双十一脉冲抬头，DeepSeek 开放 API 叠加限流讨论，Claude 新模型发布证实上升。</p><div class="feed"><div><b>📊 样本，非实测</b>趋势箭头是人工判断的方向（↑/→/↓），不含任何百分比、指数或搜索量数字。</div><div><b>🔄 实时拉取已尝试</b>下方实时区块每次打开都会先读 Actions 快照 data/trends.json，再尝试新版 Google Trends RSS（geo=US / HK / TW，永不用 geo=CN），拉不到就老实写「未获取」。</div><div><b>🛡 备份铁律</b>每个数据源都有 主源 → 替补 → 缓存 三层；无备份的来源会明确写「无备份」，不假装有。</div></div></section>
-<div class="warn">⚠️ <b>本页无实测搜索量数字。</b>Google Trends 不提供浏览器直连的免费数值接口；因此趋势方向为人工样本判断（更新 2026-11-16），曲线图为样本趋势示意。任何百分比、指数值均未在本页出现——出现即为错误。</div>
-<div class="grid">
-<div class="card"><h3>跟踪关键词</h3><div class="big">8 个</div><p class="note">人工样本，更新 2026-11-16</p></div>
-<div class="card"><h3>上升 ↑</h3><div class="big">5 个</div><p class="note">副业、捏捏乐、义乌小商品、DeepSeek、Claude</p></div>
-<div class="card"><h3>平稳 →</h3><div class="big">3 个</div><p class="note">AI、ChatGPT、Gemini</p></div>
-<div class="card"><h3>回落 ↓</h3><div class="big">0 个</div><p class="note">无</p></div>
-</div>
-<div class="card"><h3 class="section-title">关键词趋势表（样本 / 人工判断）</h3>
-<p class="note">方向说明：↑ 上升 / → 平稳 / ↓ 回落，均为人工判断，非实测数据。依据一句话为人工观察理由。</p>
-<table><thead><tr><th>关键词</th><th>近 30 天方向</th><th>依据一句话（人工判断）</th><th>相关上升词（人工整理）</th><th>用途</th></tr></thead><tbody>
-<tr><td>AI</td><td><span class="badge flat">→ 平稳</span></td><td>全年高位话题，11 月无单一爆点拉动整体搜索。</td><td>AI 副业、AI 绘画</td><td>选题 / 选品</td></tr>
-<tr><td>副业</td><td><span class="badge up">↑ 上升</span></td><td>年底「搞钱」内容在各平台持续出圈，相关讨论增多。</td><td>AI 副业、副业赚钱、轻创业</td><td>选题 / 副业拆解</td></tr>
-<tr><td>捏捏乐</td><td><span class="badge up">↑ 上升</span></td><td>脆皮捏捏（第三代）11 月爆火，义乌工厂订单排至一月后、部分产品月销破 50 万元（新浪财经 2026-11-12）。</td><td>捏捏乐进货、解压玩具</td><td>选品（谨慎）</td></tr>
-<tr><td>义乌小商品</td><td><span class="badge up">↑ 上升</span></td><td>双十一脉冲：义乌综保区首波跨境小包超 360 万单，凯仓首周销售 +51%（2026-11-12）。</td><td>义乌进货、摆摊好物</td><td>选品</td></tr>
-<tr><td>DeepSeek</td><td><span class="badge up">↑ 上升</span></td><td>11-13 官方开放全套应用 API；11-16 又因算力不足限缩长对话与每日额度，两次事件推高讨论（联合新闻网 2026-11-16）。</td><td>DeepSeek 教程、DeepSeek 写作</td><td>选题</td></tr>
-<tr><td>Claude</td><td><span class="badge up">↑ 上升</span></td><td>11-09 发布 Claude Fable 5.2 / Mythos 5.2（已证实），讨论度抬头。</td><td>Claude 宕机、Claude 水印</td><td>选题 / 大事件联动</td></tr>
-<tr><td>ChatGPT</td><td><span class="badge flat">→ 平稳</span></td><td>GPT-6 发布讨论集中在科技圈，未扩散成大众搜索高峰。</td><td>GPT-6、ChatGPT 降价</td><td>选题</td></tr>
-<tr><td>Gemini</td><td><span class="badge flat">→ 平稳</span></td><td>Argon 发布已出 7 天窗口，窗口内无新品发布；关注点转为 11-30 限时价截止（$2/$10 → $4/$20）。</td><td>Gemini 3、谷歌 AI</td><td>选题</td></tr>
-</tbody></table>
-<p class="note">口径：方向与依据均为人工判断（2026-11-16），非 Google Trends 实测值；「相关上升词」为人工整理，非平台官方相关查询。</p></div>
-<div class="card"><h3 id="trendChartTitle">Google Trends 美国热搜 · 搜索量（实测，来自快照）</h3><div style="position:relative;height:300px"><canvas id="trendChart"></canvas></div><p class="note" id="trendChartNote">读取中…</p></div>
-<div class="card"><h3 class="section-title">实时尝试：Google Trends 热榜（Actions 快照 → 新版 RSS）</h3>
-<p class="note">本区块每次打开页面时先读同域 Actions 快照 data/trends.json（已建成并在用；文件不存在时显示「未获取」），再尝试浏览器直连新版 RSS。Google Trends RSS 通常不带 CORS 头，浏览器大概率拉不到——拉不到就显示「未获取」，不编榜单。旧版每日热榜 RSS（trendingsearches/daily/rss）已 404，不再使用；geo=CN 返回 400，永不使用。</p>
-<p><button onclick="tryTrends()">🔄 尝试实时（多半被拦截）</button> <a href="https://trends.google.com/trends/" target="_blank" rel="noopener">打开 Google Trends →</a></p>
-<div id="trendLive"><p class="note">正在尝试拉取…</p></div>
-<p class="note">尝试地址（新版）：trends.google.com/trending/rss?geo=US（美国）、geo=HK（香港）、geo=TW（台湾）。geo=CN 返回 400，不用。若均失败，请手动打开上方链接查看实时热榜。</p></div>
-<div class="card"><h3 class="section-title">数据源与备份（三层，逐项标注）</h3><div class="srcs">
-<div>① Google Trends 热榜 RSS（新版） — <span class="badge primary">主源</span> Actions 快照 data/trends.json（GitHub Actions 定时抓新版 RSS trends.google.com/trending/rss?geo=US 存 JSON） → <span class="badge backup">替补</span> 浏览器直连新版 RSS（geo=US / HK / TW，常被 CORS 拦）或手动打开 trends.google.com 查看 → <span class="badge cache">缓存</span> 本页人工样本趋势表（更新 2026-11-16，过期请勿当实时用）。旧版 trendingsearches/daily/rss 已 404，geo=CN 返回 400，均已停用。</div>
-<div>② Google Trends RSS 的 Actions 快照 — <span class="badge primary">主源</span> GitHub Actions 定时抓 RSS 存 JSON（稳定性中等） → <span class="badge backup">替补</span> 手动查看 trends.google.com → <span class="badge cache">缓存</span> 本页人工样本表。状态：<span class="badge" id="snapState">读取中</span></div>
-<div>③ 关键词方向人工判断 — <span class="badge primary">主源</span> 人工观察各平台讨论热度 → <span class="badge backup">替补</span> 监测 16 大事件表交叉验证（如 Claude 宕机/发布事件） → <span class="badge cache">缓存</span> 本页样本表（更新 2026-11-16，超过 7 天未更新即视为过期）。</div>
-</div><p class="note">备份铁律执行情况：①②③ 有三层；无公开免费接口的来源不留空列，不沉默缺省。人工样本缓存有效期：自 2026-11-16 起，超过 7 天未更新即视为过期。</p></div>
-<div class="card"><h3 class="section-title">内容钩子（可直接用的选题）</h3><p class="note">「这个词的搜索这个月悄悄抬头，大部分人还没反应过来——现在做内容正是蓝海。」／「脆皮捏捏爆火了，现在进场是追高还是跟上？」／「副业话题年底走强，但九成『AI 月入过万』经不起拆——先看监测 10 的拆解。」</p></div>
-<p class="note">数据口径：「Google Trends 热榜」区块和柱状图是 Actions 快照的实测数据（Google 只给区间，如 2000+）；「关键词趋势表」和「内容钩子」是人工判断（2026-11-16），没有实测搜索量。页面设计：青 → teal → 蓝渐变；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底。</p>
-</main>
-<!-- i18n-v1 -->
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans SC",system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);
+  background:linear-gradient(155deg,#22d3ee 0%,#2dd4bf 34%,#0ea5e9 68%,#1d4ed8 100%);
+  background-attachment:fixed; min-height:100vh;}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 56px}
+a{color:#075985;font-weight:700}
+@media (prefers-color-scheme:dark){a{color:#7dd3fc}}
+/* header */
+.hero{color:#fff;padding:26px 4px 10px}
+.hero h1{font-family:"Noto Serif SC",serif;font-size:clamp(32px,6vw,54px);line-height:1.05;margin:0 0 10px;letter-spacing:.02em;text-shadow:0 2px 18px rgba(0,40,60,.25)}
+.hero p{margin:0;max-width:720px;font-size:16px;line-height:1.7;color:rgba(255,255,255,.92)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.pill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;padding:6px 12px;font-size:13px;backdrop-filter:blur(6px)}
+.pill b{font-weight:900}
+.lang-toggle{background:rgba(255,255,255,.92);color:#0f2a33;border:1px solid rgba(255,255,255,.65);border-radius:999px;padding:9px 14px;font:inherit;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(0,40,60,.25)}
+.lang-toggle:active{transform:scale(.98)}
+/* ladder */
+.ladder{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:stretch;margin:18px 0}
+.lad{background:rgba(255,255,255,.94);border-radius:16px;padding:14px 16px;box-shadow:0 10px 30px rgba(0,50,80,.18)}
+.lad small{letter-spacing:.12em;font-weight:900;font-size:11px}
+.lad h3{margin:4px 0 6px;font-size:17px}.lad p{margin:0;font-size:13px;line-height:1.6;color:#3d5a63}
+.arrow{align-self:center;font-size:22px;color:#fff;font-weight:900}
+@media(max-width:700px){.ladder{grid-template-columns:1fr}.arrow{transform:rotate(90deg);justify-self:center}}
+/* KPI */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 18px}
+@media(max-width:800px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{border-radius:18px;padding:16px;color:#fff;box-shadow:0 12px 28px rgba(0,50,80,.22);position:relative;overflow:hidden}
+.kpi:after{content:"";position:absolute;right:-18px;top:-18px;width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.18)}
+.kpi .n{font-size:34px;font-weight:900;line-height:1}.kpi .l{font-size:13px;opacity:.92;margin-top:6px;line-height:1.5}
+.k1{background:linear-gradient(135deg,#f43f5e,#f97316)} .k2{background:linear-gradient(135deg,#059669,#84cc16)}
+.k3{background:linear-gradient(135deg,#7c3aed,#db2777)} .k4{background:linear-gradient(135deg,#0f172a,#334155)}
+/* cards grid */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:20px;padding:20px;box-shadow:0 14px 34px rgba(0,50,80,.20);border-top:6px solid var(--cyan)}
+.card.full{grid-column:1/-1}
+.card h2{margin:0 0 6px;font-size:20px;line-height:1.3}
+.card .sub{margin:0 0 14px;font-size:13px;color:var(--muted);line-height:1.65}
+.b-rose{border-top-color:#f43f5e}.b-amber{border-top-color:#f59e0b}.b-emerald{border-top-color:#10b981}
+.b-violet{border-top-color:#8b5cf6}.b-sky{border-top-color:#0ea5e9}.b-orange{border-top-color:#f97316}.b-slate{border-top-color:#0f172a}
+.tag{display:inline-block;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:700;vertical-align:middle}
+.t-live{background:#dcfce7;color:#14532d}.t-sample{background:#fef3c7;color:#713f12}.t-fail{background:#fee2e2;color:#7f1d1d}.t-info{background:#e0f2fe;color:#0c4a6e}
+@media (prefers-color-scheme:dark){.t-live{background:#14532d;color:#bbf7d0}.t-sample{background:#713f12;color:#fde68a}.t-fail{background:#7f1d1d;color:#fecaca}.t-info{background:#0c4a6e;color:#bae6fd}}
+button.btn{appearance:none;border:0;border-radius:12px;padding:10px 16px;font:inherit;font-weight:800;cursor:pointer;background:#0e7490;color:#fff}
+button.btn:active{transform:scale(.98)}
+button.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+a.btn{color:#fff !important}
+.seg{display:inline-flex;background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.seg button{border:0;background:transparent;font:inherit;font-weight:800;padding:7px 16px;border-radius:999px;cursor:pointer;color:var(--muted)}
+.seg button.on{background:#0e7490;color:#fff}
+/* RSS */
+.rss-status{border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.7;background:var(--card2);border:1px dashed var(--line)}
+.rss-list{margin:10px 0 0;padding:0;list-style:none}
+.rss-list li{padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.rss-list li:last-child{border-bottom:0}
+.rss-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:980px){.rss-cols{grid-template-columns:1fr}}
+.rss-status.loading{animation:pulse 1.1s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+@media (prefers-reduced-motion:reduce){.rss-status.loading{animation:none}}
+/* schematic line chart */
+.line-wrap{position:relative}
+.line-wrap svg{width:100%;height:auto;display:block}
+.line-legend{font-size:13px;line-height:2}
+@media (max-width:720px){
+  .wrap{padding:14px 10px 44px}
+  .hero{padding:18px 2px 6px}
+  .hero p{font-size:14.5px}
+  .hero-meta{gap:6px}
+  .pill{font-size:12px;padding:5px 10px}
+  .kpis{grid-template-columns:repeat(2,1fr);gap:10px}
+  .kpi{padding:13px}
+  .kpi .n{font-size:27px}
+  .card{padding:16px 14px;border-radius:16px}
+  .card h2{font-size:18px}
+  .rss-actions{display:flex;flex-direction:column;gap:8px}
+  .rss-actions .btn{width:100%;text-align:center}
+  .chart-row{flex-direction:column;align-items:flex-start}
+  .hbar{grid-template-columns:70px 1fr 44px;gap:8px}
+  .seg button{padding:7px 12px}
+  footer{font-size:12px}
+}
+/* table */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:760px}
+th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
+th{font-size:12px;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.kw{font-weight:900;font-size:15px;white-space:nowrap}
+.dir{font-size:19px;font-weight:900;white-space:nowrap}
+.up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--flat)}
+.basis{font-size:13px;color:var(--muted)}
+.rising{font-size:13px}.rising span{display:inline-block;background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:1px 8px;margin:0 4px 4px 0}
+.heat{font-weight:900;white-space:nowrap}
+.h-high{color:#dc2626}.h-midhigh{color:#ea580c}.h-mid{color:#a16207}
+/* charts */
+.chart-row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.legend{font-size:13px;line-height:2}
+.dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+.hbar{display:grid;grid-template-columns:86px 1fr 52px;gap:10px;align-items:center;margin:9px 0;font-size:13px}
+.hbar .track{height:16px;border-radius:999px;background:var(--card2);border:1px solid var(--line);overflow:hidden}
+.hbar .fill{height:100%;border-radius:999px}
+.hbar .lv{font-weight:800;text-align:right}
+/* heat matrix */
+.matrix{border-collapse:separate;border-spacing:4px;min-width:0;width:100%;font-size:13px}
+.matrix th,.matrix td{border:0;padding:9px 6px;text-align:center;border-radius:10px}
+.matrix th{background:transparent}
+.matrix td{font-weight:800;color:#fff}
+.cell-h{background:#dc2626}.cell-mh{background:#f59e0b}.cell-m{background:#14b8a6}.cell-l{background:#94a3b8}
+.matrix .rowh{background:var(--card2);color:var(--ink);text-align:left;font-weight:900;white-space:nowrap}
+/* source table */
+.src-note{font-size:13px;line-height:1.7;color:var(--muted)}
+.stale{display:inline-block;background:#fee2e2;color:#7f1d1d;border-radius:8px;padding:1px 8px;font-size:12px;font-weight:800}
+@media (prefers-color-scheme:dark){.stale{background:#7f1d1d;color:#fecaca}}
+footer{color:rgba(255,255,255,.85);font-size:12.5px;line-height:1.8;padding:22px 4px 0;text-align:center}
+.search{width:100%;font:inherit;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card2);color:var(--ink);margin-bottom:12px}
+:focus-visible{outline:3px solid #fde047;outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
 
+  <header class="hero">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><button class="lang-toggle" id="langToggle" type="button" onclick="toggleLang()" aria-pressed="false" title="Switch language / 切换语言">🌐 EN</button></div>
+    <h1>搜索趋势监测</h1>
+    <p>盯住你真正关心的词：AI、副业、捏捏乐、义乌小商品、DeepSeek……看它们近 7 天 / 30 天是往上、走平还是往下，顺带看关联上升词和地区热度。实时部分先读 Actions 快照，再尝试新版 Google Trends RSS（美 / 港 / 台区）；抓不到就老实写「未获取」，绝不用编的数字充数。</p>
+    <div class="hero-meta">
+      <span class="pill">样本日期：<b>2026 年 11 月 28 日</b>（复核重定）</span>
+      <span class="pill">本周看点：<b>捏捏乐反转，DeepSeek 事件驱动</b></span>
+      <span class="pill">页面打开时实时尝试：<b id="tryTime">正在尝试…</b></span>
+      <span class="pill">趋势符号：<b>↑ 上升 · → 走平 · ↓ 回落</b>（定性，非百分比）</span>
+    </div>
+  </header>
+
+  <!-- 数据链路 -->
+  <section class="ladder" aria-label="数据备用链路">
+    <div class="lad"><small style="color:#0891b2">第 1 层 · 主源 LIVE</small><h3>Actions 快照 data/trends.json</h3><p>页面打开时先从 GitHub 现拉最新快照（定时抓新版 RSS 存 JSON），拉不到再回落到空间包内打包的那份旧快照，并写明来源。硬门控：只有 ok===true、fetched_at 在 12 小时内且解析出条目才算已获取；ok===false、缺失或过期一律未获取，再尝试直连新版 RSS。</p></div>
+    <div class="arrow">→</div>
+    <div class="lad"><small style="color:#d97706">第 2 层 · 备源 BACKUP</small><h3>新版 RSS 直连 + 手动打开官方页</h3><p>直连新版 RSS：trending/rss?geo=US / HK / TW（浏览器多半被 CORS 拦）。旧版每日热搜 RSS 已 404、geo=CN 返回 400，都已停用。再不行就点官方链接自己看。</p></div>
+    <div class="arrow">→</div>
+    <div class="lad"><small style="color:#db2777">第 3 层 · 缓存 CACHE</small><h3>人工判断趋势表（本页内置）</h3><p>2026-11-28 复核样本表（2026-11-22 复核重定，原表 2026-11-09）：复核时逐词核对当天 Actions 快照（2026-11-28 11:47 CST、ok=true）的美 / 港 / 台三区前十榜，8 个监测词均未以独立词条上榜；三区榜单以体育、娱乐与本地新闻为主，故方向、等级与依据维持 11-22 判断未改，只重定日期与时效。只有 ↑ / → / ↓ 和一句话依据，没有任何编造的百分比。</p></div>
+  </section>
+
+  <!-- KPI：数字全部来自下方人工样本表的计数，不是搜索量 -->
+  <section class="kpis" aria-label="概览">
+    <div class="kpi k1"><div class="n">8</div><div class="l">监测关键词<br>（样本表计数）</div></div>
+    <div class="kpi k2"><div class="n">5 ↑</div><div class="l">近 7 天方向为「上升」<br>（样本表计数）</div></div>
+    <div class="kpi k3"><div class="n">3 →</div><div class="l">近 7 天方向为「走平」<br>回落 0 个（样本表计数）</div></div>
+    <div class="kpi k4"><div class="n" id="kpiRss">…</div><div class="l">每日热搜实时抓取状态<br>先读快照、再直连 RSS，见下方</div></div>
+  </section>
+
+  <div class="grid">
+
+    <!-- 实时 RSS -->
+    <section class="card b-rose full">
+      <h2>🔴 每日热搜 · 实时尝试 <span class="tag t-live">主源</span></h2>
+      <p class="sub">顺序：先读 Actions 快照 <b>data/trends.json</b>（打开时先从 GitHub 现拉，拉不到再用空间包内副本 assets/data/trends.json，依次尝试），只有 <b>ok===true</b>、fetched_at 在 <b>12 小时内</b>且解析出条目，才标「已获取」并显示 fetched_at；ok===false（抓取失败时脚本保留的旧榜）、缺失、过期、无条目一律视为未获取，再直连新版 RSS（geo=US / HK / TW）。旧版每日热搜 RSS 已 404，不再使用；geo=CN 返回 400，永不使用。浏览器跨域限制下直连大概率抓不到——抓不到就显示「未获取」，不拿样本冒充实时。</p>
+      <div class="rss-actions" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">
+        <button class="btn" id="retryBtn" type="button">🔄 尝试实时（多半被拦截）</button>
+        <a class="btn" style="text-decoration:none;display:inline-block;background:#334155;color:#fff" href="https://trends.google.com/trends/" target="_blank" rel="noopener">打开 Google Trends ↗</a>
+        <a class="btn" style="text-decoration:none;display:inline-block;background:#334155;color:#fff" href="https://trends.google.com/trending?geo=US" target="_blank" rel="noopener">美国区热搜 ↗</a>
+        <a class="btn" style="text-decoration:none;display:inline-block;background:#334155;color:#fff" href="https://trends.google.com/trending?geo=HK" target="_blank" rel="noopener">香港区热搜 ↗</a>
+        <a class="btn" style="text-decoration:none;display:inline-block;background:#334155;color:#fff" href="https://trends.google.com/trending?geo=TW" target="_blank" rel="noopener">台湾区热搜 ↗</a>
+      </div>
+      <div class="rss-status loading" id="rssSnapStatus" style="margin-bottom:12px">正在尝试拉取…（先从 GitHub 现拉 Actions 快照 data/trends.json）</div>
+      <div class="rss-cols">
+        <div>
+          <h3 style="margin:0 0 8px;font-size:15px">🇺🇸 美国区（geo=US）</h3>
+          <div class="rss-status loading" id="rssUsStatus">正在尝试拉取…</div>
+          <ul class="rss-list" id="rssUsList"></ul>
+        </div>
+        <div>
+          <h3 style="margin:0 0 8px;font-size:15px">🇭🇰 香港区（geo=HK）</h3>
+          <div class="rss-status loading" id="rssHkStatus">正在尝试拉取…</div>
+          <ul class="rss-list" id="rssHkList"></ul>
+        </div>
+        <div>
+          <h3 style="margin:0 0 8px;font-size:15px">🇹🇼 台湾区（geo=TW）</h3>
+          <div class="rss-status loading" id="rssTwStatus">正在尝试拉取…</div>
+          <ul class="rss-list" id="rssTwList"></ul>
+        </div>
+      </div>
+      <p class="src-note" style="margin:14px 0 0">备用链路：主源 Actions 快照 data/trends.json → 备源直连新版 RSS（US / HK / TW）或手动打开上方官方页 → 缓存看下方「关键词趋势表（人工样本）」。三层都在本页，任一层断了都有下一层接住。页面打开后每 30 分钟自动刷新一次。</p>
+    </section>
+
+    <!-- 趋势表 -->
+    <section class="card b-amber full">
+      <h2>📋 关键词趋势表 <span class="tag t-sample">备源 · 样本 / 人工判断</span></h2>
+      <p class="sub">整理日期：<b>2026 年 11 月 28 日</b>（复核重定）· 性质：人工判断样本，不是 Google 官方数值，没有百分比、没有搜索量。原表整理于 2026-11-09，方向曾逐词依据新闻事件重核并改向（捏捏乐转为 ↑ 上升，义乌小商品、DeepSeek 转为 ↑ 上升，Gemini 转为 → 平稳，AI、ChatGPT 维持 → 平稳，副业、Claude 维持 ↑ 上升）；2026-11-22 复核：逐词核对当天 Actions 快照（2026-11-22 16:47 CST、ok=true）的美 / 港 / 台三区每日热搜前十，8 个监测词均未以独立词条上榜，三区榜单以体育、娱乐与本地新闻为主，Google Trends 探索接口 2026-11-22 仍返回 429（限流），无法程序化复核 7 / 30 天曲线；本次 2026-11-28 复核：逐词核对当天 Actions 快照（2026-11-28 11:47 CST、ok=true）的美 / 港 / 台三区每日热搜前十，8 个监测词均未以独立词条上榜，三区榜单以体育、娱乐与本地新闻为主——因此方向、等级与一句话依据维持 11-22 判断不变，本次只重定日期与时效，不改向、不编新数。每一行都给一句话依据，你可以点每行最后的「官方核对」自己去 Google Trends 探索页验证。<span class="stale">时效提醒：超过 2026-12-05 未更新即视为过期样本</span></p>
+      <input class="search" id="kwSearch" type="search" placeholder="筛选关键词，例如：副业 / 捏捏 / DeepSeek…" aria-label="筛选关键词">
+      <div style="margin-bottom:12px"><span style="font-size:13px;font-weight:700;margin-right:8px">重点看：</span>
+        <span class="seg" role="group" aria-label="切换周期">
+          <button type="button" id="seg7" class="on">近 7 天</button><button type="button" id="seg30">近 30 天</button>
+        </span>
+        <span style="font-size:12.5px;color:var(--muted);margin-left:8px">切换只改变下方图表的高亮周期，表格里两个周期都在。</span>
+      </div>
+      <div class="tbl-wrap">
+      <table id="kwTable">
+        <thead><tr><th>关键词</th><th>7 天</th><th>30 天</th><th>热度等级<br>（人工判断）</th><th>关联上升词</th><th>一句话依据</th><th>核对</th></tr></thead>
+        <tbody id="kwBody"></tbody>
+      </table>
+      </div>
+      <p class="src-note" id="kwEmpty" style="display:none;margin:12px 0 0">没有匹配的关键词，换个词试试。</p>
+    </section>
+
+    <!-- 图表1 环形图 -->
+    <section class="card b-violet">
+      <h2>🍩 趋势方向分布 <span class="tag t-info">环形图</span></h2>
+      <p class="sub">数的是上方样本表里箭头的个数（共 8 个词），不是搜索量。切换 7 天 / 30 天会跟着变。</p>
+      <div class="chart-row">
+        <svg id="donut" width="170" height="170" viewBox="0 0 170 170" role="img" aria-label="趋势方向分布环形图"></svg>
+        <div class="legend" id="donutLegend"></div>
+      </div>
+    </section>
+
+    <!-- 图表2 横向条 -->
+    <section class="card b-emerald">
+      <h2>🌡️ 关键词热度等级 <span class="tag t-info">横向条形</span></h2>
+      <p class="sub">等级只有三档：高 / 中高 / 中，来自人工判断样本。条的长度只表示档位，不是数值大小。</p>
+      <div id="hbars"></div>
+    </section>
+
+    <!-- 图表3 示意折线（带水印） -->
+    <section class="card b-sky full">
+      <h2>📈 样本趋势示意折线 <span class="tag t-sample">示意 · 非实测</span></h2>
+      <p class="sub">纵轴为人工设定的示意指数（0–100），只用来比较四个词的走势方向，不代表真实搜索量，不是实测数据，请勿引用为数值。图面已压「示意 · 非实测」水印，截图转发也不会被当成真实曲线。</p>
+      <div class="chart-row" style="align-items:flex-start">
+        <div class="line-wrap" style="flex:1 1 420px;min-width:260px">
+          <svg id="lineChart" viewBox="0 0 600 240" role="img" aria-label="四个关键词的样本趋势示意折线图，图面带示意水印"></svg>
+        </div>
+        <div class="line-legend" id="lineLegend"></div>
+      </div>
+    </section>
+
+    <!-- 地区热力矩阵 -->
+    <section class="card b-sky full">
+      <h2>🗺️ 地区热度印象矩阵 <span class="tag t-sample">人工判断 · 非官方地区数据</span></h2>
+      <p class="sub">先说清：<b>这一项没有程序化备用源</b>。Google Trends 的地区分布只能在官方探索页里手动按词查看，静态页面抓不到，所以这里给的是人工印象（哪些地方讨论更集中），2026-11-28 随样本表复核时无新的可核实地区数据、未改动，只能当参考，不能当数据引用。要准确数，请点表格里的「官方核对」逐词去看地区分布。</p>
+      <div class="tbl-wrap">
+      <table class="matrix" aria-label="地区热度印象矩阵">
+        <thead><tr><th></th><th>广东</th><th>浙江</th><th>北京</th><th>上海</th><th>四川</th><th>河南</th></tr></thead>
+        <tbody>
+          <tr><td class="rowh">AI</td><td class="cell-h">高</td><td class="cell-mh">中高</td><td class="cell-h">高</td><td class="cell-h">高</td><td class="cell-m">中</td><td class="cell-m">中</td></tr>
+          <tr><td class="rowh">DeepSeek</td><td class="cell-h">高</td><td class="cell-m">中</td><td class="cell-h">高</td><td class="cell-mh">中高</td><td class="cell-m">中</td><td class="cell-l">偏低</td></tr>
+          <tr><td class="rowh">副业</td><td class="cell-h">高</td><td class="cell-mh">中高</td><td class="cell-m">中</td><td class="cell-m">中</td><td class="cell-mh">中高</td><td class="cell-h">高</td></tr>
+          <tr><td class="rowh">捏捏乐</td><td class="cell-h">高</td><td class="cell-mh">中高</td><td class="cell-m">中</td><td class="cell-mh">中高</td><td class="cell-mh">中高</td><td class="cell-m">中</td></tr>
+          <tr><td class="rowh">义乌小商品</td><td class="cell-m">中</td><td class="cell-h">高</td><td class="cell-l">偏低</td><td class="cell-m">中</td><td class="cell-l">偏低</td><td class="cell-m">中</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="src-note" style="margin:10px 0 0">读法举例：「义乌小商品」在浙江最高，因为产地和商户本身就在义乌；「副业」在广东、河南讨论更集中，与电商从业和灵活就业人群分布有关——这些都是印象判断，不是抓取结果。</p>
+    </section>
+
+    <!-- 关联上升词 -->
+    <section class="card b-orange">
+      <h2>🚀 关联上升词速览 <span class="tag t-sample">样本</span></h2>
+      <p class="sub">从样本表里抽出来的、最近更容易和主词一起被搜的说法。同样是人工判断，没有涨幅数字。</p>
+      <div id="risingCloud" style="line-height:2.2"></div>
+    </section>
+
+    <!-- 怎么读 -->
+    <section class="card b-slate">
+      <h2>🧭 这页该怎么用</h2>
+      <p class="sub" style="margin-bottom:0">
+        1️⃣ 先看实时区：快照或 RSS 抓到了就以它为准；显示未获取，就点「打开 Google Trends」去官方页看当天热搜。<br>
+        2️⃣ 再看趋势表定方向：做内容、选品之前，先看目标词 7 天和 30 天是不是同向往上。<br>
+        3️⃣ 捏捏乐、义乌小商品这类词，重点看关联上升词——新说法往往先出现在关联词里。<br>
+        4️⃣ 地区矩阵只用来定「先打哪个市场」的优先级，正式投放前务必去官方页核对。
+      </p>
+    </section>
+
+    <!-- 数据源与备用清单 -->
+    <section class="card b-rose full">
+      <h2>🛟 数据源与备用清单（硬规矩：每个源都要有备用）</h2>
+      <p class="sub">页面上用到的每一个数据源都在这里交代：主源是什么、备用是什么、缓存是什么、什么时候的、过没过期。没有备用的，明确写出来，不藏着。</p>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>数据项</th><th>主源</th><th>备用源</th><th>缓存</th><th>时间戳</th><th>状态</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>每日热搜（美国 / 香港 / 台湾）</b></td>
+            <td>Actions 快照 data/trends.json（定时抓新版 RSS 存 JSON；页面打开时从 GitHub 现拉，拉不到回落到空间包内副本 assets/data/trends.json，并写明来源；硬门控 ok===true + fetched_at 12 小时内 + 解析出条目才生效，ok===false / 缺失 / 过期一律如实显示未获取）</td>
+            <td>浏览器直连新版 RSS trends.google.com/trending/rss?geo=US / HK / TW（常被 CORS 拦），或手动打开官方页（本页顶部按钮）。旧版每日热搜 RSS 已 404、geo=CN 返回 400，均已停用</td>
+            <td>下方人工趋势表（方向判断）</td>
+            <td>实时尝试：<span id="srcTime1">—</span></td>
+            <td id="srcState1"><span class="tag t-info">尝试中</span></td>
+          </tr>
+          <tr>
+            <td><b>关键词 7 / 30 天方向</b></td>
+            <td>人工判断样本表（本页内置）</td>
+            <td>Google Trends 探索页逐词手动核对（每行「官方核对」链接）</td>
+            <td>就是本表本身，随页面发布固定</td>
+            <td>样本 2026-11-28（复核重定）</td>
+            <td><span class="tag t-sample">样本</span> <span class="stale">2026-12-05 后视为过期</span></td>
+          </tr>
+          <tr>
+            <td><b>关联上升词</b></td>
+            <td>人工判断样本（随趋势表一起整理）</td>
+            <td>Google Trends 探索页的「相关查询」区手动查看</td>
+            <td>本页速览区 + 表格列</td>
+            <td>样本 2026-11-28（复核重定）</td>
+            <td><span class="tag t-sample">样本</span> <span class="stale">2026-12-05 后视为过期</span></td>
+          </tr>
+          <tr>
+            <td><b>地区热度</b></td>
+            <td>人工印象矩阵（本页内置）</td>
+            <td><b>无程序化备用源</b>——官方地区分布只能在探索页手动看，静态页无法自动抓取，这里明确说明，不假装有备用</td>
+            <td>本矩阵本身</td>
+            <td>样本 2026-11-28（复核重定）</td>
+            <td><span class="tag t-fail">无自动备用 · 仅供参考</span></td>
+          </tr>
+          <tr>
+            <td><b>关键词探索曲线</b></td>
+            <td>Google Trends 探索页（手动打开）</td>
+            <td><b>无程序化备用源</b>——Google 未开放免密钥的趋势曲线 API，页面内无法内嵌实时曲线，只能跳转官方页，这里明确说明</td>
+            <td>人工趋势表提供定性方向作为近似替代</td>
+            <td>打开链接即为官方当前页</td>
+            <td><span class="tag t-fail">无自动备用 · 靠手动核对</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>搜索趋势监测 · 实时部分先读 Actions 快照 data/trends.json、再尝试新版 Google Trends RSS（geo=US / HK / TW），抓不到即显示未获取；定性部分为人工判断样本（原表 2026-11-09，2026-11-22 复核重定，2026-11-28 复核重定：以当天快照逐词核对三区热搜前十，8 词均未上榜，方向维持未改、非实测搜索量或指数），只有方向与等级，折线图为带水印的示意，没有编造的百分比和搜索量。</footer>
+</div>
+
+<!-- i18n-v1 -->
 <script>
 /* i18n-v1 — bilingual zh/en toggle (2026-11-09). Language: ?lang=, else localStorage 'mon-lang', default zh.
    Original text is stored on each node when translated, so toggling back restores it exactly. */
 (function(){
-var BASE={"未获取": "Not available", "未刷新": "Not refreshed yet", "正在拉取…": "Loading…", "正常": "OK", "失败": "Failed", "主源": "Primary", "替补": "Backup", "缓存": "Cache", "缓存样本": "Cached sample", "实时": "Live", "数据源状态": "Data sources", "数据源与备份链": "Sources & backup chain", "全部": "All", "全部厂商": "All vendors", "全部语言": "All languages", "全部类型": "All types", "全部市场": "All markets", "全部类别": "All categories", "全部分类": "All categories", "无匹配": "No matches", "无匹配，未获取时不编数": "No matches; nothing invented when unavailable", "是": "Yes", "否": "No", "模型": "Model", "厂商": "Vendor", "价格": "Price", "分数": "Score", "上下文": "Context", "国内": "Domestic", "海外": "Overseas", "样本": "Sample", "样本数据": "Sample data", "样本年龄计算中…": "Computing sample age…", "样本新鲜 · 更新于 2026-11-09": "Sample fresh · Updated 2026-11-09", "缓存样本 · 更新于 2026-11-09": "Cached sample · Updated 2026-11-09", "人工策展": "Hand-curated", "人工精选": "Hand-picked", "人工整理·非API": "Hand-compiled · Not an API", "点表头排序": "Click a header to sort", "搜索量": "Search volume", "关键词": "Keyword", "市场": "Market", "趋势信号": "Trend signal", "季节日历": "Seasonal calendar", "数据源备份链（每个源都有备份；无备份的环节会明说）": "Source backup chain (every source has a backup; gaps are stated)", "积累中": "Accumulating", "基线积累中": "Baseline accumulating", "涨价": "Price up", "降价": "Price down", "未知": "Unknown", "云端": "Cloud", "本地/云": "Local / Cloud", "免费起": "From free", "未公开": "Not disclosed", "多模型": "Multi-model", "开源": "Open source", "在哪跑": "Runs on", "定时": "Scheduled", "已过期": "Expired", "🔄 刷新": "🔄 Refresh", "📥 载入样本": "📥 Load sample", "截至 2026-11-09": "As of 2026-11-09", "未标注": "not labelled", "时间未标注": "time not labelled", "OpenRouter 实时": "OpenRouter live", "实时价": "Live prices", "仅官方渠道价": "Official-channel prices only", "Qwen/GLM/Seed 无官方条目，未获取": "No official entries for Qwen / GLM / Seed — not available", "无可用官方渠道价": "No official-channel prices available", "备份": "Backup", "数据来源": "Data sources", "（无标题）": "(No title)", "缓存样本 · 2026年9月": "Cached sample · Sep 2026", "人工精选 / 缓存样本": "Hand-picked / Cached sample", "人工精选 · 缓存样本 · 更新 2026-11-09": "Hand-picked · Cached sample · Updated 2026-11-09", "人工策展 · 非实时抓取 · 更新日期 2026-11-09": "Hand-curated · Not live · Updated 2026-11-09", "样本 / 人工判断 · 更新日期 2026-11-16": "Sample / human judgement · Updated 2026-11-09", "样本 · 非实测": "Sample · Not measured", "纯静态 · 零外部依赖 · 内置数据 2026-11 至 2027-12": "Fully static · No external dependencies · Built-in data Nov 2026 – Dec 2027", "静态日历": "Static calendar", "未启用（主源正常）": "Not used (primary OK)", "未启用（替补正常）": "Not used (backup OK)", "主源 · FxTwitter": "Primary · FxTwitter", "替补失效": "Backup dead", "替补失效（2026-11-09 实测 403 CF），未尝试": "Backup dead (403 Cloudflare on 2026-11-09), not tried", "目录中无白名单模型": "No allow-listed models in catalog", "目录中白名单不足 8 个": "Fewer than 8 allow-listed models in catalog", "当前无涨跌数据，请选全部/基线": "No up/down data yet — pick All / Baseline", "当日": "Today", "全部变动状态": "All change states", "输入 $/M": "Input $/M", "输出 $/M": "Output $/M", "输入价 $/M": "Input price $/M", "价格 $/M": "Price $/M", "价格 $/M（输入）": "Price $/M (input)", "分数（AA 智能指数 v5）": "Score (AA Intelligence Index v5)", "变动": "Change", "备注": "Notes", "新品": "Product", "日期": "Date", "类型": "Type", "一句话卖点": "One-line pitch", "来源": "Source", "产品": "Product", "类别": "Category", "票数": "Votes", "是否 AI": "AI?", "仓库": "Repo", "分类": "Category", "语言": "Language", "最近推送": "Last push", "总 Star": "Total stars", "创建日期": "Created", "一句话": "One-liner", "时间": "Time", "内容": "Content", "点赞": "Likes", "回复": "Replies", "转发": "Reposts", "粉丝": "Followers", "关注": "Following", "帖子": "Posts", "总获赞": "Total likes", "事件": "Event", "影响一句话": "Impact in one line", "来源（主源 / 替补）": "Sources (primary / backup)", "节点": "Date", "倒计时": "Countdown", "关联品类": "Related categories", "配套选题": "Content ideas", "近 30 天方向": "30-day direction", "依据一句话（人工判断）": "Reason (human judgement)", "相关上升词（人工整理）": "Related rising terms (hand-compiled)", "用途": "Use for", "商品": "Product", "30 天搜索量（样本）": "30-day searches (sample)", "数据源": "Source", "备用": "Backup", "状态": "Status", "仅 AI 相关": "AI-related only", "搜索，如 贴纸": "Search, e.g. stickers", "搜索，如 遥控": "Search, e.g. remote control", "搜索，如 春节 / 圣诞": "Search, e.g. Spring Festival / Christmas", "搜索，如 agent": "Search, e.g. agent", "搜索，如 NoMac": "Search, e.g. NoMac", "搜索，如 ollama": "Search, e.g. ollama", "搜索模型，如 Kimi / DeepSeek": "Search models, e.g. Kimi / DeepSeek", "搜索模型，如 DeepSeek / Grok": "Search models, e.g. DeepSeek / Grok", "搜索新品，如 Kimi / Gemini": "Search launches, e.g. Kimi / Gemini", "输入公开账号，如 nasa": "Enter a public handle, e.g. nasa"}, PAGE={"搜索趋势监测": "Search Trends Monitor", "🔍 搜索趋势监测": "🔍 Search Trends Monitor", "今日看点：捏捏乐反转，DeepSeek 事件驱动": "Today: squeeze toys reverse, DeepSeek driven by events", "本页趋势方向全部是人工判断的样本结论，不是 Google Trends 实测数值（Google Trends 探索接口 2026-11-16 仍返回 429）。11 月中旬最值得跟的信号：脆皮捏捏（第三代）爆火推翻回落判断，义乌小商品借双十一脉冲抬头，DeepSeek 开放 API 叠加限流讨论，Claude 新模型发布证实上升。": "Every trend direction on this page is a human-judged sample conclusion, not a measured Google Trends figure (the Google Trends explore endpoint still returned 429 on 2026-11-16). The signals most worth following in mid-November: Crunchy Squishy (3rd generation) went viral and overturned the fading call, Yiwu small goods ride the Singles' Day pulse, DeepSeek opened its APIs and then throttled usage, and Claude's new-model launch confirms its climb.", "📊 样本，非实测": "📊 Sample, not measured", "趋势箭头是人工判断的方向（↑/→/↓），不含任何百分比、指数或搜索量数字。": "Trend arrows are human-judged directions (↑/→/↓) with no percentages, index values or search-volume numbers.", "🔄 实时拉取已尝试": "🔄 Live fetch attempted", "下方实时区块每次打开都会先读 Actions 快照 data/trends.json，再尝试新版 Google Trends RSS（geo=US / HK / TW，永不用 geo=CN），拉不到就老实写「未获取」。": "The live section below reads the Actions snapshot data/trends.json first on every visit, then tries the new Google Trends RSS (geo=US / HK / TW — never geo=CN); if nothing loads, it honestly says “Not available”.", "🛡 备份铁律": "🛡 Backup iron rule", "每个数据源都有 主源 → 替补 → 缓存 三层；无备份的来源会明确写「无备份」，不假装有。": "Every source has three layers — primary → backup → cache; a source with no backup says so openly instead of pretending.", "本页无实测搜索量数字。": "No measured search-volume numbers on this page.", "Google Trends 不提供浏览器直连的免费数值接口；因此趋势方向为人工样本判断（更新 2026-11-16），曲线图为样本趋势示意。任何百分比、指数值均未在本页出现——出现即为错误。": "Google Trends offers no free numeric API the browser can call directly, so trend directions are human sample judgements (updated 2026-11-16) and the chart is an illustrative sample trend. No percentage or index value appears anywhere on this page — if one did, it would be an error.", "跟踪关键词": "Keywords tracked", "人工样本，更新 2026-11-16": "Human sample, updated 2026-11-16", "上升 ↑": "Rising ↑", "副业、Claude、Gemini": "Side hustles, Claude, Gemini", "平稳 →": "Flat →", "AI、义乌小商品、DeepSeek、ChatGPT": "AI, Yiwu small goods, DeepSeek, ChatGPT", "回落 ↓": "Falling ↓", "捏捏乐": "Squeeze toys", "关键词趋势表（样本 / 人工判断）": "Keyword trend table (sample / human judgement)", "方向说明：↑ 上升 / → 平稳 / ↓ 回落，均为人工判断，非实测数据。依据一句话为人工观察理由。": "Directions: ↑ rising / → flat / ↓ falling — all human judgement, not measured data. The one-line reason is a human observation.", "→ 平稳": "→ Flat", "全年高位话题，11 月无单一爆点拉动整体搜索。": "A high-volume topic all year; no single November spike drove overall searches.", "AI 副业、AI 绘画": "AI side hustles, AI art", "选题 / 选品": "Topics / product picks", "副业": "Side hustles", "↑ 上升": "↑ Rising", "年底「搞钱」内容在各平台持续出圈，相关讨论增多。": "Year-end “make money” content keeps breaking out across platforms, with more discussion.", "AI 副业、副业赚钱、轻创业": "AI side hustles, making money on the side, light entrepreneurship", "选题 / 副业拆解": "Topics / side-hustle breakdowns", "↓ 回落": "↓ Falling", "年中爆火后热度自然回落，义乌拿货相关讨论减少。": "Heat faded naturally after the mid-year boom, with less Yiwu sourcing discussion.", "捏捏乐进货、解压玩具": "Sourcing squeeze toys, stress-relief toys", "选品（谨慎）": "Product picks (cautious)", "义乌小商品": "Yiwu small goods", "选品类话题常年稳定，无明显季节性脉冲。": "Product-picking topics stay stable year-round, with no clear seasonal pulse.", "义乌进货、摆摊好物": "Sourcing in Yiwu, stall bestsellers", "选品": "Product picks", "年初爆火后进入平稳期，讨论集中在深度使用而非尝鲜。": "Settled after the early-year boom; discussion now focuses on deep use rather than trying it out.", "DeepSeek 教程、DeepSeek 写作": "DeepSeek tutorials, DeepSeek writing", "11-09 发布 Claude Fable 5.2 / Mythos 5.2（已证实），讨论度抬头。": "Claude Fable 5.2 / Mythos 5.2 launched 11-09 (confirmed); discussion climbing.", "Claude 宕机、Claude 水印": "Claude outage, Claude watermark", "选题 / 大事件联动": "Topics / big-event tie-ins", "GPT-6 发布讨论集中在科技圈，未扩散成大众搜索高峰。": "GPT-6 launch discussion stayed in tech circles and never became a mass search peak.", "GPT-6、ChatGPT 降价": "GPT-6, ChatGPT price cuts", "选题": "Topics", "Gemini 3 / 4 发布传闻与谷歌新品消息带动关注。": "Gemini 3 / 4 launch rumours and Google product news drove attention.", "Gemini 3、谷歌 AI": "Gemini 3, Google AI", "口径：方向与依据均为人工判断（2026-11-16），非 Google Trends 实测值；「相关上升词」为人工整理，非平台官方相关查询。": "Scope: directions and reasons are human judgement (2026-11-16), not measured Google Trends values; “related rising terms” are hand-compiled, not the platform’s official related queries.", "样本趋势示意（非实测数值 · 图表带“示意”水印）": "Illustrative sample trend (not measured values · chart carries an “illustrative” watermark)", "⚠️ 纵轴为人工设定的示意指数（0–100），仅用于比较四个关键词的走势方向，不代表真实搜索量、不是实测数据。请勿引用为数值。": "⚠️ The vertical axis is a human-set illustrative index (0–100), only for comparing the direction of four keywords — not real search volume, not measured data. Do not cite it as numbers.", "实时尝试：Google Trends 热榜（Actions 快照 → 新版 RSS）": "Live attempt: Google Trends hot list (Actions snapshot → new RSS)", "本区块每次打开页面时先读同域 Actions 快照 data/trends.json（已建成并在用；文件不存在时显示「未获取」），再尝试浏览器直连新版 RSS。Google Trends RSS 通常不带 CORS 头，浏览器大概率拉不到——拉不到就显示「未获取」，不编榜单。旧版每日热榜 RSS（trendingsearches/daily/rss）已 404，不再使用；geo=CN 返回 400，永不使用。": "On every visit, this section first reads the same-origin Actions snapshot data/trends.json (built and in use; “Not available” if the file is missing), then tries the new RSS direct in the browser. Google Trends RSS usually carries no CORS headers, so the browser will most likely fail to fetch it — and then it shows “Not available” instead of inventing a ranking. The old daily hot-list RSS (trendingsearches/daily/rss) is 404 and no longer used; geo=CN returns 400 and is never used.", "🔄 尝试实时（多半被拦截）": "🔄 Try live (usually blocked)", "打开 Google Trends →": "Open Google Trends →", "正在尝试拉取…": "Trying to fetch…", "尝试地址（新版）：trends.google.com/trending/rss?geo=US（美国）、geo=HK（香港）、geo=TW（台湾）。geo=CN 返回 400，不用。若均失败，请手动打开上方链接查看实时热榜。": "Try these addresses (new version): trends.google.com/trending/rss?geo=US (United States), geo=HK (Hong Kong), geo=TW (Taiwan). geo=CN returns 400 — never used. If all fail, open the link above to see the live hot list.", "正在尝试拉取 Google Trends 热榜…（先读 Actions 快照 data/trends.json）": "Trying to fetch the Google Trends hot list… (reading the Actions snapshot data/trends.json first)", "Actions 快照存在但无可用条目，继续尝试直连 RSS…": "The Actions snapshot exists but has no usable items; trying direct RSS…", "Actions 快照 data/trends.json 未找到，继续尝试直连 RSS…": "Actions snapshot data/trends.json not found; trying direct RSS…", "已获取 · Actions 快照": "Fetched · Actions snapshot", "美国（geo=US） —": "United States (geo=US) —", "香港（geo=HK） —": "Hong Kong (geo=HK) —", "台湾（geo=TW） —": "Taiwan (geo=TW) —", "已获取": "Fetched", "已返回但无条目。": "Returned but had no items.", "实时热榜请手动打开": "For the live hot list, open", "。实时热榜已由上方 Actions 快照提供（见数据源 ②）；快照失败时请手动打开 trends.google.com/trends。旧版 daily/rss 已 404、geo=CN 返回 400，均已停用。": ". Live trending topics are served by the Actions snapshot above (see source ②); if the snapshot fails, open trends.google.com/trends manually. The old daily/rss is 404 and geo=CN returns 400 — both retired.", "数据源与备份（三层，逐项标注）": "Sources & backups (three layers, item by item)", "① Google Trends 热榜 RSS（新版） —": "① Google Trends hot-list RSS (new version) —", "Actions 快照 data/trends.json（GitHub Actions 定时抓新版 RSS trends.google.com/trending/rss?geo=US 存 JSON） →": "Actions snapshot data/trends.json (GitHub Actions fetches the new RSS trends.google.com/trending/rss?geo=US into JSON on a schedule) →", "浏览器直连新版 RSS（geo=US / HK / TW，常被 CORS 拦）或手动打开 trends.google.com 查看 →": "Direct browser fetch of the new RSS (geo=US / HK / TW, usually blocked by CORS) or open trends.google.com manually →", "本页人工样本趋势表（更新 2026-11-16，过期请勿当实时用）。旧版 trendingsearches/daily/rss 已 404，geo=CN 返回 400，均已停用。": "This page’s hand-made sample trend table (updated 2026-11-09; do not use as live data once expired). The old trendingsearches/daily/rss is 404 and geo=CN returns 400 — both retired.", "② Google Trends RSS 的 Actions 快照 —": "② Actions snapshot of the Google Trends RSS —", "GitHub Actions 定时抓 RSS 存 JSON（稳定性中等） →": "Scheduled GitHub Actions fetching of RSS into JSON (medium reliability) →", "手动查看 trends.google.com →": "Check trends.google.com manually →", "本页人工样本表。状态：": "This page’s hand-made sample table. Status:", "未启用": "Not enabled", "，快照尚未搭建，实时数值目前无来源。": ", the snapshot is not built yet, so live values currently have no source.", "③ 关键词方向人工判断 —": "③ Human judgement of keyword directions —", "人工观察各平台讨论热度 →": "Human observation of discussion heat across platforms →", "监测 16 大事件表交叉验证（如 Claude 宕机/发布事件） →": "Cross-checked against monitor 16’s big-events table (e.g. Claude outage / launch events) →", "本页样本表（更新 2026-11-16，超过 7 天未更新即视为过期）。": "This page’s sample table (updated 2026-11-09; treated as expired if not updated for over 7 days).", "备份铁律执行情况：①②③ 有三层；无公开免费接口的来源不留空列，不沉默缺省。人工样本缓存有效期：自 2026-11-16 起，超过 7 天未更新即视为过期。": "Backup-rule status: ①②③ have three layers; sources with no public free API are not left blank or silently omitted. Hand-made sample cache: valid from 2026-11-16; treated as expired if not updated for over 7 days.", "内容钩子（可直接用的选题）": "Content hooks (topics ready to use)", "「这个词的搜索这个月悄悄抬头，大部分人还没反应过来——现在做内容正是蓝海。」／「脆皮捏捏爆火了，现在进场是追高还是跟上？」／「副业话题年底走强，但九成『AI 月入过万』经不起拆——先看监测 10 的拆解。」": "“Searches for this term quietly climbed this month and most people haven’t noticed — now is the blue-ocean moment to make content about it.” / “Crunchy Squishy is on fire — is entering now chasing the high or riding the wave?” / “Side-hustle topics are strengthening into year-end, but nine in ten ‘AI makes ¥10K a month’ claims fall apart under scrutiny — see monitor 10’s breakdown first.”", "数据口径：本页全部为人工样本判断，更新日期 2026-11-09；无实测搜索量、无百分比、无指数值。页面设计：青 → teal → 蓝渐变；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底。": "Data scope: everything on this page is a human sample judgement, updated 2026-11-09; no measured search volumes, no percentages, no index values. Design: cyan → teal → blue gradient; charts use the local Chart.js file chart.umd.min.js, falling back to CDN if it fails to load.", "示 意 · 非 实 测": "ILLUSTRATIVE · NOT MEASURED", "副业（样本示意）": "Side hustles (sample)", "AI（样本示意）": "AI (sample)", "DeepSeek（样本示意）": "DeepSeek (sample)", "捏捏乐（样本示意）": "Squeeze toys (sample)", "示意指数（人工设定，非实测）": "Illustrative index (human-set, not measured)", "第1周": "Week 1", "第2周": "Week 2", "第3周": "Week 3", "第4周": "Week 4", "第5周": "Week 5", "第6周": "Week 6", "第7周": "Week 7", "第8周": "Week 8", "第9周": "Week 9", "第10周": "Week 10", "第11周": "Week 11", "第12周": "Week 12", "副业、捏捏乐、义乌小商品、DeepSeek、Claude": "Side hustles, squeeze toys, Yiwu small goods, DeepSeek, Claude", "AI、ChatGPT、Gemini": "AI, ChatGPT, Gemini", "无": "None", "脆皮捏捏（第三代）11 月爆火，义乌工厂订单排至一月后、部分产品月销破 50 万元（新浪财经 2026-11-12）。": "Crunchy Squishy (3rd generation) went viral in November; Yiwu factories have orders booked a month out, with some products topping ¥500K in monthly sales (Sina Finance, 2026-11-12).", "双十一脉冲：义乌综保区首波跨境小包超 360 万单，凯仓首周销售 +51%（2026-11-12）。": "Singles' Day pulse: over 3.6M cross-border parcels in the first wave from the Yiwu bonded zone; Kaicang's first-week sales +51% (2026-11-12).", "11-13 官方开放全套应用 API；11-16 又因算力不足限缩长对话与每日额度，两次事件推高讨论（联合新闻网 2026-11-16）。": "Official full application APIs opened 11-13; on 11-16 long conversations and daily quotas were throttled over compute shortages — both events drove discussion (United Daily News, 2026-11-16).", "Argon 发布已出 7 天窗口，窗口内无新品发布；关注点转为 11-30 限时价截止（$2/$10 → $4/$20）。": "The Argon launch is out of the 7-day window with no new launch inside it; focus shifts to the 11-30 limited-price deadline ($2/$10 → $4/$20)."};
+var BASE={"未获取": "Not available", "未刷新": "Not refreshed yet", "正在拉取…": "Loading…", "正常": "OK", "失败": "Failed", "主源": "Primary", "替补": "Backup", "缓存": "Cache", "缓存样本": "Cached sample", "实时": "Live", "数据源状态": "Data sources", "全部": "All", "无匹配": "No matches", "是": "Yes", "否": "No", "模型": "Model", "厂商": "Vendor", "价格": "Price", "分数": "Score", "上下文": "Context", "国内": "Domestic", "海外": "Overseas", "样本": "Sample", "样本数据": "Sample data", "人工策展": "Hand-curated", "人工精选": "Hand-picked", "点表头排序": "Click a header to sort", "搜索量": "Search volume", "关键词": "Keyword", "市场": "Market", "趋势信号": "Trend signal", "数据源": "Source", "备用": "Backup", "状态": "Status", "备份": "Backup", "数据来源": "Data sources", "涨价": "Price up", "降价": "Price down", "未知": "Unknown", "已过期": "Expired", "时间": "Time", "日期": "Date", "来源": "Source", "类别": "Category", "分类": "Category", "语言": "Language", "一句话": "One-liner", "高": "High", "中高": "Medium-high", "中": "Medium", "偏低": "Fairly low"}, PAGE={"搜索趋势监测": "Search Trends Monitor", "盯住你真正关心的词：AI、副业、捏捏乐、义乌小商品、DeepSeek……看它们近 7 天 / 30 天是往上、走平还是往下，顺带看关联上升词和地区热度。实时部分先读 Actions 快照，再尝试新版 Google Trends RSS（美 / 港 / 台区）；抓不到就老实写「未获取」，绝不用编的数字充数。": "Track the words you actually care about — AI, side hustles, squeeze toys, Yiwu small goods, DeepSeek… — and see whether they rose, flattened or fell over the last 7 / 30 days, plus related rising terms and regional heat. For the live part, the page first reads the Actions snapshot, then tries the new Google Trends RSS (US / HK / TW); if nothing loads, it honestly says “Not available” and never pads the page with invented numbers.", "样本日期：": "Sample date:", "页面打开时实时尝试：": "Live attempt when the page opens:", "正在尝试…": "Trying…", "趋势符号：": "Trend symbols:", "↑ 上升 · → 走平 · ↓ 回落": "↑ Rising · → Flat · ↓ Falling", "（定性，非百分比）": "(qualitative, not percentages)", "第 1 层 · 主源 LIVE": "Layer 1 · Primary LIVE", "Actions 快照 data/trends.json": "Actions snapshot data/trends.json", "页面打开时先从 GitHub 现拉最新快照（定时抓新版 RSS 存 JSON），拉不到再回落到空间包内打包的那份旧快照，并写明来源。硬门控：只有 ok===true、fetched_at 在 12 小时内且解析出条目才算已获取；ok===false、缺失或过期一律未获取，再尝试直连新版 RSS。": "On open, the page first pulls the latest snapshot live from GitHub (the new RSS fetched on a schedule and stored as JSON); if that fails it falls back to the older snapshot bundled into this space, and says which source was used. Hard gate: only ok===true, fetched_at within 12 hours and parsed items count as fetched; ok===false, missing or expired all count as not fetched, and the page then tries the new RSS direct.", "第 2 层 · 备源 BACKUP": "Layer 2 · Backup", "新版 RSS 直连 + 手动打开官方页": "New RSS direct + open the official page manually", "直连新版 RSS：trending/rss?geo=US / HK / TW（浏览器多半被 CORS 拦）。旧版每日热搜 RSS 已 404、geo=CN 返回 400，都已停用。再不行就点官方链接自己看。": "Direct new RSS: trending/rss?geo=US / HK / TW (usually blocked by browser CORS). The old daily hot-search RSS is 404 and geo=CN returns 400 — both retired. If that fails too, click the official link and look yourself.", "第 3 层 · 缓存 CACHE": "Layer 3 · Cache", "人工判断趋势表（本页内置）": "Human-judgement trend table (built into this page)", "监测关键词": "Keywords tracked", "（样本表计数）": "(counted from the sample table)", "近 7 天方向为「上升」": "Direction over the last 7 days: “Rising”", "近 30 天方向为「上升」": "Direction over the last 30 days: “Rising”", "每日热搜实时抓取状态": "Daily hot-search live fetch status", "先读快照、再直连 RSS，见下方": "Reads the snapshot first, then RSS direct — see below", "🔴 每日热搜 · 实时尝试": "🔴 Daily hot searches · Live attempt", "顺序：先读 Actions 快照": "Order: first read the Actions snapshot", "（打开时先从 GitHub 现拉，拉不到再用空间包内副本 assets/data/trends.json，依次尝试），只有": "(on open it first pulls live from GitHub; if that fails it uses the copy bundled in the space package at assets/data/trends.json; tried in order). Only", "、fetched_at 在": ", with fetched_at within", "12 小时内": "12 hours", "且解析出条目，才标「已获取」并显示 fetched_at；ok===false（抓取失败时脚本保留的旧榜）、缺失、过期、无条目一律视为未获取，再直连新版 RSS（geo=US / HK / TW）。旧版每日热搜 RSS 已 404，不再使用；geo=CN 返回 400，永不使用。浏览器跨域限制下直连大概率抓不到——抓不到就显示「未获取」，不拿样本冒充实时。": "and parsed items, is it marked “Fetched”, showing fetched_at; ok===false (the old list the script keeps when fetching fails), missing, expired or item-less all count as not fetched, and the page then tries the new RSS direct (geo=US / HK / TW). The old daily hot-search RSS is 404 and no longer used; geo=CN returns 400 and is never used. Under browser cross-origin limits the direct fetch will most likely fail — and then the page shows “Not available” instead of passing the sample off as live.", "🔄 尝试实时（多半被拦截）": "🔄 Try live (usually blocked)", "打开 Google Trends ↗": "Open Google Trends ↗", "美国区热搜 ↗": "US hot searches ↗", "香港区热搜 ↗": "Hong Kong hot searches ↗", "台湾区热搜 ↗": "Taiwan hot searches ↗", "正在尝试拉取…（先从 GitHub 现拉 Actions 快照 data/trends.json）": "Trying to fetch… (pulling the Actions snapshot data/trends.json live from GitHub first)", "🇺🇸 美国区（geo=US）": "🇺🇸 United States (geo=US)", "正在尝试拉取…": "Trying to fetch…", "🇭🇰 香港区（geo=HK）": "🇭🇰 Hong Kong (geo=HK)", "🇹🇼 台湾区（geo=TW）": "🇹🇼 Taiwan (geo=TW)", "备用链路：主源 Actions 快照 data/trends.json → 备源直连新版 RSS（US / HK / TW）或手动打开上方官方页 → 缓存看下方「关键词趋势表（人工样本）」。三层都在本页，任一层断了都有下一层接住。页面打开后每 30 分钟自动刷新一次。": "Backup chain: primary — Actions snapshot data/trends.json → backup — direct new RSS (US / HK / TW) or open the official page above manually → cache — the “Keyword trend table (human sample)” below. All three layers are on this page; if one breaks, the next takes over. The page auto-refreshes every 30 minutes after it opens.", "📋 关键词趋势表": "📋 Keyword trend table", "备源 · 样本 / 人工判断": "Backup · Sample / human judgement", "整理日期：": "Compiled on:", "· 复核日期：": "· Re-checked on:", "重点看：": "Focus on:", "近 7 天": "Last 7 days", "近 30 天": "Last 30 days", "切换只改变下方图表的高亮周期，表格里两个周期都在。": "Switching only changes the highlighted period in the charts below; the table always shows both periods.", "7 天": "7 days", "30 天": "30 days", "热度等级": "Heat level", "（人工判断）": "(human judgement)", "关联上升词": "Related rising terms", "一句话依据": "Reason in one line", "核对": "Verify", "没有匹配的关键词，换个词试试。": "No keyword matches — try another term.", "🍩 趋势方向分布": "🍩 Trend direction breakdown", "环形图": "Donut chart", "🌡️ 关键词热度等级": "🌡️ Keyword heat levels", "横向条形": "Horizontal bars", "等级只有三档：高 / 中高 / 中，来自人工判断样本。条的长度只表示档位，不是数值大小。": "Only three levels — High / Medium-high / Medium — from the human-judgement sample. Bar length shows the level only, not a numeric size.", "📈 样本趋势示意折线": "📈 Illustrative sample trend lines", "示意 · 非实测": "Illustrative · Not measured", "纵轴为人工设定的示意指数（0–100），只用来比较四个词的走势方向，不代表真实搜索量，不是实测数据，请勿引用为数值。图面已压「示意 · 非实测」水印，截图转发也不会被当成真实曲线。": "The vertical axis is a human-set illustrative index (0–100), only for comparing the direction of four keywords — not real search volume, not measured data; do not cite it as numbers. The chart carries an “Illustrative · Not measured” watermark, so screenshots won't be mistaken for a real curve.", "🗺️ 地区热度印象矩阵": "🗺️ Regional heat impression matrix", "人工判断 · 非官方地区数据": "Human judgement · Not official regional data", "先说清：": "First, be clear:", "这一项没有程序化备用源": "this item has no programmatic backup source", "广东": "Guangdong", "浙江": "Zhejiang", "北京": "Beijing", "上海": "Shanghai", "四川": "Sichuan", "河南": "Henan", "读法举例：「义乌小商品」在浙江最高，因为产地和商户本身就在义乌；「副业」在广东、河南讨论更集中，与电商从业和灵活就业人群分布有关——这些都是印象判断，不是抓取结果。": "How to read it: “Yiwu small goods” peaks in Zhejiang because the producers and merchants are in Yiwu itself; “Side hustles” discussion concentrates in Guangdong and Henan, matching where e-commerce workers and flexible workers are — all impression judgements, not fetched results.", "🚀 关联上升词速览": "🚀 Related rising terms at a glance", "从样本表里抽出来的、最近更容易和主词一起被搜的说法。同样是人工判断，没有涨幅数字。": "Pulled from the sample table: phrasings recently searched together with the main terms. Also human judgement, with no growth figures.", "🧭 这页该怎么用": "🧭 How to use this page", "1️⃣ 先看实时区：快照或 RSS 抓到了就以它为准；显示未获取，就点「打开 Google Trends」去官方页看当天热搜。": "1️⃣ Start with the live section: if the snapshot or RSS loads, trust it; if it shows Not available, click “Open Google Trends” and check today's hot list on the official page.", "2️⃣ 再看趋势表定方向：做内容、选品之前，先看目标词 7 天和 30 天是不是同向往上。": "2️⃣ Then use the trend table for direction: before making content or picking products, check whether the target term's 7-day and 30-day directions both point up.", "3️⃣ 捏捏乐、义乌小商品这类词，重点看关联上升词——新说法往往先出现在关联词里。": "3️⃣ For terms like squeeze toys and Yiwu small goods, watch the related rising terms — new phrasings usually show up there first.", "4️⃣ 地区矩阵只用来定「先打哪个市场」的优先级，正式投放前务必去官方页核对。": "4️⃣ Use the regional matrix only to prioritise which market to hit first; always verify on the official page before a real launch.", "🛟 数据源与备用清单（硬规矩：每个源都要有备用）": "🛟 Sources & backup list (hard rule: every source has a backup)", "页面上用到的每一个数据源都在这里交代：主源是什么、备用是什么、缓存是什么、什么时候的、过没过期。没有备用的，明确写出来，不藏着。": "Every data source used on this page is accounted for here: what the primary is, what the backup is, what the cache is, when it's from, and whether it has expired. Anything without a backup says so openly.", "数据项": "Data item", "备用源": "Backup source", "时间戳": "Timestamp", "每日热搜（美国 / 香港 / 台湾）": "Daily hot searches (United States / Hong Kong / Taiwan)", "Actions 快照 data/trends.json（定时抓新版 RSS 存 JSON；页面打开时从 GitHub 现拉，拉不到回落到空间包内副本 assets/data/trends.json，并写明来源；硬门控 ok===true + fetched_at 12 小时内 + 解析出条目才生效，ok===false / 缺失 / 过期一律如实显示未获取）": "Actions snapshot data/trends.json (the new RSS fetched on a schedule into JSON; on open the page pulls it live from GitHub, and if that fails falls back to the bundled copy at data:application/json;base64,ewogICJmZXRjaGVkX2F0IjogIjIwMjYtMTEtMjhUMDM6NDc6MDdaIiwKICAiZmV0Y2hlZF9hdF9jc3QiOiAiMjAyNi0xMS0yOCAxMTo0NzowNyBDU1QiLAogICJjaGVja2VkX2F0IjogIjIwMjYtMTEtMjhUMDM6NDc6MDdaIiwKICAiY2hlY2tlZF9hdF9jc3QiOiAiMjAyNi0xMS0yOCAxMTo0NzowNyBDU1QiLAogICJvayI6IHRydWUsCiAgInNvdXJjZSI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3JzcyAobmV3IGVuZHBvaW50OyBvbGQgZGFpbHkgUlNTIDQwNCkiLAogICJub3RlIjogImdlbz1DTiDov5Tlm54gNDAw77yM5rC45LiN5L2/55So44CCUlNTIOaXoCBDT1JT77yM5rWP6KeI5Zmo5ouJ5LiN5Yiw77yb5pys5paH5Lu25Li65pyN5Yqh56uvIGN1cmwg5b+r54Wn44CCIiwKICAiZ2VvcyI6IHsKICAgICJDTiI6IHsKICAgICAgImVycm9yIjogImdlbz1DTiDov5Tlm54gNDAwIEJhZCBSZXF1ZXN077yM5rC45LiN5L2/55SoIiwKICAgICAgImh0dHAiOiA0MDAsCiAgICAgICJpdGVtcyI6IFtdLAogICAgICAib2siOiBmYWxzZQogICAgfSwKICAgICJISyI6IHsKICAgICAgImh0dHAiOiAyMDAsCiAgICAgICJpdGVtcyI6IFsKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89SEsiLAogICAgICAgICAgInRpdGxlIjogIummrOWIuuWwjea5luS6uiIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPUhLIiwKICAgICAgICAgICJ0aXRsZSI6ICLmi5PojZLogIXlsI3li4flo6siLAogICAgICAgICAgInRyYWZmaWMiOiAiMjAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1ISyIsCiAgICAgICAgICAidGl0bGUiOiAic3B1cnMgdnMgbGFrZXJzIiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89SEsiLAogICAgICAgICAgInRpdGxlIjogIm5iYSDnm7Tmkq0iLAogICAgICAgICAgInRyYWZmaWMiOiAiMjAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1ISyIsCiAgICAgICAgICAidGl0bGUiOiAibmJh57ea5LiK55yLIiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89SEsiLAogICAgICAgICAgInRpdGxlIjogIm5iYeebtOaSrSIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPUhLIiwKICAgICAgICAgICJ0aXRsZSI6ICLorbfnkIbkuYvlrrYiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1ISyIsCiAgICAgICAgICAidGl0bGUiOiAiY3liZXJhdHRhY2siLAogICAgICAgICAgInRyYWZmaWMiOiAiMjAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1ISyIsCiAgICAgICAgICAidGl0bGUiOiAi6LOH5paZ5rSp6ZyyIiwKICAgICAgICAgICJ0cmFmZmljIjogIjIwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89SEsiLAogICAgICAgICAgInRpdGxlIjogIui0p+W4gSIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0KICAgICAgXSwKICAgICAgIm9rIjogdHJ1ZQogICAgfSwKICAgICJUVyI6IHsKICAgICAgImh0dHAiOiAyMDAsCiAgICAgICJpdGVtcyI6IFsKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VFciLAogICAgICAgICAgInRpdGxlIjogIumBuOiIiemWi+elqCIsCiAgICAgICAgICAidHJhZmZpYyI6ICI1MDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVRXIiwKICAgICAgICAgICJ0aXRsZSI6ICJzcHVycyB2cyBsYWtlcnMiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1UVyIsCiAgICAgICAgICAidGl0bGUiOiAi5LyK6Jek5aSn5rW3IiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VFciLAogICAgICAgICAgInRpdGxlIjogIumfqeWbvSIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVRXIiwKICAgICAgICAgICJ0aXRsZSI6ICLlhajlrrblkpbllaEiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1UVyIsCiAgICAgICAgICAidGl0bGUiOiAicGFjZXJzIHZzIDc2ZXJzIiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VFciLAogICAgICAgICAgInRpdGxlIjogIuS4reWbvSIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVRXIiwKICAgICAgICAgICJ0aXRsZSI6ICLnvoXkvIrmlq/Ct+i3r+aYk+WjqyIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVRXIiwKICAgICAgICAgICJ0aXRsZSI6ICLovrLol6UiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1UVyIsCiAgICAgICAgICAidGl0bGUiOiAi6Y2+5piO6LuSIiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMDArIgogICAgICAgIH0KICAgICAgXSwKICAgICAgIm9rIjogdHJ1ZQogICAgfSwKICAgICJVUyI6IHsKICAgICAgImh0dHAiOiAyMDAsCiAgICAgICJpdGVtcyI6IFsKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VVMiLAogICAgICAgICAgInRpdGxlIjogInJ5YW4geWFyYnJvdWdoIiwKICAgICAgICAgICJ0cmFmZmljIjogIjUwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VVMiLAogICAgICAgICAgInRpdGxlIjogImNlbHRpY3Mgc2NvcmUiLAogICAgICAgICAgInRyYWZmaWMiOiAiNTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1VUyIsCiAgICAgICAgICAidGl0bGUiOiAibm9ydGhlYXN0ZXJuIHZzIG5vcnRod2VzdGVybiIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVVTIiwKICAgICAgICAgICJ0aXRsZSI6ICJqYWtlIGxhcmF2aWEiLAogICAgICAgICAgInRyYWZmaWMiOiAiNTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1VUyIsCiAgICAgICAgICAidGl0bGUiOiAicmVhbCBzYWx0IGxha2UiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VVMiLAogICAgICAgICAgInRpdGxlIjogIm1scyBwbGF5b2ZmIGJyYWNrZXQiLAogICAgICAgICAgInRyYWZmaWMiOiAiNTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1VUyIsCiAgICAgICAgICAidGl0bGUiOiAidGhlIHJvb2tpZSBub3J0aCIsCiAgICAgICAgICAidHJhZmZpYyI6ICI1MDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVVTIiwKICAgICAgICAgICJ0aXRsZSI6ICJjZWx0aWNzIGdhbWUiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VVMiLAogICAgICAgICAgInRpdGxlIjogImdoc2EgZm9vdGJhbGwgc2NvcmVzIiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVVTIiwKICAgICAgICAgICJ0aXRsZSI6ICJqZW5rcyB2cyBiaXhieSIsCiAgICAgICAgICAidHJhZmZpYyI6ICI1MDArIgogICAgICAgIH0KICAgICAgXSwKICAgICAgIm9rIjogdHJ1ZQogICAgfQogIH0KfQo=, stating the source; hard gate — only ok===true + fetched_at within 12 hours + parsed items takes effect; ok===false / missing / expired honestly shows Not available)", "浏览器直连新版 RSS trends.google.com/trending/rss?geo=US / HK / TW（常被 CORS 拦），或手动打开官方页（本页顶部按钮）。旧版每日热搜 RSS 已 404、geo=CN 返回 400，均已停用": "Direct browser fetch of the new RSS trends.google.com/trending/rss?geo=US / HK / TW (usually blocked by CORS), or open the official page manually (button at the top of this page). The old daily hot-search RSS is 404 and geo=CN returns 400 — both retired", "下方人工趋势表（方向判断）": "The human trend table below (direction judgements)", "实时尝试：": "Live attempt:", "尝试中": "Trying", "关键词 7 / 30 天方向": "Keyword 7 / 30-day directions", "人工判断样本表（本页内置）": "Human-judgement sample table (built into this page)", "Google Trends 探索页逐词手动核对（每行「官方核对」链接）": "Manual per-keyword checks on the Google Trends Explore page (the “Verify officially” link in each row)", "就是本表本身，随页面发布固定": "This table itself, fixed at publish time", "人工判断样本（随趋势表一起整理）": "Human-judgement sample (compiled with the trend table)", "Google Trends 探索页的「相关查询」区手动查看": "Manually viewed in the “Related queries” area of the Google Trends Explore page", "本页速览区 + 表格列": "This page's glance section + the table column", "地区热度": "Regional heat", "人工印象矩阵（本页内置）": "Human impression matrix (built into this page)", "无程序化备用源": "No programmatic backup source", "——官方地区分布只能在探索页手动看，静态页无法自动抓取，这里明确说明，不假装有备用": "— official regional breakdowns can only be viewed manually on the Explore page; a static page can't fetch them automatically. Stated openly here — no pretence of a backup", "本矩阵本身": "This matrix itself", "无自动备用 · 仅供参考": "No automatic backup · Reference only", "关键词探索曲线": "Keyword explore curves", "Google Trends 探索页（手动打开）": "Google Trends Explore page (opened manually)", "——Google 未开放免密钥的趋势曲线 API，页面内无法内嵌实时曲线，只能跳转官方页，这里明确说明": "— Google offers no keyless trend-curve API; live curves can't be embedded in the page, only linked to the official page. Stated openly here", "人工趋势表提供定性方向作为近似替代": "The human trend table's qualitative directions serve as an approximation", "打开链接即为官方当前页": "Opening the link shows the current official page", "无自动备用 · 靠手动核对": "No automatic backup · Manual verification", "副业": "Side hustles", "本周看点：": "This week:", "捏捏乐反转，DeepSeek 事件驱动": "Squeeze toys reverse upward; DeepSeek is event-driven", "（重定）": "(re-dated)", "近 7 天方向为「走平」": "Direction over the last 7 days: “Flat”", "回落 0 个（样本表计数）": "0 falling (counted from the sample table)", "数的是上方样本表里箭头的个数（共 8 个词），不是搜索量。切换 7 天 / 30 天会跟着变。": "This counts the arrows in the sample table above (8 keywords in total), not search volume. Switching 7 days / 30 days updates it too.", "本周无通用 AI 爆点，大模型与办公、视频应用讨论维持高位，方向走平。": "No generic AI breakout this week; discussion of large models, office and video apps stays at a high level — direction flat.", "年底搞钱内容持续出圈，经验帖和避坑帖都在增多，方向维持上升。": "Year-end money-making content keeps breaking out; experience posts and pitfall guides are both increasing — direction stays rising.", "脆皮捏捏第三代 11 月爆火，义乌工厂订单排至一月后、部分产品月销破 50 万元（新浪财经 2026-11-12），方向由回落反转为上升。": "Third-generation crispy squeeze toys went viral in November; Yiwu factory orders are booked past January and some products pass ¥500k in monthly sales (Sina Finance, 2026-11-12) — direction reversed from falling to rising.", "双十一脉冲：义乌综保区首波跨境小包超 360 万单，凯仓首周销售 +51%（2026-11-12），方向由平稳转上升。": "Double 11 pulse: the Yiwu comprehensive bonded zone's first wave of cross-border small parcels topped 3.6 million orders, and Kaicang's first-week sales rose 51% (2026-11-12) — direction turned from flat to rising.", "11-13 官方开放全套应用 API；11-16 又因算力不足限缩长对话与每日额度，两次事件接连推高讨论，方向由平稳转上升。": "On 11-13 the full application API suite was officially opened; on 11-16, compute shortages led to limits on long conversations and daily quotas — two events in a row pushed discussion up, turning the direction from flat to rising.", "11-09 发布 Fable 5.2 / Mythos 5.2 已证实，新版本讨论带动搜索，方向维持上升。": "The 11-09 release of Fable 5.2 / Mythos 5.2 is confirmed; discussion of the new versions drives searches — direction stays rising.", "本周无重大发布或事件，讨论维持日常高位，方向走平。": "No major release or event this week; discussion stays at its usual high level — direction flat.", "Argon 发布已出 7 天窗口，关注点转为 11-30 限时价截止（$2/$10 → $4/$20），方向由上升转平稳。": "The Argon release has left the 7-day window; attention shifts to the 11-30 limited-time price deadline ($2/$10 → $4/$20) — direction turned from rising to flat.", "一线城市开发者与技术人群更集中": "Developers and tech audiences concentrate in tier-1 cities", "全国普遍高，一线城市更集中": "High nationwide; more concentrated in tier-1 cities", "北京 / 上海 / 广东的技术人群更关注": "Tech audiences in Beijing / Shanghai / Guangdong watch it most", "脆皮捏捏第三代": "Crispy squeeze toys (gen 3)", "DeepSeek 限额": "DeepSeek quotas", "Gemini 限时价": "Gemini limited-time pricing", "ChatGPT 教程": "ChatGPT tutorials", "ChatGPT 应用": "ChatGPT apps", "捏捏乐": "Squeeze toys", "义乌小商品": "Yiwu small goods", "跨境电商": "Cross-border e-commerce", "人工智能": "Artificial intelligence", "AI副业": "AI side hustles", "解压玩具": "Stress-relief toys", "大模型": "Large models", "官方核对 ↗": "Verify officially ↗", "上升 ↑：": "Rising ↑: ", "走平 →：": "Flat →: ", "回落 ↓：": "Falling ↓: ", "副业（样本示意）": "Side hustles (sample, illustrative)", "AI（样本示意）": "AI (sample, illustrative)", "DeepSeek（样本示意）": "DeepSeek (sample, illustrative)", "捏捏乐（样本示意）": "Squeeze toys (sample, illustrative)", "纵轴：示意指数 0–100": "Vertical axis: illustrative index 0–100", "横轴：近 12 周": "Horizontal axis: last 12 weeks", "示 意 · 非 实 测": "ILLUSTRATIVE · NOT MEASURED", "第1周": "Week 1", "第2周": "Week 2", "第3周": "Week 3", "第4周": "Week 4", "第5周": "Week 5", "第6周": "Week 6", "第7周": "Week 7", "第8周": "Week 8", "第9周": "Week 9", "第10周": "Week 10", "第11周": "Week 11", "第12周": "Week 12", "筛选关键词，例如：副业 / 捏捏 / DeepSeek…": "Filter keywords, e.g. side hustles / squeeze toys / DeepSeek…", "大模型与办公、视频应用讨论持续，泛词热度维持高位。": "Discussion of large models, office and video apps continues; the generic term stays hot.", "全国普遍高，广东 / 北京 / 上海更集中": "High nationwide; more concentrated in Guangdong / Beijing / Shanghai", "AI 视频生成": "AI video generation", "正式场合与新闻报道用词，走势稳中有升，不如「AI」口语词活跃。": "The term used in formal settings and news reports; steady with a slight rise, less lively than the colloquial “AI”.", "全国均匀，政企与教育话题带动": "Even nationwide; driven by government, enterprise and education topics", "人工智能应用": "AI applications", "AI 培训": "AI training", "发布高峰已过，转入部署、接入和日常使用讨论，方向走平。": "The launch peak has passed; discussion has moved to deployment, integration and daily use — direction flat.", "北京 / 上海 / 广东的技术人群更集中": "Tech audiences concentrate in Beijing / Shanghai / Guangdong", "DeepSeek 本地部署": "DeepSeek local deployment", "年末增收与灵活就业话题升温，经验帖和避坑帖都在增多。": "Year-end income and flexible-work topics are heating up; experience posts and pitfall guides are both increasing.", "广东 / 河南 / 四川讨论更集中": "Discussion concentrates in Guangdong / Henan / Sichuan", "下班副业": "After-work side hustles", "闲鱼副业": "Xianyu side hustles", "AI 副业": "AI side hustles", "把 AI 工具和赚钱直接绑定的内容持续出新案例，带动搜索。": "Content tying AI tools directly to making money keeps producing new cases, driving searches.", "广东 / 浙江的电商人群更关注": "E-commerce audiences in Guangdong / Zhejiang watch it most", "AI 绘画接单": "AI art commissions", "AI 短视频带货": "AI short-video selling", "爆发期后短期回落，但解压内容在短视频平台沉淀下来，月度仍比早期高。": "A short-term dip after the breakout, but stress-relief content has settled in on short-video platforms; the month is still above the early period.", "广东 / 上海 / 四川的年轻用户更集中": "Younger users concentrate in Guangdong / Shanghai / Sichuan", "慢回弹捏捏": "Slow-rebound squeeze toys", "捏捏乐收纳": "Squeeze-toy storage", "作为品类词跟着捏捏乐等单品走，近期小幅向上。": "As a category term it follows hit items like squeeze toys; slightly up recently.", "一二线城市办公人群为主": "Mostly office workers in tier-1 and tier-2 cities", "桌面解压": "Desktop stress relief", "指尖玩具": "Fingertip toys", "年末备货与选品季临近，拿货、选品类内容增多。": "Year-end stocking and product-picking season is near; sourcing and picking content is increasing.", "浙江最高，广东 / 河南的商户也在看": "Highest in Zhejiang; merchants in Guangdong / Henan watch too", "义乌拿货": "Sourcing in Yiwu", "小商品批发": "Small-goods wholesale", "平台规则与托管模式话题不断，但大方向平稳，没有突发热点。": "Platform rules and managed-mode topics keep coming, but the overall direction is flat with no sudden hotspot.", "广东 / 浙江的外贸与电商人群最集中": "Foreign-trade and e-commerce audiences concentrate in Guangdong / Zhejiang", "Temu 半托管": "Temu semi-managed", "TikTok 小店": "TikTok Shop", "泛术语讨论向具体产品和应用分流，单独搜这个词的人在减少。": "Generic-term discussion is splitting into specific products and apps; fewer people search this term alone.", "北京 / 上海的技术与媒体圈为主": "Mostly tech and media circles in Beijing / Shanghai", "模型评测": "Model benchmarks", "开源大模型": "Open-source large models", "已获取": "Fetched", "已获取 · Actions 快照": "Fetched · Actions snapshot", "已获取 · 实时快照": "Fetched · Live snapshot", "已获取 · 打包快照": "Fetched · Bundled snapshot", "数据较旧": "Stale", "已获取 · RSS 直连": "Fetched · RSS direct", "实时已获取 · 快照": "Live fetched · Snapshot", "实时已获取 · RSS 直连": "Live fetched · RSS direct", "未获取 · 已切手动备源": "Not available · Switched to manual backup", "快照里没有该地区条目。": "The snapshot has no items for this region.", "等待中…（先读快照，快照没有再直连 RSS）": "Waiting… (snapshot first; direct RSS if the snapshot has nothing)", "正在尝试直连新版 RSS…": "Trying the new RSS direct…", "快照不是带 ok/fetched_at 的 JSON 对象": "The snapshot is not a JSON object with ok/fetched_at", "缺 fetched_at，无法核验新鲜度，按未获取处理": "No fetched_at, so freshness cannot be verified; treated as not fetched", "ok=true 且未过期，但无可用条目，按未获取处理": "ok=true and not expired, but no usable items; treated as not fetched", "杭州枪击": "Hangzhou shooting", "加權指數": "Weighted index", "血糖": "Blood sugar", "陈星妤": "Chen Xingyu", "壁屋監獄": "Pik Uk Prison", "bigbang 香港演唱會": "BIGBANG Hong Kong concert", "超級市場": "Supermarket", "yoasobi 香港": "YOASOBI Hong Kong", "oled电视": "OLED TV", "三大法人買賣超": "Net buying/selling by the three major institutions", "愛莉莎莎": "Alisha", "織田翔希": "Oda Shoki", "三菱delica": "Mitsubishi Delica", "遠大售票": "Yuanda Ticketing", "（复核重定）": "(re-checked & re-dated)", "2026-11-28 复核样本表（2026-11-22 复核重定，原表 2026-11-09）：复核时逐词核对当天 Actions 快照（2026-11-28 11:47 CST、ok=true）的美 / 港 / 台三区前十榜，8 个监测词均未以独立词条上榜；三区榜单以体育、娱乐与本地新闻为主，故方向、等级与依据维持 11-22 判断未改，只重定日期与时效。只有 ↑ / → / ↓ 和一句话依据，没有任何编造的百分比。": "Sample table re-checked on 2026-11-28 (re-checked & re-dated on 2026-11-22; original table 2026-11-09): each keyword was checked against that day's Actions snapshot (2026-11-28 11:47 CST, ok=true) top-10 lists for the US / HK / TW regions, and none of the 8 keywords appeared as a standalone entry; the top-10 lists were dominated by sports, entertainment and local news, so the directions, levels and reasons therefore keep the 2026-11-22 judgement unchanged, and only the date and freshness window were re-set. Only ↑ / → / ↓ and a one-line reason — no invented percentages.", "（复核重定）· 性质：人工判断样本，不是 Google 官方数值，没有百分比、没有搜索量。原表整理于 2026-11-09，方向曾逐词依据新闻事件重核并改向（捏捏乐转为 ↑ 上升，义乌小商品、DeepSeek 转为 ↑ 上升，Gemini 转为 → 平稳，AI、ChatGPT 维持 → 平稳，副业、Claude 维持 ↑ 上升）；2026-11-22 复核：逐词核对当天 Actions 快照（2026-11-22 16:47 CST、ok=true）的美 / 港 / 台三区每日热搜前十，8 个监测词均未以独立词条上榜，三区榜单以体育、娱乐与本地新闻为主，Google Trends 探索接口 2026-11-22 仍返回 429（限流），无法程序化复核 7 / 30 天曲线；本次 2026-11-28 复核：逐词核对当天 Actions 快照（2026-11-28 11:47 CST、ok=true）的美 / 港 / 台三区每日热搜前十，8 个监测词均未以独立词条上榜，三区榜单以体育、娱乐与本地新闻为主——因此方向、等级与一句话依据维持 11-22 判断不变，本次只重定日期与时效，不改向、不编新数。每一行都给一句话依据，你可以点每行最后的「官方核对」自己去 Google Trends 探索页验证。": "(re-checked & re-dated) · Type: a human-judgement sample, not official Google figures — no percentages, no search volumes. The original table was compiled on 2026-11-09; directions were later re-checked against news events and some changed (squeeze toys turned ↑ rising, Yiwu small goods and DeepSeek turned ↑ rising, Gemini turned → flat, AI and ChatGPT stayed → flat, side hustles and Claude stayed ↑ rising). Re-check on 2026-11-22: each keyword was checked against that day's Actions snapshot (2026-11-22 16:47 CST, ok=true) daily top-10 lists for US / HK / TW; none of the 8 keywords appeared as a standalone entry; the top-10 lists were dominated by sports, entertainment and local news; the Google Trends explore endpoint still returned 429 (rate-limited) on 2026-11-22, so the 7 / 30-day curves could not be re-verified programmatically. Re-check on 2026-11-28: each keyword was checked against that day's Actions snapshot (2026-11-28 11:47 CST, ok=true) daily top-10 lists for US / HK / TW; none of the 8 keywords appeared as a standalone entry; the top-10 lists were dominated by sports, entertainment and local news — so the directions, levels and one-line reasons keep the 2026-11-22 judgement unchanged; this update only re-dates the table and its freshness window, changes no direction and invents no numbers. Each row gives a one-line reason, and you can verify it yourself on the Google Trends Explore page via the 'Verify officially' link at the end of each row.", "时效提醒：超过 2026-12-05 未更新即视为过期样本": "Freshness note: if not updated past 2026-12-05, treat as an expired sample", "。Google Trends 的地区分布只能在官方探索页里手动按词查看，静态页面抓不到，所以这里给的是人工印象（哪些地方讨论更集中），2026-11-28 随样本表复核时无新的可核实地区数据、未改动，只能当参考，不能当数据引用。要准确数，请点表格里的「官方核对」逐词去看地区分布。": ". Google Trends regional breakdowns can only be viewed per keyword on the official Explore page; a static page can’t fetch them, so this is a human impression (where discussion is more concentrated); when the sample table was re-checked on 2026-11-28 there was no new verifiable regional data and nothing was changed — a reference only, not citable data. For exact figures, use the “Verify officially” link in the table and check each keyword’s regional breakdown.", "样本 2026-11-28（复核重定）": "Sample 2026-11-28 (re-checked & re-dated)", "搜索趋势监测 · 实时部分先读 Actions 快照 data/trends.json、再尝试新版 Google Trends RSS（geo=US / HK / TW），抓不到即显示未获取；定性部分为人工判断样本（原表 2026-11-09，2026-11-22 复核重定，2026-11-28 复核重定：以当天快照逐词核对三区热搜前十，8 词均未上榜，方向维持未改、非实测搜索量或指数），只有方向与等级，折线图为带水印的示意，没有编造的百分比和搜索量。": "Search Trends Monitor · The live part first reads the Actions snapshot data/trends.json, then tries the new Google Trends RSS (geo=US / HK / TW); if nothing loads it shows Not available. The qualitative part is a human-judgement sample (original table 2026-11-09; re-checked & re-dated on 2026-11-22; re-checked & re-dated on 2026-11-28 — each keyword checked against that day's snapshot top-10 lists for the three regions, none of the 8 keywords listed, so the directions stay unchanged and are not measured search volumes or indices), with directions and levels only; the line chart is a watermarked illustration, with no invented percentages or search volumes."};
 var DICT={};var k;for(k in BASE)DICT[k]=BASE[k];for(k in PAGE)DICT[k]=PAGE[k];
 var PREFIX=[["更新：", "Updated: "], ["失败：", "Failed: "], ["截至 ", "As of "], ["缓存样本 · ", "Cached sample · "], ["样本 · ", "Sample · "], ["今天 ", "Today "], ["样本 ", "Sample "], ["新增：", "New: "], ["实际来源：", "Actual source: "], ["尝试时间：", "Tried at: "]];
-var PATTERNS=[[/^(\d+) 个$/,"$1"],[/^(\d+) 条$/,"$1"],[/^样本 (\d+) 天前更新$/,function(m,n){n=+n;return "Sample updated "+n+" day"+(n===1?"":"s")+" ago";}],[/^样本 (\d+) 天前策展$/,function(m,n){n=+n;return "Sample curated "+n+" day"+(n===1?"":"s")+" ago";}],[/^⚠️ 样本已过期（(\d+) 天前）$/,function(m,n){n=+n;return "⚠️ Sample expired ("+n+" day"+(n===1?"":"s")+" ago)";}],[/^⚠️ 已过期 · 需重策展（(\d+) 天前）$/,function(m,n){n=+n;return "⚠️ Expired — needs re-curation ("+n+" day"+(n===1?"":"s")+" ago)";}],[/^已过期（样本 (\d+) 小时前）$/,function(m,n){n=+n;return "Expired (sample from "+n+" hour"+(n===1?"":"s")+" ago)";}],[/^已过期（缓存 (\d+) 小时前）$/,function(m,n){n=+n;return "Expired (cached "+n+" hour"+(n===1?"":"s")+" ago)";}],[/^已过期 (\d+) 天$/,function(m,n){n=+n;return "Expired "+n+" day"+(n===1?"":"s")+" ago";}],[/^([+-][\d,]+)（(\d+)天）$/,function(m,a,n){n=+n;return a+" ("+n+" day"+(n===1?"":"s")+")";}],[/^↑ 涨价( [-\d.]+%)?$/,"↑ Price up$1"],[/^↓ 降价( [-\d.]+%)?$/,"↓ Price down$1"],[/^还有 (\d+) 天$/,function(m,n){n=+n;return "in "+n+" day"+(n===1?"":"s");}],[/^已过 (\d+) 天$/,function(m,n){n=+n;return n+" day"+(n===1?"":"s")+" ago";}],[/^就是今天$/,"Today"],[/^环比 ([+-][\d.]+%)$/,"MoM $1"],[/^（目录 (\d+) 条）。$/,"(Catalog: $1 models)."],
-[/^Actions 快照 data\/trends\.json 尚未生成（HTTP (\d+)），继续尝试直连 RSS…$/,"Actions snapshot data/trends.json not generated yet (HTTP $1); trying direct RSS…"],
-[/^目录 (\d+) 条$/,"Catalog: $1 models"],
-[/^条目 (\d+) 条（多渠道去重前）$/,"$1 entries (before multi-channel dedup)"],
-[/^来源：([^，]+)，目录 (\d+) 条$/,"Source: $1, catalog: $2 models"],
-[/^来源：([^，]+)，目录 (\d+) 条，上份快照 (\d{4}-\d{2}-\d{2})$/,"Source: $1, catalog: $2 models, previous snapshot $3"],
-[/^（目录 (\d+) 条）。首次快照时无新增结论，下次刷新起比对。$/,"(Catalog: $1 models). No new entries on the first snapshot; comparisons start from the next refresh."],
-[/^快照 (\d+) 个产品中 (\d+) 个 AI\/Agent 相关$/,function(m,t,a){t=+t;a=+a;return a+" of "+t+" snapshot product"+(t===1?"":"s")+" "+(a===1?"is":"are")+" AI / Agent-related";}],
-[/^样本 (\d+) 个产品中 (\d+) 个 AI\/Agent 相关$/,function(m,t,a){t=+t;a=+a;return a+" of "+t+" sample product"+(t===1?"":"s")+" "+(a===1?"is":"are")+" AI / Agent-related";}],[/^新增 (\d+) 条$/,"$1 new"],[/^对比快照 (\d{4}-\d{2}-\d{2})（北京日期）$/,"vs snapshot $1 (Beijing date)"],[/^基线积累中，无上一份快照可比对$/,"Baseline accumulating — no earlier snapshot to compare"],[/^当前无(.+)数据，请选全部\/基线$/,function(m,a){return "No "+toEN(a)+" data yet — pick All / Baseline";}],[/^当前为缓存样本（截至 2026-11-09，(.+)），主源与替补均失败时显示。$/,function(m,a){return "Showing cached sample (as of 2026-11-09, "+toEN(a)+"); primary and backup both failed.";}],[/^截至 2026-11-09 · (.+)$/,function(m,a){return "As of 2026-11-09 · "+toEN(a); }],[/^下一个大节点：(.+) · (\d{4}-\d{2}-\d{2}) · (.+)$/,function(m,a,b,c){return "Next big date: "+toEN(a)+" · "+b+" · "+toEN(c); }],[/^尝试时间：(.+)。(实时热榜请手动打开)$/,"Tried at: $1. For the live hot list, open"],[/^data\/trends.json（(.+)）$/,function(m,a){return "data/trends.json ("+toEN(a)+")";}],[/^Actions 快照 data\/trends.json 尚未生成（HTTP (\d+)），继续尝试直连 RSS…$/,"Actions snapshot data/trends.json not generated yet (HTTP $1); trying direct RSS…"],[/^已获取 RSS 并解析出 (\d+) 条：(.*)$/,"Fetched RSS and parsed $1 items: $2"],[/^浏览器跨域（CORS）拦截或网络失败（(.*)），未编造榜单。$/,"Blocked cross-origin (CORS) or network failure ($1); no ranking invented."],[/^已获取 RSS 并解析出 (\d+) 条$/,"Fetched RSS and parsed $1 items"]];
-var SUBS=[[/（403 限额）/g," (403 rate limit)"],[/（网络失败）/g," (network failure)"],[/ RSS 直连失败（([^，]*)，预期内：无 CORS 许可）。?/g," Direct RSS failed ($1 — expected: no CORS permission)."],[/失败（([^）]*)）/g,"Failed ($1)"],[/（已保留上次成功值）/g," (kept the last good values)"],[/，改走浏览器直连/g,", falling back to direct browser fetch"],[/缓存核实/g,"cache verified"],[/上表数据实际来源：/g,"Actual source of the table above:"],[/Actions 快照 data\/ph.json 未找到。?/g,"Actions snapshot data/ph.json not found."],[/Actions 快照存在但无可用条目。?/g,"The Actions snapshot exists but has no usable items."],[/ RSS 直连返回但无 <entry> 条目。?/g," The direct RSS returned but had no <entry> items."],[/ 当前显示人工策展样本（2026-11-09 15:15 CST），不是实时榜单。?/g," Currently showing the hand-curated sample (2026-11-09 15:15 CST), not a live ranking."],[/Actions 快照 data\/ph.json 解析出 (\d+) 条并已渲染（fetched_at：([^）]*)）。?/g,"Actions snapshot data/ph.json parsed $1 items and rendered them (fetched_at: $2)."],[/RSS 直连成功，DOMParser 解析出 (\d+) 条 <entry> 并已渲染；票数 RSS 不含，仍为「未获取」。?/g,"Direct RSS succeeded; DOMParser parsed $1 <entry> items and rendered them; RSS carries no vote counts, so they stay “Not available”."],[/Actions 快照 data\/ph.json 尚未生成（HTTP (\d+)）。?/g,"Actions snapshot data/ph.json not generated yet (HTTP $1)."],[/（(US|HK|TW)）/g," ($1)"],[/。/g,"."],[/，/g,", "],[/：/g,": "],[/；/g,"; "],[/、/g,", "],[/？/g,"?"],[/！/g,"!"],[/（/g," ("],[/）/g,")"],[/未标注/g,"not labelled"]];
-/* FIX-EN 2026-11-09 */(function(){function ag(n,u){n=+n;return n+({'分钟':' min','小时':' h','天':' d'}[u]||'')+' ago';}function pc(s){return String(s).replace(/、/g,', ');}var F={"Gemini 4 Argon 已正式发布（": "Gemini 4 Argon has officially launched (", "Google 博客": "Google blog", "），限时价 11-30 截止，带动关注。": "); its limited-time price ends 11-30, driving interest.", "Google Trends 美国热搜 · 搜索量（实测，来自快照）": "Google Trends US trending · search volume (measured, from snapshot)", "数据口径：「Google Trends 热榜」区块和柱状图是 Actions 快照的实测数据（Google 只给区间，如 2000+）；「关键词趋势表」和「内容钩子」是人工判断（2026-11-16），没有实测搜索量。页面设计：青 → teal → 蓝渐变；图表为 Chart.js 本地文件 chart.umd.min.js，加载失败时自动切 CDN 兜底。": "Data basis: the “Google Trends trending” block and bar chart are measured Actions snapshot data (Google only gives ranges, e.g. 2000+); the “keyword trend table” and “content hooks” are manual judgement (2026-11-09) with no measured search volume. Design: cyan → teal → blue gradient; the chart uses the local Chart.js file chart.umd.min.js and falls back to a CDN if it fails to load.", "搜索量下限": "Search volume (lower bound)", "搜索量（Google 只给区间下限，如 2000+）": "Search volume (Google gives only a lower bound, e.g. 2000+)"};for(var k in F)DICT[k]=F[k];var P=[[/^快照 (.+? CST)（(\d+) (分钟|小时|天)前）$/,function(m,t,n,u){return 'Snapshot '+t+' ('+ag(n,u)+')';}],[/^已启用 · (.+)$/,'Enabled · $1'],[/^来源：Actions 快照 data\/trends.json（(.+?)），Google Trends 美国热搜前 (\d+) 名的搜索量。Google 只公布区间（如「2000\+」），柱长按区间下限画，不是精确值。$/,'Source: Actions snapshot data/trends.json ($1), search volume of the top $2 Google Trends US trending searches. Google publishes only ranges (e.g. “2000+”); bars use the lower bound, not exact values.']];for(var i=P.length-1;i>=0;i--)PATTERNS.unshift(P[i]);var S=[[/⚠️ 快照已超过 2 小时没更新。?/g,'⚠️ Snapshot not updated for over 2 hours. '],[/⚠️ 快照已过期/g,'⚠️ Snapshot stale'],[/(\d+) 分钟前/g,'$1 min ago'],[/(\d+) 小时前/g,'$1 h ago'],[/(\d+) 天前/g,'$1 d ago']];for(i=S.length-1;i>=0;i--)SUBS.unshift(S[i]);var Q=[[/Actions 快照/g,'Actions snapshot'],[/北京日期/g,'Beijing date'],[/已过期/g,'stale'],[/时间未知/g,'time unknown']];for(i=0;i<Q.length;i++)SUBS.push(Q[i]);})();
+var PATTERNS=[[/^(\d{4}) 年 (\d{1,2}) 月 (\d{1,2}) 日$/,function(m,y,mo,d){return y+"-"+(mo.length<2?"0"+mo:mo)+"-"+(d.length<2?"0"+d:d);}],[/^(\d+) 个词$/,"$1 keywords"],[/^(\d+)\. (.+?)（(.+?)）$/,function(m,n,t,tr){return n+". "+toEN(t)+" ("+tr+")";}],[/^fetched_at：(.+?)（距今约 ([\d.]+) 小时）。$/,"fetched_at: $1 (about $2 hours ago)."],[/^(\S+)（ok=true，fetched_at (.+?)，距今约 ([\d.]+) 小时），共解析出 (\d+) 条，尝试时间：(.+)。$/,function(m,u,f,a,n,t){return u+" (ok=true, fetched_at "+f+", about "+a+" hours ago); parsed "+n+" items. Tried at: "+t+".";}],[/^Actions 快照未生效（([\s\S]+)），继续尝试直连新版 RSS（geo=US \/ HK \/ TW）…$/,function(m,inner){var parts=inner.split("；");var out=[];for(var i=0;i<parts.length;i++)out.push(toEN(parts[i]));return "The Actions snapshot is not in effect ("+out.join("; ")+"); continuing with direct RSS (geo=US / HK / TW)…";}],[/^(.+?) 门控未过：([\s\S]+)$/,function(m,u,r){return u+" failed the gate: "+toEN(r);}],[/^(.+?) 读取失败（(.+?)）$/,"$1 failed to load ($2)"],[/^ok 不为 true（实际：([\s\S]+?)），快照抓取失败时保留的是旧榜，按未获取处理$/,"ok is not true (actual: $1); a failed snapshot keeps the old list, treated as not fetched"],[/^fetched_at 无法解析（([\s\S]+?)），按未获取处理$/,"fetched_at cannot be parsed ($1); treated as not fetched"],[/^已过期：fetched_at ([\s\S]+?)，距今约 ([\d.]+) 小时，超过 12 小时上限，按未获取处理$/,"Expired: fetched_at $1, about $2 hours ago — over the 12-hour limit; treated as not fetched"],[/^直连失败（多为浏览器跨域 CORS 拦截：([\s\S]+?)），未编造榜单。请用上方按钮打开 Google Trends，或看下方人工样本表。$/,"Direct fetch failed (usually blocked by browser CORS: $1). No ranking invented. Use the buttons above to open Google Trends, or see the human sample table below."],[/^共 (\d+) 条。$/,"$1 items in total."],[/^(\d{4}-\d{2}-\d{2}) 后视为过期$/,"Treated as expired after $1"],[/^(\d+)\. (.+)$/,function(m,n,t){return n+". "+toEN(t);}],[/^(\d+) 个$/,"$1"],[/^(\d+) 条$/,"$1"],[/^尝试时间：(.+)。(实时热榜请手动打开)$/,"Tried at: $1. For the live hot list, open"],[/^已获取 RSS 并解析出 (\d+) 条：(.*)$/,"Fetched RSS and parsed $1 items: $2"],[/^已获取 RSS 并解析出 (\d+) 条$/,"Fetched RSS and parsed $1 items"],[/^浏览器跨域（CORS）拦截或网络失败（(.*)），未编造榜单。$/,"Blocked cross-origin (CORS) or network failure ($1); no ranking invented."]];
+var SUBS=[[/（403 限额）/g," (403 rate limit)"],[/（网络失败）/g," (network failure)"],[/失败（([^）]*)）/g,"Failed ($1)"],[/（已保留上次成功值）/g," (kept the last good values)"],[/，改走浏览器直连/g,", falling back to direct browser fetch"],[/（(US|HK|TW)）/g," ($1)"],[/。/g,"."],[/，/g,", "],[/：/g,": "],[/；/g,"; "],[/、/g,", "],[/？/g,"?"],[/！/g,"!"],[/（/g," ("],[/）/g,")"],[/未标注/g,"not labelled"]];
 function hasCJK(s){return /[\u4e00-\u9fff]/.test(s);}
 function toEN(s){
   if(!s)return s;
@@ -182,52 +439,292 @@ window.__rerender=function(){try{draw();}catch(e){}};
 </script>
 
 <script>
-function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-/* 真实格式（2026-11-09 实测）：{fetched_at_cst, ok, geos:{US:{items:[{title,traffic,link}]}, HK:{...}, TW:{...}}}；也兼容顶层 items/trends 数组与字符串数组。*/
-function normTrends(raw){let arr=[];if(Array.isArray(raw))arr=raw;else if(raw&&(raw.items||raw.trends||raw.entries))arr=raw.items||raw.trends||raw.entries;else if(raw&&raw.geos){['US','HK','TW'].forEach(function(g){const it=raw.geos[g];if(it&&Array.isArray(it.items))arr=arr.concat(it.items.slice(0,5).map(function(e){return{title:e.title,traffic:e.traffic,geo:g};}));});}
-if(!Array.isArray(arr))return[];return arr.map(e=>typeof e==='string'?{title:e,traffic:''}:{title:String(e.title||e.term||e.name||''),traffic:String(e.traffic||e.formattedTraffic||e.value||''),geo:e.geo||''}).filter(e=>e.title).slice(0,15);}
-async function tryTrends(){
-  var el=document.getElementById('trendLive');
-  el.innerHTML='<p class="note">正在尝试拉取 Google Trends 热榜…（先读 Actions 快照 data/trends.json）</p>';
-  /* 1) 主源：同域 Actions 快照 data/trends.json（已建成并在用）。解析出条目才算获取；否则一律「未获取」，绝不编榜单。*/
-  try{
-    var r=await fetch('data/trends.json',{cache:'no-store'});
-    if(r.ok){var j=await r.json();var items=normTrends(j);
-      if(items.length){var ah=(Date.now()-Date.parse(j.fetched_at||''))/36e5;var stale=!(ah<=2);setSnapState(j,ah);el.innerHTML='<p>'+(stale?'<span class="badge missing">⚠️ 快照已过期 · '+(isNaN(ah)?'时间未知':Math.floor(ah)+' 小时前')+'</span>':'<span class="badge primary">已获取 · Actions 快照</span>')+' data/trends.json（'+esc(j.fetched_at_cst||j.fetched_at||j.updated||'时间未标注')+'）</p><ol>'+items.map(function(it){return '<li>'+esc(it.title)+(it.traffic?' — '+esc(it.traffic):'')+(it.geo?(window.__MON_LANG==='en'?' ('+esc(it.geo)+')':'（'+esc(it.geo)+'）'):'')+'</li>';}).join('')+'</ol><p class="note">尝试时间：'+new Date().toLocaleString('zh-CN')+'。</p>';return;}
-      el.innerHTML='<p class="note">Actions 快照存在但无可用条目，继续尝试直连 RSS…</p>';
-    } else { el.innerHTML='<p class="note">Actions 快照 data/trends.json 尚未生成（HTTP '+r.status+'），继续尝试直连 RSS…</p>'; }
-  }catch(e){ el.innerHTML='<p class="note">Actions 快照 data/trends.json 未找到，继续尝试直连 RSS…</p>'; }
-  /* 2) 备份：新版 RSS 直连 geo=US / HK / TW（永不用 geo=CN，400）。浏览器无 CORS，大概率失败——失败即「未获取」。*/
-  var urls=[['美国（geo=US）','https://trends.google.com/trending/rss?geo=US'],['香港（geo=HK）','https://trends.google.com/trending/rss?geo=HK'],['台湾（geo=TW）','https://trends.google.com/trending/rss?geo=TW']];
-  var rows=[];
-  for(var i=0;i<urls.length;i++){
-    var label=urls[i][0],u=urls[i][1],ok=false,detail='';
-    try{
-      var c=new AbortController();setTimeout(function(){c.abort();},8000);
-      var rr=await fetch(u,{signal:c.signal});
-      if(!rr.ok)throw new Error('HTTP '+rr.status);
-      var t=await rr.text();
-      if(t.indexOf('<item>')>-1){var doc=new DOMParser().parseFromString(t,'text/xml');var its=[...doc.querySelectorAll('item title')].map(function(n){return n.textContent;}).filter(Boolean).slice(0,10);
-        if(its.length){ok=true;detail='已获取 RSS 并解析出 '+its.length+' 条：'+its.slice(0,5).join('、')+'。';}
-        else{detail='已返回但无条目。';}}
-      else{detail='已返回但无条目。';}
-    }catch(e){detail='浏览器跨域（CORS）拦截或网络失败（'+(e&&e.message?e.message:'fetch 失败')+'），未编造榜单。';}
-    rows.push('<div>'+label+' — '+(ok?'<span class="badge primary">已获取</span>':'<span class="badge missing">未获取</span>')+' '+esc(detail)+'</div>');
-  }
-  setSnapState(null,NaN);el.innerHTML=rows.join('')+'<p class="note">尝试时间：'+new Date().toLocaleString('zh-CN')+'。快照没读到，直连也被拦时，请手动打开 <a href="https://trends.google.com/trends/" target="_blank" rel="noopener">trends.google.com/trends</a>。旧版 daily/rss 已 404、geo=CN 返回 400，均已停用。</p>';
+var KEYWORDS = [
+ {kw:"AI", d7:"→", d30:"→", heat:"高", hc:"h-high", lv:3, rising:["AI Agent","AI 视频生成","AI PPT"], basis:"本周无通用 AI 爆点，大模型与办公、视频应用讨论维持高位，方向走平。", region:"全国普遍高，广东 / 北京 / 上海更集中"},
+ {kw:"副业", d7:"↑", d30:"↑", heat:"高", hc:"h-high", lv:3, rising:["下班副业","闲鱼副业","AI 副业"], basis:"年底搞钱内容持续出圈，经验帖和避坑帖都在增多，方向维持上升。", region:"广东 / 河南 / 四川讨论更集中"},
+ {kw:"捏捏乐", d7:"↑", d30:"↑", heat:"高", hc:"h-high", lv:3, rising:["脆皮捏捏第三代","慢回弹捏捏","捏捏乐收纳"], basis:"脆皮捏捏第三代 11 月爆火，义乌工厂订单排至一月后、部分产品月销破 50 万元（新浪财经 2026-11-12），方向由回落反转为上升。", region:"广东 / 上海 / 四川的年轻用户更集中"},
+ {kw:"义乌小商品", d7:"↑", d30:"↑", heat:"中高", hc:"h-midhigh", lv:2, rising:["义乌拿货","小商品批发"], basis:"双十一脉冲：义乌综保区首波跨境小包超 360 万单，凯仓首周销售 +51%（2026-11-12），方向由平稳转上升。", region:"浙江最高，广东 / 河南的商户也在看"},
+ {kw:"DeepSeek", d7:"↑", d30:"↑", heat:"中高", hc:"h-midhigh", lv:2, rising:["DeepSeek API","DeepSeek 限额"], basis:"11-13 官方开放全套应用 API；11-16 又因算力不足限缩长对话与每日额度，两次事件接连推高讨论，方向由平稳转上升。", region:"北京 / 上海 / 广东的技术人群更集中"},
+ {kw:"Claude", d7:"↑", d30:"↑", heat:"中高", hc:"h-midhigh", lv:2, rising:["Claude Fable 5.2","Claude Mythos 5.2"], basis:"11-09 发布 Fable 5.2 / Mythos 5.2 已证实，新版本讨论带动搜索，方向维持上升。", region:"一线城市开发者与技术人群更集中"},
+ {kw:"ChatGPT", d7:"→", d30:"→", heat:"高", hc:"h-high", lv:3, rising:["ChatGPT 教程","ChatGPT 应用"], basis:"本周无重大发布或事件，讨论维持日常高位，方向走平。", region:"全国普遍高，一线城市更集中"},
+ {kw:"Gemini", d7:"→", d30:"→", heat:"中高", hc:"h-midhigh", lv:2, rising:["Gemini Argon","Gemini 限时价"], basis:"Argon 发布已出 7 天窗口，关注点转为 11-30 限时价截止（$2/$10 → $4/$20），方向由上升转平稳。", region:"北京 / 上海 / 广东的技术人群更关注"}
+];
+
+function dirClass(d){ return d==="↑" ? "up" : (d==="↓" ? "down" : "flat"); }
+/* 图表与表格标签统一走 __T()：语言切换时由 draw() 整段重画（等同先销毁旧图再新建），不靠事后扫 DOM */
+function T(s){ return window.__T ? window.__T(s) : s; }
+function exploreUrl(kw){ return "https://trends.google.com/trends/explore?q=" + encodeURIComponent(kw); }
+
+function renderTable(filter){
+  var tb = document.getElementById("kwBody"); tb.innerHTML = "";
+  var shown = 0;
+  KEYWORDS.forEach(function(k){
+    if(filter && k.kw.toLowerCase().indexOf(filter.toLowerCase())===-1 && k.rising.join(" ").indexOf(filter)===-1) return;
+    shown++;
+    var tr = document.createElement("tr");
+    tr.innerHTML = "<td class='kw'>"+T(k.kw)+"</td>"+
+      "<td class='dir "+dirClass(k.d7)+"'>"+k.d7+"</td>"+
+      "<td class='dir "+dirClass(k.d30)+"'>"+k.d30+"</td>"+
+      "<td class='heat "+k.hc+"'>"+T(k.heat)+"<br><span style='font-weight:400;font-size:12px;color:var(--muted)'>"+T(k.region)+"</span></td>"+
+      "<td class='rising'>"+k.rising.map(function(r){return "<span>"+T(r)+"</span>";}).join("")+"</td>"+
+      "<td class='basis'>"+T(k.basis)+"</td>"+
+      "<td><a href='"+exploreUrl(k.kw)+"' target='_blank' rel='noopener'>"+T("官方核对 ↗")+"</a></td>";
+    tb.appendChild(tr);
+  });
+  document.getElementById("kwEmpty").style.display = shown ? "none" : "block";
 }
-function setSnapState(j,ah){var b=document.getElementById('snapState');if(!b)return;if(!j){b.textContent='未读到快照';b.className='badge missing';return;}if(ah<=2){b.textContent='已启用 · '+(j.fetched_at_cst||j.fetched_at);b.className='badge primary';}else{b.textContent='⚠️ 已过期 · '+(isNaN(ah)?'时间未知':Math.floor(ah)+' 小时前')+'（'+(j.fetched_at_cst||j.fetched_at||'—')+'）';b.className='badge missing';}}
-/* 原来这里是 4 条人工编的「示意」曲线（副业 55→82 等），即使加了水印也是编的数。改为画快照里 Google Trends 美国热搜的真实搜索量区间下限。*/
-function parseTraffic(s){var m=String(s||'').replace(/,/g,'').match(/^(\d+(?:\.\d+)?)\s*([KkMm万]?)/);if(!m)return null;var v=parseFloat(m[1]);var u=m[2];if(u==='K'||u==='k')v*=1e3;else if(u==='M'||u==='m')v*=1e6;else if(u==='万')v*=1e4;return v;}
-async function draw(){if(!window.Chart){setTimeout(draw,300);return;}
-var _cc=window.Chart.getChart(document.getElementById('trendChart'));if(_cc)_cc.destroy();
-var note=document.getElementById('trendChartNote');
-try{var r=await fetch('data/trends.json',{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);var j=await r.json();
-var us=(j.geos&&j.geos.US&&j.geos.US.items)||[];var rows=us.map(function(e){return {t:e.title,v:parseTraffic(e.traffic),raw:e.traffic};}).filter(function(e){return e.v!=null;}).sort(function(a,b){return b.v-a.v;}).slice(0,10);
-if(!rows.length)throw new Error('快照里没有带搜索量的条目');
-new Chart(document.getElementById('trendChart'),{type:'bar',data:{labels:rows.map(function(e){return e.t;}),datasets:[{label:__T('搜索量下限'),data:rows.map(function(e){return e.v;}),backgroundColor:'#0d9488'}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return rows[c.dataIndex].raw;}}}},scales:{x:{beginAtZero:true,title:{display:true,text:__T('搜索量（Google 只给区间下限，如 2000+）')}}}}});
-var ah=(Date.now()-Date.parse(j.fetched_at||''))/36e5;
-note.textContent='来源：Actions 快照 data/trends.json（'+(j.fetched_at_cst||j.fetched_at||'时间未知')+'），Google Trends 美国热搜前 10 名的搜索量。Google 只公布区间（如「2000+」），柱长按区间下限画，不是精确值。'+(ah>2?' ⚠️ 快照已超过 2 小时没更新。':'');
-}catch(e){note.textContent='未获取：'+e.message+'。不画示意数据。';}}
-draw();tryTrends();
-</script></body></html>
+
+/* 横向条形 */
+function renderBars(){
+  var box = document.getElementById("hbars"); box.innerHTML = "";
+  var colors = ["#f43f5e","#f97316","#eab308","#22c55e","#06b6d4","#8b5cf6","#ec4899","#0ea5e9","#14b8a6","#f59e0b"];
+  KEYWORDS.forEach(function(k,i){
+    var row = document.createElement("div"); row.className = "hbar";
+    row.innerHTML = "<div style='font-weight:800'>"+T(k.kw)+"</div>"+
+      "<div class='track'><div class='fill' style='width:"+Math.round(k.lv/3*100)+"%;background:"+colors[i%colors.length]+"'></div></div>"+
+      "<div class='lv "+k.hc+"'>"+T(k.heat)+"</div>";
+    box.appendChild(row);
+  });
+}
+
+/* 环形图 */
+var period = "d7";
+function renderDonut(){
+  var counts = {"↑":0,"→":0,"↓":0};
+  KEYWORDS.forEach(function(k){ counts[k[period]]++; });
+  var total = KEYWORDS.length;
+  var cols = {"↑":"#e0332e","→":"#eab308","↓":"#0f7a4d"};
+  var labelKeys = {"↑":"上升 ↑：","→":"走平 →：","↓":"回落 ↓："};
+  var svg = document.getElementById("donut");
+  var cx=85, cy=85, r=62, sw=26, C=2*Math.PI*r, off=0, parts="";
+  ["↑","→","↓"].forEach(function(d){
+    if(!counts[d]) return;
+    var len = counts[d]/total*C;
+    parts += "<circle cx='"+cx+"' cy='"+cy+"' r='"+r+"' fill='none' stroke='"+cols[d]+"' stroke-width='"+sw+"' stroke-dasharray='"+Math.max(len-3,0)+" "+(C-len+3)+"' stroke-dashoffset='"+(-off)+"' transform='rotate(-90 "+cx+" "+cy+")'/>";
+    off += len;
+  });
+  parts += "<text x='"+cx+"' y='"+(cy-4)+"' text-anchor='middle' font-size='26' font-weight='900' fill='var(--ink)'>"+T(total+" 个词")+"</text>";
+  parts += "<text x='"+cx+"' y='"+(cy+20)+"' text-anchor='middle' font-size='12' fill='var(--muted)'>"+T(period==="d7"?"近 7 天":"近 30 天")+"</text>";
+  svg.innerHTML = parts;
+  document.getElementById("donutLegend").innerHTML = ["↑","→","↓"].map(function(d){
+    return "<div><span class='dot' style='background:"+cols[d]+"'></span>"+T(labelKeys[d])+"<b>"+T(counts[d]+" 个")+"</b></div>";
+  }).join("");
+}
+
+/* 关联词云 */
+function renderRising(){
+  var sizes = [20,17,15,19,14,16,18,14,15,13,16,14];
+  var colors = ["#e11d48","#ea580c","#ca8a04","#059669","#0891b2","#7c3aed","#db2777","#0284c7"];
+  var all = [];
+  KEYWORDS.forEach(function(k){ k.rising.forEach(function(r){ all.push(r); }); });
+  document.getElementById("risingCloud").innerHTML = all.slice(0,14).map(function(w,i){
+    return "<span style='display:inline-block;margin:0 10px 6px 0;font-weight:800;font-size:"+sizes[i%sizes.length]+"px;color:"+colors[i%colors.length]+"'>"+T(w)+"</span>";
+  }).join("");
+}
+
+/* 示意折线图：人工设定的示意指数（与参考实现同口径），图面压「示意 · 非实测」水印 */
+function renderLine(){
+  var series = [
+    {name:"副业", color:"#14b8a6", data:[55,58,60,62,65,68,70,72,75,78,80,82]},
+    {name:"AI", color:"#2563eb", data:[80,81,80,81,80,81,80,80,81,80,81,80]},
+    {name:"DeepSeek", color:"#06b6d4", data:[62,61,60,61,60,61,60,61,62,64,70,76]},
+    {name:"捏捏乐", color:"#f59e0b", data:[72,68,64,60,56,53,50,52,58,66,75,83]}
+  ];
+  var W=600,H=240,x0=38,x1=584,yTop=14,yBot=206;
+  function X(i){ return x0 + i*(x1-x0)/11; }
+  function Y(v){ return yBot - v/100*(yBot-yTop); }
+  var s = "";
+  [0,25,50,75,100].forEach(function(v){
+    s += "<line x1='"+x0+"' y1='"+Y(v)+"' x2='"+x1+"' y2='"+Y(v)+"' stroke='var(--line)' stroke-width='1'/>"+
+         "<text x='"+(x0-6)+"' y='"+(Y(v)+4)+"' text-anchor='end' font-size='11' fill='var(--muted)'>"+v+"</text>";
+  });
+  for(var w=1; w<=12; w++){
+    s += "<text x='"+X(w-1)+"' y='"+(yBot+20)+"' text-anchor='middle' font-size='11' fill='var(--muted)'>"+(window.__T?window.__T("第"+w+"周"):"第"+w+"周")+"</text>";
+  }
+  /* 水印先画，压在网格之上、折线之下 */
+  s += "<text x='300' y='118' text-anchor='middle' font-size='32' font-weight='900' letter-spacing='4' fill='rgba(8,80,100,.13)' transform='rotate(-16 300 112)'>"+T("示 意 · 非 实 测")+"</text>";
+  series.forEach(function(se){
+    var pts = se.data.map(function(v,i){ return X(i).toFixed(1)+","+Y(v).toFixed(1); }).join(" ");
+    s += "<polyline points='"+pts+"' fill='none' stroke='"+se.color+"' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'/>";
+    se.data.forEach(function(v,i){ s += "<circle cx='"+X(i)+"' cy='"+Y(v)+"' r='3' fill='"+se.color+"'/>"; });
+  });
+  document.getElementById("lineChart").innerHTML = s;
+  document.getElementById("lineLegend").innerHTML = series.map(function(se){
+    return "<div><span class='dot' style='background:"+se.color+"'></span>"+T(se.name+"（样本示意）")+"</div>";
+  }).join("") + "<div style='color:var(--muted)'>"+T("纵轴：示意指数 0–100")+"<br>"+T("横轴：近 12 周")+"</div>";
+}
+
+/* 实时尝试：1) Actions 快照 data/trends.json → 2) 新版 RSS 直连 geo=US / HK / TW（永不用 geo=CN，400；旧版 daily/rss 已 404） */
+function escHtml(s){ return String(s==null?"":s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+/* 快照真实格式：{fetched_at_cst, ok, geos:{US:{items:[{title,traffic,link}]}, HK:{...}, TW:{...}}}；也兼容顶层 items/trends 数组与字符串数组 */
+function normTrends(raw){
+  var arr = [];
+  if(Array.isArray(raw)) arr = raw;
+  else if(raw && (raw.items || raw.trends || raw.entries)) arr = raw.items || raw.trends || raw.entries;
+  else if(raw && raw.geos){
+    /* geos 格式按地区各取 10 条，不能全局 slice(0,10)，否则只剩 US、港/台被截掉。geo=CN 永不读取。 */
+    ["US","HK","TW"].forEach(function(g){
+      var it = raw.geos[g];
+      if(it && Array.isArray(it.items)) arr = arr.concat(it.items.slice(0,10).map(function(e){ return {title:e.title, traffic:e.traffic, geo:g}; }));
+    });
+    return arr.map(function(e){
+      return {title:String(e.title||""), traffic:String(e.traffic||""), geo:e.geo||""};
+    }).filter(function(e){ return e.title; });
+  }
+  if(!Array.isArray(arr)) return [];
+  return arr.map(function(e){
+    return typeof e === "string" ? {title:e, traffic:"", geo:""} : {title:String(e.title||e.term||e.name||""), traffic:String(e.traffic||e.formattedTraffic||e.value||""), geo:e.geo||""};
+  }).filter(function(e){ return e.title; }).slice(0,10);
+}
+/* ---------- 快照门控：仅 ok===true + fetched_at 存在且 12 小时内新鲜 + 解析出条目，才算已获取 ----------
+   红线：快照脚本失败时会保留旧榜并写 ok:false——ok===false、缺 fetched_at、已过期、无条目一律视为未获取，
+   继续走 RSS 直连，绝不把旧榜标成「已获取 · Actions 快照」。 */
+var LIVE_SNAP_URL = "https://raw.githubusercontent.com/xumao5393/six-monitors-/main/monitors/data/trends.json";
+var SNAP_URLS = [LIVE_SNAP_URL, "data/trends.json", "data:application/json;base64,ewogICJmZXRjaGVkX2F0IjogIjIwMjYtMTEtMjhUMDM6NDc6MDdaIiwKICAiZmV0Y2hlZF9hdF9jc3QiOiAiMjAyNi0xMS0yOCAxMTo0NzowNyBDU1QiLAogICJjaGVja2VkX2F0IjogIjIwMjYtMTEtMjhUMDM6NDc6MDdaIiwKICAiY2hlY2tlZF9hdF9jc3QiOiAiMjAyNi0xMS0yOCAxMTo0NzowNyBDU1QiLAogICJvayI6IHRydWUsCiAgInNvdXJjZSI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3JzcyAobmV3IGVuZHBvaW50OyBvbGQgZGFpbHkgUlNTIDQwNCkiLAogICJub3RlIjogImdlbz1DTiDov5Tlm54gNDAw77yM5rC45LiN5L2/55So44CCUlNTIOaXoCBDT1JT77yM5rWP6KeI5Zmo5ouJ5LiN5Yiw77yb5pys5paH5Lu25Li65pyN5Yqh56uvIGN1cmwg5b+r54Wn44CCIiwKICAiZ2VvcyI6IHsKICAgICJDTiI6IHsKICAgICAgImVycm9yIjogImdlbz1DTiDov5Tlm54gNDAwIEJhZCBSZXF1ZXN077yM5rC45LiN5L2/55SoIiwKICAgICAgImh0dHAiOiA0MDAsCiAgICAgICJpdGVtcyI6IFtdLAogICAgICAib2siOiBmYWxzZQogICAgfSwKICAgICJISyI6IHsKICAgICAgImh0dHAiOiAyMDAsCiAgICAgICJpdGVtcyI6IFsKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89SEsiLAogICAgICAgICAgInRpdGxlIjogIummrOWIuuWwjea5luS6uiIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPUhLIiwKICAgICAgICAgICJ0aXRsZSI6ICLmi5PojZLogIXlsI3li4flo6siLAogICAgICAgICAgInRyYWZmaWMiOiAiMjAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1ISyIsCiAgICAgICAgICAidGl0bGUiOiAic3B1cnMgdnMgbGFrZXJzIiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89SEsiLAogICAgICAgICAgInRpdGxlIjogIm5iYSDnm7Tmkq0iLAogICAgICAgICAgInRyYWZmaWMiOiAiMjAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1ISyIsCiAgICAgICAgICAidGl0bGUiOiAibmJh57ea5LiK55yLIiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89SEsiLAogICAgICAgICAgInRpdGxlIjogIm5iYeebtOaSrSIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPUhLIiwKICAgICAgICAgICJ0aXRsZSI6ICLorbfnkIbkuYvlrrYiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1ISyIsCiAgICAgICAgICAidGl0bGUiOiAiY3liZXJhdHRhY2siLAogICAgICAgICAgInRyYWZmaWMiOiAiMjAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1ISyIsCiAgICAgICAgICAidGl0bGUiOiAi6LOH5paZ5rSp6ZyyIiwKICAgICAgICAgICJ0cmFmZmljIjogIjIwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89SEsiLAogICAgICAgICAgInRpdGxlIjogIui0p+W4gSIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0KICAgICAgXSwKICAgICAgIm9rIjogdHJ1ZQogICAgfSwKICAgICJUVyI6IHsKICAgICAgImh0dHAiOiAyMDAsCiAgICAgICJpdGVtcyI6IFsKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VFciLAogICAgICAgICAgInRpdGxlIjogIumBuOiIiemWi+elqCIsCiAgICAgICAgICAidHJhZmZpYyI6ICI1MDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVRXIiwKICAgICAgICAgICJ0aXRsZSI6ICJzcHVycyB2cyBsYWtlcnMiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1UVyIsCiAgICAgICAgICAidGl0bGUiOiAi5LyK6Jek5aSn5rW3IiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VFciLAogICAgICAgICAgInRpdGxlIjogIumfqeWbvSIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVRXIiwKICAgICAgICAgICJ0aXRsZSI6ICLlhajlrrblkpbllaEiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1UVyIsCiAgICAgICAgICAidGl0bGUiOiAicGFjZXJzIHZzIDc2ZXJzIiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VFciLAogICAgICAgICAgInRpdGxlIjogIuS4reWbvSIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVRXIiwKICAgICAgICAgICJ0aXRsZSI6ICLnvoXkvIrmlq/Ct+i3r+aYk+WjqyIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVRXIiwKICAgICAgICAgICJ0aXRsZSI6ICLovrLol6UiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1UVyIsCiAgICAgICAgICAidGl0bGUiOiAi6Y2+5piO6LuSIiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMDArIgogICAgICAgIH0KICAgICAgXSwKICAgICAgIm9rIjogdHJ1ZQogICAgfSwKICAgICJVUyI6IHsKICAgICAgImh0dHAiOiAyMDAsCiAgICAgICJpdGVtcyI6IFsKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VVMiLAogICAgICAgICAgInRpdGxlIjogInJ5YW4geWFyYnJvdWdoIiwKICAgICAgICAgICJ0cmFmZmljIjogIjUwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VVMiLAogICAgICAgICAgInRpdGxlIjogImNlbHRpY3Mgc2NvcmUiLAogICAgICAgICAgInRyYWZmaWMiOiAiNTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1VUyIsCiAgICAgICAgICAidGl0bGUiOiAibm9ydGhlYXN0ZXJuIHZzIG5vcnRod2VzdGVybiIsCiAgICAgICAgICAidHJhZmZpYyI6ICIyMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVVTIiwKICAgICAgICAgICJ0aXRsZSI6ICJqYWtlIGxhcmF2aWEiLAogICAgICAgICAgInRyYWZmaWMiOiAiNTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1VUyIsCiAgICAgICAgICAidGl0bGUiOiAicmVhbCBzYWx0IGxha2UiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VVMiLAogICAgICAgICAgInRpdGxlIjogIm1scyBwbGF5b2ZmIGJyYWNrZXQiLAogICAgICAgICAgInRyYWZmaWMiOiAiNTAwKyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJsaW5rIjogImh0dHBzOi8vdHJlbmRzLmdvb2dsZS5jb20vdHJlbmRpbmcvcnNzP2dlbz1VUyIsCiAgICAgICAgICAidGl0bGUiOiAidGhlIHJvb2tpZSBub3J0aCIsCiAgICAgICAgICAidHJhZmZpYyI6ICI1MDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVVTIiwKICAgICAgICAgICJ0aXRsZSI6ICJjZWx0aWNzIGdhbWUiLAogICAgICAgICAgInRyYWZmaWMiOiAiMTAwMCsiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibGluayI6ICJodHRwczovL3RyZW5kcy5nb29nbGUuY29tL3RyZW5kaW5nL3Jzcz9nZW89VVMiLAogICAgICAgICAgInRpdGxlIjogImdoc2EgZm9vdGJhbGwgc2NvcmVzIiwKICAgICAgICAgICJ0cmFmZmljIjogIjEwMDArIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImxpbmsiOiAiaHR0cHM6Ly90cmVuZHMuZ29vZ2xlLmNvbS90cmVuZGluZy9yc3M/Z2VvPVVTIiwKICAgICAgICAgICJ0aXRsZSI6ICJqZW5rcyB2cyBiaXhieSIsCiAgICAgICAgICAidHJhZmZpYyI6ICI1MDArIgogICAgICAgIH0KICAgICAgXSwKICAgICAgIm9rIjogdHJ1ZQogICAgfQogIH0KfQo="];
+var SNAP_MAX_AGE_MS = 12 * 60 * 60 * 1000; /* Actions 每 6 小时抓一次，超 12 小时 = 漏跑两轮，视为过期 */
+function gateSnapshot(j){
+  if(!j || typeof j !== "object" || Array.isArray(j)) return {pass:false, reason:"快照不是带 ok/fetched_at 的 JSON 对象"};
+  if(j.ok !== true) return {pass:false, reason:"ok 不为 true（实际：" + String(j.ok) + "），快照抓取失败时保留的是旧榜，按未获取处理"};
+  var raw = j.fetched_at || j.updated || "";
+  var label = j.fetched_at_cst || raw || "";
+  if(!raw && !label) return {pass:false, reason:"缺 fetched_at，无法核验新鲜度，按未获取处理"};
+  var t = Date.parse(raw || label);
+  if(isNaN(t)) return {pass:false, reason:"fetched_at 无法解析（" + label + "），按未获取处理"};
+  var ageMs = Date.now() - t;
+  if(ageMs > SNAP_MAX_AGE_MS) return {pass:false, reason:"已过期：fetched_at " + label + "，距今约 " + (ageMs/3600000).toFixed(1) + " 小时，超过 12 小时上限，按未获取处理"};
+  var items = normTrends(j);
+  if(!items.length) return {pass:false, reason:"ok=true 且未过期，但无可用条目，按未获取处理"};
+  return {pass:true, items:items, label:label, ageH:Math.max(0, ageMs/3600000)};
+}
+function trySnap(idx, reasons){
+  if(idx >= SNAP_URLS.length){
+    var err = new Error(reasons.join("；"));
+    err.__snapDone = true;
+    return Promise.reject(err);
+  }
+  return fetch(SNAP_URLS[idx], {cache:"no-store"})
+    .then(function(r){ if(!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(function(j){
+      var g = gateSnapshot(j);
+      if(g.pass){ g.url = SNAP_URLS[idx]; return g; }
+      reasons.push(SNAP_URLS[idx] + " 门控未过：" + g.reason);
+      return trySnap(idx + 1, reasons);
+    })
+    .catch(function(e){
+      if(e && e.__snapDone) throw e;
+      reasons.push(SNAP_URLS[idx] + " 读取失败（" + (e && e.message ? e.message : "网络错误") + "）");
+      return trySnap(idx + 1, reasons);
+    });
+}
+function setStatus(el, html, loading){
+  el.classList.toggle("loading", !!loading);
+  el.innerHTML = html;
+}
+function renderGeoList(listEl, items){
+  listEl.innerHTML = "";
+  items.slice(0,8).forEach(function(it, i){
+    var li = document.createElement("li");
+    li.textContent = (i+1) + ". " + it.title + (it.traffic ? (window.__MON_LANG === "en" ? " (" + it.traffic + ")" : "（" + it.traffic + "）") : "");
+    listEl.appendChild(li);
+  });
+}
+function fetchRss(geo, statusEl, listEl){
+  var url = "https://trends.google.com/trending/rss?geo=" + geo;
+  var ctrl = ("AbortController" in window) ? new AbortController() : null;
+  var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 8000) : null;
+  return fetch(url, ctrl ? {signal: ctrl.signal} : {})
+    .then(function(res){ if(!res.ok) throw new Error("HTTP "+res.status); return res.text(); })
+    .then(function(text){
+      if(timer) clearTimeout(timer);
+      if(text.indexOf("<item>") === -1) throw new Error("无条目");
+      var doc = new DOMParser().parseFromString(text, "text/xml");
+      var nodes = doc.querySelectorAll("item title");
+      var titles = [];
+      for(var i=0;i<nodes.length;i++){ if(nodes[i].textContent) titles.push(nodes[i].textContent); }
+      if(!titles.length) throw new Error("无条目");
+      setStatus(statusEl, "<span class='tag t-live'>已获取 · RSS 直连</span> 共 " + titles.length + " 条。", false);
+      renderGeoList(listEl, titles.map(function(t){ return {title:t, traffic:""}; }));
+      return true;
+    })
+    .catch(function(err){
+      if(timer) clearTimeout(timer);
+      setStatus(statusEl, "<span class='tag t-fail'>未获取</span> 直连失败（多为浏览器跨域 CORS 拦截：" + escHtml(err && err.message ? err.message : "网络错误") + "），未编造榜单。请用上方按钮打开 Google Trends，或看下方人工样本表。", false);
+      listEl.innerHTML = "";
+      return false;
+    });
+}
+
+function tryAll(){
+  /* 尝试时间统一按 Asia/Shanghai 格式化并显式标注 CST：旧写法用浏览器本地时区且不带时区标注，
+     在 UTC 环境下会显示成 08:xx，与 fetched_at 的 CST 标注对不上（看似只过了约 16 小时，实际按绝对时间算的 age 约 24 小时）。 */
+  var now = new Date().toLocaleString("zh-CN", {timeZone:"Asia/Shanghai", hour12:false}) + " CST";
+  document.getElementById("tryTime").textContent = now;
+  document.getElementById("srcTime1").textContent = now;
+  var snapEl = document.getElementById("rssSnapStatus");
+  var geos = [
+    {geo:"US", status:document.getElementById("rssUsStatus"), list:document.getElementById("rssUsList")},
+    {geo:"HK", status:document.getElementById("rssHkStatus"), list:document.getElementById("rssHkList")},
+    {geo:"TW", status:document.getElementById("rssTwStatus"), list:document.getElementById("rssTwList")}
+  ];
+  setStatus(snapEl, "正在尝试拉取…（先从 GitHub 现拉 Actions 快照 data/trends.json）", true);
+  geos.forEach(function(g){ setStatus(g.status, "等待中…（先读快照，快照没有再直连 RSS）", true); g.list.innerHTML = ""; });
+  document.getElementById("kpiRss").textContent = "…";
+  /* 1) 主源：Actions 快照（先从 GitHub 现拉 raw 快照，拉不到依次回落空间包内的 data/trends.json、assets/data/trends.json）。
+        只有过门控（ok===true + fetched_at 12 小时内 + 解析出条目）才标已获取并按地区回填三栏；
+        ok===false / 缺失 / 过期 / 无条目一律未获取，落到备源 RSS，绝不拿旧榜充实时。 */
+  trySnap(0, [])
+    .then(function(g){
+      var items = g.items;
+      var grouped = {US:[], HK:[], TW:[]};
+      items.forEach(function(it){ if(grouped[it.geo]) grouped[it.geo].push(it); });
+      var anyGeo = items.some(function(it){ return it.geo === "US" || it.geo === "HK" || it.geo === "TW"; });
+      var loose = items.filter(function(it){ return !grouped[it.geo] || grouped[it.geo].indexOf(it) === -1; });
+      var fromLive = (g.url === LIVE_SNAP_URL);
+      var srcTag = fromLive ? "已获取 · 实时快照" : "已获取 · 打包快照";
+      var staleBadge = (g.ageH > 6) ? " <span class='stale'>数据较旧</span>" : "";
+      geos.forEach(function(geo){
+        var mine = grouped[geo.geo].length ? grouped[geo.geo] : (anyGeo ? [] : loose);
+        if(mine.length){
+          setStatus(geo.status, "<span class='tag t-live'>" + srcTag + "</span> fetched_at：" + escHtml(g.label) + "（距今约 " + g.ageH.toFixed(1) + " 小时）。" + staleBadge, false);
+          renderGeoList(geo.list, mine);
+        } else {
+          setStatus(geo.status, "<span class='tag t-fail'>未获取</span> 快照里没有该地区条目。", false);
+        }
+      });
+      setStatus(snapEl, "<span class='tag t-live'>" + srcTag + "</span> " + escHtml(g.url) + "（ok=true，fetched_at " + escHtml(g.label) + "，距今约 " + g.ageH.toFixed(1) + " 小时），共解析出 " + items.length + " 条，尝试时间：" + now + "。" + staleBadge, false);
+      document.getElementById("kpiRss").textContent = "已获取";
+      document.getElementById("srcState1").innerHTML = fromLive ? "<span class='tag t-live'>实时已获取 · 快照</span>" : "<span class='tag t-live'>已获取 · 打包快照</span>";
+    })
+    .catch(function(snapErr){
+      /* 2) 备源：新版 RSS 直连三区 */
+      setStatus(snapEl, "<span class='tag t-fail'>未获取</span> Actions 快照未生效（" + escHtml(snapErr && snapErr.message ? snapErr.message : "读取失败") + "），继续尝试直连新版 RSS（geo=US / HK / TW）…", false);
+      geos.forEach(function(g){ setStatus(g.status, "正在尝试直连新版 RSS…", true); });
+      Promise.all(geos.map(function(g){ return fetchRss(g.geo, g.status, g.list); })).then(function(res){
+        var ok = res[0] || res[1] || res[2];
+        document.getElementById("kpiRss").textContent = ok ? "已获取" : "未获取";
+        document.getElementById("srcState1").innerHTML = ok ? "<span class='tag t-live'>实时已获取 · RSS 直连</span>" : "<span class='tag t-fail'>未获取 · 已切手动备源</span>";
+      });
+    });
+}
+
+document.getElementById("seg7").addEventListener("click", function(){ period="d7"; this.classList.add("on"); document.getElementById("seg30").classList.remove("on"); renderDonut(); });
+document.getElementById("seg30").addEventListener("click", function(){ period="d30"; this.classList.add("on"); document.getElementById("seg7").classList.remove("on"); renderDonut(); });
+document.getElementById("kwSearch").addEventListener("input", function(){ renderTable(this.value.trim()); });
+document.getElementById("retryBtn").addEventListener("click", tryAll);
+
+/* draw()：全部图表与表格的统一绘制入口。每次绘制都整段重建（旧图先被 innerHTML 覆盖销毁、再新建），
+   语言切换时 __rerender 调用 draw()，图内标签全部经 __T() 按当前语言重画，不会残留上一种语言。 */
+function draw(){
+  renderTable(document.getElementById("kwSearch").value.trim());
+  renderBars();
+  renderDonut();
+  renderLine();
+  renderRising();
+}
+draw();
+tryAll();
+/* 打开后每 30 分钟自动刷新一次：重跑整条链路（现拉实时快照 → 回落打包快照 → RSS 直连），状态里的数据时间随之更新 */
+setInterval(tryAll, 30 * 60 * 1000);
+</script>
+</body>
+</html>
