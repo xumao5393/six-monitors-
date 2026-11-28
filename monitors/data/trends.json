@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-28T18:47:09Z",
-  "fetched_at_cst": "2026-11-29 02:47:09 CST",
-  "checked_at": "2026-11-28T18:47:09Z",
-  "checked_at_cst": "2026-11-29 02:47:09 CST",
+  "fetched_at": "2026-11-28T19:47:07Z",
+  "fetched_at_cst": "2026-11-29 03:47:07 CST",
+  "checked_at": "2026-11-28T19:47:07Z",
+  "checked_at_cst": "2026-11-29 03:47:07 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,53 +12,53 @@
       "http": 200,
       "items": [
         {
-          "title": "pat freiermuth",
+          "title": "georgia tech vs georgia",
+          "traffic": "5000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "penn state vs maryland",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "cincinnati vs byu",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "western il vs weber state",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "real madrid vs alavés",
+          "traffic": "50000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "psg - lorient",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "troy vs ar state",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "james harrison",
           "traffic": "20000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "um game",
+          "title": "denver weather",
+          "traffic": "20000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "andrej karpathy",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "tua tagovailoa",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "retirement",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "nm state vs middle tenn.",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "kansas state vs iowa state",
-          "traffic": "5000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "coastal carolina vs james madison",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "kyle whittingham",
-          "traffic": "2000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "grambling st vs southern u",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "florida–florida state football rivalry",
-          "traffic": "100000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -75,11 +75,6 @@
         {
           "title": "德甲",
           "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "man united",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -116,6 +111,11 @@
           "title": "护照",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "六合彩結果",
+          "traffic": "10000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -123,6 +123,11 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "阿富汗女性",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
         {
           "title": "愛爾達",
           "traffic": "100+",
@@ -145,7 +150,7 @@
         },
         {
           "title": "好 市 多 黑 五 11 29",
-          "traffic": "500+",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
@@ -160,17 +165,12 @@
         },
         {
           "title": "林智堅",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "man utd đấu với brentford",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "應 繼 分",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
