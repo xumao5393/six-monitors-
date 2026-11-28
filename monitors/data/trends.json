@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-28T14:47:10Z",
-  "fetched_at_cst": "2026-11-28 22:47:10 CST",
-  "checked_at": "2026-11-28T14:47:10Z",
-  "checked_at_cst": "2026-11-28 22:47:10 CST",
+  "fetched_at": "2026-11-28T15:47:07Z",
+  "fetched_at_cst": "2026-11-28 23:47:07 CST",
+  "checked_at": "2026-11-28T15:47:07Z",
+  "checked_at_cst": "2026-11-28 23:47:07 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,52 +12,52 @@
       "http": 200,
       "items": [
         {
-          "title": "terremoto",
+          "title": "matt damon family home life",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "paw patrol",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "stephen garcia",
           "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "jake dickert",
+          "title": "greta gerwig",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "christkindlmarket",
+          "title": "oreo",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "mariska hargitay",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "canada–united states border",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "mark ingram",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "noah codjo-evora",
+          "title": "rockettes",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "al-hazem f.c. vs al-nassr standings",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "college football playoffs",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "al-ettifaq vs al-hilal",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "wrexham vs portsmouth",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "leeds vs coventry",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "west ham vs stoke city",
+          "title": "universal studios orlando",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
@@ -68,23 +68,38 @@
       "http": 200,
       "items": [
         {
+          "title": "曼聯",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "now tv",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "cic app",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "列斯對高雲地利",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "曼聯對賓福特",
-          "traffic": "2000+",
+          "traffic": "5000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "man utd vs brentford",
-          "traffic": "500+",
+          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "漢堡對拜仁",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -93,28 +108,13 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "六合彩",
+          "title": "护照",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "六合彩結果",
           "traffic": "10000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "mark six",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "雷 小 雷",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "cuaca besok",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "李四川",
-          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
@@ -124,52 +124,52 @@
       "http": 200,
       "items": [
         {
+          "title": "斗六",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "好 市 多 黑 五 11 29",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "แมนยู พบ เบรนต์ฟอร์ด",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "有愛我們床上談",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "man utd đấu với brentford",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "林智堅",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "漢堡 對 拜仁慕尼黑",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "man utd vs brentford",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "英國",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "realme",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "國安 基金 砸 千 億 護 盤 台 股 的 最新 進展 與 買 超標 的",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "楊文科",
-          "traffic": "200+",
+          "title": "英國",
+          "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "結果",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "最美里長",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "陳乃瑜",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "行政院長",
+          "title": "realme",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
