@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-28T17:47:09Z",
-  "fetched_at_cst": "2026-11-29 01:47:09 CST",
-  "checked_at": "2026-11-28T17:47:09Z",
-  "checked_at_cst": "2026-11-29 01:47:09 CST",
+  "fetched_at": "2026-11-28T18:47:09Z",
+  "fetched_at_cst": "2026-11-29 02:47:09 CST",
+  "checked_at": "2026-11-28T18:47:09Z",
+  "checked_at_cst": "2026-11-29 02:47:09 CST",
   "ok": true,
   "sources": {
     "openrouter": {
@@ -1972,10 +1972,52 @@
     }
   ],
   "models_dev_models": {
-    "moonshotai/kimi-k3.1-pro": {
-      "provider": "moonshotai",
-      "id": "kimi-k3.1-pro",
-      "name": "Kimi K3.1 Pro",
+    "google/gemini-4-neon": {
+      "provider": "google",
+      "id": "gemini-4-neon",
+      "name": "Gemini 4 Neon",
+      "input_per_m": 3,
+      "output_per_m": 15
+    },
+    "google/gemini-4-carbon": {
+      "provider": "google",
+      "id": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "google/gemini-4-hydrogen": {
+      "provider": "google",
+      "id": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "input_per_m": 1.5,
+      "output_per_m": 7.5
+    },
+    "google/gemini-4-argon": {
+      "provider": "google",
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "openai/gpt-6.1-terra": {
+      "provider": "openai",
+      "id": "gpt-6.1-terra",
+      "name": "GPT-6.1 Terra",
+      "input_per_m": 1,
+      "output_per_m": 5
+    },
+    "openai/gpt-6.1-sol-healthcare": {
+      "provider": "openai",
+      "id": "gpt-6.1-sol-healthcare",
+      "name": "GPT-6.1 Sol Healthcare",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "openai/gpt-6.1-sol": {
+      "provider": "openai",
+      "id": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
       "input_per_m": 2,
       "output_per_m": 10
     },
@@ -1993,10 +2035,17 @@
       "input_per_m": 4,
       "output_per_m": 20
     },
-    "anthropic/claude-opus-4-5-20251101": {
+    "moonshotai/kimi-k3.1-pro": {
+      "provider": "moonshotai",
+      "id": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
+      "input_per_m": 2,
+      "output_per_m": 10
+    },
+    "anthropic/claude-opus-4-5": {
       "provider": "anthropic",
-      "id": "claude-opus-4-5-20251101",
-      "name": "Claude Opus 4.5",
+      "id": "claude-opus-4-5",
+      "name": "Claude Opus 4.5 (latest)",
       "input_per_m": 5,
       "output_per_m": 25
     },
@@ -2007,17 +2056,17 @@
       "input_per_m": 4,
       "output_per_m": 20
     },
-    "anthropic/claude-opus-4-5": {
-      "provider": "anthropic",
-      "id": "claude-opus-4-5",
-      "name": "Claude Opus 4.5 (latest)",
-      "input_per_m": 5,
-      "output_per_m": 25
-    },
     "anthropic/claude-opus-5": {
       "provider": "anthropic",
       "id": "claude-opus-5",
       "name": "Claude Opus 5",
+      "input_per_m": 5,
+      "output_per_m": 25
+    },
+    "anthropic/claude-opus-4-5-20251101": {
+      "provider": "anthropic",
+      "id": "claude-opus-4-5-20251101",
+      "name": "Claude Opus 4.5",
       "input_per_m": 5,
       "output_per_m": 25
     },
@@ -2028,13 +2077,6 @@
       "input_per_m": 0.15,
       "output_per_m": 0.6
     },
-    "deepseek/deepseek-v4-flash-vision-exp": {
-      "provider": "deepseek",
-      "id": "deepseek-v4-flash-vision-exp",
-      "name": "DeepSeek V4 Flash Vision Exp",
-      "input_per_m": 0.15,
-      "output_per_m": 0.6
-    },
     "deepseek/deepseek-v4-pro": {
       "provider": "deepseek",
       "id": "deepseek-v4-pro",
@@ -2042,54 +2084,12 @@
       "input_per_m": 0.66,
       "output_per_m": 1.98
     },
-    "openai/gpt-6.1-terra": {
-      "provider": "openai",
-      "id": "gpt-6.1-terra",
-      "name": "GPT-6.1 Terra",
-      "input_per_m": 1,
-      "output_per_m": 5
-    },
-    "openai/gpt-6.1-sol": {
-      "provider": "openai",
-      "id": "gpt-6.1-sol",
-      "name": "GPT-6.1 Sol",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "openai/gpt-6.1-sol-healthcare": {
-      "provider": "openai",
-      "id": "gpt-6.1-sol-healthcare",
-      "name": "GPT-6.1 Sol Healthcare",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "google/gemini-4-argon": {
-      "provider": "google",
-      "id": "gemini-4-argon",
-      "name": "Gemini 4 Argon",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "google/gemini-4-carbon": {
-      "provider": "google",
-      "id": "gemini-4-carbon",
-      "name": "Gemini 4 Carbon",
-      "input_per_m": 2,
-      "output_per_m": 10
-    },
-    "google/gemini-4-neon": {
-      "provider": "google",
-      "id": "gemini-4-neon",
-      "name": "Gemini 4 Neon",
-      "input_per_m": 3,
-      "output_per_m": 15
-    },
-    "google/gemini-4-hydrogen": {
-      "provider": "google",
-      "id": "gemini-4-hydrogen",
-      "name": "Gemini 4 Hydrogen",
-      "input_per_m": 1.5,
-      "output_per_m": 7.5
+    "deepseek/deepseek-v4-flash-vision-exp": {
+      "provider": "deepseek",
+      "id": "deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek V4 Flash Vision Exp",
+      "input_per_m": 0.15,
+      "output_per_m": 0.6
     }
   },
   "history": {
