@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-28T07:47:08Z",
-  "fetched_at_cst": "2026-11-28 15:47:08 CST",
-  "checked_at": "2026-11-28T07:47:08Z",
-  "checked_at_cst": "2026-11-28 15:47:08 CST",
+  "fetched_at": "2026-11-28T08:47:08Z",
+  "fetched_at_cst": "2026-11-28 16:47:08 CST",
+  "checked_at": "2026-11-28T08:47:08Z",
+  "checked_at_cst": "2026-11-28 16:47:08 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -12,17 +12,37 @@
       "http": 200,
       "items": [
         {
+          "title": "開票",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "today wordle hints",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "demi lovato",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "gta 6 fits",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
           "title": "prisoners",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "beach hazards statement",
+          "title": "ocelot jugular gta 6",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "ocelot jugular gta 6",
+          "title": "beach hazards statement",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
@@ -40,26 +60,6 @@
           "title": "gordon ramsay",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "jodie foster",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "wlfi",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "dustin hoffman",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "wes enis",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
     },
@@ -68,28 +68,33 @@
       "http": 200,
       "items": [
         {
+          "title": "2027",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "港漂",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "中 年 好 聲音 4",
+          "traffic": "2000+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
           "title": "雪梨",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "中年好聲音4",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
           "title": "屯門",
-          "traffic": "200+",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
           "title": "乒乓球",
           "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "nba cup",
-          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -108,11 +113,6 @@
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
-          "title": "trail blazers vs warriors",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
           "title": "tear gas",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
@@ -124,53 +124,53 @@
       "http": 200,
       "items": [
         {
-          "title": "tvbs",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "亞利桑那響尾蛇",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "沈伯洋競選總部",
-          "traffic": "20000+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "7 11 咖啡",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "高雄投票率",
+          "title": "竹北市長開票",
           "traffic": "1000+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "選舉結果",
+          "title": "基隆開票",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "新竹市開票",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "tvbs新聞",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "看開票",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "中國駐日大使館",
-          "traffic": "200+",
+          "title": "選舉委員會",
+          "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "coco 買 一 送 一",
+          "title": "陳瑩",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "苗栗開票",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "邱毅",
-          "traffic": "200+",
+          "title": "新竹縣開票",
+          "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
-          "title": "胡瓜",
-          "traffic": "500+",
+          "title": "雲林開票",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
       ]
