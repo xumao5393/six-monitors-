@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-11-28T06:47:13Z",
-  "fetched_at_cst": "2026-11-28 14:47:13 CST",
-  "checked_at": "2026-11-28T06:47:13Z",
-  "checked_at_cst": "2026-11-28 14:47:13 CST",
+  "fetched_at": "2026-11-28T07:41:36Z",
+  "fetched_at_cst": "2026-11-28 15:41:36 CST",
+  "checked_at": "2026-11-28T07:41:36Z",
+  "checked_at_cst": "2026-11-28 15:41:36 CST",
   "ok": true,
   "source": "https://trends.google.com/trending/rss (new endpoint; old daily RSS 404)",
   "note": "geo=CN 返回 400，永不使用。RSS 无 CORS，浏览器拉不到；本文件为服务端 curl 快照。",
@@ -11,6 +11,26 @@
       "ok": true,
       "http": 200,
       "items": [
+        {
+          "title": "prisoners",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "beach hazards statement",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "ocelot jugular gta 6",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
+        {
+          "title": "xaivian lee",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=US"
+        },
         {
           "title": "alaska earthquake center",
           "traffic": "200+",
@@ -22,12 +42,12 @@
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "wlfi",
+          "title": "jodie foster",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
         {
-          "title": "jodie foster",
+          "title": "wlfi",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         },
@@ -38,27 +58,7 @@
         },
         {
           "title": "wes enis",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "robin givens",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "gta 6 chapter 3 mission list",
           "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "texas tech basketball",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=US"
-        },
-        {
-          "title": "mega millions winning numbers",
-          "traffic": "2000+",
           "link": "https://trends.google.com/trending/rss?geo=US"
         }
       ]
@@ -68,8 +68,23 @@
       "http": 200,
       "items": [
         {
-          "title": "乒乓球",
+          "title": "雪梨",
           "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "中年好聲音4",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "屯門",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=HK"
+        },
+        {
+          "title": "乒乓球",
+          "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
         },
         {
@@ -101,21 +116,6 @@
           "title": "金融",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "馬刺對湖人",
-          "traffic": "1000+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "spurs vs lakers",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
-        },
-        {
-          "title": "拓荒者對勇士",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=HK"
         }
       ]
     },
@@ -124,52 +124,52 @@
       "http": 200,
       "items": [
         {
-          "title": "中國駐日大使館",
+          "title": "tvbs",
           "traffic": "100+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
+          "title": "亞利桑那響尾蛇",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "沈伯洋競選總部",
+          "traffic": "20000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "7 11 咖啡",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "高雄投票率",
+          "traffic": "1000+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "選舉結果",
+          "traffic": "100+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "中國駐日大使館",
+          "traffic": "200+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
           "title": "coco 買 一 送 一",
+          "traffic": "500+",
+          "link": "https://trends.google.com/trending/rss?geo=TW"
+        },
+        {
+          "title": "邱毅",
           "traffic": "200+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         },
         {
           "title": "胡瓜",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "利息",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "交通事故",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "pizza hut",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "詐騙",
-          "traffic": "200+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "林昱珉",
-          "traffic": "100+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "石油",
-          "traffic": "500+",
-          "link": "https://trends.google.com/trending/rss?geo=TW"
-        },
-        {
-          "title": "賈靜雯",
           "traffic": "500+",
           "link": "https://trends.google.com/trending/rss?geo=TW"
         }
