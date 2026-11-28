@@ -1,15 +1,15 @@
 {
-  "fetched_at": "2026-11-28T09:47:08Z",
-  "fetched_at_cst": "2026-11-28 17:47:08 CST",
-  "checked_at": "2026-11-28T09:47:08Z",
-  "checked_at_cst": "2026-11-28 17:47:08 CST",
+  "fetched_at": "2026-11-28T10:47:14Z",
+  "fetched_at_cst": "2026-11-28 18:47:14 CST",
+  "checked_at": "2026-11-28T10:47:14Z",
+  "checked_at_cst": "2026-11-28 18:47:14 CST",
   "ok": true,
   "sources": {
     "openrouter": {
       "ok": true,
       "http": 200,
       "source": "https://openrouter.ai/api/v1/models",
-      "total_models": 475,
+      "total_models": 476,
       "flagship_ids": [
         "openai/gpt-6.1-terra",
         "openai/gpt-6.1-sol",
@@ -816,6 +816,13 @@
       "context_length": 1048576
     },
     {
+      "id": "z-ai/glm-5.2:batch",
+      "name": "Z.ai: GLM 5.2 (batch)",
+      "prompt_per_m": 0.322,
+      "completion_per_m": 0.989,
+      "context_length": 1048576
+    },
+    {
       "id": "moonshotai/kimi-k2.7-code",
       "name": "MoonshotAI: Kimi K2.7 Code",
       "prompt_per_m": 0.6,
@@ -1091,8 +1098,8 @@
     {
       "id": "qwen/qwen3.5-9b",
       "name": "Qwen: Qwen3.5-9B",
-      "prompt_per_m": 0.066,
-      "completion_per_m": 0.097,
+      "prompt_per_m": 0.085,
+      "completion_per_m": 0.125,
       "context_length": 262144
     },
     {
@@ -23385,6 +23392,10 @@
         "prompt_per_m": 0.62,
         "completion_per_m": 2.42
       },
+      "z-ai/glm-5.2:batch": {
+        "prompt_per_m": 0.322,
+        "completion_per_m": 0.989
+      },
       "moonshotai/kimi-k2.7-code": {
         "prompt_per_m": 0.6,
         "completion_per_m": 3.0
@@ -23542,8 +23553,8 @@
         "completion_per_m": 4.0
       },
       "qwen/qwen3.5-9b": {
-        "prompt_per_m": 0.066,
-        "completion_per_m": 0.097
+        "prompt_per_m": 0.085,
+        "completion_per_m": 0.125
       },
       "openai/gpt-5.4-pro": {
         "prompt_per_m": 30.0,
